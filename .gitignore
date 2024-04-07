@@ -1,0 +1,8 @@
+/Library/
+/Temp/
+/UserSettings/
+/ProjectSettings/EditorSettings.asset
+*.csproj
+/Logs/
+/.vsconfig
+/Booom.sln
