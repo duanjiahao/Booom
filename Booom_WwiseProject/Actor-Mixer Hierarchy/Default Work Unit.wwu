@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{B55E4715-1023-4335-88C3-6EE325E0768C}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{B55E4715-1023-4335-88C3-6EE325E0768C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{B55E4715-1023-4335-88C3-6EE325E0768C}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="boom" ID="{BC74AB5F-98FA-4527-A61F-5B532C79B644}" ShortID="980573189">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{202A02B4-34B4-4C62-87A6-E09446292804}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{95D7CF4D-DD7C-4C0E-9DC0-5927A72E2469}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Boomtxt" ID="{E60E38A4-3895-4DFF-9E00-E30DE1D97FA0}" ShortID="829789808">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{202A02B4-34B4-4C62-87A6-E09446292804}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{95D7CF4D-DD7C-4C0E-9DC0-5927A72E2469}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439" ID="{EA5A91E1-CE06-477F-A014-334C9C2E7D5A}">
+									<Language>SFX</Language>
+									<AudioFile>Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="71639492"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439" ID="{EA5A91E1-CE06-477F-A014-334C9C2E7D5A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

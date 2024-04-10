@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="Booom_WwiseProject" GUID="{109D0933-3FD0-49CE-A6F5-2418DBC98827}" Generator="2023.1.2.8444"/>
+	<CacheRoot>../../../../Booom_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{62E4A007-619E-4864-8085-D02940D1EAF1}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../Booom_WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{0C263AB6-51FC-4078-803E-C302FFB74A61}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../Booom_WwiseProject/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{B891A63B-3F4E-4A8C-995B-DD63C4F6066C}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{E63AD683-9C5F-3011-010C-02EE3205683D}</FileHash>
+</ProjectInfo>

@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3915387984	Boomtxt			\Default Work Unit\Boomtxt	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	71639492	Boomtxt	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\boom\Boomtxt		1119200
+
