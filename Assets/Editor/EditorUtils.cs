@@ -1,0 +1,195 @@
+﻿using System;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using NPOI.SS.UserModel;
+using NPOI.HSSF.UserModel;
+using NPOI.XSSF.UserModel;
+using System.Text;
+using Newtonsoft.Json;
+
+public class EditorUtils
+{
+    [MenuItem("Tools/生成配置Json")]
+    public static void GenerateConfigs()
+    {
+        DeleteAllOldFiles();
+
+        var excelPath = $"{Application.dataPath}/../Configs";
+        if (!Directory.Exists(excelPath)) 
+        {
+            Debug.LogError("Directory does not exist.");
+            return;
+        }
+
+        string[] files = Directory.GetFiles(excelPath, "*.xlsx", SearchOption.TopDirectoryOnly);
+
+        for (int i = 0; i < files?.Length; i++)
+        {
+            ReadExcel(files[i]);
+        }
+
+        AssetDatabase.Refresh();
+    }
+
+    private class PropertyInfo 
+    {
+        public string Name;
+        public string Type;
+    }
+
+    private static void ReadExcel(string filePath) 
+    {
+        IWorkbook wk = null;
+        string extension = Path.GetExtension(filePath);
+        string fileName = Path.GetFileNameWithoutExtension(filePath);
+        try
+        {
+            FileStream fs = File.OpenRead(filePath);
+            if (extension.Equals(".xls"))
+            {
+                //把xls文件中的数据写入wk中
+                wk = new HSSFWorkbook(fs);
+            }
+            else
+            {
+                //把xlsx文件中的数据写入wk中
+                wk = new XSSFWorkbook(fs);
+            }
+
+            fs.Close();
+
+            //只读第一个Sheet，其他Sheet忽略
+            ISheet sheet = wk.GetSheetAt(0);
+
+            IRow row = sheet.GetRow(0);
+            var firstCell = row.GetCell(0);
+            if (firstCell.ToString() != "id") 
+            {
+                Debug.LogError($"导出Configs错误！{fileName}表中第一列不是id！");
+                return;
+            }
+
+            List<PropertyInfo> configProperties = new List<PropertyInfo>();
+            for (int i = 1; i < row.LastCellNum; i++)
+            {
+                var cell = row.GetCell(i);
+                var name = cell.ToString();
+                if (string.IsNullOrEmpty(name)) 
+                {
+                    // 不允许中间有空列的，遇到空列认为后边就没数据了
+                    break;
+                }
+                if (name.Contains(":"))
+                {
+                    var strPair = name.Split(":");
+                    configProperties.Add(new PropertyInfo() { Name = strPair[0], Type = strPair[1] });
+                }
+                else 
+                {
+                    configProperties.Add(new PropertyInfo() { Name = name, Type = "string" });
+                }
+            }
+
+            GenrateConfigClass(configProperties, fileName);
+            GenerateConfigJson(configProperties, fileName, sheet);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e.Message);
+        }
+    }
+
+    private static void GenrateConfigClass(List<PropertyInfo> propertyInfos, string configName) 
+    {
+        var filePath = $"{Application.dataPath}/Scripts/Configs/{configName}Config.cs";
+        var fileDir = Path.GetDirectoryName(filePath);
+        if (!Directory.Exists(fileDir)) 
+        {
+            Directory.CreateDirectory(fileDir);
+        }
+
+        var sb = new StringBuilder();
+
+        sb.AppendLine($"public class {configName}Config : BaseConfig");
+        sb.AppendLine("{");
+
+        for (int i = 0; i < propertyInfos.Count; i++)
+        {
+            sb.AppendLine($"    public {propertyInfos[i].Type} {propertyInfos[i].Name};");
+        }
+
+        sb.AppendLine("}");
+
+        File.WriteAllText(filePath, sb.ToString());
+
+        AssetDatabase.Refresh();
+    }
+
+    private static void GenerateConfigJson(List<PropertyInfo> propertyInfos, string configName, ISheet sheet) 
+    {
+        var filePath = $"{Application.dataPath}/Resources/Configs/{configName}Config.txt";
+
+        var fileDir = Path.GetDirectoryName(filePath);
+        if (!Directory.Exists(fileDir))
+        {
+            Directory.CreateDirectory(fileDir);
+        }
+
+        propertyInfos.Insert(0, new PropertyInfo() { Name = "id", Type = "string" });
+        Dictionary<int, BaseConfig> rawDataDic = new Dictionary<int, BaseConfig>();
+
+        for (int i = 1; i < sheet.LastRowNum; i++)
+        {
+            var row = sheet.GetRow(i);
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            for (int j = 0; j < row.LastCellNum; j++)
+            {
+                var cell = row.GetCell(j);
+                var value = cell.ToString();
+                if (string.IsNullOrEmpty(value))
+                {
+                    // 不允许中间有空列的，遇到空列认为后边就没数据了
+                    break;
+                }
+
+                data.Add(propertyInfos[j].Name, value);
+            }
+
+            var raw = JsonConvert.SerializeObject(data);
+            var type = Type.GetType($"{configName}Config, Assembly-CSharp");
+            var baseConfig = JsonConvert.DeserializeObject(raw, type);
+
+            rawDataDic.Add(int.Parse(data["id"]), baseConfig as BaseConfig);
+        }
+
+        var json = JsonConvert.SerializeObject(rawDataDic, new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.Objects
+        });
+
+        File.WriteAllText(filePath, json);
+    }
+
+    private static void DeleteAllOldFiles() 
+    {
+        var csDir = $"{Application.dataPath}/Scripts/Configs";
+        var jsonDir = $"{Application.dataPath}/Resources/Configs";
+
+        if (Directory.Exists(csDir)) 
+        {
+            Directory.Delete(csDir, true);
+        }
+        Directory.CreateDirectory(csDir);
+
+        if (Directory.Exists(jsonDir)) 
+        {
+            Directory.Delete(jsonDir, true);
+        }
+        Directory.CreateDirectory(jsonDir);
+
+        AssetDatabase.Refresh();
+    }
+}

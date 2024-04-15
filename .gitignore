@@ -6,3 +6,5 @@
 /Logs/
 /.vsconfig
 /Booom.sln
+/.vs
+/obj
