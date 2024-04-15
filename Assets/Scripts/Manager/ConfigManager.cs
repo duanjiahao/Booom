@@ -24,11 +24,6 @@ public class ConfigManager : SingleMono<ConfigManager>
         }
     }
 
-    public override void Begin()
-    {
-        var config = ConfigManager.Instance.GetConfig<ItemConfig>(1);
-    }
-
     public T GetConfig<T>(int id) where T : BaseConfig
     {
         var configName = typeof(T).Name;
