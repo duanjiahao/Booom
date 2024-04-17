@@ -5,4 +5,5 @@ public class ItemConfig : BaseConfig
     public string imgPath;
     public float price;
     public int stack;
+    public int[] test;
 }
