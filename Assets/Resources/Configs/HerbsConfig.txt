@@ -1,0 +1,90 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "1001": {
+    "$type": "HerbsConfig, Assembly-CSharp",
+    "name": "棘皮草",
+    "desc": "描述一",
+    "attribute1": 1,
+    "isAttribute1visible": true,
+    "attribute2": 1,
+    "isAttribute2visible": true,
+    "attribute3": 0,
+    "isAttribute3visible": true,
+    "attribute4": 0,
+    "isAttribute4visible": true,
+    "unlockDate": 1,
+    "collectionTime": 0,
+    "collectionPrestige": [
+      0,
+      100
+    ],
+    "collectionWeights": 10,
+    "rewardWeight": [
+      5,
+      10
+    ],
+    "iconPath": "0",
+    "heapPath1": "0",
+    "heapPath2": "0",
+    "heapPath3": "0",
+    "id": 1001
+  },
+  "1002": {
+    "$type": "HerbsConfig, Assembly-CSharp",
+    "name": "鹿角枝",
+    "desc": "描述二",
+    "attribute1": 3,
+    "isAttribute1visible": true,
+    "attribute2": 2,
+    "isAttribute2visible": false,
+    "attribute3": 1,
+    "isAttribute3visible": false,
+    "attribute4": 0,
+    "isAttribute4visible": true,
+    "unlockDate": 2,
+    "collectionTime": 1,
+    "collectionPrestige": [
+      0,
+      100
+    ],
+    "collectionWeights": 100,
+    "rewardWeight": [
+      9,
+      10
+    ],
+    "iconPath": "0",
+    "heapPath1": "0",
+    "heapPath2": "0",
+    "heapPath3": "0",
+    "id": 1002
+  },
+  "1003": {
+    "$type": "HerbsConfig, Assembly-CSharp",
+    "name": "黄铜滚木",
+    "desc": "描述三",
+    "attribute1": 2,
+    "isAttribute1visible": false,
+    "attribute2": 2,
+    "isAttribute2visible": true,
+    "attribute3": 2,
+    "isAttribute3visible": false,
+    "attribute4": 2,
+    "isAttribute4visible": true,
+    "unlockDate": 3,
+    "collectionTime": 2,
+    "collectionPrestige": [
+      200,
+      300
+    ],
+    "collectionWeights": 50,
+    "rewardWeight": [
+      2,
+      100
+    ],
+    "iconPath": "0",
+    "heapPath1": "0",
+    "heapPath2": "0",
+    "heapPath3": "0",
+    "id": 1003
+  }
+}

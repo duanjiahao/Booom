@@ -1,1 +1,187 @@
-{"$type":"System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib","21001":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一负面1","attributes":1,"value":20,"isPositive":false,"id":21001},"21101":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一正面1","attributes":1,"value":20,"isPositive":true,"id":21101},"21002":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一负面2","attributes":1,"value":50,"isPositive":false,"id":21002},"21102":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一正面2","attributes":1,"value":50,"isPositive":true,"id":21102},"21003":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一负面3","attributes":1,"value":70,"isPositive":false,"id":21003},"21103":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性一正面3","attributes":1,"value":70,"isPositive":true,"id":21103},"22001":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二负面1","attributes":2,"value":30,"isPositive":false,"id":22001},"22101":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二正面1","attributes":2,"value":30,"isPositive":true,"id":22101},"22002":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二负面2","attributes":2,"value":60,"isPositive":false,"id":22002},"22102":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二正面2","attributes":2,"value":60,"isPositive":true,"id":22102},"22003":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二负面3","attributes":2,"value":90,"isPositive":false,"id":22003},"22103":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性二正面3","attributes":2,"value":90,"isPositive":true,"id":22103},"23001":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三负面1","attributes":3,"value":10,"isPositive":false,"id":23001},"23101":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三正面1","attributes":3,"value":10,"isPositive":true,"id":23101},"23002":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三负面2","attributes":3,"value":35,"isPositive":false,"id":23002},"23102":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三正面2","attributes":3,"value":35,"isPositive":true,"id":23102},"23003":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三负面3","attributes":3,"value":75,"isPositive":false,"id":23003},"23103":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性三正面3","attributes":3,"value":75,"isPositive":true,"id":23103},"24001":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性四负面1","attributes":4,"value":45,"isPositive":false,"id":24001},"24101":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性四正面1","attributes":4,"value":45,"isPositive":true,"id":24101},"24002":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性四负面2","attributes":4,"value":65,"isPositive":false,"id":24002},"24102":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性四正面2","attributes":4,"value":65,"isPositive":true,"id":24102},"24003":{"$type":"EffectAxisConfig, Assembly-CSharp","name":"属性四负面3","attributes":4,"value":85,"isPositive":false,"id":24003}}
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "21001": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一负面1",
+    "attributes": 1,
+    "value": 20,
+    "isPositive": false,
+    "id": 21001
+  },
+  "21101": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一正面1",
+    "attributes": 1,
+    "value": 20,
+    "isPositive": true,
+    "id": 21101
+  },
+  "21002": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一负面2",
+    "attributes": 1,
+    "value": 50,
+    "isPositive": false,
+    "id": 21002
+  },
+  "21102": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一正面2",
+    "attributes": 1,
+    "value": 50,
+    "isPositive": true,
+    "id": 21102
+  },
+  "21003": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一负面3",
+    "attributes": 1,
+    "value": 70,
+    "isPositive": false,
+    "id": 21003
+  },
+  "21103": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性一正面3",
+    "attributes": 1,
+    "value": 70,
+    "isPositive": true,
+    "id": 21103
+  },
+  "22001": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二负面1",
+    "attributes": 2,
+    "value": 30,
+    "isPositive": false,
+    "id": 22001
+  },
+  "22101": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二正面1",
+    "attributes": 2,
+    "value": 30,
+    "isPositive": true,
+    "id": 22101
+  },
+  "22002": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二负面2",
+    "attributes": 2,
+    "value": 60,
+    "isPositive": false,
+    "id": 22002
+  },
+  "22102": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二正面2",
+    "attributes": 2,
+    "value": 60,
+    "isPositive": true,
+    "id": 22102
+  },
+  "22003": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二负面3",
+    "attributes": 2,
+    "value": 90,
+    "isPositive": false,
+    "id": 22003
+  },
+  "22103": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性二正面3",
+    "attributes": 2,
+    "value": 90,
+    "isPositive": true,
+    "id": 22103
+  },
+  "23001": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三负面1",
+    "attributes": 3,
+    "value": 10,
+    "isPositive": false,
+    "id": 23001
+  },
+  "23101": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三正面1",
+    "attributes": 3,
+    "value": 10,
+    "isPositive": true,
+    "id": 23101
+  },
+  "23002": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三负面2",
+    "attributes": 3,
+    "value": 35,
+    "isPositive": false,
+    "id": 23002
+  },
+  "23102": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三正面2",
+    "attributes": 3,
+    "value": 35,
+    "isPositive": true,
+    "id": 23102
+  },
+  "23003": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三负面3",
+    "attributes": 3,
+    "value": 75,
+    "isPositive": false,
+    "id": 23003
+  },
+  "23103": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性三正面3",
+    "attributes": 3,
+    "value": 75,
+    "isPositive": true,
+    "id": 23103
+  },
+  "24001": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四负面1",
+    "attributes": 4,
+    "value": 45,
+    "isPositive": false,
+    "id": 24001
+  },
+  "24101": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四正面1",
+    "attributes": 4,
+    "value": 45,
+    "isPositive": true,
+    "id": 24101
+  },
+  "24002": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四负面2",
+    "attributes": 4,
+    "value": 65,
+    "isPositive": false,
+    "id": 24002
+  },
+  "24102": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四正面2",
+    "attributes": 4,
+    "value": 65,
+    "isPositive": true,
+    "id": 24102
+  },
+  "24003": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四负面3",
+    "attributes": 4,
+    "value": 85,
+    "isPositive": false,
+    "id": 24003
+  }
+}

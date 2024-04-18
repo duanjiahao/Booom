@@ -1,0 +1,25 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "31001": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果21101",
+    "needID1": 21101,
+    "needID2": 0,
+    "allMatchMailID": 51001,
+    "match1MailID": 0,
+    "match2MailID": 0,
+    "noMatchMailID": 51002,
+    "id": 31001
+  },
+  "31002": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果22102",
+    "needID1": 22102,
+    "needID2": 0,
+    "allMatchMailID": 51003,
+    "match1MailID": 0,
+    "match2MailID": 0,
+    "noMatchMailID": 51004,
+    "id": 31002
+  }
+}

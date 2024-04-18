@@ -1,0 +1,61 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "1": {
+    "$type": "ItemConfig, Assembly-CSharp",
+    "name": "当归",
+    "desc": "一种草药",
+    "imgPath": "danggui",
+    "price": 5.2,
+    "stack": 99,
+    "test": [
+      5,
+      2,
+      6,
+      10
+    ],
+    "id": 1
+  },
+  "2": {
+    "$type": "ItemConfig, Assembly-CSharp",
+    "name": "人参",
+    "desc": "一种草药",
+    "imgPath": "renshen",
+    "price": 10.5,
+    "stack": 99,
+    "test": [
+      2,
+      5,
+      8,
+      0
+    ],
+    "id": 2
+  },
+  "3": {
+    "$type": "ItemConfig, Assembly-CSharp",
+    "name": "何首乌",
+    "desc": "一种草药",
+    "imgPath": "heshouwu",
+    "price": 15.0,
+    "stack": 99,
+    "test": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "id": 3
+  },
+  "4": {
+    "$type": "ItemConfig, Assembly-CSharp",
+    "name": "白菜",
+    "desc": "一种蔬菜",
+    "imgPath": "baicai",
+    "price": 29.5,
+    "stack": 99,
+    "test": [
+      3,
+      5
+    ],
+    "id": 4
+  }
+}
