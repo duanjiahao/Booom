@@ -145,7 +145,17 @@ public class EditorUtils
             for (int j = 0; j < row.LastCellNum; j++)
             {
                 var cell = row.GetCell(j);
-                var value = cell.ToString();
+                string value;
+                if (cell.CellType == CellType.Formula)
+                {
+                    // 获取公式计算的结果
+                    value = cell.NumericCellValue.ToString();
+                }
+                else
+                {
+                    // 直接读取值
+                    value = cell.ToString();
+                }
                 if (string.IsNullOrEmpty(value))
                 {
                     // 不允许中间有空列的，遇到空列认为后边就没数据了
