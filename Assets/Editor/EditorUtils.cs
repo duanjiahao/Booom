@@ -187,7 +187,8 @@ public class EditorUtils
 
         var json = JsonConvert.SerializeObject(rawDataDic, new JsonSerializerSettings
         {
-            TypeNameHandling = TypeNameHandling.Objects
+            TypeNameHandling = TypeNameHandling.Objects,
+            Formatting = Formatting.Indented,
         });
 
         File.WriteAllText(filePath, json);
