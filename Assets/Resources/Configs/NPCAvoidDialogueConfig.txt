@@ -19,5 +19,15 @@
     "match1MailID": 0,
     "match2MailID": 0,
     "id": 41002
+  },
+  "42001": {
+    "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
+    "desc": "我要避开效果21001和22001",
+    "avoidID1": 21101,
+    "avoidID2": 22101,
+    "allMatchMailID": 52005,
+    "match1MailID": 52003,
+    "match2MailID": 52004,
+    "id": 42001
   }
 }

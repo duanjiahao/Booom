@@ -136,20 +136,27 @@ public class EditorUtils
         propertyInfos.Insert(0, new PropertyInfo() { Name = "id", Type = "string" });
         Dictionary<int, BaseConfig> rawDataDic = new Dictionary<int, BaseConfig>();
 
-        for (int i = 3; i < sheet.LastRowNum; i++)
+        for (int i = 3; i <= sheet.LastRowNum; i++)
         {
             var row = sheet.GetRow(i);
 
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
-            for (int j = 0; j < row.LastCellNum; j++)
+            for (int j = 0; j <= row.LastCellNum; j++)
             {
                 var cell = row.GetCell(j);
+                if (cell == null) continue;
                 string value;
                 if (cell.CellType == CellType.Formula)
                 {
-                    // 获取公式计算的结果
-                    value = cell.NumericCellValue.ToString();
+                    if (cell.CachedFormulaResultType == CellType.Numeric)
+                    {
+                        value = cell.NumericCellValue.ToString();
+                    }
+                    else 
+                    {
+                        value = cell.StringCellValue.ToString();
+                    }
                 }
                 else
                 {

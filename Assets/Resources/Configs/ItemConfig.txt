@@ -57,5 +57,18 @@
       5
     ],
     "id": 4
+  },
+  "5": {
+    "$type": "ItemConfig, Assembly-CSharp",
+    "name": "胡萝卜",
+    "desc": "一种蔬菜",
+    "imgPath": "huluobo",
+    "price": 8.0,
+    "stack": 99,
+    "test": [
+      6,
+      6
+    ],
+    "id": 5
   }
 }

@@ -21,5 +21,16 @@
     "match2MailID": 0,
     "noMatchMailID": 51004,
     "id": 31002
+  },
+  "32001": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果21101和22101",
+    "needID1": 21101,
+    "needID2": 22101,
+    "allMatchMailID": 51005,
+    "match1MailID": 51006,
+    "match2MailID": 51007,
+    "noMatchMailID": 51008,
+    "id": 32001
   }
 }

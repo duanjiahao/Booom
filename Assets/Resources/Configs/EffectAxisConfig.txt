@@ -183,5 +183,13 @@
     "value": 85,
     "isPositive": false,
     "id": 24003
+  },
+  "24103": {
+    "$type": "EffectAxisConfig, Assembly-CSharp",
+    "name": "属性四正面3",
+    "attributes": 4,
+    "value": 85,
+    "isPositive": true,
+    "id": 24103
   }
 }
