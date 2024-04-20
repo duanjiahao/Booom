@@ -1,0 +1,27 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "100001": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "完全治愈！",
+    "responseType": 1,
+    "id": 100001
+  },
+  "100002": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "还行吧能接受",
+    "responseType": 2,
+    "id": 100002
+  },
+  "100003": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "爬！",
+    "responseType": 3,
+    "id": 100003
+  },
+  "100004": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "庸医！",
+    "responseType": 4,
+    "id": 100004
+  }
+}

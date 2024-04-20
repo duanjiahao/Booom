@@ -1,0 +1,51 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "200001": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "刘德华",
+    "gender": 0,
+    "id": 200001
+  },
+  "200002": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "张学友",
+    "gender": 0,
+    "id": 200002
+  },
+  "200003": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "郭富城",
+    "gender": 0,
+    "id": 200003
+  },
+  "200004": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "黎明",
+    "gender": 0,
+    "id": 200004
+  },
+  "200005": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "西施",
+    "gender": 0,
+    "id": 200005
+  },
+  "200006": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "貂蝉",
+    "gender": 0,
+    "id": 200006
+  },
+  "200007": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "王昭君",
+    "gender": 0,
+    "id": 200007
+  },
+  "200008": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "杨玉环",
+    "gender": 0,
+    "id": 200008
+  }
+}

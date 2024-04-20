@@ -5,9 +5,9 @@
     "desc": "我要避开效果21001",
     "avoidID1": 21101,
     "avoidID2": 0,
-    "allMatchMailID": 52001,
-    "match1MailID": 0,
-    "match2MailID": 0,
+    "avoidAttributes": [
+      1
+    ],
     "id": 41001
   },
   "41002": {
@@ -15,19 +15,20 @@
     "desc": "我要避开效果22002",
     "avoidID1": 22102,
     "avoidID2": 0,
-    "allMatchMailID": 52002,
-    "match1MailID": 0,
-    "match2MailID": 0,
+    "avoidAttributes": [
+      2
+    ],
     "id": 41002
   },
   "42001": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "我要避开效果21001和22001",
-    "avoidID1": 21101,
-    "avoidID2": 22101,
-    "allMatchMailID": 52005,
-    "match1MailID": 52003,
-    "match2MailID": 52004,
+    "desc": "我要避开效果23003和24003",
+    "avoidID1": 23003,
+    "avoidID2": 24003,
+    "avoidAttributes": [
+      3,
+      4
+    ],
     "id": 42001
   }
 }
