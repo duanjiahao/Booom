@@ -19,12 +19,9 @@
       23003
     ],
     "imageGroups": [
-      1
+      "1"
     ],
-    "unlockPrestige": [
-      0,
-      100
-    ],
+    "unlockPrestige": 0,
     "gender": 0,
     "weights": 20,
     "id": 50001
@@ -46,12 +43,9 @@
       23003
     ],
     "imageGroups": [
-      1
+      "1"
     ],
-    "unlockPrestige": [
-      50,
-      150
-    ],
+    "unlockPrestige": 50,
     "gender": 1,
     "weights": 20,
     "id": 50002
@@ -74,12 +68,9 @@
       23003
     ],
     "imageGroups": [
-      1
+      "1"
     ],
-    "unlockPrestige": [
-      120,
-      200
-    ],
+    "unlockPrestige": 120,
     "gender": 0,
     "weights": 50,
     "id": 51001
@@ -103,12 +94,9 @@
       23003
     ],
     "imageGroups": [
-      1
+      "1"
     ],
-    "unlockPrestige": [
-      180,
-      300
-    ],
+    "unlockPrestige": 180,
     "gender": 1,
     "weights": 100,
     "id": 51002
