@@ -8,6 +8,7 @@ public class ConfigManager : SingleMono<ConfigManager>
 {
     private Dictionary<string, Dictionary<int, BaseConfig>> ConfigDatas;
 
+    public delegate bool ConfigFilter<T>(T config) where T : BaseConfig;
     public override void Init()
     {
         ConfigDatas = new Dictionary<string, Dictionary<int, BaseConfig>>();
@@ -34,6 +35,31 @@ public class ConfigManager : SingleMono<ConfigManager>
             {
                 return data[id] as T;
             }
+        }
+
+        return null;
+    }
+
+    public IList<T> GetConfigList<T>() where T : BaseConfig
+    {
+        return GetConfigListWithFilter<T>();
+    }
+
+    public IList<T> GetConfigListWithFilter<T>(ConfigFilter<T> configFilter = null) where T : BaseConfig
+    {
+        var configName = typeof(T).Name;
+        var configList = new List<T>();
+        if (ConfigDatas.ContainsKey(configName))
+        {
+            var data = ConfigDatas[configName];
+            foreach (var kv in data)
+            {
+                var value = kv.Value as T;
+                if (configFilter == null || configFilter(value))
+                configList.Add(value);
+            }
+
+            return configList;
         }
 
         return null;
