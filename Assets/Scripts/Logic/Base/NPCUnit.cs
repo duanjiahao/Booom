@@ -38,8 +38,7 @@ public class NPCUnit
         // 筛选出符合声望解锁条件的config
         var npcGroupConfigList = ConfigManager.Instance.GetConfigListWithFilter<NPCGroupsConfig>((config)=> 
         {
-            // 目前表里声望解锁用的区间，之后会改成单值，这里先直接取第一个数
-            return DataManager.Instance.Prestige >= config.unlockPrestige[0];
+            return DataManager.Instance.Prestige >= config.unlockPrestige;
         });
 
         if (npcGroupConfigList == null || npcGroupConfigList.Count == 0) 
