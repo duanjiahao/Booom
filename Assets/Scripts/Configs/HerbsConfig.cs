@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 public class HerbsConfig : BaseConfig
 {
     public string name;
@@ -12,7 +13,7 @@ public class HerbsConfig : BaseConfig
     public bool isAttribute4visible;
     public int unlockDate;
     public int collectionTime;
-    public int[] collectionPrestige;
+    public int collectionPrestige;
     public int collectionWeights;
     public int[] rewardWeight;
     public string iconPath;

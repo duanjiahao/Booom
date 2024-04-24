@@ -14,10 +14,7 @@
     "isAttribute4visible": true,
     "unlockDate": 1,
     "collectionTime": 0,
-    "collectionPrestige": [
-      0,
-      100
-    ],
+    "collectionPrestige": 0,
     "collectionWeights": 10,
     "rewardWeight": [
       5,
@@ -43,10 +40,7 @@
     "isAttribute4visible": true,
     "unlockDate": 2,
     "collectionTime": 1,
-    "collectionPrestige": [
-      0,
-      100
-    ],
+    "collectionPrestige": 0,
     "collectionWeights": 100,
     "rewardWeight": [
       9,
@@ -72,10 +66,7 @@
     "isAttribute4visible": true,
     "unlockDate": 3,
     "collectionTime": 2,
-    "collectionPrestige": [
-      200,
-      300
-    ],
+    "collectionPrestige": 200,
     "collectionWeights": 50,
     "rewardWeight": [
       2,
@@ -101,10 +92,7 @@
     "isAttribute4visible": false,
     "unlockDate": 4,
     "collectionTime": 0,
-    "collectionPrestige": [
-      50,
-      250
-    ],
+    "collectionPrestige": 50,
     "collectionWeights": 50,
     "rewardWeight": [
       45,

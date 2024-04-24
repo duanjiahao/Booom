@@ -10,4 +10,12 @@ public class BackpackRecipeItem : IInventoryItem
     public int Quantity { get; set; }
     public string[] Effects { get; set; }
 
+    public void setItemInfo(int id, string name, string des, int quantity, string[] effects)
+    {
+        this.ID = id;
+        this.Name = name;
+        this.Description = des;
+        this.Quantity = quantity;
+        this.Effects = effects;
+    }
 }
