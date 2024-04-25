@@ -33,40 +33,28 @@ public class NPCUnit
         return this;
     }
 
-    private void GenerateConfig() 
+    private void GenerateConfig()
     {
         // 筛选出符合声望解锁条件的config
-        var npcGroupConfigList = ConfigManager.Instance.GetConfigListWithFilter<NPCGroupsConfig>((config)=> 
+        var npcGroupConfigList = ConfigManager.Instance.GetConfigListWithFilter<NPCGroupsConfig>((config) =>
         {
             return DataManager.Instance.Prestige >= config.unlockPrestige;
         });
 
-        if (npcGroupConfigList == null || npcGroupConfigList.Count == 0) 
+        if (npcGroupConfigList == null || npcGroupConfigList.Count == 0)
         {
             Debug.LogError($"错误，没有筛选出一个NPC Group Config！当前声望:{DataManager.Instance.Prestige}");
             return;
         }
 
         // 根据权重得出最终的NPC Config
-        var totalWeights = 0;
+
+        var weights = new List<int>();
         foreach (var config in npcGroupConfigList)
         {
-            totalWeights += config.weights;
+            weights.Add(config.weights);
         }
-        var randomFloat = Random.Range(0f, totalWeights);
-        for (int i = 0; i < npcGroupConfigList.Count; i++)
-        {
-            var config = npcGroupConfigList[i];
-            if (randomFloat > config.weights)
-            {
-                randomFloat -= config.weights;
-            }
-            else 
-            {
-                _npcConfig = config;
-                break;
-            }
-        }
+        _npcConfig = npcGroupConfigList[CommonUtils.RollRange(weights)[0]];
 
         var needId = _npcConfig.needGroups[Random.Range(0, _npcConfig.needGroups.Length - 1)];
 
