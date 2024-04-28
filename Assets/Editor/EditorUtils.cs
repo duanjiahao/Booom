@@ -189,6 +189,13 @@ public class EditorUtils
             var type = Type.GetType($"{configName}Config, Assembly-CSharp");
 
             var config = JsonConvert.DeserializeObject(sb.ToString(), type) as BaseConfig;
+
+            // 为0说明这一行的数据有问题，直接跳过
+            if (config.id == 0)
+            {
+                continue;
+            }
+
             rawDataDic.Add(config.id, config);
         }
 
