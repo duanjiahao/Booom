@@ -8,6 +8,7 @@ public class Inventory<T> where T : IInventoryItem
     // 添加物品到背包
     public void AddItem(T item)
     {
+        //判断是否存在
         var existingItem = items.FirstOrDefault(i => i.ID == item.ID);
         if (existingItem != null)
         {
@@ -22,7 +23,7 @@ public class Inventory<T> where T : IInventoryItem
     }
 
     // 从背包移除物品
-    public bool RemoveItem(int itemId, int quantity)
+    public bool UseItem(int itemId, int quantity)
     {
         var item = items.FirstOrDefault(i => i.ID == itemId);
         if (item != null && item.Quantity >= quantity)
@@ -30,7 +31,9 @@ public class Inventory<T> where T : IInventoryItem
             item.Quantity -= quantity;
             if (item.Quantity == 0)
             {
-                items.Remove(item);
+                //TODO：数量为0时判断药材和药方
+                //items.Remove(item);
+                return false;
             }
             return true;
         }

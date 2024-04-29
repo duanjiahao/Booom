@@ -64,7 +64,7 @@ public class test : MonoBehaviour
             foreach (var item in herbList)
             {
                 var obj = new BackpackHerbItem();
-                obj.InitItemInfo(item.id, item.name, item.desc, 0, new int[] { item.attribute1, item.attribute2, item.attribute3, item.attribute4 });
+                obj.InitItemInfo(item.id, item.name, item.desc, 0, new int[] { item.attribute1, item.attribute2, item.attribute3, item.attribute4 },item.iconPath);
                 herbInventory.AddItem(obj);
                 //Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
             }
