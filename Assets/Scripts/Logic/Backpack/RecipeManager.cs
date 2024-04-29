@@ -29,10 +29,10 @@ public class RecipeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Inventory<BackpackRecipeItem> recipeInventory = RecipeDataManager.Instance.recipeInventory;
-        if (recipeInventory.GetAllItems().Count != 0)
+        List<RecipeItem> recipeInventory = RecipeDataManager.Instance.recipeInventory;
+        if (RecipeDataManager.Instance.GetAllRecipeItems().Count != 0)
         {
-            foreach (BackpackRecipeItem data in recipeInventory.GetAllItems())
+            foreach (RecipeItem data in recipeInventory)
             {
                 tempItem = Instantiate(
                 RecipePrefab,

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackpackRecipeItem : IInventoryItem
+public class RecipeItem
 {
     public int ID { get; set; }
     public string Name { get; set; }

@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 public class RecipeDataManager : SingleMono<RecipeDataManager>
 {
-    public Inventory<BackpackRecipeItem> recipeInventory = new Inventory<BackpackRecipeItem>();
+    public List<RecipeItem> recipeInventory = new List<RecipeItem>();
     public override void Init()
     {
         base.Init();
@@ -19,10 +19,10 @@ public class RecipeDataManager : SingleMono<RecipeDataManager>
             List<HerbsConfig> herbList = new List<HerbsConfig>(herbDict.Values);
             foreach (var item in herbList)
             {
-                var obj = new BackpackRecipeItem();
+                var obj = new RecipeItem();
                 obj.InitItemInfo(item.id, item.name, item.desc, 0, new string[] { item.attribute1.ToString(), item.attribute2.ToString(), item.attribute3.ToString() });
                 //将数据加入列表中
-                recipeInventory.AddItem(obj);
+                recipeInventory.Add(obj);
                 //Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
             }
 
@@ -35,35 +35,52 @@ public class RecipeDataManager : SingleMono<RecipeDataManager>
     public void AddRecipe(int id)
     {
         //添加药方
-        var tempItem = new BackpackRecipeItem();
-        foreach(var item in recipeInventory.GetAllItems())
+        var tempItem = new RecipeItem();
+        foreach(var item in GetAllRecipeItems())
         {
             if(item.ID == id)
             {
                 tempItem = item;
-                Debug.Log("you have increased a recipe's quantity:" + recipeInventory.GetItem(id).Name);
+                Debug.Log("you have increased a recipe's quantity:" + GetRecipeItemByID(id).Name);
             }
         }
         if (tempItem != null)
         {
-            recipeInventory.AddItem(tempItem);
+            recipeInventory.Add(tempItem);
         }
         
     }
     public void UseRecipe(int id)
     {
         //使用药方，默认一次只能用一个
-        recipeInventory.UseItem(id, 1);
-        Debug.Log("you have created a recipe:" + recipeInventory.GetItem(id).Name);
+        //根据id查找药材
+        foreach (var item in recipeInventory)
+        {
+            if (item.ID == id)
+            {
+                if (item.Quantity >= 1)
+                {
+                    item.Quantity -= 1;
+                }
+                
+            }
+        }
     }
-    public List<BackpackRecipeItem> GetAllRecipeItems()
+    public List<RecipeItem> GetAllRecipeItems()
     {
         //获取所有药方
-        return recipeInventory.GetAllItems();
+        return recipeInventory;
     }
-    public BackpackRecipeItem GetRecipeItemByID(int id)
+    public RecipeItem GetRecipeItemByID(int id)
     {
         //根据id查找药材
-        return recipeInventory.GetItem(id);
+        foreach(var item in recipeInventory)
+        {
+            if (item.ID == id)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 }

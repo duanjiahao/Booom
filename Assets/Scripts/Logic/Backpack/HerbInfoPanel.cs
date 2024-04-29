@@ -26,10 +26,10 @@ public class HerbInfoPanel : MonoBehaviour
         }
 
     }
-    public void SetHerbInfo(BackpackHerbItem data)
+    public void SetHerbInfo(HerbItem data)
     {
-        _herbName.text = data.Name;
-        _herbDesc.text = data.Description;
+        _herbName.text = data.HerbConfig.name;
+        _herbDesc.text = data.HerbConfig.desc;
         if (_textList.Count != 0)
         {
             foreach(var item in _textList)

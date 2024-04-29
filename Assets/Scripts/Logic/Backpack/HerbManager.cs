@@ -31,11 +31,11 @@ public class HerbManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Inventory<BackpackHerbItem> herbInventory = HerbDataManager.Instance.herbInventory;
-        if (herbInventory.GetAllItems().Count != 0)
+        List<HerbItem> herbInventory = HerbDataManager.Instance.herbInventory;
+        if (HerbDataManager.Instance.GetAllHerbItems().Count != 0)
         {
             //实例化每个slot
-            foreach (BackpackHerbItem data in herbInventory.GetAllItems())
+            foreach (HerbItem data in herbInventory)
             {
                 tempItem = Instantiate(
                 HerbPrefab,
@@ -46,7 +46,7 @@ public class HerbManager : MonoBehaviour
                 //获取icon对象的赋值方法
                 tempItem.GetComponentInChildren<HerbIconImage>().SetData(data);
                 Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-                nameText.text = data.Name;
+                nameText.text = data.HerbConfig.name;
             }
         }
 

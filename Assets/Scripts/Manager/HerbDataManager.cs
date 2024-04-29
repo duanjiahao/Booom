@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 public class HerbDataManager : SingleMono<HerbDataManager>
 {
     // 创建药方背包
-    public Inventory<BackpackHerbItem> herbInventory = new Inventory<BackpackHerbItem>();
+    public List<HerbItem> herbInventory = new List<HerbItem>();
     //药方管理
     public override void Init()
     {
@@ -22,10 +22,10 @@ public class HerbDataManager : SingleMono<HerbDataManager>
             List<HerbsConfig> herbList = new List<HerbsConfig>(herbDict.Values);
             foreach (var item in herbList)
             {
-                var obj = new BackpackHerbItem();
-                obj.InitItemInfo(item.id, item.name, item.desc, 0, new int[] { item.attribute1, item.attribute2, item.attribute3, item.attribute4 },item.iconPath);
+                var obj = new HerbItem();
+                obj.InitItemInfo(item,0,new int[] { 1,2,3,4});
                 //将数据加入列表中
-                herbInventory.AddItem(obj);
+                herbInventory.Add(obj);
                 Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
             }
 
@@ -38,34 +38,50 @@ public class HerbDataManager : SingleMono<HerbDataManager>
     public void AddHerb(int id)
     {
         //添加药材
-        var tempItem = new BackpackHerbItem();
-        foreach (var item in herbInventory.GetAllItems())
+        var tempItem = new HerbItem();
+        foreach (var item in GetAllHerbItems())
         {
-            if (item.ID == id)
+            if (item.HerbConfig.id == id)
             {
                 tempItem = item;
             }
         }
         if (tempItem != null)
         {
-            herbInventory.AddItem(tempItem);
+            herbInventory.Add(tempItem);
         }
 
     }
     public void UseHerb(int id, int quantity)
     {
         //使用药材
-        herbInventory.UseItem(id, quantity);
+        foreach (var item in herbInventory)
+        {
+            if (item.HerbConfig.id == id)
+            {
+                if (item.Quantity >= quantity)
+                {
+                    item.Quantity -= quantity;
+                }
+            }
+        }
     }
-    public List<BackpackHerbItem> GetAllHerbItems()
+    public List<HerbItem> GetAllHerbItems()
     {
         //获取所有药材
-        return herbInventory.GetAllItems();
+        return herbInventory;
     }
-    public BackpackHerbItem GetHerbItemByID(int id)
+    public HerbItem GetHerbItemByID(int id)
     {
         //根据id查找药材
-        return herbInventory.GetItem(id);
+        foreach(var item in herbInventory)
+        {
+            if (item.HerbConfig.id == id)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 
 }

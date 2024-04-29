@@ -8,7 +8,7 @@ public class HerbIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     //弹窗预制体
     public GameObject InfoPanelObj;
     private GameObject tempItem;
-    public BackpackHerbItem data;
+    public HerbItem data;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +33,11 @@ Quaternion.identity,transform
         
         tempItem.SetActive(false);  // Hide the tooltip window
     }
-    public void SetData(BackpackHerbItem data)
+    public void SetData(HerbItem data)
     {
         this.data = data;
     }
-    private void SetInfoData(BackpackHerbItem data)
+    private void SetInfoData(HerbItem data)
     {
         tempItem.GetComponent<HerbInfoPanel>().SetHerbInfo(data);
     }
