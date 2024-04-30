@@ -5,19 +5,19 @@ using UnityEngine;
 public class NPCUnit
 {
     // NPC的基础数据
-    private NPCGroupsConfig _npcConfig;
+    public NPCGroupsConfig _npcConfig;
 
     // NPC的需求对话数据（包含了需求的属性）
-    private NPCNeedDialogueConfig _npcNeedDialogConfig;
+    public NPCNeedDialogueConfig _npcNeedDialogConfig;
 
     // NPC的禁忌对话数据（包含了禁忌的属性, 可能没有，为null）
-    private NPCAvoidDialogueConfig _npcAvoidDialogConfig;
+    public NPCAvoidDialogueConfig _npcAvoidDialogConfig;
 
     // NPC的需求效果Id数组
-    private List<int> _needEffectIds;
+    public List<int> _needEffectIds;
 
     // NPC的禁忌效果Id数组（可能没有禁忌，为null）
-    private List<int> _avoidEffectIds;
+    public List<int> _avoidEffectIds;
 
     // NPC的姓名
     public string Name { get; private set; }
