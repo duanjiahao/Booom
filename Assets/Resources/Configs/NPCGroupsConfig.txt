@@ -1,0 +1,104 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "50001": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "初级1组",
+    "prestigeLevel": [
+      30,
+      50,
+      70,
+      90,
+      100
+    ],
+    "needGroups": [
+      31001
+    ],
+    "avoidGroups": [
+      21101,
+      22102,
+      23003
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "unlockPrestige": 0,
+    "gender": 0,
+    "weights": 20,
+    "id": 50001
+  },
+  "50002": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "初级2组",
+    "prestigeLevel": [
+      40,
+      60,
+      80
+    ],
+    "needGroups": [
+      32001
+    ],
+    "avoidGroups": [
+      21101,
+      22102,
+      23003
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "unlockPrestige": 50,
+    "gender": 1,
+    "weights": 20,
+    "id": 50002
+  },
+  "51001": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "中级1组",
+    "prestigeLevel": [
+      150,
+      180,
+      200
+    ],
+    "needGroups": [
+      31001,
+      32001
+    ],
+    "avoidGroups": [
+      21101,
+      22102,
+      23003
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "unlockPrestige": 120,
+    "gender": 0,
+    "weights": 50,
+    "id": 51001
+  },
+  "51002": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "中级2组",
+    "prestigeLevel": [
+      220,
+      240,
+      260
+    ],
+    "needGroups": [
+      31001,
+      32001,
+      33001
+    ],
+    "avoidGroups": [
+      21101,
+      22102,
+      23003
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "unlockPrestige": 180,
+    "gender": 1,
+    "weights": 100,
+    "id": 51002
+  }
+}

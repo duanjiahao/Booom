@@ -1,0 +1,39 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "31001": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果21101",
+    "needID1": 21101,
+    "needID2": 0,
+    "needID3": 0,
+    "needAttributes": [
+      1
+    ],
+    "id": 31001
+  },
+  "32001": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果21101和22101",
+    "needID1": 21101,
+    "needID2": 22101,
+    "needID3": 0,
+    "needAttributes": [
+      1,
+      2
+    ],
+    "id": 32001
+  },
+  "33001": {
+    "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
+    "desc": "我需要效果22102，23103和24103",
+    "needID1": 22102,
+    "needID2": 23103,
+    "needID3": 24103,
+    "needAttributes": [
+      2,
+      3,
+      4
+    ],
+    "id": 33001
+  }
+}

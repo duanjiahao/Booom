@@ -45,61 +45,49 @@ public class EditorUtils
         IWorkbook wk = null;
         string extension = Path.GetExtension(filePath);
         string fileName = Path.GetFileNameWithoutExtension(filePath);
-        try
+        FileStream fs = File.OpenRead(filePath);
+        if (extension.Equals(".xls"))
         {
-            FileStream fs = File.OpenRead(filePath);
-            if (extension.Equals(".xls"))
-            {
-                //把xls文件中的数据写入wk中
-                wk = new HSSFWorkbook(fs);
-            }
-            else
-            {
-                //把xlsx文件中的数据写入wk中
-                wk = new XSSFWorkbook(fs);
-            }
-
-            fs.Close();
-
-            //只读第一个Sheet，其他Sheet忽略
-            ISheet sheet = wk.GetSheetAt(0);
-
-            IRow row = sheet.GetRow(0);
-            var firstCell = row.GetCell(0);
-            if (firstCell.ToString() != "id") 
-            {
-                Debug.LogError($"导出Configs错误！{fileName}表中第一列不是id！");
-                return;
-            }
-
-            List<PropertyInfo> configProperties = new List<PropertyInfo>();
-            for (int i = 1; i < row.LastCellNum; i++)
-            {
-                var cell = row.GetCell(i);
-                var name = cell.ToString();
-                if (string.IsNullOrEmpty(name)) 
-                {
-                    // 不允许中间有空列的，遇到空列认为后边就没数据了
-                    break;
-                }
-                if (name.Contains(":"))
-                {
-                    var strPair = name.Split(":");
-                    configProperties.Add(new PropertyInfo() { Name = strPair[0], Type = strPair[1] });
-                }
-                else 
-                {
-                    configProperties.Add(new PropertyInfo() { Name = name, Type = "string" });
-                }
-            }
-
-            GenrateConfigClass(configProperties, fileName);
-            GenerateConfigJson(configProperties, fileName, sheet);
+            //把xls文件中的数据写入wk中
+            wk = new HSSFWorkbook(fs);
         }
-        catch (Exception e)
+        else
         {
-            Debug.LogError(e.Message);
+            //把xlsx文件中的数据写入wk中
+            wk = new XSSFWorkbook(fs);
         }
+
+        fs.Close();
+
+        //只读第一个Sheet，其他Sheet忽略
+        ISheet sheet = wk.GetSheetAt(0);
+
+        IRow row = sheet.GetRow(1); // 第一行是字段名称
+        IRow rowType = sheet.GetRow(2); // 第二行是字段类型
+        var firstCell = row.GetCell(0);
+        if (firstCell.ToString() != "id") 
+        {
+            Debug.LogError($"导出Configs错误！{fileName}表中第一列不是id！");
+            return;
+        }
+
+        List<PropertyInfo> configProperties = new List<PropertyInfo>();
+        for (int i = 1; i < row.LastCellNum; i++)
+        {
+            var cell = row.GetCell(i);
+            var name = cell.ToString();
+            if (string.IsNullOrEmpty(name)) 
+            {
+                // 不允许中间有空列的，遇到空列认为后边就没数据了
+                break;
+            }
+
+            var cellType = rowType.GetCell(i);
+            configProperties.Add(new PropertyInfo() { Name = name, Type = cellType.ToString() });
+        }
+
+        GenrateConfigClass(configProperties, fileName);
+        GenerateConfigJson(configProperties, fileName, sheet);
     }
 
     private static void GenrateConfigClass(List<PropertyInfo> propertyInfos, string configName) 
@@ -141,33 +129,79 @@ public class EditorUtils
         propertyInfos.Insert(0, new PropertyInfo() { Name = "id", Type = "string" });
         Dictionary<int, BaseConfig> rawDataDic = new Dictionary<int, BaseConfig>();
 
-        for (int i = 1; i < sheet.LastRowNum; i++)
+        for (int i = 3; i <= sheet.LastRowNum; i++)
         {
             var row = sheet.GetRow(i);
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            for (int j = 0; j < row.LastCellNum; j++)
+
+            if (row == null) 
+            {
+                break;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("{");
+            for (int j = 0; j <= row.LastCellNum; j++)
             {
                 var cell = row.GetCell(j);
-                var value = cell.ToString();
+                if (cell == null) continue;
+                string value;
+                if (cell.CellType == CellType.Formula)
+                {
+                    if (cell.CachedFormulaResultType == CellType.Numeric)
+                    {
+                        value = cell.NumericCellValue.ToString();
+                    }
+                    else 
+                    {
+                        value = cell.StringCellValue.ToString();
+                        value = value.Replace(@"\", @"\\");
+                    }
+                }
+                else
+                {
+                    // 直接读取值
+                    value = cell.ToString();
+                }
                 if (string.IsNullOrEmpty(value))
                 {
                     // 不允许中间有空列的，遇到空列认为后边就没数据了
                     break;
                 }
 
-                data.Add(propertyInfos[j].Name, value);
+                if (propertyInfos[j].Type.Contains("[]"))
+                {
+                    value = "[" + value + "]";
+                }
+                else 
+                {
+                    value = "\"" + value + "\"";
+                }
+
+                sb.Append($"\"{propertyInfos[j].Name}\":{value}");
+                if (j < row.LastCellNum - 1) 
+                {
+                    sb.Append(",");
+                }
+            }
+            sb.Append("}");
+
+            var type = Type.GetType($"{configName}Config, Assembly-CSharp");
+
+            var config = JsonConvert.DeserializeObject(sb.ToString(), type) as BaseConfig;
+
+            // 为0说明这一行的数据有问题，直接跳过
+            if (config.id == 0)
+            {
+                continue;
             }
 
-            var raw = JsonConvert.SerializeObject(data);
-            var type = Type.GetType($"{configName}Config, Assembly-CSharp");
-            var baseConfig = JsonConvert.DeserializeObject(raw, type);
-
-            rawDataDic.Add(int.Parse(data["id"]), baseConfig as BaseConfig);
+            rawDataDic.Add(config.id, config);
         }
 
         var json = JsonConvert.SerializeObject(rawDataDic, new JsonSerializerSettings
         {
-            TypeNameHandling = TypeNameHandling.Objects
+            TypeNameHandling = TypeNameHandling.Objects,
+            Formatting = Formatting.Indented,
         });
 
         File.WriteAllText(filePath, json);

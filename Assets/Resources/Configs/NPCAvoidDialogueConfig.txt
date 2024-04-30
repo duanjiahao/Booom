@@ -1,0 +1,34 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
+  "41001": {
+    "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
+    "desc": "我要避开效果21001",
+    "avoidID1": 21101,
+    "avoidID2": 0,
+    "avoidAttributes": [
+      1
+    ],
+    "id": 41001
+  },
+  "41002": {
+    "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
+    "desc": "我要避开效果22002",
+    "avoidID1": 22102,
+    "avoidID2": 0,
+    "avoidAttributes": [
+      2
+    ],
+    "id": 41002
+  },
+  "42001": {
+    "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
+    "desc": "我要避开效果23003和24003",
+    "avoidID1": 23003,
+    "avoidID2": 24003,
+    "avoidAttributes": [
+      3,
+      4
+    ],
+    "id": 42001
+  }
+}
