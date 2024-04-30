@@ -15,11 +15,19 @@ public enum TimeOfDay
     Count = 6,
 }
 
-public class DataManager : SingleMono<DataManager>
+public class DataManager : Singleton<DataManager>
 {
     public TimeOfDay CurrentTime { get; private set; }
 
     public int Day { get; private set; }
+
+    protected override void Init()
+    {
+        // TODO: 读存档
+        Prestige = 0;
+        Day = 1;
+        CurrentTime = TimeOfDay.Morning_1;
+    }
 
     public void MoveToNextTime() 
     {
@@ -32,7 +40,7 @@ public class DataManager : SingleMono<DataManager>
         }
     }
 
-    public int Prestige { get; private set; } = 150; // 测试用
+    public int Prestige { get; private set; }
 
     public void ChangePrestige(int change) 
     {
