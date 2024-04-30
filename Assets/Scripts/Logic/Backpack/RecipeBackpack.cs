@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using FindFunc;
-public class HerbManager : MonoBehaviour
+public class RecipeBackpack : MonoBehaviour
 {
-    //herb list manager
     public GameObject PagingRoot;
-    public GameObject HerbPrefab;
+    public GameObject RecipePrefab;
     private GameObject tempItem;
     private void Awake()
     {
@@ -31,26 +29,22 @@ public class HerbManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<HerbItem> herbInventory = HerbDataManager.Instance.herbInventory;
-        if (HerbDataManager.Instance.GetAllHerbItems().Count != 0)
+        List<RecipeItem> recipeInventory = RecipeDataManager.Instance.recipeInventory;
+        if (RecipeDataManager.Instance.GetAllRecipeItems().Count != 0)
         {
-            //实例化每个slot
-            foreach (HerbItem data in herbInventory)
+            foreach (RecipeItem data in recipeInventory)
             {
                 tempItem = Instantiate(
-                HerbPrefab,
+                RecipePrefab,
                 transform.position,
                 Quaternion.identity,
                 transform
             );
-                //获取icon对象的赋值方法
-                tempItem.GetComponentInChildren<HerbIconImage>().SetData(data);
-                Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-                nameText.text = data.HerbConfig.name;
+                Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
+                nameText.text = data.Name;
             }
         }
 
 
     }
-
 }

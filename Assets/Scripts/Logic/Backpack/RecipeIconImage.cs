@@ -5,8 +5,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class RecipeIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    //触发药方弹窗
     public GameObject InfoPanelObj;
     private GameObject tempItem;
+    public RecipeItem data;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,9 @@ Quaternion.identity,transform
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        tempItem.GetComponent<RecipeInfoPanel>().Init();
+        Debug.Log(data.Name);
+        SetInfoData(data);
         tempItem.transform.position = this.transform.position;
         tempItem.SetActive(true);  // Show the tooltip window
         
@@ -29,6 +34,15 @@ Quaternion.identity,transform
     {
         
         tempItem.SetActive(false);  // Hide the tooltip window
+    }
+    public void SetData(RecipeItem data)
+    {
+        this.data = data;
+    }
+    private void SetInfoData(RecipeItem data)
+    {
+        Debug.Log(data.Name);
+        tempItem.GetComponent<RecipeInfoPanel>().SetInfoPanelData(data);
     }
 
 }

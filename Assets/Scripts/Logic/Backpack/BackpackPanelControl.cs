@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FindFunc;
+//背包UI切换管理
 public class BackpackPanelControl : MonoBehaviour
 {
     public GameObject PagingRoot;

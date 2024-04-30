@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//触发药材弹窗
 public class HerbIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    
     //弹窗预制体
     public GameObject InfoPanelObj;
     private GameObject tempItem;

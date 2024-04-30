@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//药方信息窗口
 public class HerbInfoPanel : MonoBehaviour
 {
-    //背包-草药列表的消息弹窗
     private Text _herbName;
     private Text _herbDesc;
     public GameObject textPrefab;
@@ -37,7 +37,7 @@ public class HerbInfoPanel : MonoBehaviour
                 Destroy(item);
             }
         }
-        foreach (var dat in data.Attribute)
+        foreach (var dat in data.AttributeList)
         {
             tempItem = Instantiate(
                 textPrefab,

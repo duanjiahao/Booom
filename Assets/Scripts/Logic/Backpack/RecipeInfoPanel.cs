@@ -8,6 +8,12 @@ public class RecipeInfoPanel : MonoBehaviour
     public GameObject PagingRoot;
     public Button BtCreate;
     public Button BtDelete;
+    public Text RecipeName;
+    public GameObject HerbUnitPrefab;
+    public GameObject EffectUnitPrefab;
+    private List<GameObject> _herbList;
+    private List<GameObject> _effectList;
+    private GameObject tempItem;
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -22,12 +28,15 @@ public class RecipeInfoPanel : MonoBehaviour
         //查询名称：最好同名，这样以后方便维护
         BtCreate = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtCreate");
         BtDelete = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtDelete");
-
+        RecipeName = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "RecipeName");
 
     }
-    // Start is called before the first frame update
-    void Start()
+
+    public void Init()
     {
+        HerbUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanel/herbItem");
+        EffectUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanel/effectItem");
+        
         BtCreate.onClick.AddListener(() =>
         {
             RecipeDataManager.Instance.UseRecipe(1001);
@@ -38,11 +47,63 @@ public class RecipeInfoPanel : MonoBehaviour
             RecipeDataManager.Instance.AddRecipe(1001);
 
         });
-    }
+        if (_herbList == null)
+        {
+            _herbList = new List<GameObject>();
+        }
+        if (_effectList == null)
+        {
+            _effectList = new List<GameObject>();
+        }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public void SetInfoPanelData(RecipeItem data)
     {
-        
+        Debug.Log(data.Name);
+        //药方名
+        RecipeName.text = data.Name;
+        //添加药方中的药材数据
+        //先清空
+        if (_herbList.Count != 0)
+        {
+            foreach (var item in _herbList)
+            {
+                Destroy(item);
+            }
+        }
+        foreach (var dat in data.HerbList)
+        {
+            tempItem = Instantiate(
+                HerbUnitPrefab,
+                transform.position,
+                Quaternion.identity,
+                transform.Find("herbList")
+            );
+            Text herbName = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "herbName");
+            Text herbQuan = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "herbQuan");
+            herbName.text = dat.HerbConfig.name;
+            herbQuan.text = dat.Quantity.ToString();
+            _herbList.Add(tempItem);
+        }
+        //添加药方中的效果数据
+        if (_effectList.Count != 0)
+        {
+            foreach (var item in _effectList)
+            {
+                Destroy(item);
+            }
+        }
+        foreach (var dat in data.EffectList)
+        {
+            tempItem = Instantiate(
+                EffectUnitPrefab,
+                transform.position,
+                Quaternion.identity,
+                transform.Find("effectList")
+            );
+            Text effectName = tempItem.GetComponent<Text>();
+            effectName.text = dat.EffectInfo.name;
+            _effectList.Add(tempItem);
+        }
     }
 }

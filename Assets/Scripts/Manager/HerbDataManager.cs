@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-public class HerbDataManager : SingleMono<HerbDataManager>
+//药材数据管理单例
+public class HerbDataManager : Singleton<HerbDataManager>
 {
-    // 创建药方背包
+    // 创建药材列表
     public List<HerbItem> herbInventory = new List<HerbItem>();
-    //药方管理
-    public override void Init()
+    protected override void Init()
     {
         base.Init();
         
@@ -23,7 +23,8 @@ public class HerbDataManager : SingleMono<HerbDataManager>
             foreach (var item in herbList)
             {
                 var obj = new HerbItem();
-                obj.InitItemInfo(item,0,new int[] { 1,2,3,4});
+                //测试数据
+                obj.InitItemInfo(item,23);
                 //将数据加入列表中
                 herbInventory.Add(obj);
                 Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
