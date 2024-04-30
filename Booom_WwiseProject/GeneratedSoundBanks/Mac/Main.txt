@@ -1,6 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3915387984	Boomtxt			\Default Work Unit\Boomtxt	
+	683483711	DropHerb			\Default Work Unit\DropHerb	
+	2122995345	OpenDoor			\Default Work Unit\OpenDoor	
+	2936962349	TurnPage			\Default Work Unit\TurnPage	
+	3085995852	SwitchPage			\Default Work Unit\SwitchPage	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	71639492	Boomtxt	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\boom\Boomtxt		1119200
+	8406779	DropHerb	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\DropHerb_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\DropHerb		12744
+	436058144	SwitchPage	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\SwitchPage_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\SwitchPage		5362
+	521701797	OpenDoor	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\OpenDoor_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\OpenDoor		34779
+	599684310	TurnPage	E:\Booom\Booom_WwiseProject\.cache\Mac\SFX\TurnPage_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\TurnPage		10831
 

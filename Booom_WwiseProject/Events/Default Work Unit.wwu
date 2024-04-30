@@ -3,12 +3,45 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Boomtxt" ID="{CA646261-A99F-40DC-98C0-77787171285F}">
+				<Event Name="DropHerb" ID="{CA646261-A99F-40DC-98C0-77787171285F}">
 					<ChildrenList>
-						<Action Name="" ID="{3FC457F1-F9A4-4D78-AD11-350A511A064D}" ShortID="1014812898">
+						<Action Name="" ID="{28A3B1F6-2F01-455F-BCA2-4C6470BFF2D1}" ShortID="295675898">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Boomtxt" ID="{E60E38A4-3895-4DFF-9E00-E30DE1D97FA0}" WorkUnitID="{B55E4715-1023-4335-88C3-6EE325E0768C}"/>
+									<ObjectRef Name="DropHerb" ID="{5D952D4D-591C-4BC4-8647-A6EF07FE0A26}" WorkUnitID="{B55E4715-1023-4335-88C3-6EE325E0768C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TurnPage" ID="{CC81680C-25C7-491D-9C6E-4EAE12697D87}">
+					<ChildrenList>
+						<Action Name="" ID="{C8ECE384-F085-4673-9E10-D48F4710ECB3}" ShortID="319998365">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TurnPage" ID="{65CE7A37-1C5C-4C77-B307-0DB2663B4463}" WorkUnitID="{B55E4715-1023-4335-88C3-6EE325E0768C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OpenDoor" ID="{270CBF9E-6A2B-4148-8A99-5E02BE494DBC}">
+					<ChildrenList>
+						<Action Name="" ID="{ACDB9907-761D-4A58-B3F4-F017B18AC1EC}" ShortID="536737192">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="OpenDoor" ID="{C55A18D8-0040-4483-AFC5-8CE1A065DD9B}" WorkUnitID="{B55E4715-1023-4335-88C3-6EE325E0768C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SwitchPage" ID="{12EF5C4D-E7F4-406E-8543-DDF6FBFDF64A}">
+					<ChildrenList>
+						<Action Name="" ID="{EECDD14F-6F2C-4FAC-A466-EB49C56E4423}" ShortID="928477024">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SwitchPage" ID="{E063F51A-351F-497B-B903-80B31DDA88B3}" WorkUnitID="{B55E4715-1023-4335-88C3-6EE325E0768C}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

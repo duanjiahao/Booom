@@ -5,7 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{6353CA6B-4E0A-4B28-8100-0EE72152DEBD}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Boomtxt" ID="{CA646261-A99F-40DC-98C0-77787171285F}" WorkUnitID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SwitchPage" ID="{12EF5C4D-E7F4-406E-8543-DDF6FBFDF64A}" WorkUnitID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DropHerb" ID="{CA646261-A99F-40DC-98C0-77787171285F}" WorkUnitID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="OpenDoor" ID="{270CBF9E-6A2B-4148-8A99-5E02BE494DBC}" WorkUnitID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="TurnPage" ID="{CC81680C-25C7-491D-9C6E-4EAE12697D87}" WorkUnitID="{B9680423-EC3E-4B82-A1F3-975D02865A5B}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

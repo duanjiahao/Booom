@@ -22,23 +22,50 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{67F63071-100F-25C5-2B81-B4CF72AAF8A9}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CA09C2F6-6DD8-9F3F-8E8D-4E4E60D73247}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
-				<File Id="71639492" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439.wav</ShortName>
-					<CachePath>SFX/Magic, Shimmer, Wand, Spell, Appear, Twinkle 01 SND30439_818F3B66.wem</CachePath>
+				<File Id="8406779" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DropHerb.wav</ShortName>
+					<CachePath>SFX/DropHerb_8E324C96.wem</CachePath>
+				</File>
+				<File Id="436058144" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SwitchPage.wav</ShortName>
+					<CachePath>SFX/SwitchPage_8E324C96.wem</CachePath>
+				</File>
+				<File Id="521701797" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>OpenDoor.wav</ShortName>
+					<CachePath>SFX/OpenDoor_8E324C96.wem</CachePath>
+				</File>
+				<File Id="599684310" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TurnPage.wav</ShortName>
+					<CachePath>SFX/TurnPage_8E324C96.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3915387984" Name="Boomtxt" DurationType="OneShot" DurationMin="5.8286667" DurationMax="5.8286667">
+				<Event Id="683483711" Name="DropHerb" DurationType="OneShot" DurationMin="0.9064399" DurationMax="0.9064399">
 					<MediaRefs>
-						<MediaRef Id="71639492"/>
+						<MediaRef Id="8406779"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2122995345" Name="OpenDoor" DurationType="OneShot" DurationMin="1.8999773" DurationMax="1.8999773">
+					<MediaRefs>
+						<MediaRef Id="521701797"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3085995852" Name="SwitchPage" DurationType="OneShot" DurationMin="0.9529705" DurationMax="0.9529705">
+					<MediaRefs>
+						<MediaRef Id="436058144"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2936962349" Name="TurnPage" DurationType="OneShot" DurationMin="1.3722676" DurationMax="1.3722676">
+					<MediaRefs>
+						<MediaRef Id="599684310"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1323ECA3-AD0D-6405-FFF8-1164FF931AC7}</FileHash>
+	<FileHash>{3F213158-F044-1102-E4A8-3966F1C9491F}</FileHash>
 </SoundBanksInfo>
