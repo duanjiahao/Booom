@@ -45,5 +45,6 @@ public class DataManager : Singleton<DataManager>
     public void ChangePrestige(int change) 
     {
         Prestige += change;
+        Mathf.Max(0, Prestige);
     }
 }
