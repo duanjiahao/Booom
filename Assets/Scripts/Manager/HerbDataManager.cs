@@ -27,7 +27,7 @@ public class HerbDataManager : Singleton<HerbDataManager>
                 obj.InitItemInfo(item,23);
                 //将数据加入列表中
                 herbInventory.Add(obj);
-                Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
+//                Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
             }
 
         }

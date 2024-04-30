@@ -19,7 +19,7 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
             //反序列化json
             var effectDict = JsonConvert.DeserializeObject<Dictionary<int, EffectAxisConfig>>(effectText);
             effectInventory = new List<EffectAxisConfig>(effectDict.Values);
-            Debug.Log(effectInventory);
+//            Debug.Log(effectInventory);
             //List<EffectAxisConfig> effectList = new List<EffectAxisConfig>(effectDict.Values);
         }
         #region 测试
@@ -31,7 +31,7 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
         recipeInventory.Add(recipeItem);
         RecipeItem recipeItem2 = new RecipeItem();
         recipeItem2.InitItemInfo(2, "second recipe", 32, herbList, effectInventory);
-        recipeInventory.Add(recipeItem);
+        recipeInventory.Add(recipeItem2);
         #endregion
 
     }
