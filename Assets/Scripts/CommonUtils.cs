@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,5 +35,25 @@ public static class CommonUtils
         }
 
         return result;
+    }
+
+    public static PrestigeLevelConfig GetCurrentPrestigeConfig() 
+    {
+        return GetCurrentPrestigeConfigWithNext(out var _);
+    }
+
+    public static PrestigeLevelConfig GetCurrentPrestigeConfigWithNext(out PrestigeLevelConfig nextLevelConfig)
+    {
+        var configList = ConfigManager.Instance.GetConfigListWithFilter<PrestigeLevelConfig>((config) =>
+        {
+            return DataManager.Instance.Prestige >= config.lowerLimit;
+        });
+
+        // 最有一个config就是目前的声望等级
+        var currentConfig = configList[configList.Count - 1];
+
+        nextLevelConfig = ConfigManager.Instance.GetConfig<PrestigeLevelConfig>(currentConfig.id + 1);
+
+        return currentConfig;
     }
 }

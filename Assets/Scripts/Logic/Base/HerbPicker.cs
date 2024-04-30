@@ -30,13 +30,7 @@ public class HerbPicker : IHerbPicker
             _isFreeTimeUsed = true;
         }
 
-        var configList = ConfigManager.Instance.GetConfigListWithFilter<PrestigeLevelConfig>((config)=> 
-        {
-            return DataManager.Instance.Prestige >= config.lowerLimit;
-        });
-
-        // 最有一个config就是目前的声望等级
-        var levelConfig = configList[configList.Count - 1];
+        var levelConfig = CommonUtils.GetCurrentPrestigeConfig();
 
         var index = UnityEngine.Random.Range(0, levelConfig.herbsTypeCount.Length);
 

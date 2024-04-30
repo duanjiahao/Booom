@@ -6,9 +6,13 @@ public class Notification : Singleton<Notification>
 {
     public const string NextDay = "NextDay";
 
+    public const string PrestigeChanged = "PrestigeChanged";
+
+    public const string TimeChanged = "TimeChanged";
+
     public delegate void NotificationHandler(object data = null);
 
-    private Dictionary<string, NotificationHandler> handlerDic;
+    private Dictionary<string, NotificationHandler> handlerDic = new Dictionary<string, NotificationHandler>();
 
     public void Register(string notificationName, NotificationHandler handler) 
     {
