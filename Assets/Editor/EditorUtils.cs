@@ -45,56 +45,49 @@ public class EditorUtils
         IWorkbook wk = null;
         string extension = Path.GetExtension(filePath);
         string fileName = Path.GetFileNameWithoutExtension(filePath);
-        try
+        FileStream fs = File.OpenRead(filePath);
+        if (extension.Equals(".xls"))
         {
-            FileStream fs = File.OpenRead(filePath);
-            if (extension.Equals(".xls"))
-            {
-                //把xls文件中的数据写入wk中
-                wk = new HSSFWorkbook(fs);
-            }
-            else
-            {
-                //把xlsx文件中的数据写入wk中
-                wk = new XSSFWorkbook(fs);
-            }
-
-            fs.Close();
-
-            //只读第一个Sheet，其他Sheet忽略
-            ISheet sheet = wk.GetSheetAt(0);
-
-            IRow row = sheet.GetRow(1); // 第一行是字段名称
-            IRow rowType = sheet.GetRow(2); // 第二行是字段类型
-            var firstCell = row.GetCell(0);
-            if (firstCell.ToString() != "id") 
-            {
-                Debug.LogError($"导出Configs错误！{fileName}表中第一列不是id！");
-                return;
-            }
-
-            List<PropertyInfo> configProperties = new List<PropertyInfo>();
-            for (int i = 1; i < row.LastCellNum; i++)
-            {
-                var cell = row.GetCell(i);
-                var name = cell.ToString();
-                if (string.IsNullOrEmpty(name)) 
-                {
-                    // 不允许中间有空列的，遇到空列认为后边就没数据了
-                    break;
-                }
-
-                var cellType = rowType.GetCell(i);
-                configProperties.Add(new PropertyInfo() { Name = name, Type = cellType.ToString() });
-            }
-
-            GenrateConfigClass(configProperties, fileName);
-            GenerateConfigJson(configProperties, fileName, sheet);
+            //把xls文件中的数据写入wk中
+            wk = new HSSFWorkbook(fs);
         }
-        catch (Exception e)
+        else
         {
-            Debug.LogError(e.Message);
+            //把xlsx文件中的数据写入wk中
+            wk = new XSSFWorkbook(fs);
         }
+
+        fs.Close();
+
+        //只读第一个Sheet，其他Sheet忽略
+        ISheet sheet = wk.GetSheetAt(0);
+
+        IRow row = sheet.GetRow(1); // 第一行是字段名称
+        IRow rowType = sheet.GetRow(2); // 第二行是字段类型
+        var firstCell = row.GetCell(0);
+        if (firstCell.ToString() != "id") 
+        {
+            Debug.LogError($"导出Configs错误！{fileName}表中第一列不是id！");
+            return;
+        }
+
+        List<PropertyInfo> configProperties = new List<PropertyInfo>();
+        for (int i = 1; i < row.LastCellNum; i++)
+        {
+            var cell = row.GetCell(i);
+            var name = cell.ToString();
+            if (string.IsNullOrEmpty(name)) 
+            {
+                // 不允许中间有空列的，遇到空列认为后边就没数据了
+                break;
+            }
+
+            var cellType = rowType.GetCell(i);
+            configProperties.Add(new PropertyInfo() { Name = name, Type = cellType.ToString() });
+        }
+
+        GenrateConfigClass(configProperties, fileName);
+        GenerateConfigJson(configProperties, fileName, sheet);
     }
 
     private static void GenrateConfigClass(List<PropertyInfo> propertyInfos, string configName) 
@@ -140,6 +133,11 @@ public class EditorUtils
         {
             var row = sheet.GetRow(i);
 
+            if (row == null) 
+            {
+                break;
+            }
+
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
             for (int j = 0; j <= row.LastCellNum; j++)
@@ -156,6 +154,7 @@ public class EditorUtils
                     else 
                     {
                         value = cell.StringCellValue.ToString();
+                        value = value.Replace(@"\", @"\\");
                     }
                 }
                 else

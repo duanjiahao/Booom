@@ -4,7 +4,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一负面1",
     "attributes": 1,
-    "value": 20,
+    "value": -40,
     "isPositive": false,
     "id": 21001
   },
@@ -12,7 +12,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一正面1",
     "attributes": 1,
-    "value": 20,
+    "value": -40,
     "isPositive": true,
     "id": 21101
   },
@@ -20,7 +20,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一负面2",
     "attributes": 1,
-    "value": 50,
+    "value": 24,
     "isPositive": false,
     "id": 21002
   },
@@ -28,7 +28,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一正面2",
     "attributes": 1,
-    "value": 50,
+    "value": 24,
     "isPositive": true,
     "id": 21102
   },
@@ -36,7 +36,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一负面3",
     "attributes": 1,
-    "value": 70,
+    "value": 58,
     "isPositive": false,
     "id": 21003
   },
@@ -44,7 +44,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性一正面3",
     "attributes": 1,
-    "value": 70,
+    "value": 58,
     "isPositive": true,
     "id": 21103
   },
@@ -52,7 +52,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二负面1",
     "attributes": 2,
-    "value": 30,
+    "value": -32,
     "isPositive": false,
     "id": 22001
   },
@@ -60,7 +60,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二正面1",
     "attributes": 2,
-    "value": 30,
+    "value": -32,
     "isPositive": true,
     "id": 22101
   },
@@ -68,7 +68,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二负面2",
     "attributes": 2,
-    "value": 60,
+    "value": 41,
     "isPositive": false,
     "id": 22002
   },
@@ -76,7 +76,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二正面2",
     "attributes": 2,
-    "value": 60,
+    "value": 41,
     "isPositive": true,
     "id": 22102
   },
@@ -84,7 +84,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二负面3",
     "attributes": 2,
-    "value": 90,
+    "value": 72,
     "isPositive": false,
     "id": 22003
   },
@@ -92,7 +92,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性二正面3",
     "attributes": 2,
-    "value": 90,
+    "value": 72,
     "isPositive": true,
     "id": 22103
   },
@@ -100,7 +100,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三负面1",
     "attributes": 3,
-    "value": 10,
+    "value": -28,
     "isPositive": false,
     "id": 23001
   },
@@ -108,7 +108,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三正面1",
     "attributes": 3,
-    "value": 10,
+    "value": -28,
     "isPositive": true,
     "id": 23101
   },
@@ -116,7 +116,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三负面2",
     "attributes": 3,
-    "value": 35,
+    "value": 33,
     "isPositive": false,
     "id": 23002
   },
@@ -124,7 +124,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三正面2",
     "attributes": 3,
-    "value": 35,
+    "value": 33,
     "isPositive": true,
     "id": 23102
   },
@@ -132,7 +132,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三负面3",
     "attributes": 3,
-    "value": 75,
+    "value": 88,
     "isPositive": false,
     "id": 23003
   },
@@ -140,7 +140,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性三正面3",
     "attributes": 3,
-    "value": 75,
+    "value": 88,
     "isPositive": true,
     "id": 23103
   },
@@ -148,7 +148,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四负面1",
     "attributes": 4,
-    "value": 45,
+    "value": -24,
     "isPositive": false,
     "id": 24001
   },
@@ -156,7 +156,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四正面1",
     "attributes": 4,
-    "value": 45,
+    "value": -24,
     "isPositive": true,
     "id": 24101
   },
@@ -164,7 +164,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四负面2",
     "attributes": 4,
-    "value": 65,
+    "value": 20,
     "isPositive": false,
     "id": 24002
   },
@@ -172,7 +172,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四正面2",
     "attributes": 4,
-    "value": 65,
+    "value": 20,
     "isPositive": true,
     "id": 24102
   },
@@ -180,7 +180,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四负面3",
     "attributes": 4,
-    "value": 85,
+    "value": 49,
     "isPositive": false,
     "id": 24003
   },
@@ -188,7 +188,7 @@
     "$type": "EffectAxisConfig, Assembly-CSharp",
     "name": "属性四正面3",
     "attributes": 4,
-    "value": 85,
+    "value": 49,
     "isPositive": true,
     "id": 24103
   }

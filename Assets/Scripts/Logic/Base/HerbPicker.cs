@@ -45,9 +45,10 @@ public class HerbPicker : IHerbPicker
 
         var canPickHerbList = ConfigManager.Instance.GetConfigListWithFilter<HerbsConfig>((config)=> 
         {
+            var collectionTimeList = new List<int>(config.collectionTime);
             return DataManager.Instance.Day >= config.unlockDate 
             && DataManager.Instance.Prestige >= config.collectionPrestige 
-            && DataManager.Instance.CurrentTime == (TimeOfDay)config.collectionTime;
+            && collectionTimeList.Contains((int)DataManager.Instance.CurrentTime);
         });
 
         List<HerbRawItem> HerbRawItemList = new List<HerbRawItem>();
