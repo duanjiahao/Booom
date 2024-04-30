@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 16521967}
   - component: {fileID: 16521966}
   m_Layer: 5
-  m_Name: BackpackCanvas
+  m_Name: BackpackUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,6 +243,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &378179712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378179714}
+  m_Layer: 0
+  m_Name: HerbDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378179714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378179712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1185.2554, y: 437.3703, z: -7.550284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500069135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491239370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a3c2854bbe446b5b405400b97593bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6948e4b9de33e43c79563232c78545c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PagingRoot: {fileID: 0}
@@ -1200,7 +1231,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1573665921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a4b5a267bdf42209e5f913eda998ab, type: 3}
+  m_Script: {fileID: 11500000, guid: e9498f9abec1f411d86f5b10618da563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PagingRoot: {fileID: 0}
@@ -1238,3 +1269,4 @@ SceneRoots:
   - {fileID: 1421770030}
   - {fileID: 16521970}
   - {fileID: 887124625}
+  - {fileID: 378179714}

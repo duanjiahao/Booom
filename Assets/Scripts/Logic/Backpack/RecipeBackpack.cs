@@ -40,6 +40,8 @@ public class RecipeBackpack : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
+                //获取icon对象的赋值方法
+                tempItem.GetComponentInChildren<RecipeIconImage>().SetData(data);
                 Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
                 nameText.text = data.Name;
             }
