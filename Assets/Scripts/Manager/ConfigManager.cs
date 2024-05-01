@@ -25,6 +25,10 @@ public class ConfigManager : SingleMono<ConfigManager>
         }
     }
 
+    public override void Begin()
+    {
+        NPCGeneratorFactory.GetNPCGenerator().GenerateARandomNPC();
+    }
     public T GetConfig<T>(int id) where T : BaseConfig
     {
         var configName = typeof(T).Name;

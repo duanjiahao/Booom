@@ -56,7 +56,7 @@ public class NPCUnit
         }
         _npcConfig = npcGroupConfigList[CommonUtils.RollRange(weights)[0]];
 
-        var needId = _npcConfig.needGroups[Random.Range(0, _npcConfig.needGroups.Length - 1)];
+        var needId = _npcConfig.needGroups[Random.Range(0, _npcConfig.needGroups.Length)];
 
         _npcNeedDialogConfig = ConfigManager.Instance.GetConfig<NPCNeedDialogueConfig>(needId);
 
@@ -83,7 +83,7 @@ public class NPCUnit
 
         while (avoidCandidateList.Count > 0) 
         {
-            var index = Random.Range(0, avoidCandidateList.Count - 1);
+            var index = Random.Range(0, avoidCandidateList.Count);
             var avoidCandidate = avoidCandidateList[index];
             avoidCandidateList.RemoveAt(index);
 
