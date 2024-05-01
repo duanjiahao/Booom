@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class RecipeIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+//药方slot，用于给药方slot赋值，以及实现与弹窗的连接
+public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //触发药方弹窗
     public GameObject InfoPanelObj;

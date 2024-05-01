@@ -45,7 +45,7 @@ public class HerbInfoPanel : MonoBehaviour
             else
             {
                 _attributeList[i].text = "";
-                _attributeImgList[i].sprite = Resources.Load<Sprite>("Arts/UI/创建药方界面/二三级界面/tips/icon_未知");
+                _attributeImgList[i].sprite = Resources.Load<Sprite>("Dynamic/icon_未知");
             }
         }
 
