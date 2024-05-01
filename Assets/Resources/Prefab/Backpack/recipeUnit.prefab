@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoPanelObj: {fileID: 709941598310712807, guid: 23177fc51864044cab6cf8766bc01134, type: 3}
+  GiveRecipe: {fileID: 8389998639361747255, guid: dc558b933dc5344e9ba61dadd7150342, type: 3}
 --- !u!114 &1362479323832443497
 MonoBehaviour:
   m_ObjectHideFlags: 0

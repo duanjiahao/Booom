@@ -8,33 +8,48 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     //触发药方弹窗
     public GameObject InfoPanelObj;
-    private GameObject tempItem;
+
+    private GameObject PanelItem;
+    private GameObject GiveItem;
     public RecipeItem data;
+    private Button BtRecipe;
     // Start is called before the first frame update
     void Start()
     {
-        tempItem = Instantiate(
+        
+        //药方按钮绑定事件
+        BtRecipe = this.GetComponent<Button>();
+        BtRecipe.onClick.AddListener(() =>
+        {
+            OnRecipeClicked();
+        });
+        //药方信息弹窗初始化
+        PanelItem = Instantiate(
 InfoPanelObj,
 transform.position,
-Quaternion.identity,transform
+Quaternion.identity, transform
 );
-        tempItem.SetActive(false); // Hide the tooltip window
+        PanelItem.SetActive(false); // Hide the tooltip window
+    }
+    private void OnRecipeClicked()
+    {
+        //GiveItem.transform.position = new Vector3(transform.position.x, transform.position.y + 200, transform.position.z);
+        //GiveItem.SetActive(true);
+        //PanelItem.SetActive(false);
+
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tempItem.GetComponent<RecipeInfoPanel>().Init();
-        Debug.Log(data.Name);
+        PanelItem.GetComponent<RecipeInfoPanel>().Init();
         SetInfoData(data);
-        tempItem.transform.position = this.transform.position;
-        tempItem.SetActive(true);  // Show the tooltip window
-        
-        // Update tooltip information based on the item in this slot
+        PanelItem.transform.position = new Vector3(transform.position.x, transform.position.y + 200, transform.position.z);
+        PanelItem.SetActive(true);  // Show the tooltip window
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
-        tempItem.SetActive(false);  // Hide the tooltip window
+
+        PanelItem.SetActive(false);  // Hide the tooltip window
     }
     public void SetData(RecipeItem data)
     {
@@ -43,7 +58,7 @@ Quaternion.identity,transform
     private void SetInfoData(RecipeItem data)
     {
         Debug.Log(data.Name);
-        tempItem.GetComponent<RecipeInfoPanel>().SetInfoPanelData(data);
+        PanelItem.GetComponent<RecipeInfoPanel>().SetInfoPanelData(data);
     }
 
 }

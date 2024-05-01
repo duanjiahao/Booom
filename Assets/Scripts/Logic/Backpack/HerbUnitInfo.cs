@@ -26,7 +26,7 @@ Quaternion.identity, transform
     {
         tempItem.GetComponent<HerbInfoPanel>().Init();
         SetInfoData(data);
-        tempItem.transform.position = this.transform.position;
+        tempItem.transform.position = new Vector3(transform.position.x, transform.position.y + 200, transform.position.z);
         tempItem.SetActive(true);  // Show the tooltip window
 
     }

@@ -15,6 +15,8 @@ public class jiekePanel : MonoBehaviour
     private Text NPCPrestige;
     private Text NeedText;
     private Text AvoidText;
+    private Text avoidDialogue;
+    private Text needDialogue;
     private Image NPCImage;
     private bool HaveAnotherNPC = false;
     //跳转到别的界面
@@ -35,6 +37,8 @@ public class jiekePanel : MonoBehaviour
         NPCName = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "NPCName");
         NPCPrestige = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "NPCPrestige");
         NeedText = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "NeedText");
+        avoidDialogue = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "avoidDialogue");
+        needDialogue = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "needDialogue");
         AvoidText = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "AvoidText");
         NPCImage = UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "NPCImage");
     }
@@ -77,8 +81,26 @@ public class jiekePanel : MonoBehaviour
         NPCUnit npc = NPCDataManager.Instance.GetNewNPC();
         NPCName.text = npc.Name;
         NPCPrestige.text = npc._npcConfig.prestigeLevel[0].ToString();
-        NeedText.text = npc._npcNeedDialogConfig.desc;
-        AvoidText.text = npc._npcAvoidDialogConfig.desc;
+        needDialogue.text = npc._npcNeedDialogConfig.desc;
+        avoidDialogue.text = npc._npcAvoidDialogConfig.desc;
+        //正面需求
+        List<string> needStrings = new List<string>();
+        foreach (var item in npc._needEffectIds)
+        {
+            EffectAxisConfig effect = ConfigManager.Instance.GetConfig<EffectAxisConfig>(item);
+            needStrings.Add(effect.name); 
+        }
+        string result1 = string.Join("\n", needStrings); // 使用空字符串作为分隔符
+        NeedText.text = result1;
+        //负面禁忌
+        List<string> avoidStrings = new List<string>();
+        foreach (var item in npc._avoidEffectIds)
+        {
+            EffectAxisConfig effect = ConfigManager.Instance.GetConfig<EffectAxisConfig>(item);
+            avoidStrings.Add(effect.name);
+        }
+        string result2 = string.Join("\n", avoidStrings); // 使用空字符串作为分隔符
+        AvoidText.text = result2;
         Debug.Log(npc.ImgPath);
     }
     private void OpenBook()

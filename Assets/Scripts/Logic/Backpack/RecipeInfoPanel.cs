@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using FindFunc;
 using UnityEngine.UI;
-public class RecipeInfoPanel : MonoBehaviour
+using UnityEngine.EventSystems;
+//药方tips窗口，仅用于显示，不做任何操作
+public class RecipeInfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject PagingRoot;
-    public Button BtCreate;
-    public Button BtDelete;
     public Text RecipeName;
     public GameObject HerbUnitPrefab;
     public GameObject EffectUnitPrefab;
@@ -26,8 +26,6 @@ public class RecipeInfoPanel : MonoBehaviour
         //<组件类型>（根节点,查询名称）
         //组件类型：是非GameObject的其他组件
         //查询名称：最好同名，这样以后方便维护
-        BtCreate = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtCreate");
-        BtDelete = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtDelete");
         RecipeName = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "RecipeName");
 
     }
@@ -36,17 +34,6 @@ public class RecipeInfoPanel : MonoBehaviour
     {
         HerbUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanelComponents/herbItem");
         EffectUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanelComponents/effectItem");
-        
-        BtCreate.onClick.AddListener(() =>
-        {
-            RecipeDataManager.Instance.UseRecipe(1001);
-
-        });
-        BtDelete.onClick.AddListener(() =>
-        {
-            RecipeDataManager.Instance.AddRecipe(1001);
-
-        });
         if (_herbList == null)
         {
             _herbList = new List<GameObject>();
@@ -57,9 +44,18 @@ public class RecipeInfoPanel : MonoBehaviour
         }
 
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+        this.gameObject.SetActive(true);  // Show the tooltip window
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+        this.gameObject.SetActive(false);  // Hide the tooltip window
+    }
     public void SetInfoPanelData(RecipeItem data)
     {
-        Debug.Log(data.Name);
         //药方名
         RecipeName.text = data.Name;
         //添加药方中的药材数据
