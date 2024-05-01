@@ -2,8 +2,8 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "1": {
     "$type": "GeneralSettingsConfig, Assembly-CSharp",
-    "originalPrestige": 500,
-    "prestigeCost": 100,
+    "originalPrestige": 100,
+    "prestigeCost": 30,
     "signTimes": 3,
     "id": 1
   }

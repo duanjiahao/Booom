@@ -2,13 +2,11 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "50001": {
     "$type": "NPCGroupsConfig, Assembly-CSharp",
-    "groupName": "初级1组",
+    "groupName": "一级正需求1",
     "prestigeLevel": [
-      30,
-      50,
-      70,
-      90,
-      100
+      10,
+      12,
+      14
     ],
     "needGroups": [
       31001
@@ -21,6 +19,9 @@
     "imageGroups": [
       "1"
     ],
+    "HeadGroups": [
+      "1"
+    ],
     "unlockPrestige": 0,
     "gender": 0,
     "weights": 20,
@@ -28,11 +29,11 @@
   },
   "50002": {
     "$type": "NPCGroupsConfig, Assembly-CSharp",
-    "groupName": "初级2组",
+    "groupName": "一级负需求1",
     "prestigeLevel": [
-      40,
-      60,
-      80
+      16,
+      18,
+      20
     ],
     "needGroups": [
       32001
@@ -45,6 +46,9 @@
     "imageGroups": [
       "1"
     ],
+    "HeadGroups": [
+      "1"
+    ],
     "unlockPrestige": 50,
     "gender": 1,
     "weights": 20,
@@ -52,11 +56,11 @@
   },
   "51001": {
     "$type": "NPCGroupsConfig, Assembly-CSharp",
-    "groupName": "中级1组",
+    "groupName": "二级正需求1",
     "prestigeLevel": [
-      150,
-      180,
-      200
+      22,
+      24,
+      26
     ],
     "needGroups": [
       31001,
@@ -70,6 +74,9 @@
     "imageGroups": [
       "1"
     ],
+    "HeadGroups": [
+      "1"
+    ],
     "unlockPrestige": 120,
     "gender": 0,
     "weights": 50,
@@ -77,11 +84,11 @@
   },
   "51002": {
     "$type": "NPCGroupsConfig, Assembly-CSharp",
-    "groupName": "中级2组",
+    "groupName": "一级正需求1*2",
     "prestigeLevel": [
-      220,
-      240,
-      260
+      22,
+      24,
+      26
     ],
     "needGroups": [
       31001,
@@ -96,9 +103,147 @@
     "imageGroups": [
       "1"
     ],
+    "HeadGroups": [
+      "1"
+    ],
     "unlockPrestige": 180,
     "gender": 1,
     "weights": 100,
     "id": 51002
+  },
+  "52001": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "一级双需求",
+    "prestigeLevel": [
+      28,
+      30,
+      32
+    ],
+    "needGroups": [
+      31001
+    ],
+    "avoidGroups": [
+      41001,
+      41002,
+      42001
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "HeadGroups": [
+      "1"
+    ],
+    "unlockPrestige": 0,
+    "gender": 0,
+    "weights": 20,
+    "id": 52001
+  },
+  "52002": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "一二级双需求",
+    "prestigeLevel": [
+      34,
+      36,
+      38
+    ],
+    "needGroups": [
+      32001
+    ],
+    "avoidGroups": [
+      41001,
+      41002,
+      42001
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "HeadGroups": [
+      "1"
+    ],
+    "unlockPrestige": 50,
+    "gender": 1,
+    "weights": 20,
+    "id": 52002
+  },
+  "53001": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "二级双需求",
+    "prestigeLevel": [
+      40,
+      42,
+      44
+    ],
+    "needGroups": [
+      31001,
+      32001
+    ],
+    "avoidGroups": [
+      41001,
+      41002,
+      42001
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "HeadGroups": [
+      "1"
+    ],
+    "unlockPrestige": 120,
+    "gender": 0,
+    "weights": 50,
+    "id": 53001
+  },
+  "53002": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "三一级需求",
+    "prestigeLevel": [
+      46,
+      48
+    ],
+    "needGroups": [
+      31001,
+      32001,
+      33001
+    ],
+    "avoidGroups": [
+      41001,
+      41002,
+      42001
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "HeadGroups": [
+      "1"
+    ],
+    "unlockPrestige": 180,
+    "gender": 1,
+    "weights": 100,
+    "id": 53002
+  },
+  "54001": {
+    "$type": "NPCGroupsConfig, Assembly-CSharp",
+    "groupName": "三混合需求",
+    "prestigeLevel": [
+      50
+    ],
+    "needGroups": [
+      31001
+    ],
+    "avoidGroups": [
+      41001,
+      41002,
+      42001
+    ],
+    "imageGroups": [
+      "1"
+    ],
+    "HeadGroups": [
+      "1"
+    ],
+    "unlockPrestige": 0,
+    "gender": 0,
+    "weights": 20,
+    "id": 54001
   }
 }

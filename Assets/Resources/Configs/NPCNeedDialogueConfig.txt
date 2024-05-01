@@ -2,7 +2,7 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "31001": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "我需要效果21101",
+    "desc": "我需要效果<color=BD69FF>21101</c>",
     "needID1": 21101,
     "needID2": 0,
     "needID3": 0,
@@ -13,7 +13,7 @@
   },
   "32001": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "我需要效果21101和22101",
+    "desc": "我需要效果<color=2E89FF>21101</c>和<color=FF57A1>22101</c>",
     "needID1": 21101,
     "needID2": 22101,
     "needID3": 0,

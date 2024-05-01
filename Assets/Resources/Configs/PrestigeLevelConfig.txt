@@ -13,9 +13,9 @@
   "90002": {
     "$type": "PrestigeLevelConfig, Assembly-CSharp",
     "levelName": "末流庸医",
-    "lowerLimit": 500,
+    "lowerLimit": 100,
     "herbsTypeCount": [
-      3,
+      2,
       4
     ],
     "id": 90002
@@ -23,30 +23,30 @@
   "90003": {
     "$type": "PrestigeLevelConfig, Assembly-CSharp",
     "levelName": "村野乡医",
-    "lowerLimit": 1000,
+    "lowerLimit": 300,
     "herbsTypeCount": [
       3,
-      5
+      4
     ],
     "id": 90003
   },
   "90004": {
     "$type": "PrestigeLevelConfig, Assembly-CSharp",
     "levelName": "宫廷御医",
-    "lowerLimit": 1500,
+    "lowerLimit": 500,
     "herbsTypeCount": [
-      4,
-      6
+      3,
+      5
     ],
     "id": 90004
   },
   "90005": {
     "$type": "PrestigeLevelConfig, Assembly-CSharp",
     "levelName": "一代名医",
-    "lowerLimit": 2000,
+    "lowerLimit": 1000,
     "herbsTypeCount": [
       4,
-      7
+      5
     ],
     "id": 90005
   }

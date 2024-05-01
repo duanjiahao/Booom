@@ -19,10 +19,10 @@
       2
     ],
     "collectionPrestige": 0,
-    "collectionWeights": 10,
+    "collectionWeights": 50,
     "rewardWeight": [
-      5,
-      10
+      40,
+      55
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1001",
     "heapPath1": "Arts\\Icon\\Heap\\1001a",
@@ -32,7 +32,7 @@
   },
   "1002": {
     "$type": "HerbsConfig, Assembly-CSharp",
-    "name": "雪花八角",
+    "name": "熔岩玫瑰",
     "desc": "描述2",
     "attribute1": 0,
     "isAttribute1visible": true,
@@ -49,10 +49,10 @@
       2
     ],
     "collectionPrestige": 0,
-    "collectionWeights": 100,
+    "collectionWeights": 50,
     "rewardWeight": [
-      9,
-      10
+      40,
+      55
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1002",
     "heapPath1": "Arts\\Icon\\Heap\\1002a",
@@ -81,8 +81,8 @@
     "collectionPrestige": 0,
     "collectionWeights": 50,
     "rewardWeight": [
-      2,
-      100
+      40,
+      55
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1003",
     "heapPath1": "Arts\\Icon\\Heap\\1003a",
@@ -92,7 +92,7 @@
   },
   "1004": {
     "$type": "HerbsConfig, Assembly-CSharp",
-    "name": "熔岩玫瑰",
+    "name": "雪花八角",
     "desc": "描述4",
     "attribute1": -1,
     "isAttribute1visible": false,
@@ -111,8 +111,8 @@
     "collectionPrestige": 0,
     "collectionWeights": 50,
     "rewardWeight": [
-      45,
-      50
+      40,
+      55
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1004",
     "heapPath1": "Arts\\Icon\\Heap\\1004a",
@@ -137,11 +137,11 @@
       1,
       2
     ],
-    "collectionPrestige": 100,
+    "collectionPrestige": 200,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      30,
+      45
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1005",
     "heapPath1": "Arts\\Icon\\Heap\\1005a",
@@ -166,11 +166,11 @@
       1,
       2
     ],
-    "collectionPrestige": 100,
+    "collectionPrestige": 200,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      30,
+      45
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1006",
     "heapPath1": "Arts\\Icon\\Heap\\1006a",
@@ -196,11 +196,11 @@
       1,
       2
     ],
-    "collectionPrestige": 100,
+    "collectionPrestige": 200,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      30,
+      45
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1007",
     "heapPath1": "Arts\\Icon\\Heap\\1007a",
@@ -225,11 +225,11 @@
       0,
       1
     ],
-    "collectionPrestige": 100,
+    "collectionPrestige": 200,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      30,
+      45
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1008",
     "heapPath1": "Arts\\Icon\\Heap\\1008a",
@@ -254,11 +254,11 @@
       1,
       2
     ],
-    "collectionPrestige": 200,
+    "collectionPrestige": 300,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      25,
+      40
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1009",
     "heapPath1": "Arts\\Icon\\Heap\\1009a",
@@ -283,11 +283,11 @@
       1,
       2
     ],
-    "collectionPrestige": 200,
+    "collectionPrestige": 300,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      25,
+      40
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1010",
     "heapPath1": "Arts\\Icon\\Heap\\1010a",
@@ -312,11 +312,11 @@
       0,
       2
     ],
-    "collectionPrestige": 200,
+    "collectionPrestige": 300,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      25,
+      40
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1011",
     "heapPath1": "Arts\\Icon\\Heap\\1011a",
@@ -342,11 +342,11 @@
       1,
       2
     ],
-    "collectionPrestige": 200,
+    "collectionPrestige": 300,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      25,
+      40
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1012",
     "heapPath1": "Arts\\Icon\\Heap\\1012a",
@@ -366,16 +366,16 @@
     "isAttribute3visible": false,
     "attribute4": -2,
     "isAttribute4visible": false,
-    "unlockDate": 8,
+    "unlockDate": 7,
     "collectionTime": [
       1,
       2
     ],
-    "collectionPrestige": 400,
+    "collectionPrestige": 500,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      20,
+      35
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1013",
     "heapPath1": "Arts\\Icon\\Heap\\1013a",
@@ -395,16 +395,16 @@
     "isAttribute3visible": false,
     "attribute4": 0,
     "isAttribute4visible": true,
-    "unlockDate": 8,
+    "unlockDate": 7,
     "collectionTime": [
       0,
       1
     ],
-    "collectionPrestige": 400,
+    "collectionPrestige": 500,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      20,
+      35
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1014",
     "heapPath1": "Arts\\Icon\\Heap\\1014a",
@@ -424,16 +424,16 @@
     "isAttribute3visible": true,
     "attribute4": 3,
     "isAttribute4visible": true,
-    "unlockDate": 8,
+    "unlockDate": 7,
     "collectionTime": [
       1,
       2
     ],
-    "collectionPrestige": 400,
+    "collectionPrestige": 500,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      20,
+      35
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1015",
     "heapPath1": "Arts\\Icon\\Heap\\1015a",
@@ -453,16 +453,16 @@
     "isAttribute3visible": true,
     "attribute4": 2,
     "isAttribute4visible": false,
-    "unlockDate": 8,
+    "unlockDate": 7,
     "collectionTime": [
       0,
       2
     ],
-    "collectionPrestige": 400,
+    "collectionPrestige": 500,
     "collectionWeights": 50,
     "rewardWeight": [
-      40,
-      80
+      20,
+      35
     ],
     "iconPath": "Arts\\Icon\\Herbs\\1016",
     "heapPath1": "Arts\\Icon\\Heap\\1016a",

@@ -2,7 +2,7 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "21001": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一负面1",
+    "name": "四肢无力",
     "attributes": 1,
     "value": -40,
     "isPositive": false,
@@ -10,7 +10,7 @@
   },
   "21101": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一正面1",
+    "name": "安神去躁",
     "attributes": 1,
     "value": -40,
     "isPositive": true,
@@ -18,7 +18,7 @@
   },
   "21002": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一负面2",
+    "name": "头晕目眩",
     "attributes": 1,
     "value": 24,
     "isPositive": false,
@@ -26,7 +26,7 @@
   },
   "21102": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一正面2",
+    "name": "提神醒脑",
     "attributes": 1,
     "value": 24,
     "isPositive": true,
@@ -34,7 +34,7 @@
   },
   "21003": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一负面3",
+    "name": "失眠不寐",
     "attributes": 1,
     "value": 58,
     "isPositive": false,
@@ -42,7 +42,7 @@
   },
   "21103": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性一正面3",
+    "name": "充沛活力",
     "attributes": 1,
     "value": 58,
     "isPositive": true,
@@ -50,7 +50,7 @@
   },
   "22001": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二负面1",
+    "name": "听力下降",
     "attributes": 2,
     "value": -32,
     "isPositive": false,
@@ -58,7 +58,7 @@
   },
   "22101": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二正面1",
+    "name": "提振食欲",
     "attributes": 2,
     "value": -32,
     "isPositive": true,
@@ -66,7 +66,7 @@
   },
   "22002": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二负面2",
+    "name": "心悸体虚",
     "attributes": 2,
     "value": 41,
     "isPositive": false,
@@ -74,7 +74,7 @@
   },
   "22102": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二正面2",
+    "name": "平息静气",
     "attributes": 2,
     "value": 41,
     "isPositive": true,
@@ -82,7 +82,7 @@
   },
   "22003": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二负面3",
+    "name": "抑郁烦闷",
     "attributes": 2,
     "value": 72,
     "isPositive": false,
@@ -90,7 +90,7 @@
   },
   "22103": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性二正面3",
+    "name": "养神安眠",
     "attributes": 2,
     "value": 72,
     "isPositive": true,
@@ -98,7 +98,7 @@
   },
   "23001": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三负面1",
+    "name": "盗汗口干",
     "attributes": 3,
     "value": -28,
     "isPositive": false,
@@ -106,7 +106,7 @@
   },
   "23101": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三正面1",
+    "name": "清热泻火",
     "attributes": 3,
     "value": -28,
     "isPositive": true,
@@ -114,7 +114,7 @@
   },
   "23002": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三负面2",
+    "name": "咽肿喉痛",
     "attributes": 3,
     "value": 33,
     "isPositive": false,
@@ -122,7 +122,7 @@
   },
   "23102": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三正面2",
+    "name": "四体不寒",
     "attributes": 3,
     "value": 33,
     "isPositive": true,
@@ -130,7 +130,7 @@
   },
   "23003": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三负面3",
+    "name": "暴躁易怒",
     "attributes": 3,
     "value": 88,
     "isPositive": false,
@@ -138,7 +138,7 @@
   },
   "23103": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性三正面3",
+    "name": "精神大振",
     "attributes": 3,
     "value": 88,
     "isPositive": true,
@@ -146,7 +146,7 @@
   },
   "24001": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四负面1",
+    "name": "口苦嘴臭",
     "attributes": 4,
     "value": -24,
     "isPositive": false,
@@ -154,7 +154,7 @@
   },
   "24101": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四正面1",
+    "name": "固表止汗",
     "attributes": 4,
     "value": -24,
     "isPositive": true,
@@ -162,7 +162,7 @@
   },
   "24002": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四负面2",
+    "name": "风寒流涕",
     "attributes": 4,
     "value": 20,
     "isPositive": false,
@@ -170,7 +170,7 @@
   },
   "24102": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四正面2",
+    "name": "解暑止泻",
     "attributes": 4,
     "value": 20,
     "isPositive": true,
@@ -178,7 +178,7 @@
   },
   "24003": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四负面3",
+    "name": "头疼欲裂",
     "attributes": 4,
     "value": 49,
     "isPositive": false,
@@ -186,7 +186,7 @@
   },
   "24103": {
     "$type": "EffectAxisConfig, Assembly-CSharp",
-    "name": "属性四正面3",
+    "name": "健脾养胃",
     "attributes": 4,
     "value": 49,
     "isPositive": true,
