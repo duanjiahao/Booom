@@ -2,51 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//药方信息窗口
+using FindFunc;
+//药材信息窗口
 public class HerbInfoPanel : MonoBehaviour
 {
+    public GameObject PagingRoot;
     private Text _herbName;
     private Text _herbDesc;
-    public GameObject textPrefab;
-    private List<GameObject> _textList;
-    private GameObject tempItem;
-    // Start is called before the first frame update
-    void Start()
+    private List<Text> _attributeList = new List<Text>();
+    private List<Image> _attributeImgList = new List<Image>();
+    private void Awake()
     {
-
+        PagingRoot = this.gameObject;
     }
-
     public void Init()
     {
         _herbName = transform.Find("HerbName").GetComponent<Text>();
         _herbDesc = transform.Find("description").GetComponent<Text>();
-        if (_textList==null)
-        {
-            _textList = new List<GameObject>();
-        }
+        //四个属性的数值（用+/-表示）
+        
+        _attributeList.Add(UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "Attribute1Text"));
+        _attributeList.Add(UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "Attribute2Text"));
+        _attributeList.Add(UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "Attribute3Text"));
+        _attributeList.Add(UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "Attribute4Text"));
+        //四个属性的图片
+        _attributeImgList.Add(UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "Attribute1Img"));
+        _attributeImgList.Add(UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "Attribute2Img"));
+        _attributeImgList.Add(UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "Attribute3Img"));
+        _attributeImgList.Add(UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "Attribute4Img"));
 
     }
     public void SetHerbInfo(HerbItem data)
     {
         _herbName.text = data.HerbConfig.name;
         _herbDesc.text = data.HerbConfig.desc;
-        if (_textList.Count != 0)
+        for(int i = 0; i < 4; i++)
         {
-            foreach(var item in _textList)
+            if (data.IsVisible[i])
             {
-                Destroy(item);
+                _attributeList[i].text = data.AttributeList[i].ToString();
             }
-        }
-        foreach (var dat in data.AttributeList)
-        {
-            tempItem = Instantiate(
-                textPrefab,
-                transform.position,
-                Quaternion.identity,
-                transform.Find("effectList")
-            );
-            tempItem.GetComponent<Text>().text = dat.ToString();
-            _textList.Add(tempItem);
+            else
+            {
+                _attributeList[i].text = "";
+                _attributeImgList[i].sprite = Resources.Load<Sprite>("Arts/UI/创建药方界面/二三级界面/tips/icon_未知");
+            }
         }
 
     }

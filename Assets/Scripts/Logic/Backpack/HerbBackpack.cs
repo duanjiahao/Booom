@@ -47,7 +47,7 @@ public class HerbBackpack : MonoBehaviour
                 //获取icon对象的赋值方法
                 tempItem.GetComponentInChildren<HerbIconImage>().SetData(data);
                 Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-                nameText.text = data.HerbConfig.name;
+                nameText.text = data.Quantity.ToString();
             }
         }
 
