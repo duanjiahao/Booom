@@ -321,7 +321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoPanelObj: {fileID: 709941598310712807, guid: 23177fc51864044cab6cf8766bc01134, type: 3}
-  GiveRecipe: {fileID: 8389998639361747255, guid: dc558b933dc5344e9ba61dadd7150342, type: 3}
 --- !u!114 &1362479323832443497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1227360798686890285}
   - component: {fileID: 3739554349193859751}
+  - component: {fileID: 9010188267811253975}
   m_Layer: 5
   m_Name: recipeUnit
   m_TagString: Untagged
@@ -443,6 +443,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6220798487548261433}
   m_CullTransparentMesh: 1
+--- !u!114 &9010188267811253975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220798487548261433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b7701079ea94ee6bde575d731a932d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8984007723058854994
 GameObject:
   m_ObjectHideFlags: 0
