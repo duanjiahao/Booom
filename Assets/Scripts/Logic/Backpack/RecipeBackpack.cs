@@ -5,6 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using FindFunc;
+//药方背包UI
 public class RecipeBackpack : MonoBehaviour
 {
     public GameObject PagingRoot;

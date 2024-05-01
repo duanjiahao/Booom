@@ -104,6 +104,7 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     public RecipeItem GetRecipeItemByID(int id)
     {
         //根据id查找药材
+        //1，2，3....
         foreach(var item in recipeInventory)
         {
             if (item.ID == id)
