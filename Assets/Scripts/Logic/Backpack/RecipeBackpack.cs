@@ -41,7 +41,7 @@ public class RecipeBackpack : MonoBehaviour
                 transform
             );
                 //获取icon对象的赋值方法
-                tempItem.GetComponentInChildren<RecipeIconImage>().SetData(data);
+                tempItem.GetComponentInChildren<RecipeUnitInfo>().SetData(data);
                 Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
                 nameText.text = data.Name;
             }

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0b21ea931f74b65a54e79f750f5c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPrefab: {fileID: 1295344582504945892, guid: c160f4b8023b0455280810cffb9892f4, type: 3}
+  PagingRoot: {fileID: 0}
 --- !u!1 &618742042788519161
 GameObject:
   m_ObjectHideFlags: 0

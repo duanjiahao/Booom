@@ -34,8 +34,8 @@ public class RecipeInfoPanel : MonoBehaviour
 
     public void Init()
     {
-        HerbUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanel/herbItem");
-        EffectUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanel/effectItem");
+        HerbUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanelComponents/herbItem");
+        EffectUnitPrefab = Resources.Load<GameObject>("Prefab/Backpack/InfoPanelComponents/effectItem");
         
         BtCreate.onClick.AddListener(() =>
         {

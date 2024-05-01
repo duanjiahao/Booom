@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-//触发药材弹窗
-public class HerbIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+//药材slot，用于给slot赋值，以及实现与弹窗的连接
+public class HerbUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     
     //弹窗预制体
@@ -17,8 +17,9 @@ public class HerbIconImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         tempItem = Instantiate(
 InfoPanelObj,
 transform.position,
-Quaternion.identity,transform
+Quaternion.identity, transform
 );
+        //tempItem = InfoPanelObj;
         tempItem.SetActive(false); // Hide the tooltip window
     }
     public void OnPointerEnter(PointerEventData eventData)

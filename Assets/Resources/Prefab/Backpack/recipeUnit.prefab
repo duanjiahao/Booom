@@ -317,7 +317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5448369200436049684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4963078f8815149dbae4ccd0bbfe1d3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ae0d785512e4804ae87b938bde0717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InfoPanelObj: {fileID: 709941598310712807, guid: 23177fc51864044cab6cf8766bc01134, type: 3}
@@ -361,7 +361,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5404192202106329843}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
