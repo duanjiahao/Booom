@@ -5,18 +5,21 @@ using UnityEngine.UI;
 using FindFunc;
 public class jiekePanel : MonoBehaviour
 {
-    public GameObject PagingRoot;
+    private GameObject PagingRoot;
     //Buttons
-    public Button BtRingBell;
-    public Button BtBook;
-    public Button BtGoBackyard;
+    private Button BtRingBell;
+    private Button BtBook;
+    private Button BtGoBackyard;
     //NPC info
-    public Text NPCName;
-    public Text NPCPrestige;
-    public Text NeedText;
-    public Text AvoidText;
-    public Image NPCImage;
-    public bool HaveAnotherNPC = false;
+    private Text NPCName;
+    private Text NPCPrestige;
+    private Text NeedText;
+    private Text AvoidText;
+    private Image NPCImage;
+    private bool HaveAnotherNPC = false;
+    //跳转到别的界面
+    public GameObject BookPanel;
+    public GameObject BackyardPanel;
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -38,13 +41,14 @@ public class jiekePanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        BookPanel.SetActive(false);
         BtRingBell.onClick.AddListener(() =>
         {
             OnBellRing();
         });
         BtBook.onClick.AddListener(() =>
         {
+            
             OpenBook();
         });
         BtGoBackyard.onClick.AddListener(() =>
@@ -72,11 +76,20 @@ public class jiekePanel : MonoBehaviour
         //召唤一位新的NPC
         NPCUnit npc = NPCDataManager.Instance.GetNewNPC();
         NPCName.text = npc.Name;
+        NPCPrestige.text = npc._npcConfig.prestigeLevel[0].ToString();
+        NeedText.text = npc._npcNeedDialogConfig.desc;
+        AvoidText.text = npc._npcAvoidDialogConfig.desc;
         Debug.Log(npc.ImgPath);
     }
     private void OpenBook()
     {
-
+        BookPanel.SetActive(true);
+        //重新读取病历数据
+        var info = BookPanel.GetComponent<bookPanel>();
+        if (info != null)
+        {
+            info.InitBookData();
+        }
     }
     private void GoBackyard()
     {
