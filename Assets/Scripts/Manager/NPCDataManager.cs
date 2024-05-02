@@ -45,7 +45,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         nowNPC = tempItem;
         
     }
-   
+    
     public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalEffects)
     {
         //结算npc并添加到列表中
@@ -58,6 +58,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         nowNPC.FinalEffectsList = finalEffects;
         //添加到npc列表中
         _npcs.Add(nowNPC);
+        ClearCurrentNPC();
     }
 
     public void TreatNPC(RecipeItem recipe)
@@ -171,6 +172,18 @@ public class NPCDataManager : Singleton<NPCDataManager>
             default: return basePrestige;
         }
     }
-    
 
+    // 确保nowNPC被正确管理
+    public void ClearCurrentNPC()
+    {
+        nowNPC = null;
+    }
+    // 检查现在是否有客人
+    public bool IsBusy()
+    {
+        if (nowNPC == null)
+            return false;
+        else
+            return true;
+    }
 }

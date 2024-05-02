@@ -76,10 +76,14 @@ public class jiekePanel : MonoBehaviour
             //TODO 加上UI
             Debug.Log("时间太晚了，已经没有客人了");
         }
-        else
+        else if(NPCDataManager.Instance.IsBusy())
         {
             //有客状态
-            HaveAnotherNPC = true;
+            Debug.Log("现在还有其他客人，再等等吧");
+        }
+        else
+        {
+            //叫下一位客人
             GenerateNewNPC();
         }
     }
@@ -113,107 +117,6 @@ public class jiekePanel : MonoBehaviour
     }
     private void GoBackyard()
     {
-        //TODO Test!!!
-        //thisRecipe = RecipeDataManager.Instance.GetRecipeItemByID(1);
-        //Debug.Log(npc.Name);
-        //SetResultData();
     }
-    //private void SetResultData()
-    //{
-    //    int prestige = npc._npcConfig.prestigeLevel[0];
-    //    //将结算数据传回npc datamanager
-    //    switch (CheckResult(thisRecipe,npc))
-    //    {
-    //        case 1:
-    //            prestige = (int)(prestige * 1.5);
-    //            break;
-    //        case 2:
-    //            break;
-    //        case 3:
-    //            prestige = (int)(prestige * -0.5);
-    //            break;
-    //        case 4:
-    //            prestige *= -1;
-    //            break;
-    //    }
-    //    NPCDataManager.Instance.SetNpcInfo(npc, thisRecipe, prestige, SideEffects);
-    //}
-    //private int CheckResult(RecipeItem recipe, NPCUnit npc)
-    //{
-    //    //结算逻辑
-    //    int needResult = 0;
-    //    int avoidResult = 0;
-    //    int sideResult = 0;
-
-    //    if (npc._needEffectIds.Count != 0)
-    //    {
-    //        //需求结算
-    //        foreach(int id in npc._needEffectIds)
-    //        {
-    //            foreach(var effectItem in recipe.EffectList)
-    //            {
-    //                if(effectItem.EffectInfo.id == id)
-    //                {
-    //                    //正面效果计数+1
-    //                    needResult += 1;
-    //                }
-    //            }
-    //        }
-    //    }
-    //    if (npc._avoidEffectIds.Count != 0)
-    //    {
-    //        //禁忌结算
-    //        foreach (int id in npc._avoidEffectIds)
-    //        {
-    //            foreach (var effectItem in recipe.EffectList)
-    //            {
-    //                if (!effectItem.EffectInfo.isPositive)
-    //                {
-    //                    //是负面效果
-    //                    if (effectItem.EffectInfo.id == id)
-    //                    {
-    //                        //禁忌效果计数+1
-    //                        avoidResult += 1;
-    //                    }
-    //                    else
-    //                    {
-    //                        //副作用效果计数+1
-    //                        sideResult += 1;
-    //                        if (effectItem.IsVisible)
-    //                        {
-    //                            //效果可见时才添加到最终显示的副作用列表里
-    //                            SideEffects.Add(effectItem);
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //    if (avoidResult > 0)
-    //    {
-    //        //结局D：触犯禁忌
-    //        return 4;
-    //    }
-    //    else
-    //    {
-    //        if (needResult == npc._needEffectIds.Count)
-    //        {
-    //            if (sideResult==0)
-    //            {
-    //                //A:完全治愈
-    //                return 1;
-    //            }
-    //            else
-    //            {
-    //                //B:治愈但有其他不良反应
-    //                return 2;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            //C:未能治愈
-    //            return 3;
-    //        }
-    //    }
-    //}
+    
 }
