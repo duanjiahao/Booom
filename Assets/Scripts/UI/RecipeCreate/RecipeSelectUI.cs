@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class RecipeSelectUI : MonoBehaviour
 {
@@ -26,8 +27,102 @@ public class RecipeSelectUI : MonoBehaviour
 
     public Button createBtn;
 
-    public void RefreshUI() 
-    {
+    private int _currentNum;
 
+    private RecipeItem _recipeItem;
+
+    private void OnEnable()
+    {
+        upBtn.onClick.AddListener(OnUpBtnClicked);
+        downBtn.onClick.AddListener(OnDownBtnClicked);
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
+        delBtn.onClick.AddListener(OnDelBtnClicked);
+        createBtn.onClick.AddListener(OnCreateBtnClicked);
+    }
+
+    private void OnCreateBtnClicked()
+    {
+    }
+
+    private void OnDelBtnClicked()
+    {
+    }
+
+    private void OnSliderValueChanged(float value)
+    {
+        var valueInt = (int)value;
+
+        if (_currentNum == valueInt) 
+        {
+            return;
+        }
+
+        RefreshItem();
+    }
+
+    private void OnDownBtnClicked()
+    {
+        slider.value = _currentNum - 1;
+    }
+
+    private void OnUpBtnClicked()
+    {
+        slider.value = _currentNum + 1;
+    }
+
+    private void OnDisable()
+    {
+        upBtn.onClick.RemoveListener(OnUpBtnClicked);
+        downBtn.onClick.RemoveListener(OnDownBtnClicked);
+        slider.onValueChanged.RemoveListener(OnSliderValueChanged);
+        delBtn.onClick.RemoveListener(OnDelBtnClicked);
+        createBtn.onClick.RemoveListener(OnCreateBtnClicked);
+    }
+
+    public void RefreshUI(RecipeItem recipeItem) 
+    {
+        _recipeItem = recipeItem;
+
+        name.text = recipeItem.Name;
+
+        int maxNumber = int.MaxValue;
+        for (int i = 0; i < recipeItem.HerbList?.Count; i++)
+        {
+            var herb = recipeItem.HerbList[i];
+            var hasWeight = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId)?.Quantity ?? 0;
+
+            var number = hasWeight / herb.Weight;
+            maxNumber = Mathf.Min(maxNumber, number);
+        }
+
+        var minNumb = 1;
+        var maxNumb = Mathf.Max(1, maxNumber);
+
+        slider.wholeNumbers = true;
+        slider.minValue = minNumb;
+        slider.maxValue = maxNumb;
+        _currentNum = minNumb;
+
+        RefreshItem();
+    }
+
+    public void RefreshItem() 
+    {
+        num.text = _currentNum.ToString();
+
+        for (int i = 0; i < _recipeItem.HerbList?.Count; i++) 
+        {
+            var herb = _recipeItem.HerbList[i];
+            if (herbNeedItemContainer.childCount > i)
+            {
+                var item = herbNeedItemContainer.GetChild(i);
+                item.GetComponent<HerbNeedItem>().RefreshUI(herb, _currentNum);
+            }
+            else 
+            {
+                var item = Instantiate(Resources.Load<GameObject>("Prefab/HerbCreate/HerbNeedItem"), herbNeedItemContainer);
+                item.GetComponent<HerbNeedItem>().RefreshUI(herb, _currentNum);
+            }
+        }
     }
 }

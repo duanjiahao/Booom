@@ -3145,6 +3145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629798463188017082}
+  - component: {fileID: 4782078035005831885}
   m_Layer: 5
   m_Name: RecipeSelect
   m_TagString: Untagged
@@ -3176,6 +3177,28 @@ RectTransform:
   m_AnchoredPosition: {x: 460, y: -290}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4782078035005831885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062946146764665008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21b4d040e8587b4f84f26c6b1bf24d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 6587482194374244509}
+  herbNeedItemContainer: {fileID: 3657853925776959324}
+  slider: {fileID: 8088744726313985518}
+  upBtn: {fileID: 6893545979573945521}
+  downBtn: {fileID: 3198931848723716840}
+  minNum: {fileID: 4483488919106811591}
+  maxNum: {fileID: 8858877005103078867}
+  num: {fileID: 6772377355574487172}
+  delBtn: {fileID: 8040252341552203492}
+  createBtn: {fileID: 5451210366691858348}
 --- !u!1 &4082178087980870018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,10 +3993,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 5880824855332170485}
   m_HandleRect: {fileID: 1203809424753788870}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 1
   m_MaxValue: 6
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4399,7 +4422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7619736405306072441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4661,6 +4684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1229421451995344685}
+  - component: {fileID: 4887437314658152026}
   m_Layer: 5
   m_Name: RecipeCreateWindow
   m_TagString: Untagged
@@ -4694,6 +4718,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4887437314658152026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355501122585508819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc8a432703058642811ed99c8bdb182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributeUIs:
+  - {fileID: 7496083103579786062}
+  - {fileID: 606201748796506790}
+  - {fileID: 3655509455462977779}
+  - {fileID: 8760328208821510693}
+  backyardBtn: {fileID: 5614423709515413553}
+  toggleHerb: {fileID: 7582671204199006649}
+  toggleRecipe: {fileID: 2511773758523442912}
+  shelves: {fileID: 1942857148428729339}
+  content: {fileID: 4284370727647906298}
+  herbSelectUI: {fileID: 3302873298937594644}
+  recipeSelectUI: {fileID: 4782078035005831885}
 --- !u!1 &5400193209063783036
 GameObject:
   m_ObjectHideFlags: 0

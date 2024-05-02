@@ -19,23 +19,11 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
         recipeInventory.Add(recipeItem2);
     }
 
-    public void AddRecipe(int id)
+    public void CreateRecipe(int id, string name, int num, List<HerbRecipeInfo> infos)
     {
         //添加药方
-        //var tempItem = new RecipeItem();
-        //foreach(var item in GetAllRecipeItems())
-        //{
-        //    if(item.ID == id)
-        //    {
-        //        tempItem = item;
-        //        Debug.Log("you have increased a recipe's quantity:" + GetRecipeItemByID(id).Name);
-        //    }
-        //}
-        //if (tempItem != null)
-        //{
-        //    recipeInventory.Add(tempItem);
-        //}
-        
+        var tempItem = new RecipeItem(id, name, num, infos);
+        recipeInventory.Add(tempItem);
     }
     public void UseRecipe(int id)
     {
@@ -71,13 +59,14 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     public void DeleteRecipe(int id)
     {
         ////删除药方
-        //foreach (var item in recipeInventory)
-        //{
-        //    if (item.ID == id)
-        //    {
-        //        recipeInventory.Remove(item);
-        //    }
-        //}
+        foreach (var item in recipeInventory)
+        {
+            if (item.Id == id)
+            {
+                recipeInventory.Remove(item);
+                break;
+            }
+        }
     }
     public List<RecipeItem> GetAllRecipeItems()
     {
@@ -88,13 +77,13 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     {
         //根据id查找药材
         //1，2，3....
-        //foreach(var item in recipeInventory)
-        //{
-        //    if (item.ID == id)
-        //    {
-        //        return item;
-        //    }
-        //}
+        foreach (var item in recipeInventory)
+        {
+            if (item.Id == id)
+            {
+                return item;
+            }
+        }
         return null;
     }
 }

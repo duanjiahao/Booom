@@ -112,6 +112,8 @@ public static class CommonUtils
     {
         switch (digit)
         {
+            case 0:
+                return "零";
             case 1:
                 return "一";
             case 2:
