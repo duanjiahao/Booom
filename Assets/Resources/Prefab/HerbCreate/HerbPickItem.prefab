@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5401461301594950409}
   - component: {fileID: 4434834827317609759}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: num
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3146318643295499938}
+  - component: {fileID: 9139262106482844123}
   m_Layer: 5
   m_Name: HerbPickItem
   m_TagString: Untagged
@@ -247,6 +248,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 203, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9139262106482844123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039003779618912777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d2c88ce7b3adf4495a632d9411e0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 5265956488257771373}
+  num: {fileID: 4434834827317609759}
+  name: {fileID: 1879908854453832262}
 --- !u!1 &3683549948871508480
 GameObject:
   m_ObjectHideFlags: 0

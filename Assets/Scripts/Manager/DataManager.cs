@@ -14,6 +14,14 @@ public enum TimeOfDay
     Count = 7,
 }
 
+public enum EffectAttributeType 
+{
+    Yang = 1,
+    Yin = 2,
+    Re  = 3,
+    Han = 4,
+}
+
 public class DataManager : Singleton<DataManager>
 {
     public TimeOfDay CurrentTime { get; private set; }

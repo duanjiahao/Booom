@@ -56,4 +56,84 @@ public static class CommonUtils
 
         return currentConfig;
     }
+
+    public static string GetWeightStr(int weight) 
+    {
+        if (weight < 10)
+        {
+            return $"{GetChineseNumber(weight)}钱";
+        }
+        else 
+        {
+            var ten = weight / 10;
+            var one = weight % 10;
+            if (ten <= 10)
+            {
+                if (one == 0)
+                {
+                    return $"{GetChineseNumber(ten)}两";
+                }
+                else
+                {
+                    return $"{GetChineseNumber(ten)}两{one}钱";
+                }
+            }
+            else 
+            {
+                var hun = ten / 10;
+                var left = ten % 10;
+                if (hun == 1)
+                {
+                    if (one == 0)
+                    {
+                        return $"{GetChineseNumber(10)}{GetChineseNumber(left)}两";
+                    }
+                    else
+                    {
+                        return $"{GetChineseNumber(10)}{GetChineseNumber(left)}两{one}钱";
+                    }
+                }
+                else 
+                {
+                    if (one == 0)
+                    {
+                        return $"{GetChineseNumber(hun)}十{GetChineseNumber(left)}两";
+                    }
+                    else
+                    {
+                        return $"{GetChineseNumber(hun)}十{GetChineseNumber(left)}两{one}钱";
+                    }
+                }
+            }
+        }
+    }
+
+    public static string GetChineseNumber(int digit) 
+    {
+        switch (digit)
+        {
+            case 1:
+                return "一";
+            case 2:
+                return "二";
+            case 3:
+                return "三";
+            case 4:
+                return "四";
+            case 5:
+                return "五";
+            case 6:
+                return "六";
+            case 7:
+                return "七";
+            case 8:
+                return "八";
+            case 9:
+                return "九";
+            case 10:
+                return "十";
+            default:
+                return "？";
+        }
+    }
 }
