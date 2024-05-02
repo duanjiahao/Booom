@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public class NPCItem
 {
@@ -29,7 +30,6 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //获得一个新的npc
         var npcGenerator = NPCGeneratorFactory.GetNPCGenerator();
         NPCUnit npc = npcGenerator.GenerateARandomNPC();
-        //_npcs.Add(npc);
         return npc;
     }
 
@@ -42,37 +42,34 @@ public class NPCDataManager : Singleton<NPCDataManager>
     {
         NPCItem tempItem = new NPCItem();
         tempItem.NpcUnit = unit;
-        _npcs.Add(tempItem);
         nowNPC = tempItem;
+        
     }
-    public void SetNpcInfo(NPCUnit unit, RecipeItem recipe, int prestige, List<EffectInfoData> finalEffects)
+   
+    public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalEffects)
     {
-        //完成一个任务后结算，将npc数据计入
-        NPCItem tempItem = new NPCItem();
-        tempItem.NpcUnit = unit;
-        tempItem.GivenRecipe = recipe;
-        tempItem.FinalPrestige = prestige;
-        tempItem.FinalEffectsList = finalEffects;
-        //_npcs.Add(tempItem);
-        nowNPC = null;
+        //结算npc并添加到列表中
+        if (nowNPC == null)
+        {
+            Debug.LogError("No current NPC to update.");
+            return;
+        }
+        nowNPC.FinalPrestige = prestige;
+        nowNPC.FinalEffectsList = finalEffects;
+        //添加到npc列表中
+        _npcs.Add(nowNPC);
     }
+
     public void TreatNPC(RecipeItem recipe)
     {
         //给npc药
-        if (_npcs != null)
+        if (nowNPC == null)
         {
-            //TODO nowNPC赋值有问题
-            Debug.Log("now npc is :" + nowNPC.NpcUnit.Name);
-            nowNPC.GivenRecipe = recipe;
-            //foreach (var npc in _npcs)
-            //{
-            //    if (npc.NpcUnit.Name.Equals(nowNPC.NpcUnit.Name))
-            //    {
-            //        npc.GivenRecipe = recipe;
-            //    }
-            //}
+            Debug.LogError("No NPC available to treat.");
+            return;
         }
-        
+        nowNPC.GivenRecipe = recipe;
+        Debug.Log("now npc is treated with :" + recipe.Name);
     }
     public List<string> GetNeedText(NPCUnit npc)
     {
@@ -98,107 +95,82 @@ public class NPCDataManager : Singleton<NPCDataManager>
         }
         return avoidStrings;
     }
-    private void SetResultData()
-    {
-        
-    }
+
     public void CheckResult()
     {
-        //结算逻辑
-        int needResult = 0;
-        int avoidResult = 0;
-        int sideResult = 0;
-        //结算副作用列表
-        List<EffectInfoData> SideEffects = new List<EffectInfoData>();
-        if (nowNPC.NpcUnit._needEffectIds.Count != 0)
-        {
-            //需求结算
-            foreach (int id in nowNPC.NpcUnit._needEffectIds)
-            {
-                foreach (var effectItem in nowNPC.GivenRecipe.GetEffectList())
-                {
-                    if (effectItem.EffectAxisConfig.id == id)
-                    {
-                        //正面效果计数+1
-                        needResult += 1;
-                    }
-                }
-            }
-        }
-        if (nowNPC.NpcUnit._avoidEffectIds.Count != 0)
-        {
-            //禁忌结算
-            foreach (int id in nowNPC.NpcUnit._avoidEffectIds)
-            {
-                foreach (var effectItem in nowNPC.GivenRecipe.GetEffectList())
-                {
-                    if (!effectItem.EffectAxisConfig.isPositive)
-                    {
-                        //是负面效果
-                        if (effectItem.EffectAxisConfig.id == id)
-                        {
-                            //禁忌效果计数+1
-                            avoidResult += 1;
-                        }
-                        else
-                        {
-                            //副作用效果计数+1
-                            sideResult += 1;
-                            if (effectItem.IsVisible)
-                            {
-                                //效果可见时才添加到最终显示的副作用列表里
-                                SideEffects.Add(effectItem);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        int endResult;
-        if (avoidResult > 0)
-        {
-            //结局D：触犯禁忌
-            endResult = 4;
-        }
-        else
-        {
-            if (needResult == nowNPC.NpcUnit._needEffectIds.Count)
-            {
-                if (sideResult == 0)
-                {
-                    //A:完全治愈
-                    endResult = 1;
-                }
-                else
-                {
-                    //B:治愈但有其他不良反应
-                    endResult = 2;
-                }
-            }
-            else
-            {
-                //C:未能治愈
-                endResult = 3;
-            }
-        }
-        //TODO:改成正确声望
-        int prestige = nowNPC.NpcUnit._npcConfig.prestigeLevel[0];
-        //将结算数据传回npc datamanager
-        switch (endResult)
-        {
-            case 1:
-                prestige = (int)(prestige * 1.5);
-                break;
-            case 2:
-                break;
-            case 3:
-                prestige = (int)(prestige * -0.5);
-                break;
-            case 4:
-                prestige *= -1;
-                break;
-        }
-        SetNpcInfo(nowNPC.NpcUnit, nowNPC.GivenRecipe, prestige, SideEffects);
+        //结算流程：计算正面、禁忌、副作用数量并进行结局判断，将声望值和副作用列表赋值给这个npc
+        int needResult = CalculatePositiveEffects();
+        int avoidResult = CalculateNegativeEffects(out List<EffectInfoData> sideEffects);
+
+        int endResult = DetermineOutcome(needResult, avoidResult, sideEffects.Count);
+        int prestige = CalculatePrestige(endResult);
+
+        CompleteNpcInfo(prestige, sideEffects);
     }
+
+    private int CalculatePositiveEffects()
+    {
+        //获取药方达成的正面效果数量
+        int count = 0;
+        var effects = nowNPC.GivenRecipe.GetEffectList();
+        foreach (int id in nowNPC.NpcUnit._needEffectIds)
+        {
+            if (effects.Any(e => e.EffectAxisConfig.id == id))
+                count++;
+        }
+        return count;
+    }
+
+    private int CalculateNegativeEffects(out List<EffectInfoData> sideEffects)
+    {
+        //获取药方达成的负面效果数量
+        int count = 0;
+        sideEffects = new List<EffectInfoData>();
+        var effects = nowNPC.GivenRecipe.GetEffectList();
+        //遍历禁忌列表进行对应
+        foreach (int id in nowNPC.NpcUnit._avoidEffectIds)
+        {
+            foreach (var effect in effects)
+            {
+                //若是负面效果
+                if (!effect.EffectAxisConfig.isPositive)
+                {
+                    //若是禁忌效果则计数
+                    if (effect.EffectAxisConfig.id == id)
+                        count++;
+                    else if (effect.IsVisible)
+                    //若是副作用则添加到副作用列表里
+                        sideEffects.Add(effect);
+                }
+            }
+        }
+        return count;
+    }
+
+    private int DetermineOutcome(int needResult, int avoidResult, int sideResult)
+    {
+        //判断哪种结局
+        if (avoidResult > 0)
+            return 4; // D: 触犯禁忌
+        if (needResult == nowNPC.NpcUnit._needEffectIds.Count)
+            return (sideResult == 0) ? 1 : 2; // A: 完全治愈, B: 治愈但有副作用
+        return 3; // C: 未能治愈
+    }
+
+    private int CalculatePrestige(int outcome)
+    {
+        //计算声望变化
+        //TODO 改成正确的声望
+        int basePrestige = nowNPC.NpcUnit._npcConfig.prestigeLevel[0];
+        switch (outcome)
+        {
+            case 1: return (int)(basePrestige * 1.5);
+            case 2: return basePrestige;
+            case 3: return (int)(basePrestige * -0.5);
+            case 4: return -basePrestige;
+            default: return basePrestige;
+        }
+    }
+    
 
 }
