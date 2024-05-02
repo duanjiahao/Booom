@@ -11,8 +11,8 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     protected override void Init()
     {
         List<HerbRecipeInfo> herbList = new List<HerbRecipeInfo>();
-        herbList.Add(new HerbRecipeInfo() { HerbId = 10001, Weight = 10 }); ;
-        herbList.Add(new HerbRecipeInfo() { HerbId = 10002, Weight = 5 } );
+        herbList.Add(new HerbRecipeInfo() { HerbId = 1001, Weight = 10 }); ;
+        herbList.Add(new HerbRecipeInfo() { HerbId = 1002, Weight = 5 } );
         RecipeItem recipeItem = new RecipeItem(1, "first recipe", 12, herbList);
         recipeInventory.Add(recipeItem);
         RecipeItem recipeItem2 = new RecipeItem(2, "second recipe", 32, herbList);
