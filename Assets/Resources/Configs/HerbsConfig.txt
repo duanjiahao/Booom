@@ -3,7 +3,7 @@
   "1001": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "荧光球草",
-    "desc": "描述1",
+    "desc": "在岩洞中常见的药草，最大的特征是其灯泡一样会发光的种荚。",
     "attribute1": 1,
     "isAttribute1visible": true,
     "attribute2": -1,
@@ -33,7 +33,7 @@
   "1002": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "熔岩玫瑰",
-    "desc": "描述2",
+    "desc": "因其岩浆一般的花瓣花纹而得名，被它茎上的刺刺中会遭受灼烧般的剧痛。",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": 0,
@@ -63,7 +63,7 @@
   "1003": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "黯叶",
-    "desc": "描述3",
+    "desc": "拥有漆黑巨叶的灌木植物，据说其无法进行光合作用，而是直接吸收光能为生。",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": 1,
@@ -93,7 +93,7 @@
   "1004": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "雪花八角",
-    "desc": "描述4",
+    "desc": "长相酷似雪花的八角，待它成熟时在树干上来那么一脚，立刻体验下雪的感觉（就是砸在身上有点疼）。",
     "attribute1": -1,
     "isAttribute1visible": false,
     "attribute2": 0,
@@ -123,7 +123,7 @@
   "1005": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "玉石菇",
-    "desc": "描述5",
+    "desc": "外表如碧玉一般的绿色蘑菇，经常被国宝帮加工成假玉佩并拿去华山论鉴鉴宝。",
     "attribute1": 2,
     "isAttribute1visible": true,
     "attribute2": 0,
@@ -152,7 +152,7 @@
   "1006": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "倒挂蝠草",
-    "desc": "描述6",
+    "desc": "形似倒挂着的蝙蝠，其枝条会攀附到高处倒挂着生长。成熟后会脱落并随风飘扬，吸引大型鸟类捕食。",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": 2,
@@ -181,7 +181,7 @@
   "1007": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "硫磺藓",
-    "desc": "描述7",
+    "desc": "长得像硫磺，闻起来像硫磺，烧起来像硫磺，那他就是硫磺。 —— 刘皇叔",
     "attribute1": 2,
     "isAttribute1visible": true,
     "attribute2": -1,
@@ -211,7 +211,7 @@
   "1008": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "竹节芦苇",
-    "desc": "描述8",
+    "desc": "请看视频【BV1iK4y1W7uD】",
     "attribute1": 1,
     "isAttribute1visible": false,
     "attribute2": 0,
@@ -240,7 +240,7 @@
   "1009": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "仙人皇冠",
-    "desc": "描述9",
+    "desc": "传说是仙人所戴的皇冠，因其频频低头而掉落至凡间。实际上就是一长得难看的草本植物。",
     "attribute1": 2,
     "isAttribute1visible": true,
     "attribute2": 0,
@@ -269,7 +269,7 @@
   "1010": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "死亡一指",
-    "desc": "描述10",
+    "desc": "你发出负能量并贯穿施法距离内你能看见的一个生物使其承受苦痛。该生物必须进行一次体质豁免。",
     "attribute1": -2,
     "isAttribute1visible": false,
     "attribute2": 2,
@@ -298,7 +298,7 @@
   "1011": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "烈焰花",
-    "desc": "描述11",
+    "desc": "看起来就很燃的花，稀有的原因是经常被人当作是山火而踩烂掉，所以最好不要晚上去采。",
     "attribute1": 1,
     "isAttribute1visible": false,
     "attribute2": 0,
@@ -310,7 +310,7 @@
     "unlockDate": 5,
     "collectionTime": [
       0,
-      2
+      1
     ],
     "collectionPrestige": 300,
     "collectionWeights": 50,
@@ -327,7 +327,7 @@
   "1012": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "寒冰菇",
-    "desc": "描述12",
+    "desc": "种下的短暂时间后，对全场僵尸施加冰冻效果和后续的减速效果。",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": 2,
@@ -357,7 +357,7 @@
   "1013": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "黑化藤",
-    "desc": "描述13",
+    "desc": "半吸盘半棘刺的神秘藤蔓，和某个神秘宗教有着密切联系，必须在日落之后的幽暗之处才能找到",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": 3,
@@ -368,7 +368,6 @@
     "isAttribute4visible": false,
     "unlockDate": 7,
     "collectionTime": [
-      1,
       2
     ],
     "collectionPrestige": 500,
@@ -386,7 +385,7 @@
   "1014": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "云长参",
-    "desc": "描述14",
+    "desc": "原意是将人参须画成胡须，结果画成了手脚，现在不如叫大番薯参。",
     "attribute1": 3,
     "isAttribute1visible": true,
     "attribute2": -2,
@@ -415,7 +414,7 @@
   "1015": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "百目莲",
-    "desc": "描述15",
+    "desc": "我苏醒之日……便是你命丧之时……",
     "attribute1": 2,
     "isAttribute1visible": false,
     "attribute2": 1,
@@ -444,7 +443,7 @@
   "1016": {
     "$type": "HerbsConfig, Assembly-CSharp",
     "name": "赤蝶牙",
-    "desc": "描述16",
+    "desc": "非常稀有的高价值药材，长着蝴蝶一般的花瓣与犬齿一般的花蕊。下午的时候会莫名的枯萎。",
     "attribute1": 0,
     "isAttribute1visible": true,
     "attribute2": -1,

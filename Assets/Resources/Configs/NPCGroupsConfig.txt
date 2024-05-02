@@ -17,7 +17,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
       "1"
@@ -44,7 +44,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\103"
     ],
     "HeadGroups": [
       "1"
@@ -72,7 +72,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\105"
     ],
     "HeadGroups": [
       "1"
@@ -101,7 +101,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\106"
     ],
     "HeadGroups": [
       "1"
@@ -128,7 +128,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
       "1"
@@ -155,7 +155,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\103"
     ],
     "HeadGroups": [
       "1"
@@ -183,7 +183,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\105"
     ],
     "HeadGroups": [
       "1"
@@ -211,7 +211,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\106"
     ],
     "HeadGroups": [
       "1"
@@ -236,7 +236,7 @@
       42001
     ],
     "imageGroups": [
-      "1"
+      "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
       "1"
