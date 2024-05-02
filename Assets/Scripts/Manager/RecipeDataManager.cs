@@ -10,91 +10,74 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     public List<EffectAxisConfig> effectInventory = new List<EffectAxisConfig>();
     protected override void Init()
     {
-        base.Init();
-        //读取数据
-        TextAsset effectConfigFile = Resources.Load<TextAsset>("Configs/EffectAxisConfig");
-        string effectText = effectConfigFile.text;
-        if (effectText != null)
-        {
-            //反序列化json
-            var effectDict = JsonConvert.DeserializeObject<Dictionary<int, EffectAxisConfig>>(effectText);
-            effectInventory = new List<EffectAxisConfig>(effectDict.Values);
-//            Debug.Log(effectInventory);
-            //List<EffectAxisConfig> effectList = new List<EffectAxisConfig>(effectDict.Values);
-        }
-        #region 测试
-        List<HerbItem> herbList = new List<HerbItem>();
-        herbList.Add(HerbDataManager.Instance.GetHerbItemByID(1001));
-        herbList.Add(HerbDataManager.Instance.GetHerbItemByID(1002));
-        RecipeItem recipeItem = new RecipeItem();
-        recipeItem.InitItemInfo(1, "first recipe", 12, herbList, effectInventory);
+        List<HerbRecipeInfo> herbList = new List<HerbRecipeInfo>();
+        herbList.Add(new HerbRecipeInfo() { HerbId = 10001, Weight = 10 }); ;
+        herbList.Add(new HerbRecipeInfo() { HerbId = 10002, Weight = 5 } );
+        RecipeItem recipeItem = new RecipeItem(1, "first recipe", 12, herbList);
         recipeInventory.Add(recipeItem);
-        RecipeItem recipeItem2 = new RecipeItem();
-        recipeItem2.InitItemInfo(2, "second recipe", 32, herbList, effectInventory);
+        RecipeItem recipeItem2 = new RecipeItem(2, "second recipe", 32, herbList);
         recipeInventory.Add(recipeItem2);
-        #endregion
-
     }
 
     public void AddRecipe(int id)
     {
         //添加药方
-        var tempItem = new RecipeItem();
-        foreach(var item in GetAllRecipeItems())
-        {
-            if(item.ID == id)
-            {
-                tempItem = item;
-                Debug.Log("you have increased a recipe's quantity:" + GetRecipeItemByID(id).Name);
-            }
-        }
-        if (tempItem != null)
-        {
-            recipeInventory.Add(tempItem);
-        }
+        //var tempItem = new RecipeItem();
+        //foreach(var item in GetAllRecipeItems())
+        //{
+        //    if(item.ID == id)
+        //    {
+        //        tempItem = item;
+        //        Debug.Log("you have increased a recipe's quantity:" + GetRecipeItemByID(id).Name);
+        //    }
+        //}
+        //if (tempItem != null)
+        //{
+        //    recipeInventory.Add(tempItem);
+        //}
         
     }
     public void UseRecipe(int id)
     {
         //给出药方，默认一次只能用一个
         //根据id查找
-        foreach (var item in recipeInventory)
-        {
-            if (item.ID == id)
-            {
-                if (item.Quantity >= 1)
-                {
-                    item.Quantity -= 1;
-                }
+        //foreach (var item in recipeInventory)
+        //{
+        //    if (item.ID == id)
+        //    {
+        //        if (item.Quantity >= 1)
+        //        {
+        //            item.Quantity -= 1;
+        //        }
                 
-            }
-        }
+        //    }
+        //}
     }
     public void CookRecipe(int id)
     {
         //制作药方，默认一次只能制作一个
-        foreach (var item in recipeInventory)
-        {
-            if (item.ID == id)
-            {
-                if (item.Quantity >= 1)
-                {
-                    item.Quantity -= 1;
-                }
+        //foreach (var item in recipeInventory)
+        //{
+        //    if (item.ID == id)
+        //    {
+        //        if (item.Quantity >= 1)
+        //        {
+        //            item.Quantity -= 1;
+        //        }
 
-            }
-        }
+        //    }
+        //}
     }
     public void DeleteRecipe(int id)
     {
-        //删除药方
-        foreach (var item in recipeInventory)
-        {
-            if (item.ID == id)
-            {
-                recipeInventory.Remove(item);
-            }
-        }
+        ////删除药方
+        //foreach (var item in recipeInventory)
+        //{
+        //    if (item.ID == id)
+        //    {
+        //        recipeInventory.Remove(item);
+        //    }
+        //}
     }
     public List<RecipeItem> GetAllRecipeItems()
     {
@@ -105,13 +88,13 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     {
         //根据id查找药材
         //1，2，3....
-        foreach(var item in recipeInventory)
-        {
-            if (item.ID == id)
-            {
-                return item;
-            }
-        }
+        //foreach(var item in recipeInventory)
+        //{
+        //    if (item.ID == id)
+        //    {
+        //        return item;
+        //    }
+        //}
         return null;
     }
 }

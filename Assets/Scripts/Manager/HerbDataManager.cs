@@ -10,47 +10,31 @@ public class HerbDataManager : Singleton<HerbDataManager>
     public List<HerbItem> herbInventory = new List<HerbItem>();
     protected override void Init()
     {
-        base.Init();
-        
-        // 从json中读取数据
-        TextAsset configFile = Resources.Load<TextAsset>("Configs/HerbsConfig");
-        string text = configFile.text;
-        if (text != null)
-        {
-            //反序列化json
-            var herbDict = JsonConvert.DeserializeObject<Dictionary<int, HerbsConfig>>(text);
-            List<HerbsConfig> herbList = new List<HerbsConfig>(herbDict.Values);
-            foreach (var item in herbList)
-            {
-                var obj = new HerbItem();
-                //测试数据
-                obj.InitItemInfo(item,23);
-                //将数据加入列表中
-                herbInventory.Add(obj);
-//                Debug.Log($"Item ID: {item.id}, Name: {item.name}, Description: {item.desc}");
-            }
+        var settings = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1);
 
-        }
-        else
+        for (int i = 0; i < settings.initialHerbs?.Length; i++)
         {
-            Debug.LogError("Failed to load the config file.");
+            var herbId = settings.initialHerbs[i];
+            var num = settings.initialHerbsWeight[i];
+            var herbItem = new HerbItem(herbId, num);
+            herbInventory.Add(herbItem);
         }
     }
     public void AddHerb(int id)
     {
-        //添加药材
-        var tempItem = new HerbItem();
-        foreach (var item in GetAllHerbItems())
-        {
-            if (item.HerbConfig.id == id)
-            {
-                tempItem = item;
-            }
-        }
-        if (tempItem != null)
-        {
-            herbInventory.Add(tempItem);
-        }
+        ////添加药材
+        //var tempItem = new HerbItem();
+        //foreach (var item in GetAllHerbItems())
+        //{
+        //    if (item.HerbConfig.id == id)
+        //    {
+        //        tempItem = item;
+        //    }
+        //}
+        //if (tempItem != null)
+        //{
+        //    herbInventory.Add(tempItem);
+        //}
 
     }
     public void UseHerb(int id, int quantity)

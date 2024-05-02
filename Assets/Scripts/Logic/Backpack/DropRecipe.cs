@@ -55,7 +55,7 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         else
         {
             Debug.Log("do you want to give him" + recipe.Name + "?");
-            RecipeDataManager.Instance.CookRecipe(recipe.ID);
+            RecipeDataManager.Instance.CookRecipe(recipe.Id);
             NPCDataManager.Instance.TreatNPC(recipe);
             NPCDataManager.Instance.CheckResult();
             Destroy(droppedItem);

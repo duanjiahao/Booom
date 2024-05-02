@@ -77,8 +77,8 @@ public class RecipeInfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
             );
             Text herbName = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "herbName");
             Text herbQuan = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "herbQuan");
-            herbName.text = dat.HerbConfig.name;
-            herbQuan.text = dat.Quantity.ToString();
+            herbName.text = ConfigManager.Instance.GetConfig<HerbsConfig>(dat.HerbId).name;
+            herbQuan.text = dat.Weight.ToString();
             _herbList.Add(tempItem);
         }
         //添加药方中的效果数据
@@ -89,7 +89,9 @@ public class RecipeInfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 Destroy(item);
             }
         }
-        foreach (var dat in data.EffectList)
+
+        var effectList = data.GetEffectList();
+        foreach (var dat in effectList)
         {
             tempItem = Instantiate(
                 EffectUnitPrefab,
@@ -98,7 +100,7 @@ public class RecipeInfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 transform.Find("effectList")
             );
             Text effectName = tempItem.GetComponent<Text>();
-            effectName.text = dat.EffectInfo.name;
+            effectName.text = dat.EffectAxisConfig.name;
             _effectList.Add(tempItem);
         }
     }

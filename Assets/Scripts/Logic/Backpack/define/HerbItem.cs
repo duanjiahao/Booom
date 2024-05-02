@@ -10,14 +10,14 @@ public class HerbItem
     public int[] AttributeList { get; set; }
     public bool[] IsVisible { get; set; }
 
-    public void InitItemInfo(HerbsConfig herbConfig, int quantity)
+    public HerbItem(int herbId, int quantity) 
     {
-        this.HerbConfig = herbConfig;
+        this.HerbConfig = ConfigManager.Instance.GetConfig<HerbsConfig>(herbId);
         this.Quantity = quantity;
         this.AttributeList = GetAttribute();
         this.IsVisible = GetVisible();
-
     }
+
     private int[] GetAttribute()
     {
         int[] tempList = { HerbConfig.attribute1, HerbConfig.attribute2,
@@ -31,5 +31,10 @@ public class HerbItem
             HerbConfig.isAttribute3visible, HerbConfig.isAttribute4visible };
 
         return tempList;
+    }
+
+    public bool IsAttributeVisible(EffectAttributeType effectAttributeType) 
+    {
+        return IsVisible[(int)effectAttributeType - 1];
     }
 }

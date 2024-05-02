@@ -136,4 +136,38 @@ public static class CommonUtils
                 return "？";
         }
     }
+
+    public static EffectAxisConfig GetEffectAttributeConfig(EffectAttributeType type, int value) 
+    {
+        var effectAxisConfigList = ConfigManager.Instance.GetConfigListWithFilter<EffectAxisConfig>((con) =>
+        {
+            return con.attributes == (int)type && con.isPositive;
+        }) as List<EffectAxisConfig>;
+
+        effectAxisConfigList.Sort((EffectAxisConfig config, EffectAxisConfig other) => 
+        {
+            return config.value.CompareTo(other.value);
+        });
+
+        EffectAxisConfig EffectAxisConfig = null;
+        for (int i = 0; i < effectAxisConfigList.Count; i++)
+        {
+            var effectValue = effectAxisConfigList[i].value;
+            if (effectValue < 0 && value <= effectValue)
+            {
+                EffectAxisConfig = effectAxisConfigList[i];
+                break;
+            }
+            else if (effectValue > 0)
+            {
+                if (value >= effectValue && (i == effectAxisConfigList.Count - 1) || value < effectAxisConfigList[i + 1].value)
+                {
+                    EffectAxisConfig = effectAxisConfigList[i];
+                    break;
+                }
+            }
+        }
+
+        return EffectAxisConfig;
+    }
 }

@@ -5,6 +5,16 @@
     "originalPrestige": 100,
     "prestigeCost": 30,
     "signTimes": 3,
+    "initialHerbs": [
+      1001,
+      1002,
+      1013
+    ],
+    "initialHerbsWeight": [
+      50,
+      50,
+      50
+    ],
     "id": 1
   }
 }

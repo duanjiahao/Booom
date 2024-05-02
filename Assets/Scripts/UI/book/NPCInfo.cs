@@ -58,7 +58,7 @@ public class NPCInfo : MonoBehaviour
         {
             //选择一个副作用进行显示
             var effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
-            SideEffect.text = effect.EffectInfo.name;
+            SideEffect.text = effect.EffectAxisConfig.name;
         }
 
     }

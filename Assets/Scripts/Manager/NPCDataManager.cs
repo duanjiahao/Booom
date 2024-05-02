@@ -11,7 +11,7 @@ public class NPCItem
     public int FinalPrestige;
     //public int FinalReward;
     //副作用列表
-    public List<EffectItem> FinalEffectsList;
+    public List<EffectInfoData> FinalEffectsList;
 
 }
 //NPC数据管理单例
@@ -45,7 +45,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         _npcs.Add(tempItem);
         nowNPC = tempItem;
     }
-    public void SetNpcInfo(NPCUnit unit, RecipeItem recipe, int prestige, List<EffectItem> finalEffects)
+    public void SetNpcInfo(NPCUnit unit, RecipeItem recipe, int prestige, List<EffectInfoData> finalEffects)
     {
         //完成一个任务后结算，将npc数据计入
         NPCItem tempItem = new NPCItem();
@@ -109,15 +109,15 @@ public class NPCDataManager : Singleton<NPCDataManager>
         int avoidResult = 0;
         int sideResult = 0;
         //结算副作用列表
-        List<EffectItem> SideEffects = new List<EffectItem>();
+        List<EffectInfoData> SideEffects = new List<EffectInfoData>();
         if (nowNPC.NpcUnit._needEffectIds.Count != 0)
         {
             //需求结算
             foreach (int id in nowNPC.NpcUnit._needEffectIds)
             {
-                foreach (var effectItem in nowNPC.GivenRecipe.EffectList)
+                foreach (var effectItem in nowNPC.GivenRecipe.GetEffectList())
                 {
-                    if (effectItem.EffectInfo.id == id)
+                    if (effectItem.EffectAxisConfig.id == id)
                     {
                         //正面效果计数+1
                         needResult += 1;
@@ -130,12 +130,12 @@ public class NPCDataManager : Singleton<NPCDataManager>
             //禁忌结算
             foreach (int id in nowNPC.NpcUnit._avoidEffectIds)
             {
-                foreach (var effectItem in nowNPC.GivenRecipe.EffectList)
+                foreach (var effectItem in nowNPC.GivenRecipe.GetEffectList())
                 {
-                    if (!effectItem.EffectInfo.isPositive)
+                    if (!effectItem.EffectAxisConfig.isPositive)
                     {
                         //是负面效果
-                        if (effectItem.EffectInfo.id == id)
+                        if (effectItem.EffectAxisConfig.id == id)
                         {
                             //禁忌效果计数+1
                             avoidResult += 1;

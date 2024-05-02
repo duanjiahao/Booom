@@ -27,7 +27,7 @@ public class jiekePanel : MonoBehaviour
     //给出的药方
     private RecipeItem thisRecipe;
     //结算副作用列表
-    public List<EffectItem> SideEffects = new List<EffectItem>();
+    public List<EffectInfoData> SideEffects = new List<EffectInfoData>();
     #endregion
     private void Awake()
     {

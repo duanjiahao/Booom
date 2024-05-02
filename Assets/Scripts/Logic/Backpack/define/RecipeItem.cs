@@ -2,82 +2,85 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //药效类
-public class EffectItem
+public class EffectInfoData
 {
-    public EffectAxisConfig EffectInfo;
+    public EffectAxisConfig EffectAxisConfig;
     public bool IsVisible;
 
-    public EffectItem(EffectAxisConfig EffectInfo, bool IsVisible)
+    public EffectInfoData(EffectAxisConfig EffectInfo, bool IsVisible)
     {
-        this.EffectInfo = EffectInfo;
+        this.EffectAxisConfig = EffectInfo;
         this.IsVisible = IsVisible;
     }
 }
+
+public class HerbRecipeInfo 
+{
+    public int HerbId;
+
+    public int Weight;
+}
+
 //药方动态数据
 public class RecipeItem
 {
-    public int ID { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
     
-    public int Quantity { get; set; }
-    public List<HerbItem> HerbList { get; set; }
-    public List<EffectItem> EffectList { get; set; }
+    public int Num { get; set; }
+    public List<HerbRecipeInfo> HerbList { get; set; }
 
-    public void InitItemInfo(int id, string name, int quantity, List<HerbItem> herbList, List<EffectAxisConfig> AllEffectList)
+    public RecipeItem(int id, string name, int number, List<HerbRecipeInfo> herbList) 
     {
-        this.ID = id;
-        this.Name = name;
-        this.Quantity = quantity;
-        this.HerbList = herbList;
-        this.EffectList = GetEffectList(herbList,AllEffectList);
-
+        Id = id;
+        Name = name;
+        Num = number;
+        HerbList = herbList;
     }
-    private List<EffectItem> GetEffectList(List<HerbItem> herbList,List<EffectAxisConfig> allEffects)
+
+    public List<EffectInfoData> GetEffectList()
     {
         //获取药方的效果列表
-        List<EffectItem> effectList = new List<EffectItem>();
+        List<EffectInfoData> effectList = new List<EffectInfoData>();
         bool[] visibleList = { true,true,true,true };
-        int[] attributes = { 0, 0, 0, 0 }; // 假设attribute的索引与effect.attributes的值对应
-        foreach (var herb in herbList)
+        int[] attributes = { 0, 0, 0, 0 };
+        foreach (var herb in HerbList)
         {
+            var herbConfig = ConfigManager.Instance.GetConfig<HerbsConfig>(herb.HerbId);
+            var herbItem = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId);
             //计算四个象限的属性值
-            attributes[0] += herb.HerbConfig.attribute1;
-            attributes[1] += herb.HerbConfig.attribute2;
-            attributes[2] += herb.HerbConfig.attribute3;
-            attributes[3] += herb.HerbConfig.attribute4;
+            attributes[0] += herbConfig.attribute1;
+            attributes[1] += herbConfig.attribute2;
+            attributes[2] += herbConfig.attribute3;
+            attributes[3] += herbConfig.attribute4;
             //效果可见性
-            if (!herb.HerbConfig.isAttribute1visible)
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
             {
                 visibleList[0] = false;
             }
-            if (!herb.HerbConfig.isAttribute2visible)
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
             {
                 visibleList[1] = false;
             }
-            if (!herb.HerbConfig.isAttribute3visible)
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
             {
                 visibleList[2] = false;
             }
-            if (!herb.HerbConfig.isAttribute4visible)
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
             {
                 visibleList[3] = false;
             }
         }
-        foreach (var effect in allEffects)
-        {
-            //和效果表做对比，找到所属的效果并添加进药方的效果表里
-            if (effect.attributes >= 1 && effect.attributes <= 4) // 确保effect.attributes在有效范围内
-            {
-                int relevantAttribute = attributes[effect.attributes - 1]; // 从数组中获取对应的属性值
-                bool shouldAdd = (effect.value >= 0 && relevantAttribute >= effect.value) ||
-                                 (effect.value < 0 && relevantAttribute <= effect.value);
 
-                if (shouldAdd)
-                {
-                    effectList.Add(new EffectItem(effect, visibleList[effect.attributes -1]));
-                }
+        for (int i = 1; i <= 4; i++)
+        {
+            var con = CommonUtils.GetEffectAttributeConfig((EffectAttributeType)i, attributes[i - 1]);
+            if (con != null) 
+            {
+                effectList.Add(new EffectInfoData(con, visibleList[i - 1]));
             }
         }
+
         return effectList;
     }
 }
