@@ -23,7 +23,7 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             OnRecipeClicked();
         });
-        PanelItem = transform.Find("recipeInfoPanel(Clone)").gameObject;
+//        PanelItem = transform.Find("recipeInfoPanel(Clone)").gameObject;
         
         //PanelItem.SetActive(false); // Hide the tooltip window
     }

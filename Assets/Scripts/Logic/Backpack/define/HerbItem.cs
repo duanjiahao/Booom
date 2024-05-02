@@ -37,4 +37,8 @@ public class HerbItem
     {
         return IsVisible[(int)effectAttributeType - 1];
     }
+    public void SetAttributeVisible(EffectAttributeType effectAttributeType)
+    {
+        IsVisible[(int)effectAttributeType - 1] = true;
+    }
 }
