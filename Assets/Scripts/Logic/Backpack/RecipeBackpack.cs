@@ -11,6 +11,8 @@ public class RecipeBackpack : MonoBehaviour
     public GameObject PagingRoot;
     public GameObject RecipePrefab;
     private GameObject tempItem;
+    private List<GameObject> itemList = new List<GameObject>();
+    private List<RecipeItem> recipeInventory = new List<RecipeItem>();
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -30,24 +32,70 @@ public class RecipeBackpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<RecipeItem> recipeInventory = RecipeDataManager.Instance.recipeInventory;
-        if (RecipeDataManager.Instance.GetAllRecipeItems().Count != 0)
+        recipeInventory = RecipeDataManager.Instance.recipeInventory;
+        //if (RecipeDataManager.Instance.GetAllRecipeItems().Count != 0)
+        //{
+        //    foreach (RecipeItem data in recipeInventory)
+        //    {
+        //        tempItem = Instantiate(
+        //        RecipePrefab,
+        //        transform.position,
+        //        Quaternion.identity,
+        //        transform
+        //    );
+        //        //获取icon对象的赋值方法
+        //        tempItem.GetComponentInChildren<RecipeUnitInfo>().SetData(data);
+        //        Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
+        //        nameText.text = data.Name;
+        //    }
+        //}
+        SetNextItems(0, 5);
+
+
+    }
+    public void SetNextItems(int index, int size)
+    {
+        //向后翻页逻辑
+        ClearItemList();
+        int end = Mathf.Min(index + size, recipeInventory.Count);
+        CreateAndDisplayItems(index, end);
+    }
+
+    public void SetPrevItems(int index, int size)
+    {
+        //向前翻页逻辑
+        ClearItemList();
+        int end = Mathf.Min(index + size, recipeInventory.Count);
+        //int start = Mathf.Max(0, index - size);
+        CreateAndDisplayItems(index, end);
+    }
+
+    private void ClearItemList()
+    {
+        //清理列表
+        foreach (var item in itemList)
         {
-            foreach (RecipeItem data in recipeInventory)
-            {
-                tempItem = Instantiate(
+            Destroy(item);
+        }
+        itemList.Clear();
+    }
+
+    private void CreateAndDisplayItems(int start, int end)
+    {
+        //根据起始和结束索引index显示item
+        for (int i = start; i < end; i++)
+        {
+            RecipeItem data = recipeInventory[i];
+            GameObject tempItem = Instantiate(
                 RecipePrefab,
                 transform.position,
                 Quaternion.identity,
                 transform
             );
-                //获取icon对象的赋值方法
-                tempItem.GetComponentInChildren<RecipeUnitInfo>().SetData(data);
-                Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
-                nameText.text = data.Name;
-            }
+            tempItem.GetComponentInChildren<RecipeUnitInfo>().SetData(data);
+            itemList.Add(tempItem);
+            Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
+            nameText.text = data.Name;
         }
-
-
     }
 }

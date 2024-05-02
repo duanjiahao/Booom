@@ -61,6 +61,8 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //给npc药
         if (_npcs != null)
         {
+            //TODO nowNPC赋值有问题
+            Debug.Log("now npc is :" + nowNPC.NpcUnit.Name);
             nowNPC.GivenRecipe = recipe;
             //foreach (var npc in _npcs)
             //{

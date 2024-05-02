@@ -23,13 +23,9 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             OnRecipeClicked();
         });
-        //药方信息弹窗初始化
-        PanelItem = Instantiate(
-InfoPanelObj,
-transform.position,
-Quaternion.identity, transform
-);
-        PanelItem.SetActive(false); // Hide the tooltip window
+        PanelItem = transform.Find("recipeInfoPanel(Clone)").gameObject;
+        
+        //PanelItem.SetActive(false); // Hide the tooltip window
     }
     private void OnRecipeClicked()
     {
@@ -40,6 +36,15 @@ Quaternion.identity, transform
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //药方信息弹窗初始化
+        if (!PanelItem)
+        {
+            PanelItem = Instantiate(
+InfoPanelObj,
+transform.position,
+Quaternion.identity, transform
+);
+        }
         PanelItem.GetComponent<RecipeInfoPanel>().Init();
         SetInfoData(data);
         PanelItem.transform.position = new Vector3(transform.position.x, transform.position.y + 200, transform.position.z);

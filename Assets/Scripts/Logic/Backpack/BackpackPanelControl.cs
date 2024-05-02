@@ -11,10 +11,14 @@ public class BackpackPanelControl : MonoBehaviour
     private Button BtHerb;
     private GameObject recipePanel;
     private GameObject herbPanel;
+    private string nowPanel;
     private Button BtPrev;
     private Button BtNext;
-    public RectTransform container; // 这是你的HerbsContainer
-    public float scrollAmount; // 每次翻页移动的距离
+    //当前的物体索引
+    private int currentRecipeIndex = 0;
+    private int currentHerbIndex = 0;
+    //一次翻页的物体数量
+    private int itemSize = 5;
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -38,14 +42,16 @@ public class BackpackPanelControl : MonoBehaviour
     {
         recipePanel = transform.Find("recipeList").gameObject;
         herbPanel = transform.Find("herbList").gameObject;
-        recipePanel.SetActive(true);
-        herbPanel.SetActive(false);
+        recipePanel.SetActive(false);
+        herbPanel.SetActive(true);
+        nowPanel = "herbPanel";
         BtRecipe.onClick.AddListener(() =>
             {
                 if (!recipePanel.activeSelf)
                 {
                     recipePanel.SetActive(true);
                     herbPanel.SetActive(false);
+                    nowPanel = "recipePanel";
                 }
                 
             });
@@ -55,6 +61,7 @@ public class BackpackPanelControl : MonoBehaviour
             {
                 herbPanel.SetActive(true);
                 recipePanel.SetActive(false);
+                nowPanel = "herbPanel";
             }
 
         });
@@ -74,23 +81,75 @@ public class BackpackPanelControl : MonoBehaviour
     {
 
     }
-    
+
 
     private void MoveLeft()
     {
-        if (container.localPosition.x < 0)
-            container.localPosition += new Vector3(scrollAmount, 0, 0);
+        switch (nowPanel)
+        {
+            case "recipePanel":
+                transform.Find("herbList").GetComponent<RecipeBackpack>().SetPrevItems(currentRecipeIndex, itemSize);
+                if (currentRecipeIndex - itemSize >= 0)
+                {
+                    currentRecipeIndex -= itemSize;
+                }
+                break;
+            case "herbPanel":
+                Debug.Log("prev:" + currentHerbIndex);
+                transform.Find("herbList").GetComponent<HerbBackpack>().SetPrevItems(currentHerbIndex, itemSize);
+                if (currentHerbIndex - itemSize >= 0)
+                {
+                    currentHerbIndex -= itemSize;
+                    Debug.Log("prev11:" + currentHerbIndex);
+                }
+                break;
+        }
     }
 
     private void MoveRight()
     {
-        if (container.localPosition.x > -GetMaxScrollAmount())
-            container.localPosition -= new Vector3(scrollAmount, 0, 0);
+        switch (nowPanel)
+        {
+            case "recipePanel":
+                transform.Find("recipeList").GetComponent<RecipeBackpack>().SetNextItems(currentRecipeIndex, itemSize);
+                if (currentRecipeIndex + itemSize < RecipeDataManager.Instance.GetAllRecipeItems().Count)
+                {
+                    currentRecipeIndex += itemSize;
+                }
+                break;
+            case "herbPanel":
+                Debug.Log("next:" + currentHerbIndex);
+                transform.Find("herbList").GetComponent<HerbBackpack>().SetNextItems(currentHerbIndex, itemSize);
+                if (currentHerbIndex + itemSize < HerbDataManager.Instance.GetAllHerbItems().Count)
+                {
+                    currentHerbIndex += itemSize;
+                    Debug.Log("next11:" + currentHerbIndex);
+                }
+                break;
+        }
     }
 
-    private float GetMaxScrollAmount()
-    {
-        // 这里应该计算Container可移动的最大距离，依据内容总宽度和视图宽度计算
-        return container.rect.width - GetComponent<RectTransform>().rect.width;
-    }
+    //private void MoveLeft()
+    //{
+    //    if (nowPanel == "herbPanel" && currentHerbIndex - itemSize >= 0)
+    //    {
+    //        Debug.Log("prev:" + currentHerbIndex);
+    //        transform.Find("herbList").GetComponent<HerbBackpack>().SetPrevItems(currentHerbIndex, itemSize);
+    //        currentHerbIndex -= itemSize;
+    //        Debug.Log("prev11:" + currentHerbIndex);
+    //    }
+    //}
+
+    //private void MoveRight()
+    //{
+    //    if (nowPanel == "herbPanel" && currentHerbIndex + itemSize < HerbDataManager.Instance.GetAllHerbItems().Count)
+    //    {
+    //        Debug.Log("next:" + currentHerbIndex);
+    //        transform.Find("herbList").GetComponent<HerbBackpack>().SetNextItems(currentHerbIndex, itemSize);
+    //        currentHerbIndex += itemSize;
+    //        Debug.Log("next11:" + currentHerbIndex);
+    //    }
+    //}
+
+
 }

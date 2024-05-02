@@ -13,6 +13,8 @@ public class HerbBackpack : MonoBehaviour
     public GameObject PagingRoot;
     public GameObject HerbPrefab;
     private GameObject tempItem;
+    private List<HerbItem> herbInventory = new List<HerbItem>();
+    private List<GameObject> itemList = new List<GameObject>();
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -32,26 +34,55 @@ public class HerbBackpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<HerbItem> herbInventory = HerbDataManager.Instance.GetAllHerbItems();
-        if (herbInventory.Count != 0)
+        herbInventory = HerbDataManager.Instance.GetAllHerbItems();
+        //显示前五个
+        SetNextItems(0, 5);
+
+    }
+    public void SetNextItems(int index, int size)
+    {
+        //向后翻页逻辑
+        ClearItemList();
+        int end = Mathf.Min(index + size, herbInventory.Count);
+        CreateAndDisplayItems(index, end);
+    }
+
+    public void SetPrevItems(int index, int size)
+    {
+        //向前翻页逻辑
+        ClearItemList();
+        int end = Mathf.Min(index + size, herbInventory.Count);
+        //int start = Mathf.Max(0, index - size);
+        CreateAndDisplayItems(index, end);
+    }
+
+    private void ClearItemList()
+    {
+        //清理列表
+        foreach (var item in itemList)
         {
-            //实例化每个slot
-            foreach (HerbItem data in herbInventory)
-            {
-                tempItem = Instantiate(
+            Destroy(item);
+        }
+        itemList.Clear();
+    }
+
+    private void CreateAndDisplayItems(int start, int end)
+    {
+        //根据起始和结束索引index显示item
+        for (int i = start; i < end; i++)
+        {
+            HerbItem data = herbInventory[i];
+            GameObject tempItem = Instantiate(
                 HerbPrefab,
                 transform.position,
                 Quaternion.identity,
                 transform
             );
-                //获取icon对象的赋值方法
-                tempItem.GetComponentInChildren<HerbUnitInfo>().SetData(data);
-                Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-                nameText.text = data.Quantity.ToString();
-            }
+            tempItem.GetComponentInChildren<HerbUnitInfo>().SetData(data);
+            itemList.Add(tempItem);
+            Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
+            nameText.text = data.Quantity.ToString();
         }
-
-
     }
 
 }

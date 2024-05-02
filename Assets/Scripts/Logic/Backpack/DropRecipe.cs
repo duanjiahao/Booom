@@ -30,11 +30,17 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         // 从 eventData 获取拖拽的对象
-        droppedItem = eventData.pointerDrag;
-        droppedItem.transform.position = eventData.pointerEnter.transform.position;
+        Debug.Log(eventData.pointerDrag.name);
+        droppedItem = Instantiate(eventData.pointerDrag, transform.root);
+        droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
+        //droppedItem = eventData.pointerDrag;
+        //Debug.Log(eventData.pointerDrag.name);
         if (droppedItem != null)
         {
             Debug.Log(droppedItem.name);
+            droppedItem.transform.position = eventData.pointerEnter.transform.position;
+            //TODO没有获取到数据
+            
             recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
             
         }
@@ -44,6 +50,7 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         if (recipe == null)
         {
             Debug.LogError("no recipe right now");
+            //Destroy(droppedItem);
         }
         else
         {

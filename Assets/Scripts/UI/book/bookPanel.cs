@@ -85,6 +85,8 @@ public class bookPanel : MonoBehaviour
 
             foreach(var npc in npcList)
             {
+                Debug.Log(npc.NpcUnit.Name);
+                Debug.Log(npc.GivenRecipe.Name);
                 npcItem = Instantiate(
 npcUnitPrefab,
 transform.position,
@@ -92,6 +94,7 @@ Quaternion.identity, transform.Find("NPCList")
 );
                 prefabList.Add(npcItem);
                 //需求列表赋值
+                
                 npcItem.GetComponent<NPCInfo>().SetNPCInfo(npc);
             }
         }
