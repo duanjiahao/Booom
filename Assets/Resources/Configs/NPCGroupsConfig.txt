@@ -20,7 +20,7 @@
       "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\101"
     ],
     "unlockPrestige": 0,
     "gender": 0,
@@ -47,7 +47,7 @@
       "Arts\\NPC\\Body\\103"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\103"
     ],
     "unlockPrestige": 50,
     "gender": 1,
@@ -75,7 +75,7 @@
       "Arts\\NPC\\Body\\105"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\105"
     ],
     "unlockPrestige": 120,
     "gender": 0,
@@ -104,7 +104,7 @@
       "Arts\\NPC\\Body\\106"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\106"
     ],
     "unlockPrestige": 180,
     "gender": 1,
@@ -131,7 +131,7 @@
       "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\101"
     ],
     "unlockPrestige": 0,
     "gender": 0,
@@ -158,7 +158,7 @@
       "Arts\\NPC\\Body\\103"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\103"
     ],
     "unlockPrestige": 50,
     "gender": 1,
@@ -186,7 +186,7 @@
       "Arts\\NPC\\Body\\105"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\105"
     ],
     "unlockPrestige": 120,
     "gender": 0,
@@ -214,7 +214,7 @@
       "Arts\\NPC\\Body\\106"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\106"
     ],
     "unlockPrestige": 180,
     "gender": 1,
@@ -239,7 +239,7 @@
       "Arts\\NPC\\Body\\101"
     ],
     "HeadGroups": [
-      "1"
+      "Arts\\NPC\\Head\\101"
     ],
     "unlockPrestige": 0,
     "gender": 0,
