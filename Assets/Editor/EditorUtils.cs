@@ -160,7 +160,7 @@ public class EditorUtils
                 else
                 {
                     // 直接读取值
-                    value = cell.ToString();
+                    value = cell.ToString().Replace(@"\", @"\\");
                 }
                 if (string.IsNullOrEmpty(value))
                 {
