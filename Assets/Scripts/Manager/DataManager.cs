@@ -30,6 +30,8 @@ public class DataManager : Singleton<DataManager>
 
     public int Prestige { get; private set; }
 
+    public int SignTimes { get; set; }
+
 
     protected override void Init()
     {
@@ -37,6 +39,8 @@ public class DataManager : Singleton<DataManager>
         Prestige = 0;
         Day = 1;
         CurrentTime = TimeOfDay.Morning_1;
+        SignTimes = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1).signTimes;
+
     }
 
     public void MoveToNextTime() 
@@ -46,6 +50,7 @@ public class DataManager : Singleton<DataManager>
         if (CurrentTime == TimeOfDay.Morning_1) 
         {
             Day++;
+            SignTimes = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1).signTimes;
             Notification.Instance.Notify(Notification.NextDay);
         }
 

@@ -8,8 +8,6 @@ public class bookPanel : MonoBehaviour
 {
     private GameObject PagingRoot;
     private Button BtExit;
-    private Button BtPrev;
-    private Button BtNext;
     //文字信息
     private Text totalDay;
     private Text currentDay;
@@ -18,6 +16,14 @@ public class bookPanel : MonoBehaviour
     private GameObject npcUnitPrefab;
     private GameObject npcItem;
     private List<GameObject> prefabList = new List<GameObject>();
+    //翻页功能
+    //当前的npc索引
+    private int currentNPCIndex = 0;
+    private int end;
+    //一次翻页的物体数量
+    private int itemSize = 3;
+    public Toggle toggleUp;  // 向上翻页的Toggle
+    public Toggle toggleDown; // 向下翻页的Toggle
     private void Awake()
     {
         //在Awake中需要赋值，也可以是别的根节点
@@ -28,8 +34,6 @@ public class bookPanel : MonoBehaviour
     void FindInfo()
     {
         BtExit = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtExit");
-        BtPrev = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtPrev");
-        BtNext = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtNext");
         totalDay = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "totalDay");
         currentDay = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "currentDay");
         totalGuest = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "totalGuestNumber");
@@ -42,61 +46,77 @@ public class bookPanel : MonoBehaviour
         {
             PagingRoot.SetActive(false);
         });
-        BtPrev.onClick.AddListener(() =>
-        {
-            OnPrevBtClicked();
-        });
-        BtNext.onClick.AddListener(() =>
-        {
-            OnNextBtClicked();
-        });
     }
+
     public void RefreshBookData()
     {
-        //刷新病历数据
-        Debug.Log(DataManager.Instance.Day.ToString());
-        Debug.Log(NPCDataManager.Instance.GetNPCs().Count.ToString());
+        // 刷新病历数据
         currentDay.text = "第" + DataManager.Instance.Day.ToString() + "日";
         totalDay.text = "共" + DataManager.Instance.Day.ToString() + "日";
         totalGuest.text = NPCDataManager.Instance.GetNPCs().Count.ToString();
-        ShowNPCData();
-    }
-    private void OnPrevBtClicked()
-    {
 
+        // 重新计算end值并显示第一页
+        currentNPCIndex = 0; // 每次刷新时重置到第一页
+        DisplayNPCItems(currentNPCIndex);
+        UpdateToggleStates();
     }
-    private void OnNextBtClicked()
-    {
 
-    }
-    public void ShowNPCData()
+    public void OnToggleUp()
     {
-        List<NPCItem> npcList = NPCDataManager.Instance.GetNPCs();
+        // 向前翻页逻辑
+        if (currentNPCIndex - itemSize >= 0)
+        {
+            currentNPCIndex -= itemSize;
+            DisplayNPCItems(currentNPCIndex);
+            Debug.Log("Moved back: Current index: " + currentNPCIndex);
+        }
+        UpdateToggleStates();
+    }
+
+    public void OnToggleDown()
+    {
+        // 向后翻页逻辑
+        if (currentNPCIndex + itemSize < NPCDataManager.Instance.GetNPCs().Count)
+        {
+            currentNPCIndex += itemSize;
+            DisplayNPCItems(currentNPCIndex);
+            Debug.Log("Moved down: Current index: " + currentNPCIndex);
+        }
+        UpdateToggleStates();
+    }
+
+    void UpdateToggleStates()
+    {
+        toggleUp.interactable = currentNPCIndex > 0;
+        toggleDown.interactable = currentNPCIndex + itemSize < NPCDataManager.Instance.GetNPCs().Count;
+    }
+    private void ClearItemList()
+    {
+        //清理列表
         if (prefabList.Count != 0)
         {
-            //先清空列表
-            foreach(var obj in prefabList)
+            foreach (var item in prefabList)
             {
-                Destroy(obj);
+                Destroy(item);
             }
+            prefabList.Clear();
         }
-        if (npcList != null)
-        {
 
-            foreach(var npc in npcList)
-            {
-                Debug.Log(npc.NpcUnit.Name);
-                Debug.Log(npc.GivenRecipe.Name);
-                npcItem = Instantiate(
-npcUnitPrefab,
-transform.position,
-Quaternion.identity, transform.Find("NPCList")
-);
-                prefabList.Add(npcItem);
-                //需求列表赋值
-                
-                npcItem.GetComponent<NPCInfo>().SetNPCInfo(npc);
-            }
+    }
+    private void DisplayNPCItems(int startIndex)
+    {
+        ClearItemList();
+        List<NPCItem> npcList = NPCDataManager.Instance.GetNPCs();
+        int end = Mathf.Min(startIndex + itemSize, npcList.Count);
+
+        // 根据起始和结束索引显示item
+        for (int i = startIndex; i < end; i++)
+        {
+            NPCItem data = npcList[i];
+            GameObject npcItem = Instantiate(npcUnitPrefab, transform.position, Quaternion.identity, transform.Find("NPCList"));
+            npcItem.GetComponent<NPCInfo>().SetNPCInfo(data);
+            prefabList.Add(npcItem);
         }
     }
+
 }

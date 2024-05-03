@@ -84,5 +84,6 @@ public class HerbBackpack : MonoBehaviour
             nameText.text = data.Quantity.ToString();
         }
     }
+    
 
 }

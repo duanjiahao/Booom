@@ -114,6 +114,7 @@ public class jiekePanel : MonoBehaviour
         {
             info.RefreshBookData();
         }
+        
     }
     private void GoBackyard()
     {
