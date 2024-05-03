@@ -2,19 +2,19 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "100001": {
     "$type": "NPCResponseConfig, Assembly-CSharp",
-    "desc": "完全治愈！",
+    "desc": "完全治愈！太感谢了大夫！",
     "responseType": 1,
     "id": 100001
   },
   "100002": {
     "$type": "NPCResponseConfig, Assembly-CSharp",
-    "desc": "还行吧能接受",
+    "desc": "谢谢大夫~",
     "responseType": 2,
     "id": 100002
   },
   "100003": {
     "$type": "NPCResponseConfig, Assembly-CSharp",
-    "desc": "爬！",
+    "desc": "好像还是有点不舒服……",
     "responseType": 3,
     "id": 100003
   },
@@ -23,5 +23,29 @@
     "desc": "庸医！",
     "responseType": 4,
     "id": 100004
+  },
+  "100005": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "感恩！您真是医术高明！",
+    "responseType": 1,
+    "id": 100005
+  },
+  "100006": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "让您费心了~",
+    "responseType": 2,
+    "id": 100006
+  },
+  "100007": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "医生，这不药不太对吧……",
+    "responseType": 3,
+    "id": 100007
+  },
+  "100008": {
+    "$type": "NPCResponseConfig, Assembly-CSharp",
+    "desc": "狗屁赤脚郎中！",
+    "responseType": 4,
+    "id": 100008
   }
 }

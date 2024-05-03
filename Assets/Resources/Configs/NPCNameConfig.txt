@@ -2,50 +2,236 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "200001": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "刘德华",
+    "name": "令狐冲",
     "gender": 0,
     "id": 200001
   },
   "200002": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "张学友",
+    "name": "宁采臣",
     "gender": 0,
     "id": 200002
   },
   "200003": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "郭富城",
+    "name": "张无忌",
     "gender": 0,
     "id": 200003
   },
   "200004": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "黎明",
+    "name": "刘玄德",
     "gender": 0,
     "id": 200004
   },
   "200005": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "西施",
-    "gender": 1,
+    "name": "诸葛村夫",
+    "gender": 0,
     "id": 200005
   },
   "200006": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "貂蝉",
-    "gender": 1,
+    "name": "魁萨茨·哈德拉克",
+    "gender": 0,
     "id": 200006
   },
   "200007": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "王昭君",
-    "gender": 1,
+    "name": "安纳金·天行者",
+    "gender": 0,
     "id": 200007
   },
   "200008": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "杨玉环",
-    "gender": 1,
+    "name": "达斯维达",
+    "gender": 0,
     "id": 200008
+  },
+  "200009": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "林克",
+    "gender": 0,
+    "id": 200009
+  },
+  "200010": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "朱棣",
+    "gender": 0,
+    "id": 200010
+  },
+  "200011": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "雷加·坦格利安",
+    "gender": 0,
+    "id": 200011
+  },
+  "200012": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "霍去病",
+    "gender": 0,
+    "id": 200012
+  },
+  "200013": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "辛弃疾",
+    "gender": 0,
+    "id": 200013
+  },
+  "200014": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "阿尔萨斯",
+    "gender": 0,
+    "id": 200014
+  },
+  "200015": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "盖侬",
+    "gender": 0,
+    "id": 200015
+  },
+  "200016": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "戈塔什",
+    "gender": 0,
+    "id": 200016
+  },
+  "200017": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "霹雳霹雳大棒",
+    "gender": 0,
+    "id": 200017
+  },
+  "200018": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "张三",
+    "gender": 0,
+    "id": 200018
+  },
+  "200019": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "赵敏",
+    "gender": 1,
+    "id": 200019
+  },
+  "200020": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "聂小倩",
+    "gender": 1,
+    "id": 200020
+  },
+  "200021": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "塞尔达",
+    "gender": 1,
+    "id": 200021
+  },
+  "200022": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "米法",
+    "gender": 1,
+    "id": 200022
+  },
+  "200023": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "希尔瓦娜斯",
+    "gender": 1,
+    "id": 200023
+  },
+  "200024": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "吉安娜",
+    "gender": 1,
+    "id": 200024
+  },
+  "200025": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "马萨伊尔",
+    "gender": 1,
+    "id": 200025
+  },
+  "200026": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "影心",
+    "gender": 1,
+    "id": 200026
+  },
+  "200027": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "我们家子涵",
+    "gender": 1,
+    "id": 200027
+  },
+  "200028": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "周芷若",
+    "gender": 1,
+    "id": 200028
+  },
+  "200029": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "秋香",
+    "gender": 1,
+    "id": 200029
+  },
+  "200030": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "慧慧",
+    "gender": 1,
+    "id": 200030
+  },
+  "200031": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "喻涵",
+    "gender": 1,
+    "id": 200031
+  },
+  "200032": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "钵钵鸡大人",
+    "gender": 1,
+    "id": 200032
+  },
+  "200033": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "Yoi",
+    "gender": 1,
+    "id": 200033
+  },
+  "200034": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "Sakai Yuji",
+    "gender": 0,
+    "id": 200034
+  },
+  "200035": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "段川",
+    "gender": 1,
+    "id": 200035
+  },
+  "200036": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "silhouette",
+    "gender": 1,
+    "id": 200036
+  },
+  "200037": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "宜点点",
+    "gender": 1,
+    "id": 200037
+  },
+  "200038": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "Printemps noir",
+    "gender": 1,
+    "id": 200038
+  },
+  "200039": {
+    "$type": "NPCNameConfig, Assembly-CSharp",
+    "name": "McNulty",
+    "gender": 0,
+    "id": 200039
   }
 }
