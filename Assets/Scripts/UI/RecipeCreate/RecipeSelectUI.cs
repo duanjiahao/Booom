@@ -57,6 +57,8 @@ public class RecipeSelectUI : MonoBehaviour
             return;
         }
 
+        _currentNum = valueInt;
+
         RefreshItem();
     }
 
@@ -77,6 +79,22 @@ public class RecipeSelectUI : MonoBehaviour
         slider.onValueChanged.RemoveListener(OnSliderValueChanged);
         delBtn.onClick.RemoveListener(OnDelBtnClicked);
         createBtn.onClick.RemoveListener(OnCreateBtnClicked);
+    }
+
+    public void InitUI()
+    {
+        name.text = string.Empty;
+        
+        slider.wholeNumbers = true;
+        slider.minValue = 1;
+        slider.maxValue = 1;
+        _currentNum = 1;
+        
+        herbNeedItemContainer.DestroyAllChildren();
+        num.text = 1.ToString();
+
+        minNum.text = 1.ToString();
+        maxNum.text = 1.ToString();
     }
 
     public void RefreshUI(RecipeItem recipeItem) 
@@ -103,6 +121,9 @@ public class RecipeSelectUI : MonoBehaviour
         slider.maxValue = maxNumb;
         _currentNum = minNumb;
 
+        minNum.text = minNumb.ToString();
+        maxNum.text = maxNumb.ToString();
+
         RefreshItem();
     }
 
@@ -110,7 +131,7 @@ public class RecipeSelectUI : MonoBehaviour
     {
         num.text = _currentNum.ToString();
 
-        for (int i = 0; i < _recipeItem.HerbList?.Count; i++) 
+        for (int i = 0; i < _recipeItem?.HerbList?.Count; i++) 
         {
             var herb = _recipeItem.HerbList[i];
             if (herbNeedItemContainer.childCount > i)

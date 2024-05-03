@@ -19,8 +19,10 @@ public class HerbSelectUI : MonoBehaviour
 
     public TextMeshProUGUI weight;
 
-    public List<HerbWeightData> CurrentWeightDataList { get; private set; }
-    public Dictionary<int, HerbWeightData> CurrentWeightDataDic { get; private set; }
+    public List<HerbWeightData> CurrentWeightDataList { get; private set; } = new List<HerbWeightData>();
+
+    public Dictionary<int, HerbWeightData> CurrentWeightDataDic { get; private set; } =
+        new Dictionary<int, HerbWeightData>();
 
     private List<HerbPickItem> UIItemList = new List<HerbPickItem>();
 
@@ -31,20 +33,12 @@ public class HerbSelectUI : MonoBehaviour
     private void OnEnable()
     {
         createBtn.onClick.AddListener(OnCreateBtnClick);
-        resetBtn.onClick.AddListener(onResetBtnClick);
+        resetBtn.onClick.AddListener(OnResetBtnClick);
     }
 
-    private void onResetBtnClick()
+    private void OnResetBtnClick()
     {
-        foreach (var item in UIItemList)
-        {
-            GameObject.Destroy(item.gameObject);
-        }
-        UIItemList.Clear();
-        UIItemDic.Clear();
-
-        CurrentWeightDataDic.Clear();
-        CurrentWeightDataList.Clear();
+        InitUI();
     }
 
     private void OnCreateBtnClick()
@@ -54,9 +48,21 @@ public class HerbSelectUI : MonoBehaviour
     private void OnDisable()
     {
         createBtn.onClick.RemoveListener(OnCreateBtnClick);
-        resetBtn.onClick.RemoveListener(onResetBtnClick);
+        resetBtn.onClick.RemoveListener(OnResetBtnClick);
     }
 
+    public void InitUI()
+    {
+        itemContainer.DestroyAllChildren();
+        slider.value = 0f;
+        this.weight.text = "0''0'";
+        num.text = $"| 0/{HerbMaxCount}";
+        
+        UIItemList.Clear();
+        UIItemDic.Clear();
+        CurrentWeightDataList.Clear();
+        CurrentWeightDataDic.Clear();
+    }
 
     public void AddWeight(HerbWeightData data) 
     {
@@ -65,6 +71,10 @@ public class HerbSelectUI : MonoBehaviour
         if (contain)
         {
             CurrentWeightDataDic[data.HerbId].Weight += data.Weight;
+
+            var maxHave = HerbDataManager.Instance.GetHerbItemByID(data.HerbId).Quantity;
+            CurrentWeightDataDic[data.HerbId].Weight = Mathf.Min(CurrentWeightDataDic[data.HerbId].Weight, maxHave);
+            
             RefreshUI(data.HerbId, CurrentWeightDataDic[data.HerbId].Weight, false);
         }
         else 

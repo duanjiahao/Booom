@@ -44,33 +44,8 @@ public class RecipeItem
         List<EffectInfoData> effectList = new List<EffectInfoData>();
         bool[] visibleList = { true,true,true,true };
         int[] attributes = { 0, 0, 0, 0 };
-        foreach (var herb in HerbList)
-        {
-            var herbConfig = ConfigManager.Instance.GetConfig<HerbsConfig>(herb.HerbId);
-            var herbItem = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId);
-            //计算四个象限的属性值
-            attributes[0] += herbConfig.attribute1;
-            attributes[1] += herbConfig.attribute2;
-            attributes[2] += herbConfig.attribute3;
-            attributes[3] += herbConfig.attribute4;
-            //效果可见性
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
-            {
-                visibleList[0] = false;
-            }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
-            {
-                visibleList[1] = false;
-            }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
-            {
-                visibleList[2] = false;
-            }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
-            {
-                visibleList[3] = false;
-            }
-        }
+        
+        CommonUtils.GetAttributeValueAndVisible(HerbList, attributes, visibleList);
 
         for (int i = 1; i <= 4; i++)
         {

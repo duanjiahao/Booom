@@ -23,6 +23,11 @@ public class HerbEffectAttributeUI : MonoBehaviour
 
     public GameObject questionIcon;
 
+    public void InitUI(EffectAttributeType type)
+    {
+        RefreshUI(type, 0, true);
+    }
+
     public void RefreshUI(EffectAttributeType type, int value, bool visible) 
     {
         numBg.gameObject.SetActive(visible);
@@ -66,30 +71,34 @@ public class HerbEffectAttributeUI : MonoBehaviour
         var fillAmount = Mathf.InverseLerp(-50f, 100f, value);
         fill.fillAmount = fillAmount;
 
-        numBg.GetComponent<RectTransform>().anchoredPosition = new Vector2(Mathf.Lerp(120f, -120f, fillAmount), 0);
+        bool needReserve = type == EffectAttributeType.Han || type == EffectAttributeType.Re;
+        numBg.GetComponent<RectTransform>().anchoredPosition = new Vector2(Mathf.Lerp(120f * (needReserve ? -1f : 1f), -120f * (needReserve ? -1f : 1f), fillAmount), 0);
 
         for (int i = 0; i < effectValueList.Count; i++)
         {
             var effectValue = effectValueList[i];
-
-            lines[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(Mathf.Lerp(125f, -125f, fillAmount), 0);
+            var effectAmount = Mathf.InverseLerp(-50f, 100f, effectValue);
+            lines[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(Mathf.Lerp(125f * (needReserve ? -1f : 1f), -125f * (needReserve ? -1f : 1f), effectAmount), 0);
         }
 
         var effectIndex = -1;
-        for (int i = 0; i < effectValueList.Count; i++)
+        if (visible)
         {
-            var effectValue = effectValueList[i];
-            if (effectValue < 0 && value <= effectValue)
+            for (int i = 0; i < effectValueList.Count; i++)
             {
-                effectIndex = i;
-                break;
-            }
-            else if (effectValue > 0) 
-            {
-                if (value >= effectValue && (i == effectValueList.Count - 1) || value < effectValueList[i + 1])
+                var effectValue = effectValueList[i];
+                if (effectValue < 0 && value <= effectValue)
                 {
                     effectIndex = i;
                     break;
+                }
+                else if (effectValue > 0) 
+                {
+                    if (value >= effectValue && (i == effectValueList.Count - 1 || value < effectValueList[i + 1]))
+                    {
+                        effectIndex = i;
+                        break;
+                    }
                 }
             }
         }

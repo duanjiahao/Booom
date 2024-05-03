@@ -162,7 +162,7 @@ public static class CommonUtils
             }
             else if (effectValue > 0)
             {
-                if (value >= effectValue && (i == effectAxisConfigList.Count - 1) || value < effectAxisConfigList[i + 1].value)
+                if (value >= effectValue && (i == effectAxisConfigList.Count - 1 || value < effectAxisConfigList[i + 1].value))
                 {
                     EffectAxisConfig = effectAxisConfigList[i];
                     break;
@@ -171,5 +171,76 @@ public static class CommonUtils
         }
 
         return EffectAxisConfig;
+    }
+
+    public static void DestroyAllChildren(this Transform tran)
+    {
+        for (int i = 0; i < tran.childCount; i++)
+        {
+            var child = tran.GetChild(i);
+            Object.Destroy(child.gameObject);
+        }
+    }
+
+    public static void GetAttributeValueAndVisible(List<HerbWeightData> herbList, int[] attributes, bool[] visibleList)
+    {
+        foreach (var herb in herbList)
+        {
+            var herbConfig = ConfigManager.Instance.GetConfig<HerbsConfig>(herb.HerbId);
+            var herbItem = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId);
+            //计算四个象限的属性值
+            attributes[0] += herbConfig.attribute1 * herb.Weight;
+            attributes[1] += herbConfig.attribute2 * herb.Weight;
+            attributes[2] += herbConfig.attribute3 * herb.Weight;
+            attributes[3] += herbConfig.attribute4 * herb.Weight;
+            //效果可见性
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
+            {
+                visibleList[0] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
+            {
+                visibleList[1] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
+            {
+                visibleList[2] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
+            {
+                visibleList[3] = false;
+            }
+        }
+    }
+    
+    public static void GetAttributeValueAndVisible(List<HerbRecipeInfo> herbList, int[] attributes, bool[] visibleList)
+    {
+        foreach (var herb in herbList)
+        {
+            var herbConfig = ConfigManager.Instance.GetConfig<HerbsConfig>(herb.HerbId);
+            var herbItem = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId);
+            //计算四个象限的属性值
+            attributes[0] += herbConfig.attribute1 * herb.Weight;
+            attributes[1] += herbConfig.attribute2 * herb.Weight;
+            attributes[2] += herbConfig.attribute3 * herb.Weight;
+            attributes[3] += herbConfig.attribute4 * herb.Weight;
+            //效果可见性
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
+            {
+                visibleList[0] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
+            {
+                visibleList[1] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
+            {
+                visibleList[2] = false;
+            }
+            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
+            {
+                visibleList[3] = false;
+            }
+        }
     }
 }
