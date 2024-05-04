@@ -16,8 +16,11 @@ public class RecipeUIItem : MonoBehaviour
 
     public TextMeshProUGUI name;
 
+    private RecipeItem _recipeItem;
+    
     public void InitUI(RecipeItem recipeItem)
     {
+        _recipeItem = recipeItem;
         icon.gameObject.SetActive(true);
         icon_selected.gameObject.SetActive(false);
 
@@ -29,5 +32,10 @@ public class RecipeUIItem : MonoBehaviour
     {
         icon.gameObject.SetActive(!select);
         icon_selected.gameObject.SetActive(select);
+    }
+
+    public RecipeItem GetRecipeItem()
+    {
+        return _recipeItem;
     }
 }

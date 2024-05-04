@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class CommonUtils
@@ -242,5 +243,46 @@ public static class CommonUtils
                 visibleList[3] = false;
             }
         }
+    }
+
+    public static EffectAxisConfig GetCorrespondBadEffectConfig(EffectAxisConfig goodEffect)
+    {
+        var badEffectConfigList = ConfigManager.Instance.GetConfigListWithFilter<EffectAxisConfig>((config) =>
+        {
+            return !config.isPositive && config.attributes == goodEffect.attributes;
+        });
+        return badEffectConfigList[0];
+    }
+
+    public static bool UseHerbCreateRecipe(RecipeItem recipeItem, int num)
+    {
+        if (!CheckBagEnough(recipeItem.HerbList, num))
+        {
+            return false;
+        }
+
+        for (int i = 0; i < recipeItem.HerbList?.Count; i++)
+        {
+            var herb = recipeItem.HerbList[i];
+            HerbDataManager.Instance.UseHerb(herb.HerbId, herb.Weight * num);
+        }
+        
+        RecipeDataManager.Instance.CookRecipe(recipeItem.Id, num);
+        return true;
+    }
+
+    public static bool CheckBagEnough(List<HerbRecipeInfo> herbList, int num)
+    {
+        for (int i = 0; i < herbList?.Count; i++)
+        {
+            var herb = herbList[i];
+            var has = HerbDataManager.Instance.GetHerbItemByID(herb.HerbId)?.Quantity ?? 0;
+            if (has < herb.Weight * num)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

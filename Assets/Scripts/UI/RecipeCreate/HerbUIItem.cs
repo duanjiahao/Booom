@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class HerbUIItem : MonoBehaviour
 {
-    public Button btn;
-
     public Image shadow_normal;
 
     public Image shadow_selected;
@@ -19,9 +17,12 @@ public class HerbUIItem : MonoBehaviour
     public TextMeshProUGUI num;
 
     private int _currentState;
+
+    private HerbItem _herbItem;
     
     public void InitUI(HerbItem item)
     {
+        _herbItem = item;
         SetState(1);
         shadow_normal.gameObject.SetActive(true);
         shadow_selected.gameObject.SetActive(false);
@@ -57,5 +58,10 @@ public class HerbUIItem : MonoBehaviour
     public int GetState()
     {
         return _currentState;
+    }
+
+    public HerbItem GetHerbItem()
+    {
+        return _herbItem;
     }
 }

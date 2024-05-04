@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2055459786133061886}
   - component: {fileID: 293907951470005840}
-  - component: {fileID: 7926591441064748949}
+  - component: {fileID: 4614113451289709702}
+  - component: {fileID: 2245129225082933909}
   m_Layer: 5
   m_Name: HerbItem
   m_TagString: Untagged
@@ -52,13 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a36f573d256a04a8ff0c0c7b91ffed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 7926591441064748949}
+  btn: {fileID: 0}
   shadow_normal: {fileID: 7013233741881375175}
   shadow_selected: {fileID: 3864163413936427343}
   shadow_draging: {fileID: 5732230564128921926}
   icon: {fileID: 7695631748799947785}
   num: {fileID: 4020642405788742852}
---- !u!114 &7926591441064748949
+--- !u!114 &4614113451289709702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,41 +68,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 305489320169006135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7157cb04e65184d96ecc93484583cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  herbInfoPanel: {fileID: 0}
+  herbUIItem: {fileID: 293907951470005840}
+  offset: {x: 0, y: 180}
+--- !u!114 &2245129225082933909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305489320169006135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fefa597ed97a254ab302502fb7986fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1257498997136794389
 GameObject:
   m_ObjectHideFlags: 0

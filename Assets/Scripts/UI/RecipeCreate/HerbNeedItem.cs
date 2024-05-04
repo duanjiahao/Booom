@@ -26,7 +26,7 @@ public class HerbNeedItem : MonoBehaviour
         var prefix = string.Empty;
         if (hasWeight < needWeight) 
         {
-            prefix = "<color=FF2C2C>";
+            prefix = "<color=#FF2C2C>";
             surfix = "</color>";
         }
 

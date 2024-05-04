@@ -26,6 +26,10 @@ public class RecipeCreatWindow : MonoBehaviour
 
     public RectTransform allContent;
 
+    public HerbInfoPanel herbInfoPanel;
+
+    public RecipeInfoUI recipeInfoPanel;
+
     private void OnEnable()
     {
         toggleHerb.onValueChanged.AddListener(OnToggleHerb);
@@ -41,6 +45,8 @@ public class RecipeCreatWindow : MonoBehaviour
             var attributeUI = attributeUIs[i];
             attributeUI.InitUI((EffectAttributeType)(i + 1));
         }
+        
+        RefreshContent(true);
     }
 
     private void OnToggleRecipe(bool value)
@@ -97,7 +103,7 @@ public class RecipeCreatWindow : MonoBehaviour
         }
     }
 
-    private void RefreshContent(bool herb)
+    public void RefreshContent(bool herb, RecipeItem selectRecipe = null)
     {
         content.transform.DestroyAllChildren();
         shelves.transform.DestroyAllChildren();
@@ -114,12 +120,9 @@ public class RecipeCreatWindow : MonoBehaviour
                 var mono = herbItem.GetComponent<HerbUIItem>();
                 
                 mono.InitUI(herbData);
-                
-                mono.btn.onClick.RemoveAllListeners();
-                mono.btn.onClick.AddListener(() =>
-                {
-                    OnHerbItemClicked(herbData, mono);
-                });
+
+                var helper = herbItem.GetComponent<HerbItemHoverHelper>();
+                helper.herbInfoPanel = herbInfoPanel;
             }
 
             count = Mathf.CeilToInt((herbList?.Count ?? 0) / 5f);
@@ -137,12 +140,19 @@ public class RecipeCreatWindow : MonoBehaviour
                 var mono = herbItem.GetComponent<RecipeUIItem>();
                 
                 mono.InitUI(recipeData);
-                
+                if (recipeData.Id == selectRecipe?.Id)
+                {
+                    mono.SetSelect(true);
+                }
+
                 mono.btn.onClick.RemoveAllListeners();
                 mono.btn.onClick.AddListener(() =>
                 {
                     OnRecipeItemClicked(recipeData, mono);
                 });
+                
+                var helper = herbItem.GetComponent<RecipeHoverHelper>();
+                helper.recipeInfoPanel = recipeInfoPanel;
             }
             
             count = Mathf.CeilToInt((recipeList?.Count ?? 0) / 5f);
@@ -155,7 +165,7 @@ public class RecipeCreatWindow : MonoBehaviour
         }
     }
 
-    private void OnHerbItemClicked(HerbItem herbItem, HerbUIItem mono)
+    public void OnHerbItemClicked(HerbItem herbItem, HerbUIItem mono)
     {
         for (int i = 0; i < content.childCount; i++)
         {
@@ -167,20 +177,6 @@ public class RecipeCreatWindow : MonoBehaviour
             }
         }
         mono.SetState(3);
-        
-        herbSelectUI.AddWeight(new HerbWeightData(){ HerbId = herbItem.HerbConfig.id, Weight = 5});
-
-        var currentWeightDataList = herbSelectUI.CurrentWeightDataList;
-
-        bool[] visibleList = { true,true,true,true };
-        int[] attributes = { 0, 0, 0, 0 };
-        CommonUtils.GetAttributeValueAndVisible(currentWeightDataList, attributes, visibleList);
-        
-        for (int i = 0; i < attributeUIs.Count; i++)
-        {
-            var attributeUI = attributeUIs[i];
-            attributeUI.RefreshUI((EffectAttributeType)(i+1), attributes[i], visibleList[i]);
-        }
     }
     
     private void OnRecipeItemClicked(RecipeItem recipeItem, RecipeUIItem mono)

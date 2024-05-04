@@ -27,6 +27,8 @@ public class RecipeSelectUI : MonoBehaviour
 
     public Button createBtn;
 
+    public Button renameBtn;
+
     private int _currentNum;
 
     private RecipeItem _recipeItem;
@@ -38,14 +40,35 @@ public class RecipeSelectUI : MonoBehaviour
         slider.onValueChanged.AddListener(OnSliderValueChanged);
         delBtn.onClick.AddListener(OnDelBtnClicked);
         createBtn.onClick.AddListener(OnCreateBtnClicked);
+        renameBtn.onClick.AddListener(OnRenameBtnClicked);
+    }
+
+    private void OnRenameBtnClicked()
+    {
+        if (_recipeItem != null)
+        {
+            UIManager.Instance.OpenRenameWindow(_recipeItem);
+        }
     }
 
     private void OnCreateBtnClicked()
     {
+        if (_recipeItem != null)
+        {
+            CommonUtils.UseHerbCreateRecipe(_recipeItem, _currentNum);
+            
+            UIManager.Instance.recipeWindow.RefreshContent(false, _recipeItem);
+            
+            RefreshUI(_recipeItem);
+        }
     }
 
     private void OnDelBtnClicked()
     {
+        if (_recipeItem != null)
+        {
+            UIManager.Instance.OpenCreateDeleteWindow(_recipeItem);
+        }
     }
 
     private void OnSliderValueChanged(float value)
@@ -79,10 +102,12 @@ public class RecipeSelectUI : MonoBehaviour
         slider.onValueChanged.RemoveListener(OnSliderValueChanged);
         delBtn.onClick.RemoveListener(OnDelBtnClicked);
         createBtn.onClick.RemoveListener(OnCreateBtnClicked);
+        renameBtn.onClick.RemoveListener(OnRenameBtnClicked);
     }
 
     public void InitUI()
     {
+        _recipeItem = null;
         name.text = string.Empty;
         
         slider.wholeNumbers = true;

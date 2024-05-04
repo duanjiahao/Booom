@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 4052140309883210844}
   - component: {fileID: 6761760883242566931}
   - component: {fileID: 7600995194196368761}
+  - component: {fileID: 3553622748583045878}
   m_Layer: 5
   m_Name: RecipeItem
   m_TagString: Untagged
@@ -465,6 +466,21 @@ MonoBehaviour:
   icon_selected: {fileID: 3307510179022232041}
   num: {fileID: 8961891332859257962}
   name: {fileID: 6872750076590848819}
+--- !u!114 &3553622748583045878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600429819918561960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c5c8fe54b76994d8351283abb87e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeInfoPanel: {fileID: 0}
+  recipeUIItem: {fileID: 7600995194196368761}
+  offset: {x: 0, y: 170}
 --- !u!1 &7656948885150289428
 GameObject:
   m_ObjectHideFlags: 0

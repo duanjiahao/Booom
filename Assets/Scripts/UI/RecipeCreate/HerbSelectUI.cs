@@ -43,6 +43,10 @@ public class HerbSelectUI : MonoBehaviour
 
     private void OnCreateBtnClick()
     {
+        if (CurrentWeightDataList.Count > 0)
+        {
+            UIManager.Instance.OpenCreateRecipeWindow(CurrentWeightDataList);
+        }
     }
 
     private void OnDisable()
