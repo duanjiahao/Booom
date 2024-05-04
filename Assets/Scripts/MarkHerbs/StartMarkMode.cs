@@ -58,6 +58,10 @@ public class StartMarkMode : MonoBehaviour
         clickMask.SetActive(false);
         penBtn.penButton.transform.SetParent(penOriginalParent);
         penBtn.penButton.transform.SetSiblingIndex(penOriginalSiblingIndex);
+
+        backPack.transform.SetParent(backPackOriginalParent);
+        backPack.transform.SetSiblingIndex(backPackOriginalSiblingIndex);
+
     }
 
     //获取药材列表并提高层级

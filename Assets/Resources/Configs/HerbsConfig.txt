@@ -41,7 +41,7 @@
     "attribute3": 1,
     "isAttribute3visible": true,
     "attribute4": -1,
-    "isAttribute4visible": false,
+    "isAttribute4visible": true,
     "unlockDate": 1,
     "collectionTime": [
       0,
