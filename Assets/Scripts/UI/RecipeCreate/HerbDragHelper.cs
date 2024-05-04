@@ -23,7 +23,7 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         dragTran.anchoredPosition = new Vector2(eventData.position.x - Screen.width / 2f, eventData.position.y - Screen.height / 2f);
 
-        if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position))
+        if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
         {
             _counter += Mathf.FloorToInt(Time.deltaTime * 1000f);
             if (_counter >= AddItemInterval)
