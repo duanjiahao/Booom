@@ -76,7 +76,7 @@ public static class CommonUtils
                 }
                 else
                 {
-                    return $"{GetChineseNumber(ten)}两{one}钱";
+                    return $"{GetChineseNumber(ten)}两{GetChineseNumber(one)}钱";
                 }
             }
             else 
@@ -91,7 +91,7 @@ public static class CommonUtils
                     }
                     else
                     {
-                        return $"{GetChineseNumber(10)}{GetChineseNumber(left)}两{one}钱";
+                        return $"{GetChineseNumber(10)}{GetChineseNumber(left)}两{GetChineseNumber(one)}钱";
                     }
                 }
                 else 
@@ -102,7 +102,7 @@ public static class CommonUtils
                     }
                     else
                     {
-                        return $"{GetChineseNumber(hun)}十{GetChineseNumber(left)}两{one}钱";
+                        return $"{GetChineseNumber(hun)}十{GetChineseNumber(left)}两{GetChineseNumber(one)}钱";
                     }
                 }
             }
