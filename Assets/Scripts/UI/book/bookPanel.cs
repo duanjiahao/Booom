@@ -51,6 +51,7 @@ public class bookPanel : MonoBehaviour
     public void RefreshBookData()
     {
         // 刷新病历数据
+        Debug.Log("current day:" + DataManager.Instance.Day.ToString());
         currentDay.text = "第" + DataManager.Instance.Day.ToString() + "日";
         totalDay.text = "共" + DataManager.Instance.Day.ToString() + "日";
         totalGuest.text = NPCDataManager.Instance.GetNPCs().Count.ToString();

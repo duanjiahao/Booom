@@ -17,11 +17,11 @@ public class UIManager : SingleMono<UIManager>
     public UICollectionWindow collectionWindow;
 
     public jiekePanel jieKePanel;
+    public bookPanel bingliWindow;
 
     public UIBeginPanel beginPanel;
 
     public UISettingPanel settingPanel;
-    
     public void OpenCreateRecipeWindow(List<HerbWeightData> datas)
     {
         createRecipeWindow.gameObject.SetActive(true);
@@ -45,6 +45,12 @@ public class UIManager : SingleMono<UIManager>
         jieKePanel.gameObject.SetActive(true);
     }
 
+    public void OpenBingLiWindow()
+    {
+        bingliWindow.gameObject.SetActive(true);
+        bingliWindow.RefreshBookData();
+    }
+
     public void OpenRecipeWindow()
     {
         recipeWindow.gameObject.SetActive(true);
@@ -59,12 +65,11 @@ public class UIManager : SingleMono<UIManager>
     {
         collectionWindow.gameObject.SetActive(true);
     }
-
     public void OpenSettingWindow()
     {
         settingPanel.gameObject.SetActive(true);
     }
-    
+
     public void OpenBeginWindow()
     {
         beginPanel.gameObject.SetActive(true);

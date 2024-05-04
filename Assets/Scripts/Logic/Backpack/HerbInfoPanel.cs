@@ -11,6 +11,7 @@ public class HerbInfoPanel : MonoBehaviour
     private Text _herbDesc;
     private List<Text> _attributeList = new List<Text>();
     private List<Image> _attributeImgList = new List<Image>();
+    public List<Sprite> spriteList = new List<Sprite>();
     private void Awake()
     {
         PagingRoot = this.gameObject;
@@ -41,6 +42,7 @@ public class HerbInfoPanel : MonoBehaviour
             if (data.IsVisible[i])
             {
                 _attributeList[i].text = data.AttributeList[i].ToString();
+                _attributeImgList[i].sprite = spriteList[i];
             }
             else
             {

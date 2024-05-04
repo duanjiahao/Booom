@@ -62,6 +62,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PagingRoot: {fileID: 0}
+  spriteList:
+  - {fileID: 21300000, guid: 02badcd60a6a95f45b72deece0af0609, type: 3}
+  - {fileID: 21300000, guid: bc597c0d48dfe034983456f6e6cdfaeb, type: 3}
+  - {fileID: 21300000, guid: cbeea8245157d624ab22aa39c1f20d76, type: 3}
+  - {fileID: 21300000, guid: e7f96be6ffd46564a8c2c9d1a79dbff8, type: 3}
 --- !u!1 &618742042788519161
 GameObject:
   m_ObjectHideFlags: 0

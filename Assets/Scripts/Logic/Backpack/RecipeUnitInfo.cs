@@ -47,7 +47,7 @@ Quaternion.identity, transform
         }
         PanelItem.GetComponent<RecipeInfoPanel>().Init();
         SetInfoData(data);
-        PanelItem.transform.position = new Vector3(transform.position.x, transform.position.y + 200, transform.position.z);
+        PanelItem.transform.position = new Vector3(transform.position.x, transform.position.y + 20, transform.position.z);
         PanelItem.SetActive(true);  // Show the tooltip window
     }
 

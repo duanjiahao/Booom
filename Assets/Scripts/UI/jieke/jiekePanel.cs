@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FindFunc;
+
 public class jiekePanel : MonoBehaviour
 {
     #region 变量定义
@@ -28,6 +29,7 @@ public class jiekePanel : MonoBehaviour
     private RecipeItem thisRecipe;
     //结算副作用列表
     public List<EffectInfoData> SideEffects = new List<EffectInfoData>();
+    
     #endregion
     private void Awake()
     {
@@ -93,7 +95,7 @@ public class jiekePanel : MonoBehaviour
         npc = NPCDataManager.Instance.GetNewNPC();
         NPCDataManager.Instance.InitNpcInfo(npc);
         NPCName.text = npc.Name;
-        NPCPrestige.text = npc._npcConfig.prestigeLevel[0].ToString();
+        NPCPrestige.text = npc.NPCPrestige.ToString();
         needDialogue.text = npc._npcNeedDialogConfig.desc;
         avoidDialogue.text = npc._npcAvoidDialogConfig.desc;
         //正面需求
@@ -102,22 +104,19 @@ public class jiekePanel : MonoBehaviour
         //负面禁忌
         string result2 = string.Join("\n", NPCDataManager.Instance.GetAvoidText(npc)); // 使用空字符串作为分隔符
         AvoidText.text = result2;
+        //人物立绘
+        NPCImage.sprite = Resources.Load<Sprite>(npc.ImgPath);
         Debug.Log(npc.ImgPath);
     }
     private void OpenBook()
     {
         //打开病历
-        BookPanel.SetActive(true);
-        //重新读取病历数据
-        var info = BookPanel.GetComponent<bookPanel>();
-        if (info != null)
-        {
-            info.RefreshBookData();
-        }
+        UIManager.Instance.OpenBingLiWindow();
         
     }
     private void GoBackyard()
     {
+        UIManager.Instance.OpenBackyardWindow();
     }
     
 }

@@ -14,6 +14,7 @@ public class NPCInfo : MonoBehaviour
     private Text AvoidText;
     private Text ResultText;
     private Text SideEffect;
+    private Image HeadImage;
     private Image SideEffectImg;
     private void Awake()
     {
@@ -32,26 +33,32 @@ public class NPCInfo : MonoBehaviour
         SideEffect = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "SideEffect");
         AvoidText = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "AvoidText");
         FinalPrestige = UnityHelper.GetTheChildNodeComponetScripts<Text>(PagingRoot, "FinalPrestige");
+        HeadImage = UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "HeadImage");
         SideEffectImg = UnityHelper.GetTheChildNodeComponetScripts<Image>(PagingRoot, "SideEffectImg");
     }
     public void SetNPCInfo(NPCItem info)
     {
         NPCName.text = info.NpcUnit.Name;
-        NPCPrestige.text = info.NpcUnit._npcConfig.prestigeLevel[0].ToString();
+        NPCPrestige.text = info.NpcUnit.NPCPrestige.ToString();
         FinalPrestige.text = info.FinalPrestige.ToString();
         NeedText.text = string.Join("\n", NPCDataManager.Instance.GetNeedText(info.NpcUnit));
         AvoidText.text = string.Join("\n", NPCDataManager.Instance.GetAvoidText(info.NpcUnit));
         ResultText.text = info.GivenRecipe.Name;
+        HeadImage.sprite = Resources.Load<Sprite>(info.NpcUnit.HeadImgPath);
         switch (info.FinalPrestige)
         {
             //选择对应表情
             case 100001:
+                SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_治愈");
                 break;
             case 100002:
+                SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_部分治愈");
                 break;
             case 100003:
+                SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_未治愈");
                 break;
             case 100004:
+                SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
         if (info.FinalEffectsList.Count != 0)

@@ -38,7 +38,8 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         if (droppedItem != null)
         {
             Debug.Log(droppedItem.name);
-            droppedItem.transform.position = eventData.pointerEnter.transform.position;
+            Vector3 newPos = new Vector3(eventData.pointerEnter.transform.position.x, eventData.pointerEnter.transform.position.y + 5, eventData.pointerEnter.transform.position.z);
+            droppedItem.transform.position = newPos;
             //TODO没有获取到数据
             
             recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;

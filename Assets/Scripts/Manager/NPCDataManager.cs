@@ -161,8 +161,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
     private int CalculatePrestige(int outcome)
     {
         //计算声望变化
-        //TODO 改成正确的声望
-        int basePrestige = nowNPC.NpcUnit._npcConfig.prestigeLevel[0];
+        int basePrestige = nowNPC.NpcUnit.NPCPrestige;
         switch (outcome)
         {
             case 1: return (int)(basePrestige * 1.5);

@@ -25,6 +25,12 @@ public class NPCUnit
     // NPC的立绘资源地址
     public string ImgPath { get; private set; }
 
+    // NPC的头像资源地址
+    public string HeadImgPath { get; private set; }
+
+    // NPC的声望数值
+    public int NPCPrestige;
+
     public NPCUnit Init() 
     {
         // 各种从表里随机数据
@@ -127,6 +133,10 @@ public class NPCUnit
 
         Name = nameConfigs[Random.Range(0, nameConfigs.Count - 1)].name;
 
-        //ImgPath = _npcConfig.imageGroups[Random.Range(0, _npcConfig.imageGroups.Length - 1)];
+        ImgPath = _npcConfig.imageGroups[Random.Range(0, _npcConfig.imageGroups.Length - 1)];
+        HeadImgPath = _npcConfig.HeadGroups[Random.Range(0, _npcConfig.imageGroups.Length - 1)];
+
+        //设置npc对应的声望数值
+        NPCPrestige = _npcConfig.prestigeLevel[Random.Range(0, _npcConfig.prestigeLevel.Length - 1)];
     }
 }
