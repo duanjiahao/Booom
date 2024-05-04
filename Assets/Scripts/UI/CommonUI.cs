@@ -18,6 +18,8 @@ public class CommonUI : MonoBehaviour
 
     public TextMeshProUGUI prestigeValue;
 
+    public Button settingBtn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,13 @@ public class CommonUI : MonoBehaviour
 
         RefreshPrestige(null);
         RefreshTime(null);
+        
+        settingBtn.onClick.AddListener(OnSettingBtnClicked);
+    }
+
+    private void OnSettingBtnClicked()
+    {
+        UIManager.Instance.OpenSettingWindow();
     }
 
     private void RefreshTime(object data)

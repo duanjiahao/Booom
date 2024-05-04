@@ -355,7 +355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 133.7, y: -26}
+  m_AnchoredPosition: {x: 133.70001, y: -26}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5045934639708325428
@@ -2251,6 +2251,7 @@ MonoBehaviour:
   prestige: {fileID: 6921726524944674706}
   prestigeSlider: {fileID: 3415638823230405409}
   prestigeValue: {fileID: 8081376613457933546}
+  settingBtn: {fileID: 4588990999082187570}
 --- !u!114 &1992859637575844977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,7 +2435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.1, y: -23.4}
+  m_AnchoredPosition: {x: -142.1, y: -23.400002}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2382424560834826504

@@ -15,6 +15,12 @@ public class UIManager : SingleMono<UIManager>
     public BackyardWindow backyardWindow;
 
     public UICollectionWindow collectionWindow;
+
+    public jiekePanel jieKePanel;
+
+    public UIBeginPanel beginPanel;
+
+    public UISettingPanel settingPanel;
     
     public void OpenCreateRecipeWindow(List<HerbWeightData> datas)
     {
@@ -36,7 +42,7 @@ public class UIManager : SingleMono<UIManager>
 
     public void OpenJiKeWindow()
     {
-        
+        jieKePanel.gameObject.SetActive(true);
     }
 
     public void OpenRecipeWindow()
@@ -52,5 +58,15 @@ public class UIManager : SingleMono<UIManager>
     public void OpenCollectionWindow()
     {
         collectionWindow.gameObject.SetActive(true);
+    }
+
+    public void OpenSettingWindow()
+    {
+        settingPanel.gameObject.SetActive(true);
+    }
+    
+    public void OpenBeginWindow()
+    {
+        beginPanel.gameObject.SetActive(true);
     }
 }
