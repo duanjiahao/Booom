@@ -17,6 +17,19 @@ public class HerbPicker : IHerbPicker
         _isFreeTimeUsed = false;
     }
 
+    public bool CanPick()
+    {
+        if (!_isFreeTimeUsed)
+        {
+            return true;
+        }
+        else
+        {
+            var config = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1);
+            return DataManager.Instance.Prestige >= config.prestigeCost;
+        }
+    }
+
     public IList<HerbRawItem> GoPicking()
     {
         // 扣声望

@@ -20,22 +20,19 @@ public class HerbDataManager : Singleton<HerbDataManager>
             herbInventory.Add(herbItem);
         }
     }
-    public void AddHerb(int id)
+    public void AddHerb(int id, int quantity)
     {
         ////添加药材
-        //var tempItem = new HerbItem();
-        //foreach (var item in GetAllHerbItems())
-        //{
-        //    if (item.HerbConfig.id == id)
-        //    {
-        //        tempItem = item;
-        //    }
-        //}
-        //if (tempItem != null)
-        //{
-        //    herbInventory.Add(tempItem);
-        //}
-
+        foreach (var item in GetAllHerbItems())
+        {
+            if (item.HerbConfig.id == id)
+            {
+                item.Quantity += quantity;
+                return;
+            }
+        }
+        
+        herbInventory.Add(new HerbItem(id, quantity));
     }
     public void UseHerb(int id, int quantity)
     {

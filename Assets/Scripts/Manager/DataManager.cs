@@ -65,7 +65,7 @@ public class DataManager : Singleton<DataManager>
         }
 
         Prestige += change;
-        Mathf.Max(0, Prestige);
+        Prestige = Mathf.Max(0, Prestige);
 
         Notification.Instance.Notify(Notification.PrestigeChanged);
     }
