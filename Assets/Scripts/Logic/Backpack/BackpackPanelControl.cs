@@ -57,7 +57,7 @@ public class BackpackPanelControl : MonoBehaviour
         // 注册Toggle的ValueChanged事件
         TgHerb.onValueChanged.AddListener(OnToggleRecipeChanged);
         TgRecipe.onValueChanged.AddListener(OnToggleHerbsChanged);
-
+        TgHerb.isOn = true;
         // 初始化时更新UI状态
         UpdateVisibility();
     }
@@ -107,13 +107,22 @@ public class BackpackPanelControl : MonoBehaviour
     void OnToggleRecipeChanged(bool isOn)
     {
         // 当药方列表的Toggle变化时调用
-        if (isOn) UpdateVisibility();
+        if (isOn)
+        {
+            transform.Find("recipeList").GetComponent<RecipeBackpack>().SetNextItems(currentRecipeIndex, itemSize);
+            UpdateVisibility();
+        }
+        
     }
 
     void OnToggleHerbsChanged(bool isOn)
     {
         // 当药材列表的Toggle变化时调用
-        if (isOn) UpdateVisibility();
+        if (isOn)
+        {
+            transform.Find("herbList").GetComponent<HerbBackpack>().SetNextItems(currentHerbIndex, itemSize);
+            UpdateVisibility();
+        }
     }
 
     void UpdateVisibility()

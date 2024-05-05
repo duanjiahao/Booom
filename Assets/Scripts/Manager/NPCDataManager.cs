@@ -10,7 +10,8 @@ public class NPCItem
     public RecipeItem GivenRecipe;
     //最终声望结算
     public int FinalPrestige;
-    //public int FinalReward;
+    //最终结局
+    public int FinalResponse;
     //副作用列表
     public List<EffectInfoData> FinalEffectsList;
 
@@ -38,6 +39,17 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //获取所有npc
         return _npcs;
     }
+    public NPCItem GetNowNPC()
+    {
+        if (nowNPC != null)
+        {
+            return nowNPC;
+        }
+        else
+        {
+            return null;
+        }
+    }
     public void InitNpcInfo(NPCUnit unit)
     {
         NPCItem tempItem = new NPCItem();
@@ -46,7 +58,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         
     }
     
-    public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalEffects)
+    public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalEffects, int finalResponseType)
     {
         //结算npc并添加到列表中
         if (nowNPC == null)
@@ -56,9 +68,13 @@ public class NPCDataManager : Singleton<NPCDataManager>
         }
         nowNPC.FinalPrestige = prestige;
         nowNPC.FinalEffectsList = finalEffects;
+        nowNPC.FinalResponse = finalResponseType;
         //添加到npc列表中
         _npcs.Add(nowNPC);
-        ClearCurrentNPC();
+        //ClearCurrentNPC();
+        DataManager.Instance.MoveToNextTime();
+        DataManager.Instance.ChangePrestige(prestige);
+        
     }
 
     public void TreatNPC(RecipeItem recipe)
@@ -106,7 +122,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         int endResult = DetermineOutcome(needResult, avoidResult, sideEffects.Count);
         int prestige = CalculatePrestige(endResult);
 
-        CompleteNpcInfo(prestige, sideEffects);
+        CompleteNpcInfo(prestige, sideEffects, endResult);
     }
 
     private int CalculatePositiveEffects()
@@ -184,5 +200,9 @@ public class NPCDataManager : Singleton<NPCDataManager>
             return false;
         else
             return true;
+    }
+    public int GetFinalResponse()
+    {
+        return nowNPC.FinalResponse;
     }
 }

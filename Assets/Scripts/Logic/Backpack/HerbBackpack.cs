@@ -68,6 +68,7 @@ public class HerbBackpack : MonoBehaviour
 
     private void CreateAndDisplayItems(int start, int end)
     {
+        herbInventory = HerbDataManager.Instance.GetAllHerbItems();
         //根据起始和结束索引index显示item
         for (int i = start; i < end; i++)
         {
@@ -81,11 +82,30 @@ public class HerbBackpack : MonoBehaviour
             tempItem.GetComponentInChildren<HerbUnitInfo>().SetData(data);
             itemList.Add(tempItem);
             Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-            nameText.text = data.Quantity.ToString();
+            nameText.text = GetAttributeText(data.Quantity);
             Image HerbImg = UnityHelper.GetTheChildNodeComponetScripts<Image>(tempItem, "herbImg");
             HerbImg.sprite = Resources.Load<Sprite>(data.HerbConfig.iconPath);
         }
     }
-    
+    private string GetAttributeText(int num)
+    {
+        string text = "";
+        if (num != 0)
+        {
+            int liang = (int)(num / 10);
+            int qian = (int)(num % 10);
+            if (qian == 0)
+            {
+                return liang + "两";
+            }
+            else
+            {
+                return liang + "两" + qian + "钱";
+            }
+        }
+        return text;
+
+    }
+
 
 }

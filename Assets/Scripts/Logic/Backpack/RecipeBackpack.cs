@@ -32,23 +32,7 @@ public class RecipeBackpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        recipeInventory = RecipeDataManager.Instance.recipeInventory;
-        //if (RecipeDataManager.Instance.GetAllRecipeItems().Count != 0)
-        //{
-        //    foreach (RecipeItem data in recipeInventory)
-        //    {
-        //        tempItem = Instantiate(
-        //        RecipePrefab,
-        //        transform.position,
-        //        Quaternion.identity,
-        //        transform
-        //    );
-        //        //获取icon对象的赋值方法
-        //        tempItem.GetComponentInChildren<RecipeUnitInfo>().SetData(data);
-        //        Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
-        //        nameText.text = data.Name;
-        //    }
-        //}
+        recipeInventory = RecipeDataManager.Instance.GetAllRecipeItems();
         SetNextItems(0, 5);
 
 
@@ -82,6 +66,8 @@ public class RecipeBackpack : MonoBehaviour
 
     private void CreateAndDisplayItems(int start, int end)
     {
+        recipeInventory = RecipeDataManager.Instance.GetAllRecipeItems();
+        Debug.Log("recipe number is:"+recipeInventory.Count);
         //根据起始和结束索引index显示item
         for (int i = start; i < end; i++)
         {

@@ -9,8 +9,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
 {
     private GameObject PagingRoot;
     private Button BtGive;
-    private Button BtConfirm;
-    private Button BtCancel;
     private RecipeItem recipe;
     private GameObject droppedItem;
     void Awake()
@@ -20,8 +18,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     void Start()
     {
         BtGive = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtGive");
-        BtConfirm = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtConfirm");
-        BtCancel = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtCancel");
         BtGive.onClick.AddListener(() =>
         {
             GiveRecipe();
@@ -33,8 +29,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         Debug.Log(eventData.pointerDrag.name);
         droppedItem = Instantiate(eventData.pointerDrag, transform.root);
         droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
-        //droppedItem = eventData.pointerDrag;
-        //Debug.Log(eventData.pointerDrag.name);
         if (droppedItem != null)
         {
             Debug.Log(droppedItem.name);
@@ -60,6 +54,8 @@ public class DropRecipe : MonoBehaviour, IDropHandler
             NPCDataManager.Instance.TreatNPC(recipe);
             NPCDataManager.Instance.CheckResult();
             Destroy(droppedItem);
+            jiekePanel jkPanel = FindObjectOfType<jiekePanel>();
+            jkPanel.PlayEndingDialogue();    
         }
        
     }
