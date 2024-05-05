@@ -71,8 +71,11 @@ public class StartMarkMode : MonoBehaviour
         penBtn.penButton.transform.SetParent(penOriginalParent);
         penBtn.penButton.transform.SetSiblingIndex(penOriginalSiblingIndex);
 
-        backPack.transform.SetParent(backPackOriginalParent);
-        backPack.transform.SetSiblingIndex(backPackOriginalSiblingIndex);
+        if(backPack != null)
+        {
+            backPack.transform.SetParent(backPackOriginalParent);
+            backPack.transform.SetSiblingIndex(backPackOriginalSiblingIndex);
+        }
 
     }
 
@@ -80,11 +83,17 @@ public class StartMarkMode : MonoBehaviour
     public void GetBackPackPanel()
     {
         backPack = GameObject.Find("BackpackPanel");
-        backPackOriginalParent = backPack.transform.parent;
-        backPackOriginalSiblingIndex = backPack.transform.GetSiblingIndex();
 
-        backPack.transform.SetParent(clickMask.transform.parent);
-        backPack.transform.SetAsLastSibling();
+        if(backPack != null)
+        {
+            backPackOriginalParent = backPack.transform.parent;
+            backPackOriginalSiblingIndex = backPack.transform.GetSiblingIndex();
+
+            backPack.transform.SetParent(clickMask.transform.parent);
+            backPack.transform.SetAsLastSibling();
+        }
+
+        
     }
 
 

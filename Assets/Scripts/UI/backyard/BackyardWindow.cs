@@ -20,6 +20,8 @@ public class BackyardWindow : MonoBehaviour
 
     public TextMeshProUGUI need;
 
+    public GameObject commonUI;
+
     private void OnEnable()
     {
         pickBtn.gameObject.SetActive(true);
@@ -27,7 +29,8 @@ public class BackyardWindow : MonoBehaviour
         peopleBtn.gameObject.SetActive(true);
         anime.SetActive(false);
         mask.SetActive(false);
-        
+        commonUI.SetActive(true);
+
         pickBtn.onClick.AddListener(OnPickBtnClicked);
         createBtn.onClick.AddListener(OnCreateBtnClicked);
         peopleBtn.onClick.AddListener(OnPeopleBtnClicked);
@@ -79,6 +82,7 @@ public class BackyardWindow : MonoBehaviour
             return;
         }
 
+        commonUI.SetActive(false);
         pickBtn.gameObject.SetActive(false);
         createBtn.gameObject.SetActive(false);
         peopleBtn.gameObject.SetActive(false);

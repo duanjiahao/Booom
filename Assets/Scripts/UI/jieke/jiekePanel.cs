@@ -117,6 +117,7 @@ public class jiekePanel : MonoBehaviour
     private void GoBackyard()
     {
         UIManager.Instance.OpenBackyardWindow();
+        this.gameObject.SetActive(false);
     }
     
 }
