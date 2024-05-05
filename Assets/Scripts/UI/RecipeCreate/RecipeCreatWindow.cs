@@ -30,6 +30,8 @@ public class RecipeCreatWindow : MonoBehaviour
 
     public RecipeInfoUI recipeInfoPanel;
 
+    public IntroductionHelper introductionHelper;
+
     private void OnEnable()
     {
         toggleHerb.onValueChanged.AddListener(OnToggleHerb);
@@ -37,6 +39,12 @@ public class RecipeCreatWindow : MonoBehaviour
         herbSelectUI.resetBtn.onClick.AddListener(OnHerbResetBtnClicked);
         backyardBtn.onClick.AddListener(OnBackyardBtnClicked);
         RefreshUI();
+
+        if (PlayerPrefs.GetInt("Introduction_RecipeCreateWindow", 0) == 0)
+        {
+            introductionHelper.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("Introduction_RecipeCreateWindow", 1);
+        }
     }
 
     private void OnBackyardBtnClicked()

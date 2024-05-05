@@ -30,6 +30,8 @@ public class jiekePanel : MonoBehaviour
     //结算副作用列表
     public List<EffectInfoData> SideEffects = new List<EffectInfoData>();
     
+    public IntroductionHelper introductionHelper;
+    
     #endregion
     private void Awake()
     {
@@ -68,6 +70,12 @@ public class jiekePanel : MonoBehaviour
         {
             GoBackyard();
         });
+        
+        if (PlayerPrefs.GetInt("Introduction_JikeWindow", 0) == 0)
+        {
+            introductionHelper.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("Introduction_JikeWindow", 1);
+        }
     }
     private void OnBellRing()
     {

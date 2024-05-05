@@ -21,6 +21,8 @@ public class BackyardWindow : MonoBehaviour
     public TextMeshProUGUI need;
 
     public GameObject commonUI;
+    
+    public IntroductionHelper introductionHelper;
 
     private void OnEnable()
     {
@@ -53,6 +55,12 @@ public class BackyardWindow : MonoBehaviour
             }
             
             need.text = $"{prefix}-{generalSettings.prestigeCost}{surfix}声望";
+        }
+        
+        if (PlayerPrefs.GetInt("Introduction_BackyardWindow", 0) == 0)
+        {
+            introductionHelper.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("Introduction_BackyardWindow", 1);
         }
     }
 
