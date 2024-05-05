@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTextureMark: {fileID: 2800000, guid: 34e1ebbd4ee932345b28e7f1320c8cd5, type: 3}
   clickMask: {fileID: 0}
+  failMarkText: "\u4ECA\u65E5\u6807\u8BB0\u6B21\u6570\u5DF2\u7528\u5B8C\uFF01"
 --- !u!114 &4991711146703988915
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2266,7 +2266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipsBg: {fileID: 0}
   tipsText: {fileID: 0}
-  displayTime: 2.5
+  displayTime: 3
 --- !u!1 &7203801108158104569
 GameObject:
   m_ObjectHideFlags: 0

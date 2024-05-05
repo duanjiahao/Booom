@@ -16,11 +16,15 @@ public class StartMarkMode : MonoBehaviour
     private Transform backPackOriginalParent;
     private int backPackOriginalSiblingIndex;
 
+    private CommonTips ct;
+    public string failMarkText;
+
     private void Awake()
     {
         clickMask = transform.Find("ClickMask").gameObject;
         clickMask.SetActive(false);
         penBtn = GetComponent<FindMarkScripts>();
+        ct = FindObjectOfType<CommonTips>();
     }
 
     private void Start()
@@ -33,15 +37,23 @@ public class StartMarkMode : MonoBehaviour
     {
         if(!MarkState.isOnMarkMode)
         {
-            Cursor.SetCursor(cursorTextureMark, Vector2.zero, CursorMode.Auto);
-            MarkState.isOnMarkMode = true;
+            if(DataManager.Instance.SignTimes > 0)
+            {
+                Cursor.SetCursor(cursorTextureMark, Vector2.zero, CursorMode.Auto);
+                MarkState.isOnMarkMode = true;
 
-            clickMask.SetActive(true);
-            penBtn.penButton.transform.SetParent(clickMask.transform.parent);
-            // 将标记按钮置于遮罩之上
-            penBtn.penButton.transform.SetAsLastSibling();
+                clickMask.SetActive(true);
+                penBtn.penButton.transform.SetParent(clickMask.transform.parent);
+                // 将标记按钮置于遮罩之上
+                penBtn.penButton.transform.SetAsLastSibling();
 
-            GetBackPackPanel();
+                GetBackPackPanel();
+            }
+            else
+            {
+                ct.GetTipsText(failMarkText);
+            }
+            
 
         }
         else
