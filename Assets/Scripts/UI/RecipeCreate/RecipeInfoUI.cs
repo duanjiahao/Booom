@@ -29,16 +29,6 @@ public class RecipeInfoUI : MonoBehaviour
         
         CommonUtils.GetAttributeValueAndVisible(dataList, attributes, visibles);
         
-        for (int i = 1; i <= 4; i++)
-        {
-            var con = CommonUtils.GetEffectAttributeConfig((EffectAttributeType)i, attributes[i - 1]);
-            if (con != null)
-            {
-                effectList.Add(new EffectInfoData(con, visibles[i - 1]));
-                effectList.Add(new EffectInfoData(CommonUtils.GetCorrespondBadEffectConfig(con), visibles[i - 1]));
-            }
-        }
-
         for (int i = 0; i < 4; i++)
         {
             var child = herbContainer.GetChild(i);
@@ -54,17 +44,17 @@ public class RecipeInfoUI : MonoBehaviour
             }
         }
 
+        int unkownIndex = -1;
         bool hasUnkown = visibles.Contains(false);
         for (int i = 0; i < 4; i++)
         {
             var child = effectContainer.GetChild(i);
-            var goodEffectIndex = i * 2;
-            var badEffectIndex = i * 2 + 1;
-            if (badEffectIndex < effectList.Count)
+            var attributeConfig = CommonUtils.GetEffectAttributeConfig((EffectAttributeType)(i + 1), attributes[i]);
+            if (visibles[i] && attributeConfig != null)
             {
                 child.gameObject.SetActive(true);
                 var mono = child.GetComponent<UIHerbEffectDesc>();
-                mono.RefreshUI(effectList[goodEffectIndex].EffectAxisConfig, effectList[badEffectIndex].EffectAxisConfig, visibles[i]);
+                mono.RefreshUI(attributeConfig, CommonUtils.GetCorrespondBadEffectConfig(attributeConfig), true);
             }
             else
             {
@@ -74,12 +64,19 @@ public class RecipeInfoUI : MonoBehaviour
                     var mono = child.GetComponent<UIHerbEffectDesc>();
                     mono.RefreshUI(null, null, false);
                     hasUnkown = false;
+                    unkownIndex = i;
                 }
                 else
                 {
                     child.gameObject.SetActive(false);
                 }
             }
+        }
+        
+        if (unkownIndex >= 0)
+        {
+            var child = effectContainer.GetChild(unkownIndex);
+            child.SetAsLastSibling();
         }
     }
 }

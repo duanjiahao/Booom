@@ -6,22 +6,19 @@ using Newtonsoft.Json;
 //药方数据管理单例
 public class RecipeDataManager : Singleton<RecipeDataManager>
 {
-    public List<RecipeItem> recipeInventory = new List<RecipeItem>();
+    public List<RecipeItem> recipeInventory;
     
-    public Dictionary<int,RecipeItem> recipeDic = new Dictionary<int, RecipeItem>();
+    public Dictionary<int,RecipeItem> recipeDic;
     
-    public List<EffectAxisConfig> effectInventory = new List<EffectAxisConfig>();
     protected override void Init()
     {
-        List<HerbRecipeInfo> herbList = new List<HerbRecipeInfo>();
-        herbList.Add(new HerbRecipeInfo() { HerbId = 1001, Weight = 10 }); ;
-        herbList.Add(new HerbRecipeInfo() { HerbId = 1002, Weight = 5 } );
-        RecipeItem recipeItem = new RecipeItem(1, "first recipe", 12, herbList);
-        recipeInventory.Add(recipeItem);
-        recipeDic.Add(recipeItem.Id, recipeItem);
-        RecipeItem recipeItem2 = new RecipeItem(2, "second recipe", 32, herbList);
-        recipeInventory.Add(recipeItem2);
-        recipeDic.Add(recipeItem2.Id, recipeItem2);
+        recipeInventory = new List<RecipeItem>();
+        recipeDic = new Dictionary<int, RecipeItem>();
+    }
+
+    public void Reset()
+    {
+        Init();
     }
 
     public void CreateRecipe(int id, string name, int num, List<HerbRecipeInfo> infos)

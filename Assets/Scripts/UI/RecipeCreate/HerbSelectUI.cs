@@ -113,6 +113,6 @@ public class HerbSelectUI : MonoBehaviour
 
         this.weight.text = CommonUtils.GetWeightStr(weight);
 
-        slider.value = Mathf.InverseLerp(0f, 100f, weight);
+        slider.value = Mathf.InverseLerp(0f, 140f, weight);
     }
 }

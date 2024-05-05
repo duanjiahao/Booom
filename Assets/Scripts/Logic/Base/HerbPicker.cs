@@ -7,8 +7,9 @@ public class HerbPicker : IHerbPicker
 {
     private bool _isFreeTimeUsed;
 
-    public void Init() 
+    public void Init()
     {
+        _isFreeTimeUsed = false;
         Notification.Instance.Register(Notification.NextDay, OnRefreshFreeTime);
     }
 
@@ -45,10 +46,7 @@ public class HerbPicker : IHerbPicker
 
         var levelConfig = CommonUtils.GetCurrentPrestigeConfig();
 
-        var index = UnityEngine.Random.Range(0, levelConfig.herbsTypeCount.Length);
-
-        // 采集到的药材种类数
-        var herbTypeCount = levelConfig.herbsTypeCount[index];
+        var herbTypeCount = UnityEngine.Random.Range(levelConfig.herbsTypeCount[0], levelConfig.herbsTypeCount[1] + 1);
 
         var canPickHerbList = ConfigManager.Instance.GetConfigListWithFilter<HerbsConfig>((config)=> 
         {

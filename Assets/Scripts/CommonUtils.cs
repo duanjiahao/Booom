@@ -255,7 +255,7 @@ public static class CommonUtils
     {
         var badEffectConfigList = ConfigManager.Instance.GetConfigListWithFilter<EffectAxisConfig>((config) =>
         {
-            return !config.isPositive && config.attributes == goodEffect.attributes;
+            return !config.isPositive && config.value == goodEffect.value;
         });
         return badEffectConfigList[0];
     }

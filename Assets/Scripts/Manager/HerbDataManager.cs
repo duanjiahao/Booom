@@ -7,9 +7,11 @@ using Newtonsoft.Json;
 public class HerbDataManager : Singleton<HerbDataManager>
 {
     // 创建药材列表
-    public List<HerbItem> herbInventory = new List<HerbItem>();
+    public List<HerbItem> herbInventory;
     protected override void Init()
     {
+        herbInventory = new List<HerbItem>();
+        
         var settings = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1);
 
         for (int i = 0; i < settings.initialHerbs?.Length; i++)
@@ -20,6 +22,12 @@ public class HerbDataManager : Singleton<HerbDataManager>
             herbInventory.Add(herbItem);
         }
     }
+
+    public void Reset()
+    {
+        Init();
+    }
+
     public void AddHerb(int id, int quantity)
     {
         ////添加药材

@@ -26,8 +26,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             return;
         }
         
-        Debug.Log($"Dragging {eventData.position}");
-
+        if (_item.Quantity <= 0)
+        {
+            return;
+        }
+        
         dragTran.anchoredPosition = new Vector2(eventData.position.x - Screen.width / 2f, eventData.position.y - Screen.height / 2f);
 
         if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
@@ -73,15 +76,17 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             return;
         }
-
-        Debug.Log("Drag Start");
-
-        dragItem = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/HerbCreate/HerbDragItem"), UIManager.Instance.recipeWindow.transform);
-
-        ps = dragItem.transform.Find("Particle System").GetComponent<ParticleSystem>();
-
+        
         var uiItem = this.GetComponent<HerbUIItem>();
         _item = uiItem.GetHerbItem();
+        if (_item.Quantity <= 0)
+        {
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"这个药材已经用光了！");
+            return;
+        }
+
+        dragItem = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/HerbCreate/HerbDragItem"), UIManager.Instance.recipeWindow.transform);
+        ps = dragItem.transform.Find("Particle System").GetComponent<ParticleSystem>();
 
         Color tempcolor = ChangeColor(_item.HerbConfig.id);
         var mainModule = ps.main;
@@ -101,6 +106,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnEndDrag(PointerEventData eventData)
     {
         if (MarkState.isOnMarkMode)
+        {
+            return;
+        }
+        
+        if (_item.Quantity <= 0)
         {
             return;
         }

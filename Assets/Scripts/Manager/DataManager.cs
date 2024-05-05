@@ -42,6 +42,17 @@ public class DataManager : Singleton<DataManager>
         SignTimes = generalSettings.signTimes;
     }
 
+    public void ResetData()
+    {
+        Init();
+        HerbDataManager.Instance.Reset();
+        RecipeDataManager.Instance.Reset();
+        HerbPickerFactory.GetHerbPicker().Init();
+        
+        Notification.Instance.Notify(Notification.TimeChanged);
+        Notification.Instance.Notify(Notification.PrestigeChanged);
+    }
+
     public void MoveToNextTime() 
     {
         CurrentTime = (TimeOfDay)(((int)CurrentTime + 1) % (int)TimeOfDay.Count);

@@ -72,6 +72,21 @@ public class UIManager : SingleMono<UIManager>
 
     public void OpenBeginWindow()
     {
+        CloseAllWindow();
         beginPanel.gameObject.SetActive(true);
+    }
+
+    public void CloseAllWindow()
+    {
+        recipeWindow.gameObject.SetActive(false);
+        createRecipeWindow.gameObject.SetActive(false);
+        recipeDeleteWindow.gameObject.SetActive(false);
+        recipeRenameWindow.gameObject.SetActive(false);
+        backyardWindow.gameObject.SetActive(false);
+        collectionWindow.gameObject.SetActive(false);
+        jieKePanel.gameObject.SetActive(false);
+        bingliWindow.gameObject.SetActive(false);
+        beginPanel.gameObject.SetActive(false);
+        settingPanel.gameObject.SetActive(false);
     }
 }
