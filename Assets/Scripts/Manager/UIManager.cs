@@ -73,5 +73,8 @@ public class UIManager : SingleMono<UIManager>
     public void OpenBeginWindow()
     {
         beginPanel.gameObject.SetActive(true);
+        recipeWindow.gameObject.SetActive(false);
+        backyardWindow.gameObject.SetActive(false);
+        jieKePanel.gameObject.SetActive(false);
     }
 }

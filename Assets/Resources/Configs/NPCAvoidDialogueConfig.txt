@@ -2,7 +2,7 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "41001": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>头晕目眩</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>头晕目眩</color>，不然可得耽误事儿了",
     "avoidID1": 21002,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -12,7 +12,7 @@
   },
   "41002": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>心悸体虚</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>心悸体虚</color>，不然可得耽误事儿了",
     "avoidID1": 22002,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -22,7 +22,7 @@
   },
   "41003": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
     "avoidID1": 23002,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -32,7 +32,7 @@
   },
   "41004": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>风寒流涕</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>风寒流涕</color>，不然可得耽误事儿了",
     "avoidID1": 24002,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -42,7 +42,7 @@
   },
   "41005": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>四肢无力</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>四肢无力</color>，不然可得耽误事儿了",
     "avoidID1": 21001,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -52,7 +52,7 @@
   },
   "41006": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>听力下降</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>听力下降</color>，不然可得耽误事儿了",
     "avoidID1": 22001,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -62,7 +62,7 @@
   },
   "41007": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>盗汗口干</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>盗汗口干</color>，不然可得耽误事儿了",
     "avoidID1": 23001,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -72,7 +72,7 @@
   },
   "41008": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
     "avoidID1": 24001,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -82,7 +82,7 @@
   },
   "41009": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>失眠不寐</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>失眠不寐</color>，不然可得耽误事儿了",
     "avoidID1": 21003,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -92,7 +92,7 @@
   },
   "41010": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
     "avoidID1": 22003,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -102,7 +102,7 @@
   },
   "41011": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
     "avoidID1": 23003,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -112,7 +112,7 @@
   },
   "41012": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
     "avoidID1": 24003,
     "avoidID2": 0,
     "avoidAttributes": [
@@ -122,7 +122,7 @@
   },
   "42001": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>头晕目眩</color>或者<color=BD69FF>听力下降</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>头晕目眩</color>或者<color=#BD69FF>听力下降</color>，不然可得耽误事儿了",
     "avoidID1": 21002,
     "avoidID2": 22001,
     "avoidAttributes": [
@@ -133,7 +133,7 @@
   },
   "42002": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>心悸体虚</color>或者<color=FF57A0>盗汗口干</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>心悸体虚</color>或者<color=#FF57A0>盗汗口干</color>，不然可得耽误事儿了",
     "avoidID1": 22002,
     "avoidID2": 23001,
     "avoidAttributes": [
@@ -144,7 +144,7 @@
   },
   "42003": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>咽肿喉痛</color>或者<color=2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>咽肿喉痛</color>或者<color=#2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
     "avoidID1": 23002,
     "avoidID2": 24001,
     "avoidAttributes": [
@@ -155,7 +155,7 @@
   },
   "42004": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>风寒流涕</color>或者<color=FF8730>四肢无力</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>风寒流涕</color>或者<color=#FF8730>四肢无力</color>，不然可得耽误事儿了",
     "avoidID1": 24002,
     "avoidID2": 21001,
     "avoidAttributes": [
@@ -166,7 +166,7 @@
   },
   "42005": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>四肢无力</color>或者<color=BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>四肢无力</color>或者<color=#BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
     "avoidID1": 21001,
     "avoidID2": 22003,
     "avoidAttributes": [
@@ -177,7 +177,7 @@
   },
   "42006": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>听力下降</color>或者<color=FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>听力下降</color>或者<color=#FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
     "avoidID1": 22001,
     "avoidID2": 23003,
     "avoidAttributes": [
@@ -188,7 +188,7 @@
   },
   "42007": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>盗汗口干</color>或者<color=2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>盗汗口干</color>或者<color=#2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
     "avoidID1": 23001,
     "avoidID2": 24003,
     "avoidAttributes": [
@@ -199,7 +199,7 @@
   },
   "42008": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>口苦嘴臭</color>或者<color=FF8730>失眠不寐</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>口苦嘴臭</color>或者<color=#FF8730>失眠不寐</color>，不然可得耽误事儿了",
     "avoidID1": 24001,
     "avoidID2": 21003,
     "avoidAttributes": [
@@ -210,7 +210,7 @@
   },
   "42009": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>失眠不寐</color>或者<color=BD69FF>心悸体虚</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>失眠不寐</color>或者<color=#BD69FF>心悸体虚</color>，不然可得耽误事儿了",
     "avoidID1": 21003,
     "avoidID2": 22002,
     "avoidAttributes": [
@@ -221,7 +221,7 @@
   },
   "42010": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>抑郁烦闷</color>或者<color=FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>抑郁烦闷</color>或者<color=#FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
     "avoidID1": 22003,
     "avoidID2": 23002,
     "avoidAttributes": [
@@ -232,7 +232,7 @@
   },
   "42011": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>暴躁易怒</color>或者<color=2E89FF>风寒流涕</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>暴躁易怒</color>或者<color=#2E89FF>风寒流涕</color>，不然可得耽误事儿了",
     "avoidID1": 23003,
     "avoidID2": 24002,
     "avoidAttributes": [
@@ -243,7 +243,7 @@
   },
   "42012": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>头疼欲裂</color>或者<color=FF8730>头晕目眩</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>头疼欲裂</color>或者<color=#FF8730>头晕目眩</color>，不然可得耽误事儿了",
     "avoidID1": 24003,
     "avoidID2": 21002,
     "avoidAttributes": [
@@ -254,7 +254,7 @@
   },
   "42013": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>头晕目眩</color>或者<color=FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>头晕目眩</color>或者<color=#FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
     "avoidID1": 21002,
     "avoidID2": 23003,
     "avoidAttributes": [
@@ -265,7 +265,7 @@
   },
   "42014": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>心悸体虚</color>或者<color=2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>心悸体虚</color>或者<color=#2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
     "avoidID1": 22002,
     "avoidID2": 24003,
     "avoidAttributes": [
@@ -276,7 +276,7 @@
   },
   "42015": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>咽肿喉痛</color>或者<color=FF8730>失眠不寐</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>咽肿喉痛</color>或者<color=#FF8730>失眠不寐</color>，不然可得耽误事儿了",
     "avoidID1": 23002,
     "avoidID2": 21003,
     "avoidAttributes": [
@@ -287,7 +287,7 @@
   },
   "42016": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>风寒流涕</color>或者<color=BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>风寒流涕</color>或者<color=#BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
     "avoidID1": 24002,
     "avoidID2": 22003,
     "avoidAttributes": [
@@ -298,7 +298,7 @@
   },
   "42017": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>四肢无力</color>或者<color=FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>四肢无力</color>或者<color=#FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
     "avoidID1": 21001,
     "avoidID2": 23002,
     "avoidAttributes": [
@@ -309,7 +309,7 @@
   },
   "42018": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>听力下降</color>或者<color=2E89FF>风寒流涕</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>听力下降</color>或者<color=#2E89FF>风寒流涕</color>，不然可得耽误事儿了",
     "avoidID1": 22001,
     "avoidID2": 24002,
     "avoidAttributes": [
@@ -320,7 +320,7 @@
   },
   "42019": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>盗汗口干</color>或者<color=FF8730>头晕目眩</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>盗汗口干</color>或者<color=#FF8730>头晕目眩</color>，不然可得耽误事儿了",
     "avoidID1": 23001,
     "avoidID2": 21002,
     "avoidAttributes": [
@@ -331,7 +331,7 @@
   },
   "42020": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>口苦嘴臭</color>或者<color=BD69FF>心悸体虚</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>口苦嘴臭</color>或者<color=#BD69FF>心悸体虚</color>，不然可得耽误事儿了",
     "avoidID1": 24001,
     "avoidID2": 22002,
     "avoidAttributes": [
@@ -342,7 +342,7 @@
   },
   "42021": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>失眠不寐</color>或者<color=FF57A0>盗汗口干</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>失眠不寐</color>或者<color=#FF57A0>盗汗口干</color>，不然可得耽误事儿了",
     "avoidID1": 21003,
     "avoidID2": 23001,
     "avoidAttributes": [
@@ -353,7 +353,7 @@
   },
   "42022": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>抑郁烦闷</color>或者<color=2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>抑郁烦闷</color>或者<color=#2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
     "avoidID1": 22003,
     "avoidID2": 24001,
     "avoidAttributes": [
@@ -364,7 +364,7 @@
   },
   "42023": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>暴躁易怒</color>或者<color=FF8730>四肢无力</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>暴躁易怒</color>或者<color=#FF8730>四肢无力</color>，不然可得耽误事儿了",
     "avoidID1": 23003,
     "avoidID2": 21001,
     "avoidAttributes": [
@@ -375,7 +375,7 @@
   },
   "42024": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>头疼欲裂</color>或者<color=BD69FF>听力下降</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>头疼欲裂</color>或者<color=#BD69FF>听力下降</color>，不然可得耽误事儿了",
     "avoidID1": 24003,
     "avoidID2": 22001,
     "avoidAttributes": [
@@ -386,7 +386,7 @@
   },
   "42025": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>头晕目眩</color>或者<color=2E89FF>风寒流涕</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>头晕目眩</color>或者<color=#2E89FF>风寒流涕</color>，不然可得耽误事儿了",
     "avoidID1": 21002,
     "avoidID2": 24002,
     "avoidAttributes": [
@@ -397,7 +397,7 @@
   },
   "42026": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>心悸体虚</color>或者<color=FF8730>头晕目眩</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>心悸体虚</color>或者<color=#FF8730>头晕目眩</color>，不然可得耽误事儿了",
     "avoidID1": 22002,
     "avoidID2": 21002,
     "avoidAttributes": [
@@ -408,7 +408,7 @@
   },
   "42027": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>咽肿喉痛</color>或者<color=BD69FF>心悸体虚</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>咽肿喉痛</color>或者<color=#BD69FF>心悸体虚</color>，不然可得耽误事儿了",
     "avoidID1": 23002,
     "avoidID2": 22002,
     "avoidAttributes": [
@@ -419,7 +419,7 @@
   },
   "42028": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>风寒流涕</color>或者<color=FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>风寒流涕</color>或者<color=#FF57A0>咽肿喉痛</color>，不然可得耽误事儿了",
     "avoidID1": 24002,
     "avoidID2": 23002,
     "avoidAttributes": [
@@ -430,7 +430,7 @@
   },
   "42029": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>四肢无力</color>或者<color=2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>四肢无力</color>或者<color=#2E89FF>口苦嘴臭</color>，不然可得耽误事儿了",
     "avoidID1": 21001,
     "avoidID2": 24001,
     "avoidAttributes": [
@@ -441,7 +441,7 @@
   },
   "42030": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>听力下降</color>或者<color=FF8730>四肢无力</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>听力下降</color>或者<color=#FF8730>四肢无力</color>，不然可得耽误事儿了",
     "avoidID1": 22001,
     "avoidID2": 21001,
     "avoidAttributes": [
@@ -452,7 +452,7 @@
   },
   "42031": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>盗汗口干</color>或者<color=BD69FF>听力下降</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>盗汗口干</color>或者<color=#BD69FF>听力下降</color>，不然可得耽误事儿了",
     "avoidID1": 23001,
     "avoidID2": 22001,
     "avoidAttributes": [
@@ -463,7 +463,7 @@
   },
   "42032": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>口苦嘴臭</color>或者<color=FF57A0>盗汗口干</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>口苦嘴臭</color>或者<color=#FF57A0>盗汗口干</color>，不然可得耽误事儿了",
     "avoidID1": 24001,
     "avoidID2": 23001,
     "avoidAttributes": [
@@ -474,7 +474,7 @@
   },
   "42033": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF8730>失眠不寐</color>或者<color=2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF8730>失眠不寐</color>或者<color=#2E89FF>头疼欲裂</color>，不然可得耽误事儿了",
     "avoidID1": 21003,
     "avoidID2": 24003,
     "avoidAttributes": [
@@ -485,7 +485,7 @@
   },
   "42034": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=BD69FF>抑郁烦闷</color>或者<color=FF8730>失眠不寐</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#BD69FF>抑郁烦闷</color>或者<color=#FF8730>失眠不寐</color>，不然可得耽误事儿了",
     "avoidID1": 22003,
     "avoidID2": 21003,
     "avoidAttributes": [
@@ -496,7 +496,7 @@
   },
   "42035": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=FF57A0>暴躁易怒</color>或者<color=BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#FF57A0>暴躁易怒</color>或者<color=#BD69FF>抑郁烦闷</color>，不然可得耽误事儿了",
     "avoidID1": 23003,
     "avoidID2": 22003,
     "avoidAttributes": [
@@ -507,7 +507,7 @@
   },
   "42036": {
     "$type": "NPCAvoidDialogueConfig, Assembly-CSharp",
-    "desc": "但千万别让我<color=2E89FF>头疼欲裂</color>或者<color=FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
+    "desc": "但千万别让我<color=#2E89FF>头疼欲裂</color>或者<color=#FF57A0>暴躁易怒</color>，不然可得耽误事儿了",
     "avoidID1": 24003,
     "avoidID2": 23003,
     "avoidAttributes": [
