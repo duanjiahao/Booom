@@ -16,7 +16,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 0,
     "collectionWeights": 50,
@@ -46,7 +49,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 0,
     "collectionWeights": 50,
@@ -76,7 +82,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 0,
     "collectionWeights": 50,
@@ -106,7 +115,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 0,
     "collectionWeights": 50,
@@ -134,8 +146,10 @@
     "isAttribute4visible": false,
     "unlockDate": 3,
     "collectionTime": [
-      1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 200,
     "collectionWeights": 50,
@@ -163,8 +177,10 @@
     "isAttribute4visible": true,
     "unlockDate": 3,
     "collectionTime": [
-      1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 200,
     "collectionWeights": 50,
@@ -194,7 +210,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 200,
     "collectionWeights": 50,
@@ -223,7 +242,9 @@
     "unlockDate": 3,
     "collectionTime": [
       0,
-      1
+      1,
+      2,
+      3
     ],
     "collectionPrestige": 200,
     "collectionWeights": 50,
@@ -251,8 +272,10 @@
     "isAttribute4visible": false,
     "unlockDate": 5,
     "collectionTime": [
-      1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 300,
     "collectionWeights": 50,
@@ -280,8 +303,10 @@
     "isAttribute4visible": true,
     "unlockDate": 5,
     "collectionTime": [
-      1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 300,
     "collectionWeights": 50,
@@ -306,11 +331,13 @@
     "attribute3": 3,
     "isAttribute3visible": true,
     "attribute4": -2,
-    "isAttribute4visible": false,
+    "isAttribute4visible": true,
     "unlockDate": 5,
     "collectionTime": [
       0,
-      1
+      1,
+      2,
+      3
     ],
     "collectionPrestige": 300,
     "collectionWeights": 50,
@@ -340,7 +367,10 @@
     "collectionTime": [
       0,
       1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 300,
     "collectionWeights": 50,
@@ -368,7 +398,8 @@
     "isAttribute4visible": false,
     "unlockDate": 7,
     "collectionTime": [
-      2
+      4,
+      5
     ],
     "collectionPrestige": 500,
     "collectionWeights": 50,
@@ -391,13 +422,15 @@
     "attribute2": -2,
     "isAttribute2visible": false,
     "attribute3": 2,
-    "isAttribute3visible": false,
+    "isAttribute3visible": true,
     "attribute4": 0,
     "isAttribute4visible": true,
     "unlockDate": 7,
     "collectionTime": [
       0,
-      1
+      1,
+      2,
+      3
     ],
     "collectionPrestige": 500,
     "collectionWeights": 50,
@@ -425,8 +458,10 @@
     "isAttribute4visible": true,
     "unlockDate": 7,
     "collectionTime": [
-      1,
-      2
+      2,
+      3,
+      4,
+      5
     ],
     "collectionPrestige": 500,
     "collectionWeights": 50,
@@ -451,11 +486,13 @@
     "attribute3": 3,
     "isAttribute3visible": true,
     "attribute4": 2,
-    "isAttribute4visible": false,
+    "isAttribute4visible": true,
     "unlockDate": 7,
     "collectionTime": [
       0,
-      2
+      1,
+      4,
+      5
     ],
     "collectionPrestige": 500,
     "collectionWeights": 50,

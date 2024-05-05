@@ -2,7 +2,7 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "31001": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我最近总是感觉<color=FF8730>昏昏沉沉</color>的，你能帮我看看不？",
+    "desc": "大夫，我最近总是感觉<color=#FF8730>昏昏沉沉</color>的，你能帮我看看不？",
     "needID1": 21102,
     "needID2": 0,
     "needID3": 0,
@@ -13,7 +13,7 @@
   },
   "31002": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "医生，我家那老头子最近中了300万，动不动就<color=BD69FF>“哏”抽过去</color>，您给开开药。",
+    "desc": "医生，我家那老头子最近中了300万，动不动就<color=#BD69FF>“哏”抽过去</color>，您给开开药。",
     "needID1": 22102,
     "needID2": 0,
     "needID3": 0,
@@ -24,7 +24,7 @@
   },
   "31003": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我这一到阴天就<color=FF57A0>手脚发凉</color>，你给我开点暖身子的药吧。",
+    "desc": "大夫，我这一到阴天就<color=#FF57A0>手脚发凉</color>，你给我开点暖身子的药吧。",
     "needID1": 23102,
     "needID2": 0,
     "needID3": 0,
@@ -35,7 +35,7 @@
   },
   "31004": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "我拉……拉肚子……<color=2E89FF>拉的停不下来</color>……快……",
+    "desc": "我拉……拉肚子……<color=#2E89FF>拉的停不下来</color>……快……",
     "needID1": 24102,
     "needID2": 0,
     "needID3": 0,
@@ -46,7 +46,7 @@
   },
   "31005": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫！我最近！<color=FF8730>非常暴躁</color>！你说！能不能！给我！开点！药！",
+    "desc": "大夫！我最近！<color=#FF8730>非常暴躁</color>！你说！能不能！给我！开点！药！",
     "needID1": 21101,
     "needID2": 0,
     "needID3": 0,
@@ -57,7 +57,7 @@
   },
   "31006": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "医生，我儿子最近失恋了，<color=BD69FF>茶不思饭不想</color>的，再不吃东西就得饿死了！",
+    "desc": "医生，我儿子最近失恋了，<color=#BD69FF>茶不思饭不想</color>的，再不吃东西就得饿死了！",
     "needID1": 22101,
     "needID2": 0,
     "needID3": 0,
@@ -68,7 +68,7 @@
   },
   "31007": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我最近有些上火，您来给我开点<color=FF57A0>下火</color>的药吧。",
+    "desc": "大夫，我最近有些上火，您来给我开点<color=#FF57A0>下火</color>的药吧。",
     "needID1": 23101,
     "needID2": 0,
     "needID3": 0,
@@ -79,7 +79,7 @@
   },
   "31008": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "这天儿也太热了。您瞧我这衣裳儿，嘿！都能挤出水来了！给我来点<color=2E89FF>止汗</color>的药吧！",
+    "desc": "这天儿也太热了。您瞧我这衣裳儿，嘿！都能挤出水来了！给我来点<color=#2E89FF>止汗</color>的药吧！",
     "needID1": 24101,
     "needID2": 0,
     "needID3": 0,
@@ -90,7 +90,7 @@
   },
   "31009": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我明天要参加村里的<color=FF8730>跑步大赛</color>，您给我开点~你懂的~",
+    "desc": "大夫，我明天要参加村里的<color=#FF8730>跑步大赛</color>，您给我开点~你懂的~",
     "needID1": 21103,
     "needID2": 0,
     "needID3": 0,
@@ -101,7 +101,7 @@
   },
   "31010": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫……我已经……<color=BD69FF>三天没睡觉</color>了……实在受不了了……",
+    "desc": "大夫……我已经……<color=#BD69FF>三天没睡觉</color>了……实在受不了了……",
     "needID1": 22103,
     "needID2": 0,
     "needID3": 0,
@@ -112,7 +112,7 @@
   },
   "31011": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我一会儿就要参加考试了，但我现在还<color=FF57A0>困得不行</color>，您能不能让我亢奋亢奋……",
+    "desc": "大夫，我一会儿就要参加考试了，但我现在还<color=#FF57A0>困得不行</color>，您能不能让我亢奋亢奋……",
     "needID1": 23103,
     "needID2": 0,
     "needID3": 0,
@@ -123,7 +123,7 @@
   },
   "31012": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，我肠胃一直不好，给我整点<color=2E89FF>养胃</color>的呗。",
+    "desc": "大夫，我肠胃一直不好，给我整点<color=#2E89FF>养胃</color>的呗。",
     "needID1": 24103,
     "needID2": 0,
     "needID3": 0,
@@ -134,7 +134,7 @@
   },
   "32001": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>提神醒脑</color>，也能<color=BD69FF>提振食欲</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>提神醒脑</color>，也能<color=#BD69FF>提振食欲</color>的药呗。",
     "needID1": 21102,
     "needID2": 22101,
     "needID3": 0,
@@ -146,7 +146,7 @@
   },
   "32002": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>平息静气</color>，也能<color=FF57A0>清热泻火</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>平息静气</color>，也能<color=#FF57A0>清热泻火</color>的药呗。",
     "needID1": 22102,
     "needID2": 23101,
     "needID3": 0,
@@ -158,7 +158,7 @@
   },
   "32003": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>四体不寒</color>，也能<color=2E89FF>固表止汗</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>四体不寒</color>，也能<color=#2E89FF>固表止汗</color>的药呗。",
     "needID1": 23102,
     "needID2": 24101,
     "needID3": 0,
@@ -170,7 +170,7 @@
   },
   "32004": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>解暑止泻</color>，也能<color=FF8730>安神去躁</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>解暑止泻</color>，也能<color=#FF8730>安神去躁</color>的药呗。",
     "needID1": 24102,
     "needID2": 21101,
     "needID3": 0,
@@ -182,7 +182,7 @@
   },
   "32005": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>安神去躁</color>，也能<color=BD69FF>养神安眠</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>安神去躁</color>，也能<color=#BD69FF>养神安眠</color>的药呗。",
     "needID1": 21101,
     "needID2": 22103,
     "needID3": 0,
@@ -194,7 +194,7 @@
   },
   "32006": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>提振食欲</color>，也能<color=FF57A0>精神大振</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>提振食欲</color>，也能<color=#FF57A0>精神大振</color>的药呗。",
     "needID1": 22101,
     "needID2": 23103,
     "needID3": 0,
@@ -206,7 +206,7 @@
   },
   "32007": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>清热泻火</color>，也能<color=2E89FF>健脾养胃</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>清热泻火</color>，也能<color=#2E89FF>健脾养胃</color>的药呗。",
     "needID1": 23101,
     "needID2": 24103,
     "needID3": 0,
@@ -218,7 +218,7 @@
   },
   "32008": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>固表止汗</color>，也能<color=FF8730>充沛活力</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>固表止汗</color>，也能<color=#FF8730>充沛活力</color>的药呗。",
     "needID1": 24101,
     "needID2": 21103,
     "needID3": 0,
@@ -230,7 +230,7 @@
   },
   "32009": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>充沛活力</color>，也能<color=BD69FF>平息静气</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>充沛活力</color>，也能<color=#BD69FF>平息静气</color>的药呗。",
     "needID1": 21103,
     "needID2": 22102,
     "needID3": 0,
@@ -242,7 +242,7 @@
   },
   "32010": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>养神安眠</color>，也能<color=FF57A0>四体不寒</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>养神安眠</color>，也能<color=#FF57A0>四体不寒</color>的药呗。",
     "needID1": 22103,
     "needID2": 23102,
     "needID3": 0,
@@ -254,7 +254,7 @@
   },
   "32011": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>精神大振</color>，也能<color=2E89FF>解暑止泻</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>精神大振</color>，也能<color=#2E89FF>解暑止泻</color>的药呗。",
     "needID1": 23103,
     "needID2": 24102,
     "needID3": 0,
@@ -266,7 +266,7 @@
   },
   "32012": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>健脾养胃</color>，也能<color=FF8730>提神醒脑</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>健脾养胃</color>，也能<color=#FF8730>提神醒脑</color>的药呗。",
     "needID1": 24103,
     "needID2": 21102,
     "needID3": 0,
@@ -278,7 +278,7 @@
   },
   "32013": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>提神醒脑</color>，也能<color=FF57A0>精神大振</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>提神醒脑</color>，也能<color=#FF57A0>精神大振</color>的药呗。",
     "needID1": 21102,
     "needID2": 23103,
     "needID3": 0,
@@ -290,7 +290,7 @@
   },
   "32014": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>平息静气</color>，也能<color=2E89FF>健脾养胃</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>平息静气</color>，也能<color=#2E89FF>健脾养胃</color>的药呗。",
     "needID1": 22102,
     "needID2": 24103,
     "needID3": 0,
@@ -302,7 +302,7 @@
   },
   "32015": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>四体不寒</color>，也能<color=FF8730>充沛活力</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>四体不寒</color>，也能<color=#FF8730>充沛活力</color>的药呗。",
     "needID1": 23102,
     "needID2": 21103,
     "needID3": 0,
@@ -314,7 +314,7 @@
   },
   "32016": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>解暑止泻</color>，也能<color=BD69FF>养神安眠</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>解暑止泻</color>，也能<color=#BD69FF>养神安眠</color>的药呗。",
     "needID1": 24102,
     "needID2": 22103,
     "needID3": 0,
@@ -326,7 +326,7 @@
   },
   "32017": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>安神去躁</color>，也能<color=FF57A0>四体不寒</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>安神去躁</color>，也能<color=#FF57A0>四体不寒</color>的药呗。",
     "needID1": 21101,
     "needID2": 23102,
     "needID3": 0,
@@ -338,7 +338,7 @@
   },
   "32018": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>提振食欲</color>，也能<color=2E89FF>解暑止泻</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>提振食欲</color>，也能<color=#2E89FF>解暑止泻</color>的药呗。",
     "needID1": 22101,
     "needID2": 24102,
     "needID3": 0,
@@ -350,7 +350,7 @@
   },
   "32019": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>清热泻火</color>，也能<color=FF8730>提神醒脑</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>清热泻火</color>，也能<color=#FF8730>提神醒脑</color>的药呗。",
     "needID1": 23101,
     "needID2": 21102,
     "needID3": 0,
@@ -362,7 +362,7 @@
   },
   "32020": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>固表止汗</color>，也能<color=BD69FF>平息静气</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>固表止汗</color>，也能<color=#BD69FF>平息静气</color>的药呗。",
     "needID1": 24101,
     "needID2": 22102,
     "needID3": 0,
@@ -374,7 +374,7 @@
   },
   "32021": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>充沛活力</color>，也能<color=FF57A0>清热泻火</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>充沛活力</color>，也能<color=#FF57A0>清热泻火</color>的药呗。",
     "needID1": 21103,
     "needID2": 23101,
     "needID3": 0,
@@ -386,7 +386,7 @@
   },
   "32022": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>养神安眠</color>，也能<color=2E89FF>固表止汗</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>养神安眠</color>，也能<color=#2E89FF>固表止汗</color>的药呗。",
     "needID1": 22103,
     "needID2": 24101,
     "needID3": 0,
@@ -398,7 +398,7 @@
   },
   "32023": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>精神大振</color>，也能<color=FF8730>安神去躁</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>精神大振</color>，也能<color=#FF8730>安神去躁</color>的药呗。",
     "needID1": 23103,
     "needID2": 21101,
     "needID3": 0,
@@ -410,7 +410,7 @@
   },
   "32024": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>健脾养胃</color>，也能<color=BD69FF>提振食欲</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>健脾养胃</color>，也能<color=#BD69FF>提振食欲</color>的药呗。",
     "needID1": 24103,
     "needID2": 22101,
     "needID3": 0,
@@ -422,7 +422,7 @@
   },
   "32025": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>提神醒脑</color>，也能<color=2E89FF>解暑止泻</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>提神醒脑</color>，也能<color=#2E89FF>解暑止泻</color>的药呗。",
     "needID1": 21102,
     "needID2": 24102,
     "needID3": 0,
@@ -434,7 +434,7 @@
   },
   "32026": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>平息静气</color>，也能<color=FF8730>提神醒脑</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>平息静气</color>，也能<color=#FF8730>提神醒脑</color>的药呗。",
     "needID1": 22102,
     "needID2": 21102,
     "needID3": 0,
@@ -446,7 +446,7 @@
   },
   "32027": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>四体不寒</color>，也能<color=BD69FF>平息静气</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>四体不寒</color>，也能<color=#BD69FF>平息静气</color>的药呗。",
     "needID1": 23102,
     "needID2": 22102,
     "needID3": 0,
@@ -458,7 +458,7 @@
   },
   "32028": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>解暑止泻</color>，也能<color=FF57A0>四体不寒</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>解暑止泻</color>，也能<color=#FF57A0>四体不寒</color>的药呗。",
     "needID1": 24102,
     "needID2": 23102,
     "needID3": 0,
@@ -470,7 +470,7 @@
   },
   "32029": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>安神去躁</color>，也能<color=2E89FF>固表止汗</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>安神去躁</color>，也能<color=#2E89FF>固表止汗</color>的药呗。",
     "needID1": 21101,
     "needID2": 24101,
     "needID3": 0,
@@ -482,7 +482,7 @@
   },
   "32030": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>提振食欲</color>，也能<color=FF8730>安神去躁</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>提振食欲</color>，也能<color=#FF8730>安神去躁</color>的药呗。",
     "needID1": 22101,
     "needID2": 21101,
     "needID3": 0,
@@ -494,7 +494,7 @@
   },
   "32031": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>清热泻火</color>，也能<color=BD69FF>提振食欲</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>清热泻火</color>，也能<color=#BD69FF>提振食欲</color>的药呗。",
     "needID1": 23101,
     "needID2": 22101,
     "needID3": 0,
@@ -506,7 +506,7 @@
   },
   "32032": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>固表止汗</color>，也能<color=FF57A0>清热泻火</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>固表止汗</color>，也能<color=#FF57A0>清热泻火</color>的药呗。",
     "needID1": 24101,
     "needID2": 23101,
     "needID3": 0,
@@ -518,7 +518,7 @@
   },
   "32033": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF8730>充沛活力</color>，也能<color=2E89FF>健脾养胃</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF8730>充沛活力</color>，也能<color=#2E89FF>健脾养胃</color>的药呗。",
     "needID1": 21103,
     "needID2": 24103,
     "needID3": 0,
@@ -530,7 +530,7 @@
   },
   "32034": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=BD69FF>养神安眠</color>，也能<color=FF8730>充沛活力</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#BD69FF>养神安眠</color>，也能<color=#FF8730>充沛活力</color>的药呗。",
     "needID1": 22103,
     "needID2": 21103,
     "needID3": 0,
@@ -542,7 +542,7 @@
   },
   "32035": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=FF57A0>精神大振</color>，也能<color=BD69FF>养神安眠</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#FF57A0>精神大振</color>，也能<color=#BD69FF>养神安眠</color>的药呗。",
     "needID1": 23103,
     "needID2": 22103,
     "needID3": 0,
@@ -554,7 +554,7 @@
   },
   "32036": {
     "$type": "NPCNeedDialogueConfig, Assembly-CSharp",
-    "desc": "大夫，你给我开点能够<color=2E89FF>健脾养胃</color>，也能<color=FF57A0>精神大振</color>的药呗。",
+    "desc": "大夫，你给我开点能够<color=#2E89FF>健脾养胃</color>，也能<color=#FF57A0>精神大振</color>的药呗。",
     "needID1": 24103,
     "needID2": 23103,
     "needID3": 0,

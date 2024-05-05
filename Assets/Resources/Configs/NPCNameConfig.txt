@@ -32,7 +32,7 @@
   },
   "200006": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "魁萨茨·哈德拉克",
+    "name": "宇智波佐助",
     "gender": 0,
     "id": 200006
   },
@@ -200,7 +200,7 @@
   },
   "200034": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "Sakai Yuji",
+    "name": "Sakai",
     "gender": 0,
     "id": 200034
   },
@@ -224,7 +224,7 @@
   },
   "200038": {
     "$type": "NPCNameConfig, Assembly-CSharp",
-    "name": "Printemps noir",
+    "name": "noir",
     "gender": 1,
     "id": 200038
   },

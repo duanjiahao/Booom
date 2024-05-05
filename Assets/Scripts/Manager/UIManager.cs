@@ -74,6 +74,9 @@ public class UIManager : SingleMono<UIManager>
     {
         CloseAllWindow();
         beginPanel.gameObject.SetActive(true);
+        recipeWindow.gameObject.SetActive(false);
+        backyardWindow.gameObject.SetActive(false);
+        jieKePanel.gameObject.SetActive(false);
     }
 
     public void CloseAllWindow()
