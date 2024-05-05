@@ -35,12 +35,11 @@ public class DataManager : Singleton<DataManager>
 
     protected override void Init()
     {
-        // TODO: 读存档
-        Prestige = 0;
+        var generalSettings = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1);
+        Prestige = generalSettings.originalPrestige;
         Day = 1;
         CurrentTime = TimeOfDay.Morning_1;
-        SignTimes = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1).signTimes;
-
+        SignTimes = generalSettings.signTimes;
     }
 
     public void MoveToNextTime() 

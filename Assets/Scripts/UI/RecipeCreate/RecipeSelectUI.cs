@@ -55,11 +55,16 @@ public class RecipeSelectUI : MonoBehaviour
     {
         if (_recipeItem != null)
         {
-            CommonUtils.UseHerbCreateRecipe(_recipeItem, _currentNum);
+            if (CommonUtils.UseHerbCreateRecipe(_recipeItem, _currentNum))
+            {
+                UIManager.Instance.recipeWindow.RefreshContent(false, _recipeItem);
             
-            UIManager.Instance.recipeWindow.RefreshContent(false, _recipeItem);
-            
-            RefreshUI(_recipeItem);
+                RefreshUI(_recipeItem);
+            }
+            else
+            {
+                GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText("药材重量不足，无法制作药方");
+            }
         }
     }
 

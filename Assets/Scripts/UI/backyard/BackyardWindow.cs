@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,8 @@ public class BackyardWindow : MonoBehaviour
 
     public GameObject mask;
 
+    public TextMeshProUGUI need;
+
     private void OnEnable()
     {
         pickBtn.gameObject.SetActive(true);
@@ -28,6 +31,26 @@ public class BackyardWindow : MonoBehaviour
         pickBtn.onClick.AddListener(OnPickBtnClicked);
         createBtn.onClick.AddListener(OnCreateBtnClicked);
         peopleBtn.onClick.AddListener(OnPeopleBtnClicked);
+
+        var isFree = HerbPickerFactory.GetHerbPicker().IsFreeThisTime();
+        if (isFree)
+        {
+            need.text = "免费";
+        }
+        else
+        {
+            var generalSettings = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1);
+            
+            var surfix = string.Empty;
+            var prefix = string.Empty;
+            if (DataManager.Instance.Prestige < generalSettings.prestigeCost) 
+            {
+                prefix = "<color=#FF2C2C>";
+                surfix = "</color>";
+            }
+            
+            need.text = $"{prefix}-{generalSettings.prestigeCost}{surfix}声望";
+        }
     }
 
     private void OnPeopleBtnClicked()
@@ -46,6 +69,13 @@ public class BackyardWindow : MonoBehaviour
     {
         if (!HerbPickerFactory.GetHerbPicker().CanPick())
         {
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText("声望不足无法采药");
+            return;
+        }
+
+        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
+        {
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText("太晚了，明天再去采药吧");
             return;
         }
 

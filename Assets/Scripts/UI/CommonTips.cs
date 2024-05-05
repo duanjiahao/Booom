@@ -37,10 +37,10 @@ public class CommonTips : MonoBehaviour
 
     IEnumerator ShowAndHideText()
     {
-        // µÈ´ýÖ¸¶¨Ê±¼ä
+        // ç­‰å¾…æŒ‡å®šæ—¶é—´
         yield return new WaitForSeconds(displayTime);
 
-        // ¹Ø±ÕÎÄ±¾ºÍ±³¾°
+        // å…³é—­æ–‡æœ¬å’ŒèƒŒæ™¯
         tipsBg.gameObject.SetActive(false);
     }
 
