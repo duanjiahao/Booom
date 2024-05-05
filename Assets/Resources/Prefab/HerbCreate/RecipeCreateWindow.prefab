@@ -11090,7 +11090,7 @@ GameObject:
   - component: {fileID: 94705285406672892}
   - component: {fileID: 7250279654871166169}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: BackpackPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

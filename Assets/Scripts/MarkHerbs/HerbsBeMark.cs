@@ -20,7 +20,16 @@ public class HerbsBeMark : MonoBehaviour
     public void Marking()
     {
         HerbUnitInfo hui = GetComponent<HerbUnitInfo>();
-        currentData = hui.data;
+        if (hui == null)
+        {
+            HerbUIItem huii = GetComponent<HerbUIItem>();
+            currentData = huii.GetHerbItem();
+        }
+        else
+        {
+            currentData = hui.data;
+        }
+        
 
         for (int i = 0; i < currentData.IsVisible.Length; i++)
         {

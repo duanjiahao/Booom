@@ -16,6 +16,8 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     private const int AddItemInterval = 100;
 
     private int _counter;
+
+    public ParticleSystem ps;
     
     public void OnDrag(PointerEventData eventData)
     {
@@ -30,7 +32,9 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
         {
+            ps.Play();
             _counter += Mathf.FloorToInt(Time.deltaTime * 1000f);
+            Debug.Log(_counter);
             if (_counter >= AddItemInterval)
             {
                 UIManager.Instance.recipeWindow.herbSelectUI.AddWeight(new HerbWeightData(){ HerbId = _item.HerbConfig.id, Weight = 1});
@@ -52,6 +56,13 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
         else
         {
+            if(ps!=null)
+            {
+                ps.Pause();
+                ps.Clear();
+            }
+            
+
             _counter = 0;
         }
     }
@@ -67,8 +78,14 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         dragItem = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/HerbCreate/HerbDragItem"), UIManager.Instance.recipeWindow.transform);
 
+        ps = dragItem.transform.Find("Particle System").GetComponent<ParticleSystem>();
+
         var uiItem = this.GetComponent<HerbUIItem>();
         _item = uiItem.GetHerbItem();
+
+        Color tempcolor = ChangeColor(_item.HerbConfig.id);
+        var mainModule = ps.main;
+        mainModule.startColor = tempcolor;
 
         dragItem.transform.Find("icon").GetComponent<Image>().sprite = uiItem.icon.sprite;
         
@@ -91,5 +108,46 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         Debug.Log("Drag End");
         
         GameObject.Destroy(dragItem);
+    }
+
+    public Color ChangeColor(int id)
+    {
+        switch (id)
+        {
+            case 1001:
+                return Color.white;
+            case 1002:
+                return Color.red;
+            case 1003:
+                return Color.black;
+            case 1004:
+                return Color.blue;
+            case 1005:
+                return Color.green;
+            case 1006:
+                return Color.magenta;
+            case 1007:
+                return Color.yellow;
+            case 1008:
+                return Color.green;
+            case 1009:
+                return Color.green;
+            case 1010:
+                return Color.blue;
+            case 1011:
+                return Color.red;
+            case 1012:
+                return Color.blue;
+            case 1013:
+                return Color.black;
+            case 1014:
+                return Color.yellow;
+            case 1015:
+                return Color.blue;
+            case 1016:
+                return Color.red;
+
+        }
+        return Color.white;
     }
 }
