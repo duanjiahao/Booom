@@ -12,6 +12,6 @@ public class UIWeightDesc : MonoBehaviour
     public void RefreshUI(HerbWeightData data)
     {
         name.text = ConfigManager.Instance.GetConfig<HerbsConfig>(data.HerbId).name;
-        num.text = $"{data.Weight / 10}''{data.Weight % 10}'";
+        num.text = CommonUtils.GetWeightStr(data.Weight);
     }
 }

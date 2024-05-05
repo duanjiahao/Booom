@@ -19,6 +19,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     
     public void OnDrag(PointerEventData eventData)
     {
+        if (MarkState.isOnMarkMode)
+        {
+            return;
+        }
+        
         Debug.Log($"Dragging {eventData.position}");
 
         dragTran.anchoredPosition = new Vector2(eventData.position.x - Screen.width / 2f, eventData.position.y - Screen.height / 2f);
@@ -53,6 +58,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (MarkState.isOnMarkMode)
+        {
+            return;
+        }
+
         Debug.Log("Drag Start");
 
         dragItem = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/HerbCreate/HerbDragItem"), UIManager.Instance.recipeWindow.transform);
@@ -73,6 +83,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (MarkState.isOnMarkMode)
+        {
+            return;
+        }
+        
         Debug.Log("Drag End");
         
         GameObject.Destroy(dragItem);

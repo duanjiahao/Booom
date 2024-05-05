@@ -194,20 +194,23 @@ public static class CommonUtils
             attributes[1] += herbConfig.attribute2 * herb.Weight;
             attributes[2] += herbConfig.attribute3 * herb.Weight;
             attributes[3] += herbConfig.attribute4 * herb.Weight;
-            //效果可见性
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
+            
+            var hasInvisible = herbItem.HasInvisibleAttribute();
+            
+            //效果可见性 (如果一个药材有不可见的属性，那么为0的属性也是不可见的)
+            if ((hasInvisible && herbConfig.attribute1 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Yang))
             {
                 visibleList[0] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
+            if ((hasInvisible && herbConfig.attribute2 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Yin))
             {
                 visibleList[1] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
+            if ((hasInvisible && herbConfig.attribute3 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Re))
             {
                 visibleList[2] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
+            if ((hasInvisible && herbConfig.attribute4 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Han))
             {
                 visibleList[3] = false;
             }
@@ -225,20 +228,23 @@ public static class CommonUtils
             attributes[1] += herbConfig.attribute2 * herb.Weight;
             attributes[2] += herbConfig.attribute3 * herb.Weight;
             attributes[3] += herbConfig.attribute4 * herb.Weight;
-            //效果可见性
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yang))
+
+            var hasInvisible = herbItem.HasInvisibleAttribute();
+            
+            //效果可见性 (如果一个药材有不可见的属性，那么为0的属性也是不可见的)
+            if ((hasInvisible && herbConfig.attribute1 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Yang))
             {
                 visibleList[0] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Yin))
+            if ((hasInvisible && herbConfig.attribute2 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Yin))
             {
                 visibleList[1] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Re))
+            if ((hasInvisible && herbConfig.attribute3 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Re))
             {
                 visibleList[2] = false;
             }
-            if (!herbItem.IsAttributeVisible(EffectAttributeType.Han))
+            if ((hasInvisible && herbConfig.attribute4 == 0) || !herbItem.IsAttributeVisible(EffectAttributeType.Han))
             {
                 visibleList[3] = false;
             }

@@ -15,12 +15,15 @@ public class BackyardWindow : MonoBehaviour
 
     public GameObject anime;
 
+    public GameObject mask;
+
     private void OnEnable()
     {
         pickBtn.gameObject.SetActive(true);
         createBtn.gameObject.SetActive(true);
         peopleBtn.gameObject.SetActive(true);
         anime.SetActive(false);
+        mask.SetActive(false);
         
         pickBtn.onClick.AddListener(OnPickBtnClicked);
         createBtn.onClick.AddListener(OnCreateBtnClicked);
@@ -50,8 +53,9 @@ public class BackyardWindow : MonoBehaviour
         createBtn.gameObject.SetActive(false);
         peopleBtn.gameObject.SetActive(false);
         anime.SetActive(true);
+        mask.SetActive(true);
 
-        DOTween.Sequence().InsertCallback(5f, () =>
+        DOTween.Sequence().InsertCallback(4.5f, () =>
         {
             this.gameObject.SetActive(false);
             UIManager.Instance.OpenCollectionWindow();

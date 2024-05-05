@@ -59,7 +59,7 @@ public class HerbSelectUI : MonoBehaviour
     {
         itemContainer.DestroyAllChildren();
         slider.value = 0f;
-        this.weight.text = "0''0'";
+        this.weight.text = "零钱";
         num.text = $"| 0/{HerbMaxCount}";
         
         UIItemList.Clear();
@@ -111,7 +111,7 @@ public class HerbSelectUI : MonoBehaviour
             UIItemDic[herbId].SetData(new HerbWeightData { HerbId = herbId, Weight = weight });
         }
 
-        this.weight.text = $"{weight / 10}''{weight % 10}'";
+        this.weight.text = CommonUtils.GetWeightStr(weight);
 
         slider.value = Mathf.InverseLerp(0f, 100f, weight);
     }

@@ -35,7 +35,14 @@ public class RecipeCreatWindow : MonoBehaviour
         toggleHerb.onValueChanged.AddListener(OnToggleHerb);
         toggleRecipe.onValueChanged.AddListener(OnToggleRecipe);
         herbSelectUI.resetBtn.onClick.AddListener(OnHerbResetBtnClicked);
+        backyardBtn.onClick.AddListener(OnBackyardBtnClicked);
         RefreshUI();
+    }
+
+    private void OnBackyardBtnClicked()
+    {
+        this.gameObject.SetActive(false);
+        UIManager.Instance.OpenBackyardWindow();
     }
 
     private void OnHerbResetBtnClicked()
@@ -82,6 +89,7 @@ public class RecipeCreatWindow : MonoBehaviour
         toggleHerb.onValueChanged.RemoveListener(OnToggleHerb);
         toggleRecipe.onValueChanged.RemoveListener(OnToggleRecipe);
         herbSelectUI.resetBtn.onClick.RemoveListener(OnHerbResetBtnClicked);
+        backyardBtn.onClick.RemoveListener(OnBackyardBtnClicked);
     }
 
     public void RefreshUI()

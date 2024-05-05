@@ -41,4 +41,17 @@ public class HerbItem
     {
         IsVisible[(int)effectAttributeType - 1] = true;
     }
+
+    public bool HasInvisibleAttribute()
+    {
+        for (int i = 0; i < IsVisible?.Length; i++)
+        {
+            if (!IsVisible[i])
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
