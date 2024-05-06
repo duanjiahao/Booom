@@ -72,7 +72,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //添加到npc列表中
         _npcs.Add(nowNPC);
         //ClearCurrentNPC();
-        DataManager.Instance.MoveToNextTime();
+        //DataManager.Instance.MoveToNextTime();
         DataManager.Instance.ChangePrestige(prestige);
         
     }

@@ -82,7 +82,7 @@ public class HerbBackpack : MonoBehaviour
             tempItem.GetComponentInChildren<HerbUnitInfo>().SetData(data);
             itemList.Add(tempItem);
             Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "weight");
-            nameText.text = GetAttributeText(data.Quantity);
+            nameText.text = CommonUtils.GetWeightStr(data.Quantity);
             Image HerbImg = UnityHelper.GetTheChildNodeComponetScripts<Image>(tempItem, "herbImg");
             HerbImg.sprite = Resources.Load<Sprite>(data.HerbConfig.iconPath);
         }
