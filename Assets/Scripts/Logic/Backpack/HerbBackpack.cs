@@ -56,7 +56,7 @@ public class HerbBackpack : MonoBehaviour
         CreateAndDisplayItems(index, end);
     }
 
-    private void ClearItemList()
+    public void ClearItemList()
     {
         //清理列表
         foreach (var item in itemList)
@@ -66,7 +66,7 @@ public class HerbBackpack : MonoBehaviour
         itemList.Clear();
     }
 
-    private void CreateAndDisplayItems(int start, int end)
+    public void CreateAndDisplayItems(int start, int end)
     {
         herbInventory = HerbDataManager.Instance.GetAllHerbItems();
         //根据起始和结束索引index显示item

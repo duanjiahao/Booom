@@ -42,7 +42,7 @@ public class RecipeBackpack : MonoBehaviour
         //向后翻页逻辑
         ClearItemList();
         int end = Mathf.Min(index + size, recipeInventory.Count);
-        CreateAndDisplayItems(index, end);
+        //CreateAndDisplayItems(index, end);
     }
 
     public void SetPrevItems(int index, int size)
@@ -51,7 +51,7 @@ public class RecipeBackpack : MonoBehaviour
         ClearItemList();
         int end = Mathf.Min(index + size, recipeInventory.Count);
         //int start = Mathf.Max(0, index - size);
-        CreateAndDisplayItems(index, end);
+        //CreateAndDisplayItems(index, end);
     }
 
     public void ClearItemList()
@@ -64,8 +64,9 @@ public class RecipeBackpack : MonoBehaviour
         itemList.Clear();
     }
 
-    public void CreateAndDisplayItems(int start, int end)
+    public void CreateAndDisplayItems(int start)
     {
+        int end = Mathf.Min(start + 5, recipeInventory.Count);
         recipeInventory = RecipeDataManager.Instance.GetAllRecipeItems();
         Debug.Log("recipe number is:"+recipeInventory.Count);
         //根据起始和结束索引index显示item
@@ -86,5 +87,15 @@ public class RecipeBackpack : MonoBehaviour
             quantityText.text = "x "+data.Num.ToString();
         }
     }
+    //void UpdateToggleStates()
+    //{
+    //    toggleUp.interactable = currentNPCIndex > 0;
+    //    toggleDown.interactable = currentNPCIndex + itemSize < NPCDataManager.Instance.GetNPCs().Count;
+    //}
+    //public void RefreashRecipeList(int start)
+    //{
+    //    CreateAndDisplayItems(start);
+    //    UpdateToggleStates();
+    //}
     
 }

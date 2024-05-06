@@ -56,8 +56,8 @@ public class bookPanel : MonoBehaviour
         totalDay.text = "共" + DataManager.Instance.Day.ToString() + "日";
         totalGuest.text = NPCDataManager.Instance.GetNPCs().Count.ToString();
 
-        // 重新计算end值并显示第一页
-        currentNPCIndex = 0; // 每次刷新时重置到第一页
+        // 每次刷新时重置到第一页
+        currentNPCIndex = 0; 
         DisplayNPCItems(currentNPCIndex);
         UpdateToggleStates();
     }

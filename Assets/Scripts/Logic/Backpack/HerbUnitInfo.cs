@@ -14,27 +14,42 @@ public class HerbUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     // Start is called before the first frame update
     void Start()
     {
-        tempItem = Instantiate(
+//        tempItem = Instantiate(
+//InfoPanelObj,
+//transform.position,
+//Quaternion.identity, UIManager.Instance.jieKePanel.transform
+//);
+//        //tempItem = InfoPanelObj;
+//        tempItem.SetActive(false); // Hide the tooltip window
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //药方信息弹窗初始化
+        if (!tempItem)
+        {
+            tempItem = Instantiate(
 InfoPanelObj,
 transform.position,
 Quaternion.identity, UIManager.Instance.jieKePanel.transform
 );
-        //tempItem = InfoPanelObj;
-        tempItem.SetActive(false); // Hide the tooltip window
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
+        }
         tempItem.GetComponent<HerbInfoPanel>().Init();
         SetInfoData(data);
-        tempItem.transform.position = new Vector3(transform.position.x, transform.position.y+20, transform.position.z);
-        tempItem.SetActive(true);  // Show the tooltip window
+        tempItem.transform.position = new Vector3(transform.position.x, transform.position.y + 20, transform.position.z);
 
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
-        tempItem.SetActive(false);  // Hide the tooltip window
+        // Hide the tooltip window
+        DestroyTips();
+    }
+    public void DestroyTips()
+    {
+        if (tempItem)
+        {
+            Destroy(tempItem);
+        }
     }
     public void SetData(HerbItem data)
     {
