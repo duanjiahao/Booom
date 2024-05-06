@@ -39,7 +39,7 @@ public class StartMarkMode : MonoBehaviour
         {
             if(DataManager.Instance.SignTimes > 0)
             {
-                Cursor.SetCursor(cursorTextureMark, Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(cursorTextureMark, new Vector2(5,5), CursorMode.Auto);
                 MarkState.isOnMarkMode = true;
 
                 clickMask.SetActive(true);

@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7334014881260982871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 50
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   herbInfoPanel: {fileID: 5082312756159321838}
   herbUIItem: {fileID: 4865723909277017661}
-  offset: {x: 0, y: 180}
+  offset: {x: 0, y: -240}
 --- !u!1 &4450134494539448738
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,15 +971,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292114016332437826, guid: c5b9a3e786b564c9d893cfe2f4d380e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.10692
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292114016332437826, guid: c5b9a3e786b564c9d893cfe2f4d380e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.10692
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292114016332437826, guid: c5b9a3e786b564c9d893cfe2f4d380e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.10692
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292114016332437826, guid: c5b9a3e786b564c9d893cfe2f4d380e4, type: 3}
       propertyPath: m_LocalPosition.x

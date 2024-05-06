@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   herbInfoPanel: {fileID: 0}
   herbUIItem: {fileID: 293907951470005840}
-  offset: {x: 0, y: 180}
+  offset: {x: 0, y: 300}
 --- !u!114 &2245129225082933909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fefa597ed97a254ab302502fb7986fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!114 &8884383150236855917
 MonoBehaviour:
   m_ObjectHideFlags: 0
