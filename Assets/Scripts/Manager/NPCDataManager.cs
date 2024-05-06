@@ -39,6 +39,12 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //获取所有npc
         return _npcs;
     }
+    public void ResetNPCData()
+    {
+        //清空npc数据
+        _npcs.Clear();
+        nowNPC = null;
+    }
     public NPCItem GetNowNPC()
     {
         if (nowNPC != null)
