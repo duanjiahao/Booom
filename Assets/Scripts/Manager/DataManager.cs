@@ -48,6 +48,7 @@ public class DataManager : Singleton<DataManager>
         HerbDataManager.Instance.Reset();
         RecipeDataManager.Instance.Reset();
         HerbPickerFactory.GetHerbPicker().Init();
+        NPCDataManager.Instance.ResetNPCData();
         
         Notification.Instance.Notify(Notification.TimeChanged);
         Notification.Instance.Notify(Notification.PrestigeChanged);
