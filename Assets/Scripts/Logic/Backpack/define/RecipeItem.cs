@@ -53,6 +53,9 @@ public class RecipeItem
             if (con != null) 
             {
                 effectList.Add(new EffectInfoData(con, visibleList[i - 1]));
+                //获取对应的负面效果
+                EffectAxisConfig badeffect = CommonUtils.GetCorrespondBadEffectConfig(con);
+                effectList.Add(new EffectInfoData(badeffect, visibleList[i - 1]));
             }
         }
 

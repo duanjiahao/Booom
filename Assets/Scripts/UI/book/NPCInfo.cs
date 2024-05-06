@@ -45,19 +45,19 @@ public class NPCInfo : MonoBehaviour
         AvoidText.text = string.Join("\n", NPCDataManager.Instance.GetAvoidText(info.NpcUnit));
         ResultText.text = info.GivenRecipe.Name;
         HeadImage.sprite = Resources.Load<Sprite>(info.NpcUnit.HeadImgPath);
-        switch (info.FinalPrestige)
+        switch (info.FinalResponse)
         {
             //选择对应表情
-            case 100001:
+            case 1:
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_治愈");
                 break;
-            case 100002:
+            case 2:
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_部分治愈");
                 break;
-            case 100003:
+            case 3:
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_未治愈");
                 break;
-            case 100004:
+            case 4:
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
@@ -65,7 +65,27 @@ public class NPCInfo : MonoBehaviour
         {
             //选择一个副作用进行显示
             var effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
-            SideEffect.text = effect.EffectAxisConfig.name;
+            
+            switch (effect.EffectAxisConfig.attributes)
+            {
+                case (int)EffectAttributeType.Yang:
+                    SideEffect.text = "<color=#FF8730>" + effect.EffectAxisConfig.name+"</color>";
+                    break; 
+                case (int)EffectAttributeType.Yin:
+                    SideEffect.text = "<color=#BD69FF>" + effect.EffectAxisConfig.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Han:
+                    SideEffect.text = "<color=#2E89FF>" + effect.EffectAxisConfig.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Re:
+                    SideEffect.text = "<color=#FF57A0>" + effect.EffectAxisConfig.name + "</color>";
+                    break;
+            }
+            
+        }
+        else
+        {
+            SideEffect.text = "";
         }
 
     }
