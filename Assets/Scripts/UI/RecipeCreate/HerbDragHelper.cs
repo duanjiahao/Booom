@@ -35,11 +35,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
         {
-            ps.Play();
             _counter += Mathf.FloorToInt(Time.deltaTime * 1000f);
             Debug.Log(_counter);
             if (_counter >= AddItemInterval)
             {
+                ps.Play();
                 UIManager.Instance.recipeWindow.herbSelectUI.AddWeight(new HerbWeightData(){ HerbId = _item.HerbConfig.id, Weight = 1});
                 
                 var currentWeightDataList = UIManager.Instance.recipeWindow.herbSelectUI.CurrentWeightDataList;

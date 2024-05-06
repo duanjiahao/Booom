@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIAudioClick : MonoBehaviour , IPointerClickHandler
+public class UIAudioClick : MonoBehaviour , IPointerDownHandler
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         AudioManager.Instance.PlayAudio("Click", false);
     }

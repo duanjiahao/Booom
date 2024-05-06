@@ -46,11 +46,7 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
         //制作药方，默认一次只能制作一个
         if (recipeDic.TryGetValue(id, out var item))
         {
-            if (item.Num > 0)
-            {
-                item.Num += num;
-            }
-            
+            item.Num += num;            
         }
     }
     public void DeleteRecipe(int id)

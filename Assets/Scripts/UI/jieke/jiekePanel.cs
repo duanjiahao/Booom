@@ -189,7 +189,8 @@ public class jiekePanel : MonoBehaviour
         }
         else
         {
-            DataManager.Instance.MoveToNextTime();
+            RefreshPanelBg();
+            DataManager.Instance.MoveToNextTime();  
             //叫下一位客人
             GenerateNewNPC();
             //openNpcDetail.SetActive(true);

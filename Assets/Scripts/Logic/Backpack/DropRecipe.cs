@@ -36,27 +36,44 @@ public class DropRecipe : MonoBehaviour, IDropHandler
             nowObj.GetComponentInChildren<RecipeUnitInfo>().DestroyTips();
             Destroy(nowObj);
         }
-
-        // 创建新的物体并设置其位置
-        droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
-        droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
-
-        if (droppedItem != null)
+        if (eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data.Num > 0)
         {
-            Debug.Log(droppedItem.name);
-            Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-            droppedItem.transform.position = newPos;
+            if (NPCDataManager.Instance.GetNowNPC() == null)
+            {
+                GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"目前无客人");
+                
+            }
+            else
+            {
+                // 创建新的物体并设置其位置
+                droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
+                droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+                droppedItem.transform.position = newPos;
 
-            recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
+                recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
 
-            // 将新物体设置为 slot 的子物体
-            droppedItem.transform.SetParent(transform);
-        }
-        if (NPCDataManager.Instance.GetNowNPC() != null)
-        {
-            BtGive.interactable = true;
+                // 将新物体设置为 slot 的子物体
+                droppedItem.transform.SetParent(transform);
+                BtGive.interactable = true;
+            }
             
         }
+
+        //if (droppedItem != null)
+        //{
+        //    Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        //    droppedItem.transform.position = newPos;
+
+        //    recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
+
+        //    // 将新物体设置为 slot 的子物体
+        //    droppedItem.transform.SetParent(transform);
+        //}
+        //if (NPCDataManager.Instance.GetNowNPC() != null)
+        //{
+        //    BtGive.interactable = true;
+        //}
         
     }
     private void GiveRecipe()
@@ -77,15 +94,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         {
             GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"无剩余药方");
         }
-        //if (NPCDataManager.Instance.GetNowNPC()==null)
-        //{
-        //    GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"没有放置药方");
-        //    //Destroy(droppedItem);
-        //}
-        //else
-        //{
-            
-        //}
        
     }
 }
