@@ -442,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 510099721759497851, guid: 1a34566f4c76f36449d42ec87b49747a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 791249284071995696, guid: 1a34566f4c76f36449d42ec87b49747a, type: 3}
       propertyPath: m_IsActive
@@ -1990,13 +1990,13 @@ RectTransform:
   - {fileID: 481672004}
   - {fileID: 677339170}
   - {fileID: 1832046830}
+  - {fileID: 2090985628}
   - {fileID: 191132496}
-  - {fileID: 1965727599}
-  - {fileID: 119059967}
   - {fileID: 1202905333}
   - {fileID: 467465081}
-  - {fileID: 2090985628}
   - {fileID: 42513571}
+  - {fileID: 119059967}
+  - {fileID: 1965727599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2111,6 +2111,10 @@ PrefabInstance:
     - target: {fileID: 4030739793687522253, guid: 826952b3598ad43978fd83db3b3ee7bf, type: 3}
       propertyPath: m_Name
       value: jiekePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958557674391983262, guid: 826952b3598ad43978fd83db3b3ee7bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
