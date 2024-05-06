@@ -10,8 +10,6 @@ public class UIManager : SingleMono<UIManager>
 
     public RecipeDeleteWindow recipeDeleteWindow;
 
-    public RecipeRenameWindow recipeRenameWindow;
-
     public BackyardWindow backyardWindow;
 
     public UICollectionWindow collectionWindow;
@@ -36,12 +34,6 @@ public class UIManager : SingleMono<UIManager>
         recipeDeleteWindow.RefreshUI(item);
     }
     
-    public void OpenRenameWindow(RecipeItem item)
-    {
-        recipeRenameWindow.gameObject.SetActive(true);
-        recipeRenameWindow.RefreshUI(item);
-    }
-
     public void OpenJiKeWindow()
     {
         jieKePanel.gameObject.SetActive(true);
@@ -86,7 +78,6 @@ public class UIManager : SingleMono<UIManager>
         recipeWindow.gameObject.SetActive(false);
         createRecipeWindow.gameObject.SetActive(false);
         recipeDeleteWindow.gameObject.SetActive(false);
-        recipeRenameWindow.gameObject.SetActive(false);
         backyardWindow.gameObject.SetActive(false);
         collectionWindow.gameObject.SetActive(false);
         jieKePanel.gameObject.SetActive(false);

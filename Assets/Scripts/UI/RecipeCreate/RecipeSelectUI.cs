@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.Rendering;
 
 public class RecipeSelectUI : MonoBehaviour
 {
@@ -29,6 +30,16 @@ public class RecipeSelectUI : MonoBehaviour
 
     public Button renameBtn;
 
+    public GameObject renameGO;
+
+    public GameObject namingGO;
+
+    public TMP_InputField namingInput;
+
+    public Button namingConfirmBtn;
+
+    public Button namingCancelBtn;
+
     private int _currentNum;
 
     private RecipeItem _recipeItem;
@@ -41,13 +52,38 @@ public class RecipeSelectUI : MonoBehaviour
         delBtn.onClick.AddListener(OnDelBtnClicked);
         createBtn.onClick.AddListener(OnCreateBtnClicked);
         renameBtn.onClick.AddListener(OnRenameBtnClicked);
+        namingCancelBtn.onClick.AddListener(OnNamingCanceled);
+        namingConfirmBtn.onClick.AddListener(OnNamingConfirmed);
+    }
+
+    private void OnNamingConfirmed()
+    {
+        if (_recipeItem != null)
+        {
+            RecipeDataManager.Instance.ChangeRecipeName(_recipeItem.Id, namingInput.text);
+
+            name.text = namingInput.text;
+            UIManager.Instance.recipeWindow.RefreshContent(false, _recipeItem);
+            
+            namingGO.SetActive(false);
+            renameGO.SetActive(true);
+        }
+    }
+
+    private void OnNamingCanceled()
+    {
+        namingGO.SetActive(false);
+        renameGO.SetActive(true);
     }
 
     private void OnRenameBtnClicked()
     {
         if (_recipeItem != null)
         {
-            UIManager.Instance.OpenRenameWindow(_recipeItem);
+            namingGO.SetActive(true);
+            renameGO.SetActive(false);
+            
+            namingInput.text = String.Empty;
         }
     }
 
@@ -108,12 +144,16 @@ public class RecipeSelectUI : MonoBehaviour
         delBtn.onClick.RemoveListener(OnDelBtnClicked);
         createBtn.onClick.RemoveListener(OnCreateBtnClicked);
         renameBtn.onClick.RemoveListener(OnRenameBtnClicked);
+        namingCancelBtn.onClick.RemoveListener(OnNamingCanceled);
+        namingConfirmBtn.onClick.RemoveListener(OnNamingConfirmed);
     }
 
     public void InitUI()
     {
         _recipeItem = null;
         name.text = string.Empty;
+        renameGO.SetActive(true);
+        namingGO.SetActive(false);
         
         slider.wholeNumbers = true;
         slider.minValue = 1;
@@ -131,6 +171,8 @@ public class RecipeSelectUI : MonoBehaviour
     {
         _recipeItem = recipeItem;
 
+        renameGO.SetActive(true);
+        namingGO.SetActive(false);
         name.text = recipeItem.Name;
 
         int maxNumber = int.MaxValue;

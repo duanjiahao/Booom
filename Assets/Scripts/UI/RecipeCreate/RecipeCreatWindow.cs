@@ -31,7 +31,7 @@ public class RecipeCreatWindow : MonoBehaviour
     public RecipeInfoUI recipeInfoPanel;
 
     public IntroductionHelper introductionHelper;
-
+    
     private void OnEnable()
     {
         toggleHerb.onValueChanged.AddListener(OnToggleHerb);
