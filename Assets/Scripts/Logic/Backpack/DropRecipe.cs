@@ -52,47 +52,40 @@ public class DropRecipe : MonoBehaviour, IDropHandler
             // 将新物体设置为 slot 的子物体
             droppedItem.transform.SetParent(transform);
         }
-        BtGive.interactable = true;
-        //droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
-        //droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
-        //if (droppedItem != null)
-        //{
-        //    Debug.Log(droppedItem.name);
-        //    Vector3 newPos = new Vector3(eventData.pointerEnter.transform.position.x, eventData.pointerEnter.transform.position.y + 5, eventData.pointerEnter.transform.position.z);
-        //    droppedItem.transform.position = newPos;
-        //    //TODO没有获取到数据
+        if (NPCDataManager.Instance.GetNowNPC() != null)
+        {
+            BtGive.interactable = true;
             
-        //    recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
-            
-        //}
+        }
+        
     }
     private void GiveRecipe()
     {
-        if (recipe == null)
+        if (recipe.Num > 0)
         {
-            Debug.LogError("no recipe right now");
-            //Destroy(droppedItem);
+            RecipeDataManager.Instance.UseRecipe(recipe.Id);
+            NPCDataManager.Instance.TreatNPC(recipe);
+            NPCDataManager.Instance.CheckResult();
+            BackpackPanelControl bpPanel = FindObjectOfType<BackpackPanelControl>();
+            bpPanel.RefreshRecipe();
+            Destroy(droppedItem);
+            BtGive.interactable = false;
+            jiekePanel jkPanel = FindObjectOfType<jiekePanel>();
+            jkPanel.PlayEndingDialogue();
         }
         else
         {
-            Debug.Log("do you want to give him" + recipe.Name + "?");
-            if (recipe.Num > 0)
-            {
-                RecipeDataManager.Instance.UseRecipe(recipe.Id);
-                NPCDataManager.Instance.TreatNPC(recipe);
-                NPCDataManager.Instance.CheckResult();
-                BackpackPanelControl bpPanel = FindObjectOfType<BackpackPanelControl>();
-                bpPanel.RefreshRecipe();
-                Destroy(droppedItem);
-                BtGive.interactable = false;
-                jiekePanel jkPanel = FindObjectOfType<jiekePanel>();
-                jkPanel.PlayEndingDialogue();
-            }
-            else
-            {
-                Debug.Log("数量不足");
-            } 
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"无剩余药方");
         }
+        //if (NPCDataManager.Instance.GetNowNPC()==null)
+        //{
+        //    GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"没有放置药方");
+        //    //Destroy(droppedItem);
+        //}
+        //else
+        //{
+            
+        //}
        
     }
 }

@@ -179,14 +179,13 @@ public class jiekePanel : MonoBehaviour
         if(NPCDataManager.Instance.IsBusy())
         {
             //有客状态
-            Debug.Log("现在还有其他客人，再等等吧");
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"还有患者正在等待中~");
         }
         else if (DataManager.Instance.CurrentTime.Equals(TimeOfDay.EndOfDay))
         {
             //打烊时间
-            //TODO 加上UI
             bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
-            Debug.Log("时间太晚了，已经没有客人了");
+            GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"时间太晚了，已经没有客人了");
         }
         else
         {
@@ -235,7 +234,7 @@ public class jiekePanel : MonoBehaviour
     private void PlayTransition()
     {
         // 创建并实例化过场动画Prefab
-        GameObject transitionInstance = Instantiate(AnimationPrefab, Vector3.zero, Quaternion.identity);
+        GameObject transitionInstance = Instantiate(AnimationPrefab);
 
         // 获取过场动画Prefab中的Animator组件
         Animator animator = transitionInstance.GetComponent<Animator>();
