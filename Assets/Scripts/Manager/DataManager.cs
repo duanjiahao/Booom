@@ -85,6 +85,10 @@ public class DataManager : Singleton<DataManager>
         {
             CommonUtils.ShowTips(new Vector2(-450f, 475f),$"声望+{change}");
         }
+        else
+        {
+            CommonUtils.ShowTips(new Vector2(-450f, 475f),$"声望<color=#FF2C2C>{change}</color>");
+        }
     }
 
     public void ReduceSignTimes()
