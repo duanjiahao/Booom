@@ -77,15 +77,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         {
             GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"无剩余药方");
         }
-        //if (NPCDataManager.Instance.GetNowNPC()==null)
-        //{
-        //    GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"没有放置药方");
-        //    //Destroy(droppedItem);
-        //}
-        //else
-        //{
-            
-        //}
        
     }
 }
