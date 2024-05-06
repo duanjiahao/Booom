@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 508712256076433643}
   - component: {fileID: 7318685862973876151}
   - component: {fileID: 5814651336321816056}
+  - component: {fileID: 1737950282197743794}
   m_Layer: 5
   m_Name: creatBtn
   m_TagString: Untagged
@@ -254,6 +255,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1737950282197743794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346878339930423641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1774245085219062780
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +389,7 @@ GameObject:
   - component: {fileID: 45454012892241402}
   - component: {fileID: 179506906895234495}
   - component: {fileID: 2878754620752038938}
+  - component: {fileID: 1852890453055329714}
   m_Layer: 5
   m_Name: peopleBtn
   m_TagString: Untagged
@@ -484,6 +498,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1852890453055329714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340350035755389515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3677548235576598742
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +597,7 @@ GameObject:
   - component: {fileID: 488763551965668256}
   - component: {fileID: 6070384999120906810}
   - component: {fileID: 6306448120796378900}
+  - component: {fileID: 6811676285276930641}
   m_Layer: 5
   m_Name: pickBtn
   m_TagString: Untagged
@@ -680,6 +707,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6811676285276930641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633964461303672339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5396011142237570271
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +913,8 @@ MonoBehaviour:
   anime: {fileID: 1774245085219062780}
   mask: {fileID: 3677548235576598742}
   need: {fileID: 6763386267741917845}
+  commonUI: {fileID: 0}
+  introductionHelper: {fileID: 0}
 --- !u!1 &7423011568725523233
 GameObject:
   m_ObjectHideFlags: 0
