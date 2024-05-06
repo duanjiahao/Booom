@@ -20,6 +20,8 @@ public class CommonUI : MonoBehaviour
 
     public Button settingBtn;
 
+    public Button introductionBtn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,27 @@ public class CommonUI : MonoBehaviour
         RefreshTime(null);
         
         settingBtn.onClick.AddListener(OnSettingBtnClicked);
+        introductionBtn.onClick.AddListener(OnIntroductionClicked);
+    }
+
+    private void OnIntroductionClicked()
+    {
+        if (UIManager.Instance.backyardWindow.gameObject.activeSelf)
+        {
+            UIManager.Instance.backyardWindow.introductionHelper.gameObject.SetActive(true);
+            return;
+        }
+        
+        if (UIManager.Instance.recipeWindow.gameObject.activeSelf)
+        {
+            UIManager.Instance.recipeWindow.introductionHelper.gameObject.SetActive(true);
+            return;
+        }
+        
+        if (UIManager.Instance.jieKePanel.gameObject.activeSelf)
+        {
+            UIManager.Instance.jieKePanel.introductionHelper.gameObject.SetActive(true);
+        }
     }
 
     private void OnSettingBtnClicked()
