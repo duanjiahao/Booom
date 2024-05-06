@@ -26,6 +26,7 @@ public class AudioManager : SingleMono<AudioManager>
         {
             var audioSource = _pool[0];
             audioSource.gameObject.SetActive(true);
+            _pool.RemoveAt(0);
             return audioSource;
         }
         else
@@ -93,5 +94,10 @@ public class AudioManager : SingleMono<AudioManager>
             _audioList.Remove(audioInfo);
             _audioDic.Remove(id);
         }
+    }
+
+    public bool IsPlaying(long id)
+    {
+        return _audioDic.TryGetValue(id, out var _);
     }
 }

@@ -17,6 +17,8 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private int _counter;
 
+    private long _audioId;
+
     public ParticleSystem ps;
     
     public void OnDrag(PointerEventData eventData)
@@ -40,7 +42,11 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             if (_counter >= AddItemInterval)
             {
                 ps.Play();
-                AudioManager.Instance.PlayAudio("DropHerb", false);
+                if (!AudioManager.Instance.IsPlaying(_audioId))
+                {
+                    _audioId = AudioManager.Instance.PlayAudio("DropHerb2", false);
+                }
+
                 UIManager.Instance.recipeWindow.herbSelectUI.AddWeight(new HerbWeightData(){ HerbId = _item.HerbConfig.id, Weight = 1});
                 
                 var currentWeightDataList = UIManager.Instance.recipeWindow.herbSelectUI.CurrentWeightDataList;
