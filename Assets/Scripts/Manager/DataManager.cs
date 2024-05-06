@@ -62,6 +62,7 @@ public class DataManager : Singleton<DataManager>
         {
             Day++;
             SignTimes = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1).signTimes;
+            Notification.Instance.Notify(Notification.SignTimesChanged);
             Notification.Instance.Notify(Notification.NextDay);
         }
 
