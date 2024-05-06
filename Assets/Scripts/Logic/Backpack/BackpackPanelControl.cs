@@ -131,4 +131,12 @@ public class BackpackPanelControl : MonoBehaviour
         recipePanel.SetActive(TgRecipe.isOn);
         herbPanel.SetActive(TgHerb.isOn);
     }
+    public void RefreshRecipe()
+    {
+        GameObject recipeObj = transform.Find("recipeList").gameObject;
+        recipeObj.GetComponent<RecipeBackpack>().ClearItemList();
+        int end = Mathf.Min(currentRecipeIndex + itemSize, RecipeDataManager.Instance.GetAllRecipeItems().Count);
+        //int start = Mathf.Max(0, index - size);
+        recipeObj.GetComponent<RecipeBackpack>().CreateAndDisplayItems(currentRecipeIndex, end);
+    }
 }

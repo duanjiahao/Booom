@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5962174320624165531}
   - component: {fileID: 3829462336805026350}
-  - component: {fileID: 553937115710195211}
+  - component: {fileID: 9020525562197106719}
   m_Layer: 5
   m_Name: name
   m_TagString: Untagged
@@ -500,7 +500,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8984007723058854994}
   m_CullTransparentMesh: 1
---- !u!114 &553937115710195211
+--- !u!114 &9020525562197106719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -521,8 +521,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 53f60e3e05e800f4eadc9d0378922cf8, type: 3}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: f6be8b0055a278b468a80c389c150db9, type: 3}
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -532,5 +532,5 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.94
-  m_Text: "\u836F\n\u65B9\n\u540D"
+    m_LineSpacing: 1
+  m_Text: hhihi

@@ -8,7 +8,7 @@ using FindFunc;
 public class DropRecipe : MonoBehaviour, IDropHandler
 {
     private GameObject PagingRoot;
-    private Button BtGive;
+    public Button BtGive;
     private RecipeItem recipe;
     private GameObject droppedItem;
     void Awake()
@@ -17,7 +17,8 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     }
     void Start()
     {
-        BtGive = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtGive");
+        BtGive.interactable = false;
+        //BtGive = UnityHelper.GetTheChildNodeComponetScripts<Button>(PagingRoot, "BtGive");
         BtGive.onClick.AddListener(() =>
         {
             GiveRecipe();
@@ -27,18 +28,43 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     {
         // 从 eventData 获取拖拽的对象
         Debug.Log(eventData.pointerDrag.name);
-        droppedItem = Instantiate(eventData.pointerDrag, transform.root);
+        // 检查当前 slot 是否已经有物体
+        if (transform.childCount > 0)
+        {
+            // 如果有，销毁当前的物体及弹窗
+            GameObject nowObj = transform.GetChild(0).gameObject;
+            nowObj.GetComponentInChildren<RecipeUnitInfo>().DestroyTips();
+            Destroy(nowObj);
+        }
+
+        // 创建新的物体并设置其位置
+        droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
         droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
+
         if (droppedItem != null)
         {
             Debug.Log(droppedItem.name);
-            Vector3 newPos = new Vector3(eventData.pointerEnter.transform.position.x, eventData.pointerEnter.transform.position.y + 5, eventData.pointerEnter.transform.position.z);
+            Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
             droppedItem.transform.position = newPos;
-            //TODO没有获取到数据
-            
+
             recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
-            
+
+            // 将新物体设置为 slot 的子物体
+            droppedItem.transform.SetParent(transform);
         }
+        BtGive.interactable = true;
+        //droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
+        //droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
+        //if (droppedItem != null)
+        //{
+        //    Debug.Log(droppedItem.name);
+        //    Vector3 newPos = new Vector3(eventData.pointerEnter.transform.position.x, eventData.pointerEnter.transform.position.y + 5, eventData.pointerEnter.transform.position.z);
+        //    droppedItem.transform.position = newPos;
+        //    //TODO没有获取到数据
+            
+        //    recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
+            
+        //}
     }
     private void GiveRecipe()
     {
@@ -50,12 +76,22 @@ public class DropRecipe : MonoBehaviour, IDropHandler
         else
         {
             Debug.Log("do you want to give him" + recipe.Name + "?");
-            RecipeDataManager.Instance.CookRecipe(recipe.Id);
-            NPCDataManager.Instance.TreatNPC(recipe);
-            NPCDataManager.Instance.CheckResult();
-            Destroy(droppedItem);
-            jiekePanel jkPanel = FindObjectOfType<jiekePanel>();
-            jkPanel.PlayEndingDialogue();    
+            if (recipe.Num > 0)
+            {
+                RecipeDataManager.Instance.UseRecipe(recipe.Id);
+                NPCDataManager.Instance.TreatNPC(recipe);
+                NPCDataManager.Instance.CheckResult();
+                BackpackPanelControl bpPanel = FindObjectOfType<BackpackPanelControl>();
+                bpPanel.RefreshRecipe();
+                Destroy(droppedItem);
+                BtGive.interactable = false;
+                jiekePanel jkPanel = FindObjectOfType<jiekePanel>();
+                jkPanel.PlayEndingDialogue();
+            }
+            else
+            {
+                Debug.Log("数量不足");
+            } 
         }
        
     }
