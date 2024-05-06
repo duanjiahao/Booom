@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine.Scripting;
 
 public class ConfigManager : SingleMono<ConfigManager>
 {
@@ -25,10 +26,7 @@ public class ConfigManager : SingleMono<ConfigManager>
         }
     }
 
-    public override void Begin()
-    {
-        NPCGeneratorFactory.GetNPCGenerator().GenerateARandomNPC();
-    }
+    [Preserve]
     public T GetConfig<T>(int id) where T : BaseConfig
     {
         var configName = typeof(T).Name;
@@ -44,12 +42,13 @@ public class ConfigManager : SingleMono<ConfigManager>
         return null;
     }
     
-
+    [Preserve]
     public IList<T> GetConfigList<T>() where T : BaseConfig
     {
         return GetConfigListWithFilter<T>();
     }
 
+    [Preserve]
     public IList<T> GetConfigListWithFilter<T>(ConfigFilter<T> configFilter = null) where T : BaseConfig
     {
         var configName = typeof(T).Name;
@@ -61,7 +60,7 @@ public class ConfigManager : SingleMono<ConfigManager>
             {
                 var value = kv.Value as T;
                 if (configFilter == null || configFilter(value))
-                configList.Add(value);
+                    configList.Add(value);
             }
 
             return configList;

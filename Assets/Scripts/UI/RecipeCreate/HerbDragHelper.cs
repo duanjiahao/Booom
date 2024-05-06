@@ -34,7 +34,7 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
 
         var screenScale = 1080f / Screen.height;
-        
+
         dragTran.anchoredPosition = new Vector2((eventData.position.x - Screen.width / 2f) * screenScale , (eventData.position.y - Screen.height / 2f) * screenScale);
 
         if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
