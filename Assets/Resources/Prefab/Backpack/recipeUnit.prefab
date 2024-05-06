@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ae0d785512e4804ae87b938bde0717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InfoPanelObj: {fileID: 709941598310712807, guid: 23177fc51864044cab6cf8766bc01134, type: 3}
+  InfoPanelObj: {fileID: 5691687907603728705, guid: f414bf85a75074b148961e2ef93eeb0e, type: 3}
 --- !u!114 &1362479323832443497
 MonoBehaviour:
   m_ObjectHideFlags: 0
