@@ -48,10 +48,18 @@ public class CommonUI : MonoBehaviour
             boxes[i].SetActive((int)currentTime > i);
         }
 
-        for (int i = 0; i < times.Count; i++)
-        {
-            times[i].SetActive((int)currentTime == i || (currentTime == TimeOfDay.EndOfDay && i == times.Count - 1));
-        }
+        var isMorning = currentTime is TimeOfDay.Morning_1 or TimeOfDay.Morning_2;
+        var isAfternoon = currentTime is TimeOfDay.Afternoon_1 or TimeOfDay.Afternoon_2;
+        var isEvening = currentTime is TimeOfDay.Evening_1 or TimeOfDay.Evening_2 or TimeOfDay.EndOfDay;
+        
+        times[0].SetActive(isMorning);
+        times[1].SetActive(!isMorning);
+        
+        times[2].SetActive(isAfternoon);
+        times[3].SetActive(!isAfternoon);
+        
+        times[4].SetActive(isEvening);
+        times[5].SetActive(!isEvening);
     }
 
     private void RefreshPrestige(object data)

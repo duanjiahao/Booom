@@ -97,13 +97,20 @@ public class NPCUnit
 
             var avoidAttributes = new List<int>(config.avoidAttributes);
 
+            bool needContinue = false;
             foreach (var avoidAttribute in avoidAttributes)
             {
                 if (needAttributes.Contains(avoidAttribute)) 
                 {
                     // 因为有重复的属性，所以接着找
-                    continue;
+                    needContinue = true;
+                    break;
                 }
+            }
+
+            if (needContinue)
+            {
+                continue;
             }
 
             // 没有重复的属性，确定是这个禁忌效果

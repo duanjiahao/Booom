@@ -24,6 +24,8 @@ public class RecipeCompleteWindow : MonoBehaviour
     {
         createBtn.onClick.AddListener(OnCreateBtnClicked);
         cancelBtn.onClick.AddListener(OnCancelBtnClicked);
+
+        nameInput.text = string.Empty;
     }
 
     public void RefreshUI(List<HerbWeightData> dataList)
