@@ -2266,6 +2266,7 @@ MonoBehaviour:
   prestigeValue: {fileID: 8081376613457933546}
   settingBtn: {fileID: 4588990999082187570}
   introductionBtn: {fileID: 1774275304881287084}
+  penNum: {fileID: 1472882133142847184}
 --- !u!114 &1992859637575844977
 MonoBehaviour:
   m_ObjectHideFlags: 0

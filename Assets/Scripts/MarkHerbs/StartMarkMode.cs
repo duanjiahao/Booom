@@ -44,7 +44,7 @@ public class StartMarkMode : MonoBehaviour
 
                 clickMask.SetActive(true);
                 penBtn.penButton.transform.SetParent(clickMask.transform.parent);
-                // ½«±ê¼Ç°´Å¥ÖÃÓÚÕÚÕÖÖ®ÉÏ
+                // å°†æ ‡è®°æŒ‰é’®ç½®äºé®ç½©ä¹‹ä¸Š
                 penBtn.penButton.transform.SetAsLastSibling();
 
                 GetBackPackPanel();
@@ -79,7 +79,7 @@ public class StartMarkMode : MonoBehaviour
 
     }
 
-    //»ñÈ¡Ò©²ÄÁĞ±í²¢Ìá¸ß²ã¼¶
+    //è·å–è¯æåˆ—è¡¨å¹¶æé«˜å±‚çº§
     public void GetBackPackPanel()
     {
         backPack = GameObject.Find("BackpackPanel");

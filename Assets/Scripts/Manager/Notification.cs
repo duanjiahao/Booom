@@ -7,6 +7,8 @@ public class Notification : Singleton<Notification>
     public const string NextDay = "NextDay";
 
     public const string PrestigeChanged = "PrestigeChanged";
+    
+    public const string SignTimesChanged = "SignTimesChanged";
 
     public const string TimeChanged = "TimeChanged";
 

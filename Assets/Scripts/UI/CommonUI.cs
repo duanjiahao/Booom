@@ -22,17 +22,26 @@ public class CommonUI : MonoBehaviour
 
     public Button introductionBtn;
 
+    public TextMeshProUGUI penNum;
+
     // Start is called before the first frame update
     void Start()
     {
         Notification.Instance.Register(Notification.PrestigeChanged, RefreshPrestige);
         Notification.Instance.Register(Notification.TimeChanged, RefreshTime);
+        Notification.Instance.Register(Notification.SignTimesChanged, RefreshSignTimes);
 
         RefreshPrestige(null);
         RefreshTime(null);
+        RefreshSignTimes(null);
         
         settingBtn.onClick.AddListener(OnSettingBtnClicked);
         introductionBtn.onClick.AddListener(OnIntroductionClicked);
+    }
+
+    private void RefreshSignTimes(object data)
+    {
+        penNum.text = DataManager.Instance.SignTimes.ToString();
     }
 
     private void OnIntroductionClicked()

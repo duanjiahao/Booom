@@ -30,7 +30,7 @@ public class DataManager : Singleton<DataManager>
 
     public int Prestige { get; private set; }
 
-    public int SignTimes { get; set; }
+    public int SignTimes { get; private set; }
 
 
     protected override void Init()
@@ -79,5 +79,16 @@ public class DataManager : Singleton<DataManager>
         Prestige = Mathf.Max(0, Prestige);
 
         Notification.Instance.Notify(Notification.PrestigeChanged);
+
+        if (change > 0)
+        {
+            CommonUtils.ShowTips(new Vector2(-450f, 475f),$"声望+{change}");
+        }
+    }
+
+    public void ReduceSignTimes()
+    {
+        SignTimes--;
+        Notification.Instance.Notify(Notification.SignTimesChanged);
     }
 }

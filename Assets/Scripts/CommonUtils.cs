@@ -291,4 +291,12 @@ public static class CommonUtils
 
         return true;
     }
+
+    public static void ShowTips(Vector2 pos, string content)
+    {
+        var go = Object.Instantiate(Resources.Load<GameObject>("UI/Tips"), GameObject.Find("Canvas").transform);
+        go.transform.SetAsLastSibling();
+        go.GetComponent<RectTransform>().anchoredPosition = pos;
+        go.GetComponent<Tips>().SetContent(content);
+    }
 }

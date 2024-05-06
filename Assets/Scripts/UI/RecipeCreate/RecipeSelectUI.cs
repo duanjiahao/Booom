@@ -191,6 +191,7 @@ public class RecipeSelectUI : MonoBehaviour
         slider.wholeNumbers = true;
         slider.minValue = minNumb;
         slider.maxValue = maxNumb;
+        slider.SetValueWithoutNotify(minNumb);
         _currentNum = minNumb;
 
         minNum.text = minNumb.ToString();

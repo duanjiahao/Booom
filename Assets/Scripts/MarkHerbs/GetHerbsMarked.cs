@@ -132,7 +132,7 @@ public class GetHerbsMarked : MonoBehaviour
     //确定标记这个药材
     public void ConfirmMarkThisHerb()
     {
-        DataManager.Instance.SignTimes -= 1;
+        DataManager.Instance.ReduceSignTimes();
         if (currentData.AttributeList[markValue.attribute] == markValue.attributeValue && !currentData.IsVisible[markValue.attribute])
         {
             currentData.SetAttributeVisible((EffectAttributeType)markValue.attribute + 1);
