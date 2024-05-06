@@ -40,6 +40,7 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             if (_counter >= AddItemInterval)
             {
                 ps.Play();
+                AudioManager.Instance.PlayAudio("DropHerb", false);
                 UIManager.Instance.recipeWindow.herbSelectUI.AddWeight(new HerbWeightData(){ HerbId = _item.HerbConfig.id, Weight = 1});
                 
                 var currentWeightDataList = UIManager.Instance.recipeWindow.herbSelectUI.CurrentWeightDataList;
