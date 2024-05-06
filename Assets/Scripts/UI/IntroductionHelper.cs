@@ -16,6 +16,12 @@ public class IntroductionHelper : MonoBehaviour, IPointerClickHandler
     {
         _index = 0;
         GetComponent<Image>().sprite = Sprites[0];
+        UIManager.Instance.commonUI.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.commonUI.gameObject.SetActive(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)

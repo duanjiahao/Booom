@@ -22,6 +22,8 @@ public class UIManager : SingleMono<UIManager>
     public UIBeginPanel beginPanel;
 
     public UISettingPanel settingPanel;
+
+    public CommonUI commonUI;
     public void OpenCreateRecipeWindow(List<HerbWeightData> datas)
     {
         createRecipeWindow.gameObject.SetActive(true);
