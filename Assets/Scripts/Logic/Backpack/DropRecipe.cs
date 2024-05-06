@@ -59,21 +59,6 @@ public class DropRecipe : MonoBehaviour, IDropHandler
             }
             
         }
-
-        //if (droppedItem != null)
-        //{
-        //    Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-        //    droppedItem.transform.position = newPos;
-
-        //    recipe = droppedItem.GetComponentInChildren<RecipeUnitInfo>().data;
-
-        //    // 将新物体设置为 slot 的子物体
-        //    droppedItem.transform.SetParent(transform);
-        //}
-        //if (NPCDataManager.Instance.GetNowNPC() != null)
-        //{
-        //    BtGive.interactable = true;
-        //}
         
     }
     private void GiveRecipe()

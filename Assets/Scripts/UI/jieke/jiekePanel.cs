@@ -133,11 +133,31 @@ public class jiekePanel : MonoBehaviour
         }
         answerText.text = answerList[Random.Range(0, answerList.Count - 1)].desc;
         endDialogue.SetActive(true);
-        // 在5秒后隐藏窗口
-        Invoke("HideEndDialogue", displayDuration);
-        
-        
+        StartCoroutine(EndDaySequence());
+        //// 在3秒后隐藏窗口
+        //Invoke("HideEndDialogue", displayDuration);
 
+        //if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
+        //{
+        //    BtNewDay.gameObject.SetActive(true);
+        //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
+        //}
+
+    }
+    IEnumerator EndDaySequence()
+    {
+        // 等待指定的持续时间
+        yield return new WaitForSeconds(displayDuration);
+
+        // 隐藏对话框
+        HideEndDialogue();
+
+        // 显示打烊界面
+        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
+        {
+            BtNewDay.gameObject.SetActive(true);
+            bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
+        }
     }
     private void HideEndDialogue()
     {
@@ -156,20 +176,21 @@ public class jiekePanel : MonoBehaviour
         {
             case TimeOfDay.Morning_1:
             case TimeOfDay.Morning_2:
+            case TimeOfDay.Afternoon_1:
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/清晨");
                 break;
-            case TimeOfDay.Afternoon_1:
             case TimeOfDay.Afternoon_2:
+            case TimeOfDay.Evening_1:
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黄昏");
                 break;
-            case TimeOfDay.Evening_1:
             case TimeOfDay.Evening_2:
+            case TimeOfDay.EndOfDay:
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黑夜");
                 break;
-            case TimeOfDay.EndOfDay:
-                BtNewDay.gameObject.SetActive(true);
-                bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
-                break;
+            //case TimeOfDay.Count:
+            //    BtNewDay.gameObject.SetActive(true);
+            //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
+            //    break;
         }
     }
     private void OnBellRing()
@@ -189,8 +210,9 @@ public class jiekePanel : MonoBehaviour
         }
         else
         {
+            
+            DataManager.Instance.MoveToNextTime();
             RefreshPanelBg();
-            DataManager.Instance.MoveToNextTime();  
             //叫下一位客人
             GenerateNewNPC();
             //openNpcDetail.SetActive(true);
@@ -239,11 +261,10 @@ public class jiekePanel : MonoBehaviour
 
         // 获取过场动画Prefab中的Animator组件
         Animator animator = transitionInstance.GetComponent<Animator>();
-
         // 订阅动画播放完成事件，用于销毁动画Prefab
         if (animator != null)
         {
-            animator.SetTrigger("PlayAnimation");
+            //animator.SetTrigger("PlayAnimation");
             
             // 在动画播放完后销毁动画Prefab
             Destroy(transitionInstance, animator.GetCurrentAnimatorStateInfo(0).length);

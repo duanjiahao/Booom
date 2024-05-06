@@ -80,7 +80,6 @@ public class NPCDataManager : Singleton<NPCDataManager>
         //ClearCurrentNPC();
         //DataManager.Instance.MoveToNextTime();
         DataManager.Instance.ChangePrestige(prestige);
-        
     }
 
     public void TreatNPC(RecipeItem recipe)
@@ -101,7 +100,23 @@ public class NPCDataManager : Singleton<NPCDataManager>
         foreach (var item in npc._needEffectIds)
         {
             EffectAxisConfig effect = ConfigManager.Instance.GetConfig<EffectAxisConfig>(item);
-            needStrings.Add(effect.name);
+            string text = "";
+            switch (effect.attributes)
+            {
+                case (int)EffectAttributeType.Yang:
+                    text = "<color=#FF8730>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Yin:
+                    text = "<color=#BD69FF>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Han:
+                    text = "<color=#2E89FF>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Re:
+                    text = "<color=#FF57A0>" + effect.name + "</color>";
+                    break;
+            }
+            needStrings.Add(text);
         }
         
         return needStrings;
@@ -111,10 +126,27 @@ public class NPCDataManager : Singleton<NPCDataManager>
     {
         //获取负面禁忌列表
         List<string> avoidStrings = new List<string>();
+
         foreach (var item in npc._avoidEffectIds)
         {
+            string text = "";
             EffectAxisConfig effect = ConfigManager.Instance.GetConfig<EffectAxisConfig>(item);
-            avoidStrings.Add(effect.name);
+            switch (effect.attributes)
+            {
+                case (int)EffectAttributeType.Yang:
+                    text = "<color=#FF8730>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Yin:
+                    text = "<color=#BD69FF>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Han:
+                    text = "<color=#2E89FF>" + effect.name + "</color>";
+                    break;
+                case (int)EffectAttributeType.Re:
+                    text = "<color=#FF57A0>" + effect.name + "</color>";
+                    break;
+            }
+            avoidStrings.Add(text);
         }
         return avoidStrings;
     }
@@ -155,15 +187,25 @@ public class NPCDataManager : Singleton<NPCDataManager>
         {
             foreach (var effect in effects)
             {
+                Debug.Log("this effect is:" + effect.EffectAxisConfig.name);
+                Debug.Log("is positive:" + effect.EffectAxisConfig.isPositive);
                 //若是负面效果
                 if (!effect.EffectAxisConfig.isPositive)
                 {
                     //若是禁忌效果则计数
                     if (effect.EffectAxisConfig.id == id)
                         count++;
-                    else if (effect.IsVisible)
-                    //若是副作用则添加到副作用列表里
-                        sideEffects.Add(effect);
+                    else
+                    {
+                        if (effect.IsVisible)
+                        {
+                            //若是副作用则添加到副作用列表里
+                            sideEffects.Add(effect);
+                            Debug.Log("trigger side effect:" + effect.EffectAxisConfig.name);
+                        }
+                            
+                    }
+                    
                 }
             }
         }
