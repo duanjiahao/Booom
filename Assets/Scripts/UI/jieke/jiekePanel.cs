@@ -36,7 +36,7 @@ public class jiekePanel : MonoBehaviour
     public List<EffectInfoData> SideEffects = new List<EffectInfoData>();
     
     public IntroductionHelper introductionHelper;
-    private float displayDuration = 5f;
+    private float displayDuration = 3f;
     public GameObject AnimationPrefab;
     #endregion
     private void Awake()

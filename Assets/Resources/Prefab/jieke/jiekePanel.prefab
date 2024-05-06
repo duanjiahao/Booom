@@ -620,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprites:
   - {fileID: 21300000, guid: c43e296635d7d114c98adf4dbe2210c6, type: 3}
+  - {fileID: 21300000, guid: 3eeaa35ed4b26834eac90d8e42ca0677, type: 3}
   - {fileID: 21300000, guid: 82237a00d89b145409eb64e4597570a4, type: 3}
   - {fileID: 21300000, guid: 5a56fc15e2589444990c3e25ae70be00, type: 3}
   - {fileID: 21300000, guid: 056112bf30c5b1a44af80dbdfda27607, type: 3}
@@ -1082,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3066713679448637712
 RectTransform:
   m_ObjectHideFlags: 0

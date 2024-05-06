@@ -18,6 +18,11 @@ public class CommonTips : MonoBehaviour
         tipsText = transform.Find("TipsImage/Text").GetComponent<TextMeshProUGUI>();
     }
 
+    private void OnDisable()
+    {
+        tipsBg.gameObject.SetActive(false);
+    }
+
     public void GetTipsText(string text)
     {
         tipsBg.gameObject.SetActive(true);

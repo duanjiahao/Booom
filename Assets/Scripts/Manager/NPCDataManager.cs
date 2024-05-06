@@ -76,7 +76,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         nowNPC.FinalEffectsList = finalEffects;
         nowNPC.FinalResponse = finalResponseType;
         //添加到npc列表中
-        _npcs.Add(nowNPC);
+        _npcs.Insert(0,nowNPC);
         //ClearCurrentNPC();
         //DataManager.Instance.MoveToNextTime();
         DataManager.Instance.ChangePrestige(prestige);
