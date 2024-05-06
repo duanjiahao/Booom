@@ -17,7 +17,7 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private int _counter;
 
-    private long _audioId;
+    private long _audioId = -1;
 
     public ParticleSystem ps;
     
@@ -32,8 +32,10 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             return;
         }
+
+        var screenScale = 1080f / Screen.height;
         
-        dragTran.anchoredPosition = new Vector2(eventData.position.x - Screen.width / 2f, eventData.position.y - Screen.height / 2f);
+        dragTran.anchoredPosition = new Vector2((eventData.position.x - Screen.width / 2f) * screenScale , (eventData.position.y - Screen.height / 2f) * screenScale);
 
         if (RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, Camera.main))
         {
