@@ -19,6 +19,11 @@ public class UIBeginPanel : MonoBehaviour
         quitBtn.onClick.AddListener(OnQuitBtnClicked);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayAudio("BGM", true);
+    }
+
     private void OnContinueBtnClicked()
     {
         this.gameObject.SetActive(false);
