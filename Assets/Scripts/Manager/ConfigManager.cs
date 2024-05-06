@@ -43,6 +43,7 @@ public class ConfigManager : SingleMono<ConfigManager>
 
         return null;
     }
+    
 
     public IList<T> GetConfigList<T>() where T : BaseConfig
     {
