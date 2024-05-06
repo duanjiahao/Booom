@@ -32,24 +32,25 @@ public class RecipeDataManager : Singleton<RecipeDataManager>
     {
         //给出药方，默认一次只能用一个
         //根据id查找
-        //foreach (var item in recipeInventory)
-        //{
-        //    if (item.ID == id)
-        //    {
-        //        if (item.Quantity >= 1)
-        //        {
-        //            item.Quantity -= 1;
-        //        }
-                
-        //    }
-        //}
+        if (recipeDic.TryGetValue(id, out var item))
+        {
+            if (item.Num > 0)
+            {
+                item.Num -= 1;
+            }
+
+        }
     }
     public void CookRecipe(int id, int num = 1)
     {
         //制作药方，默认一次只能制作一个
         if (recipeDic.TryGetValue(id, out var item))
         {
-            item.Num += num;
+            if (item.Num > 0)
+            {
+                item.Num += num;
+            }
+            
         }
     }
     public void DeleteRecipe(int id)

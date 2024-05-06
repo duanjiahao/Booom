@@ -18,11 +18,11 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         
         //药方按钮绑定事件
-        BtRecipe = this.GetComponent<Button>();
-        BtRecipe.onClick.AddListener(() =>
-        {
-            OnRecipeClicked();
-        });
+        //BtRecipe = this.GetComponent<Button>();
+        //BtRecipe.onClick.AddListener(() =>
+        //{
+        //    OnRecipeClicked();
+        //});
 //        PanelItem = transform.Find("recipeInfoPanel(Clone)").gameObject;
         
         //PanelItem.SetActive(false); // Hide the tooltip window
@@ -42,20 +42,28 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             PanelItem = Instantiate(
 InfoPanelObj,
 transform.position,
-Quaternion.identity, transform
+Quaternion.identity, UIManager.Instance.jieKePanel.transform
 );
         }
         PanelItem.GetComponent<RecipeInfoUI>().RefreshUI(data);
         //PanelItem.GetComponent<RecipeInfoPanel>().Init();
         //SetInfoData(data);
         PanelItem.transform.position = new Vector3(transform.position.x, transform.position.y + 20, transform.position.z);
-        PanelItem.SetActive(true);  // Show the tooltip window
+        //PanelItem.SetActive(true);  // Show the tooltip window
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-
-        PanelItem.SetActive(false);  // Hide the tooltip window
+        // Hide the tooltip window
+        DestroyTips();
+          
+    }
+    public void DestroyTips()
+    {
+        if (PanelItem)
+        {
+            Destroy(PanelItem);
+        }
     }
     public void SetData(RecipeItem data)
     {

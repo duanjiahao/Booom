@@ -54,7 +54,7 @@ public class RecipeBackpack : MonoBehaviour
         CreateAndDisplayItems(index, end);
     }
 
-    private void ClearItemList()
+    public void ClearItemList()
     {
         //清理列表
         foreach (var item in itemList)
@@ -64,7 +64,7 @@ public class RecipeBackpack : MonoBehaviour
         itemList.Clear();
     }
 
-    private void CreateAndDisplayItems(int start, int end)
+    public void CreateAndDisplayItems(int start, int end)
     {
         recipeInventory = RecipeDataManager.Instance.GetAllRecipeItems();
         Debug.Log("recipe number is:"+recipeInventory.Count);
@@ -82,6 +82,9 @@ public class RecipeBackpack : MonoBehaviour
             itemList.Add(tempItem);
             Text nameText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "name");
             nameText.text = data.Name;
+            Text quantityText = UnityHelper.GetTheChildNodeComponetScripts<Text>(tempItem, "quantity");
+            quantityText.text = "x "+data.Num.ToString();
         }
     }
+    
 }

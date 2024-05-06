@@ -17,7 +17,7 @@ public class HerbUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         tempItem = Instantiate(
 InfoPanelObj,
 transform.position,
-Quaternion.identity, transform
+Quaternion.identity, UIManager.Instance.jieKePanel.transform
 );
         //tempItem = InfoPanelObj;
         tempItem.SetActive(false); // Hide the tooltip window
