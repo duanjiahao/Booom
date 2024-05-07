@@ -69,16 +69,25 @@ public class DropRecipe : MonoBehaviour, IDropHandler
                 droppedItem.transform.SetParent(transform);
                 BtGive.interactable = true;
                 //点击时destroy
-                EventTrigger trigger = droppedItem.AddComponent<EventTrigger>();
-
-                EventTrigger.Entry entry = new EventTrigger.Entry();
-                entry.eventID = EventTriggerType.PointerClick; 
-                entry.callback.AddListener((data) => { Destroy(droppedItem); });  
-                trigger.triggers.Add(entry);
+                OnClickDestroy();
+                
             }
             
         }
         
+    }
+    private void OnClickDestroy()
+    {
+        EventTrigger trigger = droppedItem.GetComponent<EventTrigger>() ?? droppedItem.AddComponent<EventTrigger>();
+        trigger.triggers.Clear();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerClick;
+        entry.callback.AddListener((data) => {
+            Destroy(droppedItem);
+            recipe = null;
+            BtGive.interactable = false;
+        });
+        trigger.triggers.Add(entry);
     }
     private void GiveRecipe()
     {
