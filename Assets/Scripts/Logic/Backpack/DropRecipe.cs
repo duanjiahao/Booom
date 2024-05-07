@@ -56,6 +56,13 @@ public class DropRecipe : MonoBehaviour, IDropHandler
                 // 将新物体设置为 slot 的子物体
                 droppedItem.transform.SetParent(transform);
                 BtGive.interactable = true;
+                //点击时destroy
+                EventTrigger trigger = droppedItem.AddComponent<EventTrigger>();
+
+                EventTrigger.Entry entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerClick;  // 设置事件类型为点击
+                entry.callback.AddListener((data) => { Destroy(droppedItem); });  // 添加销毁操作
+                trigger.triggers.Add(entry);
             }
             
         }
