@@ -11,7 +11,7 @@ public class NewDaysAnim : MonoBehaviour
     {
         commonUI.SetActive(false);
         anim.gameObject.SetActive(true);
-        anim.Play("newday", 0);
+        anim.Play("nd", 0);
     }
 
     

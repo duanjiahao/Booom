@@ -37,9 +37,11 @@ public class jiekePanel : MonoBehaviour
     
     public IntroductionHelper introductionHelper;
     private float displayDuration = 3f;
-    public GameObject AnimationPrefab;
+    //public GameObject AnimationPrefab;
     //一天的最后一个客人
     private bool LastNpc=false;
+    public GameObject mask;
+    public bool CanNPCShow = true;
     #endregion
     private void Awake()
     {
@@ -79,6 +81,8 @@ public class jiekePanel : MonoBehaviour
             introductionHelper.gameObject.SetActive(true);
             DataManager.Instance.JiekeIntroduction = true;
         }
+
+        CanNPCShow = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -136,45 +140,46 @@ public class jiekePanel : MonoBehaviour
         }
         answerText.text = answerList[Random.Range(0, answerList.Count - 1)].desc;
         endDialogue.SetActive(true);
+        CanNPCShow = false;
         StartCoroutine(EndDaySequence());
-        //// 在3秒后隐藏窗口
-        //Invoke("HideEndDialogue", displayDuration);
 
+    }
+    IEnumerator EndDaySequence()
+    {
+        NPCDataManager.Instance.ClearCurrentNPC();
+        // 等待指定的持续时间
+        yield return new WaitForSeconds(displayDuration);
+
+        CanNPCShow = true;
+        // 隐藏对话框
+        HideEndDialogue();
+
+        RefreshPanelBg();
+
+        // 显示打烊界面
         //if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
         //{
         //    BtNewDay.gameObject.SetActive(true);
         //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
         //}
-
-    }
-    IEnumerator EndDaySequence()
-    {
-        // 等待指定的持续时间
-        yield return new WaitForSeconds(displayDuration);
-
-        // 隐藏对话框
-        HideEndDialogue();
-
-        // 显示打烊界面
-        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
-        {
-            BtNewDay.gameObject.SetActive(true);
-            bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
-        }
     }
     private void HideEndDialogue()
     {
         RefreshPanelBg();
         //endDialogue.SetActive(false); // 隐藏窗口
-        NPCDataManager.Instance.ClearCurrentNPC();
+        //NPCDataManager.Instance.ClearCurrentNPC();
     }
     public void RefreshPanelBg()
     {
+        if(NPCDataManager.Instance.GetNowNPC() == null)
+        {
+            endDialogue.SetActive(false);
+            BtNewDay.gameObject.SetActive(false);
+            closeNpcDetail.gameObject.SetActive(true);
+            openNpcDetail.SetActive(false);
+        }
         //刷新接客界面
-        endDialogue.SetActive(false);
-        BtNewDay.gameObject.SetActive(false);
-        closeNpcDetail.gameObject.SetActive(true);
-        openNpcDetail.SetActive(false);
+        
         switch (DataManager.Instance.CurrentTime)
         {
             case TimeOfDay.Morning_1:
@@ -197,7 +202,7 @@ public class jiekePanel : MonoBehaviour
             //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
             //    break;
         }
-        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay && NPCDataManager.Instance.GetNowNPC() == null && DataManager.Instance.LastNPC == false)
+        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay && NPCDataManager.Instance.GetNowNPC() == null)
         {
             BtNewDay.gameObject.SetActive(true);
             bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
@@ -220,12 +225,12 @@ public class jiekePanel : MonoBehaviour
             bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
             GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"时间太晚了，已经没有客人了");
         }
-        else
+        else if(CanNPCShow)
         {
-            BtRingBell.GetComponent<Animator>().Play("BellRing", 0);
+            BtRingBell.GetComponent<Animation>().Play();
             AudioManager.Instance.PlayAudio("OpenDoor", false);
             DataManager.Instance.MoveToNextTime();
-
+            mask.SetActive(true);
             StartCoroutine(NextGuest());
 
             //RefreshPanelBg();
@@ -240,17 +245,18 @@ public class jiekePanel : MonoBehaviour
         // 等待指定时间
         yield return new WaitForSeconds(1f);
 
-        
-        RefreshPanelBg();
-        if (DataManager.Instance.CurrentTime == TimeOfDay.Evening_2)
-        {
-            DataManager.Instance.LastNPC = true;
-        }
-        else
-        {
-            DataManager.Instance.LastNPC = false;
-        }
+        mask.SetActive(false);
         GenerateNewNPC();
+        RefreshPanelBg();
+        //if (DataManager.Instance.CurrentTime == TimeOfDay.Evening_2)
+        //{
+        //    DataManager.Instance.LastNPC = true;
+        //}
+        //else
+        //{
+        //    DataManager.Instance.LastNPC = false;
+        //}
+        
     }
 
     private void GenerateNewNPC()
@@ -290,21 +296,21 @@ public class jiekePanel : MonoBehaviour
         UIManager.Instance.OpenBackyardWindow();
         this.gameObject.SetActive(false);
     }
-    private void PlayTransition()
-    {
-        // 创建并实例化过场动画Prefab
-        GameObject transitionInstance = Instantiate(AnimationPrefab);
+    //private void PlayTransition()
+    //{
+    //    // 创建并实例化过场动画Prefab
+    //    GameObject transitionInstance = Instantiate(AnimationPrefab);
 
-        // 获取过场动画Prefab中的Animator组件
-        Animator animator = transitionInstance.GetComponent<Animator>();
-        // 订阅动画播放完成事件，用于销毁动画Prefab
-        if (animator != null)
-        {
-            //animator.SetTrigger("PlayAnimation");
+    //    // 获取过场动画Prefab中的Animator组件
+    //    Animator animator = transitionInstance.GetComponent<Animator>();
+    //    // 订阅动画播放完成事件，用于销毁动画Prefab
+    //    if (animator != null)
+    //    {
+    //        //animator.SetTrigger("PlayAnimation");
             
-            // 在动画播放完后销毁动画Prefab
-            Destroy(transitionInstance, animator.GetCurrentAnimatorStateInfo(0).length);
-        }
-    }
+    //        // 在动画播放完后销毁动画Prefab
+    //        Destroy(transitionInstance, animator.GetCurrentAnimatorStateInfo(0).length);
+    //    }
+    //}
     
 }
