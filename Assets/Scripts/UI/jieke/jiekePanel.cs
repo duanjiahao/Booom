@@ -199,7 +199,8 @@ public class jiekePanel : MonoBehaviour
     {
         //摇铃判断
         
-        if(NPCDataManager.Instance.IsBusy())
+
+        if (NPCDataManager.Instance.IsBusy())
         {
             //有客状态
             GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"还有患者正在等待中~");
@@ -212,14 +213,29 @@ public class jiekePanel : MonoBehaviour
         }
         else
         {
-            
+            BtRingBell.GetComponent<Animator>().Play("BellRing", 0);
+            AudioManager.Instance.PlayAudio("OpenDoor", false);
             DataManager.Instance.MoveToNextTime();
-            RefreshPanelBg();
+
+            StartCoroutine(NextGuest());
+
+            //RefreshPanelBg();
             //叫下一位客人
-            GenerateNewNPC();
+            //GenerateNewNPC();
             //openNpcDetail.SetActive(true);
         }
     }
+
+    IEnumerator NextGuest()
+    {
+        // 等待指定时间
+        yield return new WaitForSeconds(1f);
+
+        
+        RefreshPanelBg();
+        GenerateNewNPC();
+    }
+
     private void GenerateNewNPC()
     {
         //召唤一位新的NPC
@@ -248,6 +264,7 @@ public class jiekePanel : MonoBehaviour
     private void OpenBook()
     {
         //打开病历
+        AudioManager.Instance.PlayAudio("TurnPage", false);
         UIManager.Instance.OpenBingLiWindow();
         
     }
