@@ -14,6 +14,8 @@ public class NPCItem
     public int FinalResponse;
     //副作用列表
     public List<EffectInfoData> FinalEffectsList;
+    //显示在病历上的副作用
+    public EffectInfoData FinalShowEffect;
 
 }
 //NPC数据管理单例
@@ -65,7 +67,7 @@ public class NPCDataManager : Singleton<NPCDataManager>
         
     }
     
-    public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalEffects, int finalResponseType)
+    public void CompleteNpcInfo(int prestige, List<EffectInfoData> finalSideEffects, int finalResponseType)
     {
         //结算npc并添加到列表中
         if (nowNPC == null)
@@ -74,8 +76,25 @@ public class NPCDataManager : Singleton<NPCDataManager>
             return;
         }
         nowNPC.FinalPrestige = prestige;
-        nowNPC.FinalEffectsList = finalEffects;
+        nowNPC.FinalEffectsList = finalSideEffects;
         nowNPC.FinalResponse = finalResponseType;
+        //选择一个副作用进行显示
+        if (finalSideEffects.Count != 0)
+        {
+            var effect = new EffectInfoData();
+            var invisibleSideList = finalSideEffects.Where(e => e.IsVisible == false).ToList();
+            if (invisibleSideList.Count != 0)
+            {
+                effect = finalSideEffects[Random.Range(0, invisibleSideList.Count)];
+            }
+            else
+            {
+                effect = finalSideEffects[Random.Range(0, finalSideEffects.Count)];
+            }
+            //EffectInfoData showEffect = nowNPC.FinalEffectsList[Random.Range(0, nowNPC.FinalEffectsList.Count)];
+            nowNPC.FinalShowEffect = effect;
+        }
+        
         //添加到npc列表中
         _npcs.Insert(0,nowNPC);
         //ClearCurrentNPC();

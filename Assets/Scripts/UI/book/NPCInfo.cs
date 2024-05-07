@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FindFunc;
 using System.Linq;
+//病历中的npc数据赋值
 public class NPCInfo : MonoBehaviour
 {
     private GameObject PagingRoot;
@@ -64,18 +65,9 @@ public class NPCInfo : MonoBehaviour
         }
         if (info.FinalEffectsList.Count != 0 && info.FinalResponse!=4)
         {
-            var effect = new EffectInfoData();
+            //显示副作用
+            var effect = info.FinalShowEffect;
             //选择一个副作用进行显示
-            var invisibleSideList = info.FinalEffectsList.Where(e => e.IsVisible == false).ToList();
-            if (invisibleSideList.Count != 0)
-            {
-                effect = info.FinalEffectsList[Random.Range(0, invisibleSideList.Count)];
-            }
-            else
-            {
-                effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
-            }
-            
             switch (effect.EffectAxisConfig.attributes)
             {
                 case (int)EffectAttributeType.Yang:
