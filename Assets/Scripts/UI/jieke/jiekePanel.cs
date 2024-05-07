@@ -176,13 +176,15 @@ public class jiekePanel : MonoBehaviour
         {
             case TimeOfDay.Morning_1:
             case TimeOfDay.Morning_2:
-            case TimeOfDay.Afternoon_1:
+            
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/清晨");
                 break;
+            case TimeOfDay.Afternoon_1:
             case TimeOfDay.Afternoon_2:
-            case TimeOfDay.Evening_1:
+            
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黄昏");
                 break;
+            case TimeOfDay.Evening_1:
             case TimeOfDay.Evening_2:
             case TimeOfDay.EndOfDay:
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黑夜");
