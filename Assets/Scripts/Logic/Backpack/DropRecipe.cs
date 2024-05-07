@@ -17,9 +17,14 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     }
     private void OnDisable()
     {
-        if (droppedItem != null)
+        if (transform.childCount > 0)
         {
-            Destroy(droppedItem);
+            // 如果有，销毁当前的物体及弹窗
+            GameObject nowObj = transform.GetChild(0).gameObject;
+            nowObj.GetComponentInChildren<RecipeUnitInfo>().DestroyTips();
+            Destroy(nowObj);
+            recipe = null;
+            BtGive.interactable = false;
         }
     }
     void Start()
