@@ -33,7 +33,7 @@ public class HerbDragHelper : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             return;
         }
 
-        var screenScale = 1080f / Screen.height;
+        var screenScale = 1920f / Screen.width;
 
         dragTran.anchoredPosition = new Vector2((eventData.position.x - Screen.width / 2f) * screenScale , (eventData.position.y - Screen.height / 2f) * screenScale);
 

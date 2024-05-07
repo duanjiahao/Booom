@@ -44,7 +44,7 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         if(draggingItem != null)
         {
-            var screenScale = 1080f / Screen.height;
+            var screenScale = 1920 / Screen.width;
 
             draggingItem.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(eventData.position.x * screenScale, eventData.position.y * screenScale);
         }
