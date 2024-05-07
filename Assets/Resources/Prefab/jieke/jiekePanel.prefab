@@ -2772,6 +2772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PagingRoot: {fileID: 0}
+  herbText: {fileID: 1188503639939684725}
+  recipeText: {fileID: 7878183783077955938}
   RecipePrefab: {fileID: 6220798487548261433, guid: 494bc5dc0a89e41d795bc6a36bfb30f6, type: 3}
   HerbPrefab: {fileID: 2123764888482066021, guid: 5df1c8b7adeb143f6a571c7ab97d50ab, type: 3}
 --- !u!114 &5472975953062966272
