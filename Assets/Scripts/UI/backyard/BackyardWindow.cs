@@ -91,6 +91,7 @@ public class BackyardWindow : MonoBehaviour
         }
 
         commonUI.SetActive(false);
+        AudioManager.Instance.PlayAudio("Collection", false);
         pickBtn.gameObject.SetActive(false);
         createBtn.gameObject.SetActive(false);
         peopleBtn.gameObject.SetActive(false);

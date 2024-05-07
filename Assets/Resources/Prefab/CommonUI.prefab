@@ -1449,6 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pa: Click
 --- !u!1 &4422732589473847603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pa: Click
 --- !u!1 &8288645132023713863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,3 +3240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pa: Click
