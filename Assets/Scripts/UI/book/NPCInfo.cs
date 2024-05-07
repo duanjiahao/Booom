@@ -69,7 +69,7 @@ public class NPCInfo : MonoBehaviour
             switch (effect.EffectAxisConfig.attributes)
             {
                 case (int)EffectAttributeType.Yang:
-                    SideEffect.text = "<color=#FF8730>" + effect.EffectAxisConfig.name+"</color>";
+                    SideEffect.text = "<color=#FF8730>" + effect.EffectAxisConfig.name + "</color>";
                     break; 
                 case (int)EffectAttributeType.Yin:
                     SideEffect.text = "<color=#BD69FF>" + effect.EffectAxisConfig.name + "</color>";

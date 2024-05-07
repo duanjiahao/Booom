@@ -962,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5904086941394902891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1004,6 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518a0f1503cf04fc8890a02173b8ce3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcUnitPrefab: {fileID: 2098911612136815598, guid: d501f2aab7de4477c89f95089b43694d, type: 3}
   toggleUp: {fileID: 8704040626420180864}
   toggleDown: {fileID: 9005938402615773972}
 --- !u!1 &5524271671553103264

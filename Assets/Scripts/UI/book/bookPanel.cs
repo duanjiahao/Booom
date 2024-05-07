@@ -13,7 +13,7 @@ public class bookPanel : MonoBehaviour
     private Text currentDay;
     private Text totalGuest;
     //病人的信息Unit prefab
-    private GameObject npcUnitPrefab;
+    public GameObject npcUnitPrefab;
     private GameObject npcItem;
     private List<GameObject> prefabList = new List<GameObject>();
     //翻页功能
@@ -41,7 +41,7 @@ public class bookPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        npcUnitPrefab = Resources.Load<GameObject>("Prefab/Book/jiekeRecordUnitL");
+        //npcUnitPrefab = Resources.Load<GameObject>("Prefab/Book/jiekeRecordUnitL");
         BtExit.onClick.AddListener(() =>
         {
             PagingRoot.SetActive(false);

@@ -128,7 +128,7 @@ public class jiekePanel : MonoBehaviour
                 break;
             case 4:
                 //触碰禁忌
-                answerFace.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触碰禁忌");
+                answerFace.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
         answerText.text = answerList[Random.Range(0, answerList.Count - 1)].desc;

@@ -3863,7 +3863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e72d5e90d9698248868e6766977e49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commonUI: {fileID: 0}
+  commonUI: {fileID: 7122823693115524982, guid: 450bb30909c852847843bed183a81fd3, type: 3}
   jkp: {fileID: 6096359833347805034}
 --- !u!1 &8459751385333962861
 GameObject:
