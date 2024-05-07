@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 756364949015747886}
-  commonUI: {fileID: 0}
+  commonUI: {fileID: 7122823693115524982, guid: 450bb30909c852847843bed183a81fd3, type: 3}
 --- !u!1 &5341820477869553090
 GameObject:
   m_ObjectHideFlags: 0

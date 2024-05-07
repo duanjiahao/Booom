@@ -162,9 +162,9 @@ public class NPCDataManager : Singleton<NPCDataManager>
     {
         //结算流程：计算正面、禁忌、副作用数量并进行结局判断，将声望值和副作用列表赋值给这个npc
         int needResult = CalculatePositiveEffects(out List<EffectInfoData> corresBadEffects);
-        int avoidResult = CalculateNegativeEffects(corresBadEffects,out int sideEffectNum,out List<EffectInfoData> sideEffects);
+        int avoidResult = CalculateNegativeEffects(corresBadEffects,out List<EffectInfoData> sideEffects);
 
-        int endResult = DetermineOutcome(needResult, avoidResult, sideEffectNum);
+        int endResult = DetermineOutcome(needResult, avoidResult, sideEffects.Count);
         int prestige = CalculatePrestige(endResult);
 
         CompleteNpcInfo(prestige, sideEffects, endResult);
@@ -187,20 +187,22 @@ public class NPCDataManager : Singleton<NPCDataManager>
                 EffectAxisConfig badeffect = CommonUtils.GetCorrespondBadEffectConfig(goodEffect);
                 bool visible = effect.IsVisible;
                 corresBadEffects.Add(new EffectInfoData(badeffect, visible));
+                Debug.Log("this bad effect is:" + badeffect.name + "visible" + visible);
             }
         }
         return count;
     }
 
-    private int CalculateNegativeEffects(List<EffectInfoData> corresBadeffect,out int sideEffectNum, out List<EffectInfoData> sideEffects)
+    private int CalculateNegativeEffects(List<EffectInfoData> corresBadeffect, out List<EffectInfoData> sideEffects)
     {
         //获取药方达成的负面效果数量
         int count = 0;
         sideEffects = new List<EffectInfoData>();
-        sideEffectNum = 0;
         var effects = nowNPC.GivenRecipe.GetEffectList();
         // 遍历禁忌列表进行对应
         HashSet<int> avoidEffectIds = new HashSet<int>(nowNPC.NpcUnit._avoidEffectIds);
+
+        HashSet<int> badEffectIds = new HashSet<int>(corresBadeffect.Select(e => e.EffectAxisConfig.id));
 
         foreach (var effect in effects)
         {
@@ -212,16 +214,14 @@ public class NPCDataManager : Singleton<NPCDataManager>
                 {
                     count++;
                 }
-                else if (!corresBadeffect.Contains(effect))
+                else if (!badEffectIds.Contains(effect.EffectAxisConfig.id)) // 使用 HashSet 查找
                 {
-                    sideEffectNum++;
-                    if (effect.IsVisible)
-                    {
-                        sideEffects.Add(effect); // 可见的副作用添加到列表
-                    }
+                    Debug.Log("this side effect is:" + effect.EffectAxisConfig.name + " visible: " + effect.IsVisible);
+                    sideEffects.Add(effect); // 副作用添加到列表
                 }
             }
         }
+
         return count;
     }
 

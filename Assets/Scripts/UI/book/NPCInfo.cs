@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FindFunc;
+using System.Linq;
 public class NPCInfo : MonoBehaviour
 {
     private GameObject PagingRoot;
@@ -61,10 +62,19 @@ public class NPCInfo : MonoBehaviour
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
-        if (info.FinalEffectsList.Count != 0)
+        if (info.FinalEffectsList.Count != 0 && info.FinalResponse!=4)
         {
+            var effect = new EffectInfoData();
             //选择一个副作用进行显示
-            var effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
+            var invisibleSideList = info.FinalEffectsList.Where(e => e.IsVisible == false).ToList();
+            if (invisibleSideList.Count != 0)
+            {
+                effect = info.FinalEffectsList[Random.Range(0, invisibleSideList.Count)];
+            }
+            else
+            {
+                effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
+            }
             
             switch (effect.EffectAxisConfig.attributes)
             {

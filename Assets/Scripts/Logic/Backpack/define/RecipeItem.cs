@@ -7,6 +7,10 @@ public class EffectInfoData
     public EffectAxisConfig EffectAxisConfig;
     public bool IsVisible;
 
+    public EffectInfoData()
+    {
+    }
+
     public EffectInfoData(EffectAxisConfig EffectInfo, bool IsVisible)
     {
         this.EffectAxisConfig = EffectInfo;
