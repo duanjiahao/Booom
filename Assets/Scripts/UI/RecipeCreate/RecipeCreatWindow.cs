@@ -40,10 +40,10 @@ public class RecipeCreatWindow : MonoBehaviour
         backyardBtn.onClick.AddListener(OnBackyardBtnClicked);
         RefreshUI();
 
-        if (PlayerPrefs.GetInt("Introduction_RecipeCreateWindow", 0) == 0)
+        if (!DataManager.Instance.RecipeIntroduction)
         {
             introductionHelper.gameObject.SetActive(true);
-            PlayerPrefs.SetInt("Introduction_RecipeCreateWindow", 1);
+            DataManager.Instance.RecipeIntroduction = true;
         }
     }
 

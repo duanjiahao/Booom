@@ -71,6 +71,12 @@ public class jiekePanel : MonoBehaviour
         {
             DisplayNowNPC();
         }
+        
+        if (!DataManager.Instance.JiekeIntroduction)
+        {
+            introductionHelper.gameObject.SetActive(true);
+            DataManager.Instance.JiekeIntroduction = true;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -96,11 +102,6 @@ public class jiekePanel : MonoBehaviour
             PlayTransition();
             RefreshPanelBg();
         });
-        if (PlayerPrefs.GetInt("Introduction_JikeWindow", 0) == 0)
-        {
-            introductionHelper.gameObject.SetActive(true);
-            PlayerPrefs.SetInt("Introduction_JikeWindow", 1);
-        }
     }
     public void PlayEndingDialogue()
     {

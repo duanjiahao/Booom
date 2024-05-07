@@ -57,10 +57,10 @@ public class BackyardWindow : MonoBehaviour
             need.text = $"{prefix}-{generalSettings.prestigeCost}{surfix}声望";
         }
         
-        if (PlayerPrefs.GetInt("Introduction_BackyardWindow", 0) == 0)
+        if (!DataManager.Instance.BackyardIntroduction)
         {
             introductionHelper.gameObject.SetActive(true);
-            PlayerPrefs.SetInt("Introduction_BackyardWindow", 1);
+            DataManager.Instance.BackyardIntroduction = true;
         }
     }
 
