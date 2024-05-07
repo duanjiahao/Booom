@@ -7,8 +7,8 @@ using FindFunc;
 public class BackpackPanelControl : MonoBehaviour
 {
     public GameObject PagingRoot;
-    //private Button BtRecipe;
-    //private Button BtHerb;
+    public Text herbText;
+    public Text recipeText;
     private GameObject recipePanel;
     private GameObject herbPanel;
     private Toggle TgHerb;
@@ -126,10 +126,15 @@ public class BackpackPanelControl : MonoBehaviour
         // 当药方列表的Toggle变化时调用
         if (isOn)
         {
+            recipeText.text = "<color=#3B3000>药方</color>";
             //transform.Find("recipeList").GetComponent<RecipeBackpack>().SetNextItems(currentRecipeIndex, itemSize);
             DisplayRecipeItems(currentRecipeIndex);
             UpdateVisibility();
             UpdateToggleStates();
+        }
+        else
+        {
+            recipeText.text = "<color=#EBC522>药方</color>";
         }
         
     }
@@ -139,10 +144,15 @@ public class BackpackPanelControl : MonoBehaviour
         // 当药材列表的Toggle变化时调用
         if (isOn)
         {
+            herbText.text = "<color=#3B3000>药材</color>";
             //transform.Find("herbList").GetComponent<HerbBackpack>().SetNextItems(currentHerbIndex, itemSize);
             DisplayHerbItems(currentHerbIndex);
             UpdateVisibility();
             UpdateToggleStates();
+        }
+        else
+        {
+            herbText.text = "<color=#EBC522>药材</color>";
         }
     }
 
