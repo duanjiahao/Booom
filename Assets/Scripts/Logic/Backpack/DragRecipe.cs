@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private GameObject draggingItem;
-    
     public void OnBeginDrag(PointerEventData eventData)
     {
         // 先获取原始物体的数量
@@ -41,12 +40,13 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (draggingItem != null)
+        if(draggingItem != null)
         {
-            draggingItem.transform.position = Input.mousePosition; // 跟随鼠标移动
+            var screenScale = 1080f / Screen.height;
+
+            draggingItem.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(eventData.position.x * screenScale, eventData.position.y * screenScale);
+
         }
-        
-       
     }
 
     public void OnEndDrag(PointerEventData eventData)
