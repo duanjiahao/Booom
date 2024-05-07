@@ -32,6 +32,7 @@ public class DataManager : Singleton<DataManager>
 
     public int SignTimes { get; private set; }
 
+    public bool LastNPC { get; set; }
 
     protected override void Init()
     {
@@ -40,6 +41,7 @@ public class DataManager : Singleton<DataManager>
         Day = 1;
         CurrentTime = TimeOfDay.Morning_1;
         SignTimes = generalSettings.signTimes;
+        LastNPC = false;
     }
 
     public void ResetData()
@@ -62,6 +64,7 @@ public class DataManager : Singleton<DataManager>
         {
             Day++;
             SignTimes = ConfigManager.Instance.GetConfig<GeneralSettingsConfig>(1).signTimes;
+            LastNPC = false;
             Notification.Instance.Notify(Notification.SignTimesChanged);
             Notification.Instance.Notify(Notification.NextDay);
         }

@@ -38,6 +38,8 @@ public class jiekePanel : MonoBehaviour
     public IntroductionHelper introductionHelper;
     private float displayDuration = 3f;
     public GameObject AnimationPrefab;
+    //一天的最后一个客人
+    private bool LastNpc=false;
     #endregion
     private void Awake()
     {
@@ -194,6 +196,12 @@ public class jiekePanel : MonoBehaviour
             //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
             //    break;
         }
+        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay && NPCDataManager.Instance.GetNowNPC() == null && DataManager.Instance.LastNPC == false)
+        {
+            BtNewDay.gameObject.SetActive(true);
+            bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
+            //LastNpc = false;
+        }
     }
     private void OnBellRing()
     {
@@ -233,6 +241,14 @@ public class jiekePanel : MonoBehaviour
 
         
         RefreshPanelBg();
+        if (DataManager.Instance.CurrentTime == TimeOfDay.Evening_2)
+        {
+            DataManager.Instance.LastNPC = true;
+        }
+        else
+        {
+            DataManager.Instance.LastNPC = false;
+        }
         GenerateNewNPC();
     }
 
