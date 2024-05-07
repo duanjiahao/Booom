@@ -29,6 +29,8 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 draggingItem.GetComponentInChildren<Image>().raycastTarget = false; // 防止新物体被射线检测到
                 draggingItem.transform.SetParent(transform.root); // 移动到顶层Canvas，防止被遮挡
                 draggingItem.GetComponentInChildren<RecipeUnitInfo>().data = GetComponentInChildren<RecipeUnitInfo>().data;
+                draggingItem.transform.GetComponent<RectTransform>().anchorMin = Vector2.zero;
+                draggingItem.transform.GetComponent<RectTransform>().anchorMax = Vector2.zero;
             }
             else
             {
@@ -45,7 +47,6 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             var screenScale = 1080f / Screen.height;
 
             draggingItem.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(eventData.position.x * screenScale, eventData.position.y * screenScale);
-
         }
     }
 
