@@ -19,14 +19,12 @@ public class ShowGuest : MonoBehaviour
     {
         NPCItem nowNPC = NPCDataManager.Instance.GetNowNPC();
 
-        if(nowNPC == null)
+        foreach (var item in effect)
         {
-            foreach (var item in effect)
-            {
-                item.NotToShow();
-            }
+            item.NotToShow();
         }
-        else
+
+        if (nowNPC != null)
         {
             foreach (var item in nowNPC.NpcUnit._needEffectIds)
             {

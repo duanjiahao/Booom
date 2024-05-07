@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3753701499963388843}
   - component: {fileID: 591605444077420983}
   - component: {fileID: 6911990140446540884}
+  - component: {fileID: 1121798129764681095}
   m_Layer: 5
   m_Name: BtExit
   m_TagString: Untagged
@@ -120,6 +121,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1121798129764681095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458887069893797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pa: TurnPage
 --- !u!1 &80285088000671589
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pa: Click
 --- !u!1 &3699155616637325629
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5904086941394902891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -989,6 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518a0f1503cf04fc8890a02173b8ce3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcUnitPrefab: {fileID: 2098911612136815598, guid: d501f2aab7de4477c89f95089b43694d, type: 3}
   toggleUp: {fileID: 8704040626420180864}
   toggleDown: {fileID: 9005938402615773972}
 --- !u!1 &5524271671553103264
@@ -1140,6 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060a657528319a4084ce14e7274fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pa: Click
 --- !u!1 &6401672336982038779
 GameObject:
   m_ObjectHideFlags: 0

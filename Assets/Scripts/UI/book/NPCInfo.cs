@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FindFunc;
+using System.Linq;
+//病历中的npc数据赋值
 public class NPCInfo : MonoBehaviour
 {
     private GameObject PagingRoot;
@@ -61,15 +63,15 @@ public class NPCInfo : MonoBehaviour
                 SideEffectImg.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
-        if (info.FinalEffectsList.Count != 0)
+        if (info.FinalEffectsList.Count != 0 && info.FinalResponse!=4)
         {
+            //显示副作用
+            var effect = info.FinalShowEffect;
             //选择一个副作用进行显示
-            var effect = info.FinalEffectsList[Random.Range(0, info.FinalEffectsList.Count)];
-            
             switch (effect.EffectAxisConfig.attributes)
             {
                 case (int)EffectAttributeType.Yang:
-                    SideEffect.text = "<color=#FF8730>" + effect.EffectAxisConfig.name+"</color>";
+                    SideEffect.text = "<color=#FF8730>" + effect.EffectAxisConfig.name + "</color>";
                     break; 
                 case (int)EffectAttributeType.Yin:
                     SideEffect.text = "<color=#BD69FF>" + effect.EffectAxisConfig.name + "</color>";

@@ -38,6 +38,8 @@ public class jiekePanel : MonoBehaviour
     public IntroductionHelper introductionHelper;
     private float displayDuration = 3f;
     public GameObject AnimationPrefab;
+    //一天的最后一个客人
+    private bool LastNpc=false;
     #endregion
     private void Awake()
     {
@@ -97,10 +99,10 @@ public class jiekePanel : MonoBehaviour
         });
         BtNewDay.onClick.AddListener(() =>
         {
-            DataManager.Instance.MoveToNextTime();
+            //DataManager.Instance.MoveToNextTime();
             //TODO animation
-            PlayTransition();
-            RefreshPanelBg();
+            //PlayTransition();
+            //RefreshPanelBg();
         });
     }
     public void PlayEndingDialogue()
@@ -129,7 +131,7 @@ public class jiekePanel : MonoBehaviour
                 break;
             case 4:
                 //触碰禁忌
-                answerFace.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触碰禁忌");
+                answerFace.sprite = Resources.Load<Sprite>("Arts/Icon/face/icon_触犯禁忌");
                 break;
         }
         answerText.text = answerList[Random.Range(0, answerList.Count - 1)].desc;
@@ -177,13 +179,15 @@ public class jiekePanel : MonoBehaviour
         {
             case TimeOfDay.Morning_1:
             case TimeOfDay.Morning_2:
-            case TimeOfDay.Afternoon_1:
+            
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/清晨");
                 break;
+            case TimeOfDay.Afternoon_1:
             case TimeOfDay.Afternoon_2:
-            case TimeOfDay.Evening_1:
+            
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黄昏");
                 break;
+            case TimeOfDay.Evening_1:
             case TimeOfDay.Evening_2:
             case TimeOfDay.EndOfDay:
                 bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/黑夜");
@@ -193,12 +197,19 @@ public class jiekePanel : MonoBehaviour
             //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
             //    break;
         }
+        if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay && NPCDataManager.Instance.GetNowNPC() == null && DataManager.Instance.LastNPC == false)
+        {
+            BtNewDay.gameObject.SetActive(true);
+            bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
+            //LastNpc = false;
+        }
     }
     private void OnBellRing()
     {
         //摇铃判断
         
-        if(NPCDataManager.Instance.IsBusy())
+
+        if (NPCDataManager.Instance.IsBusy())
         {
             //有客状态
             GameObject.Find("CommonUI").GetComponent<CommonTips>().GetTipsText($"还有患者正在等待中~");
@@ -211,14 +222,37 @@ public class jiekePanel : MonoBehaviour
         }
         else
         {
-            
+            BtRingBell.GetComponent<Animator>().Play("BellRing", 0);
+            AudioManager.Instance.PlayAudio("OpenDoor", false);
             DataManager.Instance.MoveToNextTime();
-            RefreshPanelBg();
+
+            StartCoroutine(NextGuest());
+
+            //RefreshPanelBg();
             //叫下一位客人
-            GenerateNewNPC();
+            //GenerateNewNPC();
             //openNpcDetail.SetActive(true);
         }
     }
+
+    IEnumerator NextGuest()
+    {
+        // 等待指定时间
+        yield return new WaitForSeconds(1f);
+
+        
+        RefreshPanelBg();
+        if (DataManager.Instance.CurrentTime == TimeOfDay.Evening_2)
+        {
+            DataManager.Instance.LastNPC = true;
+        }
+        else
+        {
+            DataManager.Instance.LastNPC = false;
+        }
+        GenerateNewNPC();
+    }
+
     private void GenerateNewNPC()
     {
         //召唤一位新的NPC
@@ -247,6 +281,7 @@ public class jiekePanel : MonoBehaviour
     private void OpenBook()
     {
         //打开病历
+        AudioManager.Instance.PlayAudio("TurnPage", false);
         UIManager.Instance.OpenBingLiWindow();
         
     }
