@@ -15,6 +15,13 @@ public class DropRecipe : MonoBehaviour, IDropHandler
     {
         PagingRoot = this.gameObject;
     }
+    private void OnDisable()
+    {
+        if (droppedItem != null)
+        {
+            Destroy(droppedItem);
+        }
+    }
     void Start()
     {
         BtGive.interactable = false;
@@ -60,8 +67,8 @@ public class DropRecipe : MonoBehaviour, IDropHandler
                 EventTrigger trigger = droppedItem.AddComponent<EventTrigger>();
 
                 EventTrigger.Entry entry = new EventTrigger.Entry();
-                entry.eventID = EventTriggerType.PointerClick;  // 设置事件类型为点击
-                entry.callback.AddListener((data) => { Destroy(droppedItem); });  // 添加销毁操作
+                entry.eventID = EventTriggerType.PointerClick; 
+                entry.callback.AddListener((data) => { Destroy(droppedItem); });  
                 trigger.triggers.Add(entry);
             }
             
