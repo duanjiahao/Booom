@@ -2,16 +2,24 @@
   "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[BaseConfig, Assembly-CSharp]], mscorlib",
   "1": {
     "$type": "GeneralSettingsConfig, Assembly-CSharp",
-    "originalPrestige": 100,
+    "originalPrestige": 1000,
     "prestigeCost": 30,
     "signTimes": 3,
     "initialHerbs": [
       1001,
       1002,
       1003,
-      1004
+      1004,
+      1005,
+      1006,
+      1007,
+      1015
     ],
     "initialHerbsWeight": [
+      60,
+      60,
+      60,
+      60,
       60,
       60,
       60,

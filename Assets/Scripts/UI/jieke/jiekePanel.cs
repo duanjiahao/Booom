@@ -91,10 +91,10 @@ public class jiekePanel : MonoBehaviour
         });
         BtNewDay.onClick.AddListener(() =>
         {
-            DataManager.Instance.MoveToNextTime();
+            //DataManager.Instance.MoveToNextTime();
             //TODO animation
-            PlayTransition();
-            RefreshPanelBg();
+            //PlayTransition();
+            //RefreshPanelBg();
         });
         if (PlayerPrefs.GetInt("Introduction_JikeWindow", 0) == 0)
         {
