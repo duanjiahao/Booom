@@ -137,18 +137,11 @@ public class jiekePanel : MonoBehaviour
         answerText.text = answerList[Random.Range(0, answerList.Count - 1)].desc;
         endDialogue.SetActive(true);
         StartCoroutine(EndDaySequence());
-        //// 在3秒后隐藏窗口
-        //Invoke("HideEndDialogue", displayDuration);
-
-        //if (DataManager.Instance.CurrentTime == TimeOfDay.EndOfDay)
-        //{
-        //    BtNewDay.gameObject.SetActive(true);
-        //    bgImg.sprite = Resources.Load<Sprite>("Arts/场景资源/打烊");
-        //}
 
     }
     IEnumerator EndDaySequence()
     {
+        NPCDataManager.Instance.ClearCurrentNPC();
         // 等待指定的持续时间
         yield return new WaitForSeconds(displayDuration);
 
@@ -166,7 +159,7 @@ public class jiekePanel : MonoBehaviour
     {
         RefreshPanelBg();
         //endDialogue.SetActive(false); // 隐藏窗口
-        NPCDataManager.Instance.ClearCurrentNPC();
+        //NPCDataManager.Instance.ClearCurrentNPC();
     }
     public void RefreshPanelBg()
     {
