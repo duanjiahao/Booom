@@ -9,13 +9,13 @@ public class DropRecipe : MonoBehaviour, IDropHandler
 {
     private GameObject PagingRoot;
     public Button BtGive;
-    private RecipeItem recipe;
-    private GameObject droppedItem;
+    public RecipeItem recipe;
+    public GameObject droppedItem;
     void Awake()
     {
         PagingRoot = this.gameObject;
     }
-    private void OnDisable()
+    public void OnDisable()
     {
         if (transform.childCount > 0)
         {
@@ -59,6 +59,8 @@ public class DropRecipe : MonoBehaviour, IDropHandler
             {
                 // 创建新的物体并设置其位置
                 droppedItem = Instantiate(eventData.pointerDrag, UIManager.Instance.jieKePanel.transform);
+                droppedItem.transform.Find("quanImg").gameObject.SetActive(false);
+                droppedItem.GetComponentInChildren<RecipeUnitInfo>().isDroped = true;
                 droppedItem.GetComponentInChildren<RecipeUnitInfo>().data = eventData.pointerDrag.GetComponentInChildren<RecipeUnitInfo>().data;
                 Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
                 droppedItem.transform.position = newPos;

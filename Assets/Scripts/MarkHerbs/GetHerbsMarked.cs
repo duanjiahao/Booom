@@ -34,19 +34,22 @@ public class GetHerbsMarked : MonoBehaviour
         CursorBack();
         herbsInfo = transform.Find("HerbsInfo").gameObject;
 
-        Texture2D tex = LoadTextureFromFile(currentData.HerbConfig.iconPath);
-        if (tex != null)
-        {
-            // 创建 Sprite 对象
-            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+        Image HerbImg = herbsInfo.transform.Find("icon").GetComponent<Image>();
+        HerbImg.sprite = Resources.Load<Sprite>(data.HerbConfig.iconPath);
 
-            // 将 Sprite 赋值给 Image 组件
-            herbsInfo.transform.Find("icon").GetComponent<Image>().sprite = sprite;
-        }
-        else
-        {
-            Debug.LogError("加载图片失败：" + currentData.HerbConfig.iconPath);
-        }
+        //Texture2D tex = LoadTextureFromFile(currentData.HerbConfig.iconPath);
+        //if (tex != null)
+        //{
+        //    // 创建 Sprite 对象
+        //    Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+
+        //    // 将 Sprite 赋值给 Image 组件
+        //    herbsInfo.transform.Find("icon").GetComponent<Image>().sprite = sprite;
+        //}
+        //else
+        //{
+        //    Debug.LogError("加载图片失败：" + currentData.HerbConfig.iconPath);
+        //}
 
         //加载名字描述等数据
         herbsInfo.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(currentData.HerbConfig.name);
@@ -97,24 +100,24 @@ public class GetHerbsMarked : MonoBehaviour
 
 
     //获取文件路径
-    private Texture2D LoadTextureFromFile(string path)
-    {
-        Texture2D tex = null;
-        byte[] fileData;
+    //private Texture2D LoadTextureFromFile(string path)
+    //{
+    //    Texture2D tex = null;
+    //    byte[] fileData;
 
-        if (System.IO.File.Exists(Application.dataPath +"/" +path+".png"))
-        {
-            fileData = System.IO.File.ReadAllBytes(Application.dataPath + "/" + path+".png");
-            tex = new Texture2D(2, 2);
-            tex.LoadImage(fileData); // 将文件数据加载到 Texture2D
-        }
-        else
-        {
-            Debug.LogError("文件不存在：" + Application.dataPath+ "/" + path+ ".png");
-        }
+    //    if (System.IO.File.Exists(Application.dataPath +"/" +path+".png"))
+    //    {
+    //        fileData = System.IO.File.ReadAllBytes(Application.dataPath + "/" + path+".png");
+    //        tex = new Texture2D(2, 2);
+    //        tex.LoadImage(fileData); // 将文件数据加载到 Texture2D
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("文件不存在：" + Application.dataPath+ "/" + path+ ".png");
+    //    }
 
-        return tex;
-    }
+    //    return tex;
+    //}
 
     //还原鼠标
     private void CursorBack()

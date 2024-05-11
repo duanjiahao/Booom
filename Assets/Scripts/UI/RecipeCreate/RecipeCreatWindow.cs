@@ -12,6 +12,8 @@ public class RecipeCreatWindow : MonoBehaviour
 
     public Button backyardBtn;
 
+    public Button goFront;
+
     public Toggle toggleHerb;
 
     public Toggle toggleRecipe;
@@ -38,9 +40,10 @@ public class RecipeCreatWindow : MonoBehaviour
         toggleRecipe.onValueChanged.AddListener(OnToggleRecipe);
         herbSelectUI.resetBtn.onClick.AddListener(OnHerbResetBtnClicked);
         backyardBtn.onClick.AddListener(OnBackyardBtnClicked);
+        goFront.onClick.AddListener(OnGoFrontClicked);
         RefreshUI();
 
-        if (!DataManager.Instance.RecipeIntroduction)
+        if (!DataManager.Instance.RecipeIntroduction && DataManager.Instance.isIntroductionOn)
         {
             introductionHelper.gameObject.SetActive(true);
             DataManager.Instance.RecipeIntroduction = true;
@@ -51,6 +54,12 @@ public class RecipeCreatWindow : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         UIManager.Instance.OpenBackyardWindow();
+    }
+
+    private void OnGoFrontClicked()
+    {
+        this.gameObject.SetActive(false);
+        UIManager.Instance.OpenJiKeWindow();
     }
 
     private void OnHerbResetBtnClicked()

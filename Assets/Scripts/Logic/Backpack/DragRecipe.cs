@@ -26,6 +26,7 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             {
                 // 实例化一个新的物体作为拖拽物体
                 draggingItem = Instantiate(gameObject, transform.parent);
+                draggingItem.transform.Find("quanImg").gameObject.SetActive(false);
                 draggingItem.GetComponentInChildren<Image>().raycastTarget = false; // 防止新物体被射线检测到
                 draggingItem.transform.SetParent(transform.root); // 移动到顶层Canvas，防止被遮挡
                 draggingItem.GetComponentInChildren<RecipeUnitInfo>().data = GetComponentInChildren<RecipeUnitInfo>().data;
@@ -58,4 +59,6 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             Destroy(draggingItem);
         }
     }
+
+
 }

@@ -31,6 +31,16 @@ public class RecipeDeleteWindow : MonoBehaviour
         RecipeDataManager.Instance.DeleteRecipe(_recipeItem.Id);
         this.gameObject.SetActive(false);
         UIManager.Instance.recipeWindow.RefreshContent(false);
+        UIManager.Instance.RefreshBPP();
+
+        DropRecipe dr = GameObject.FindObjectOfType<DropRecipe>();
+        if(dr != null)
+        {
+            if(dr.droppedItem.transform.Find("icon").GetComponent<RecipeUnitInfo>().data == _recipeItem)
+            {
+                dr.OnDisable();
+            }
+        }
     }
 
     public void RefreshUI(RecipeItem recipeItem)

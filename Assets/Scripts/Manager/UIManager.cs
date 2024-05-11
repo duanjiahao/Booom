@@ -22,6 +22,8 @@ public class UIManager : SingleMono<UIManager>
     public UISettingPanel settingPanel;
 
     public CommonUI commonUI;
+
+    public BackpackPanelControl BPP;
     public void OpenCreateRecipeWindow(List<HerbWeightData> datas)
     {
         createRecipeWindow.gameObject.SetActive(true);
@@ -62,6 +64,11 @@ public class UIManager : SingleMono<UIManager>
     public void OpenSettingWindow()
     {
         settingPanel.gameObject.SetActive(true);
+    }
+
+    public void RefreshBPP()
+    {
+        BPP.DisplayRecipeItems(BPP.currentRecipeIndex);
     }
 
     public void OpenBeginWindow()

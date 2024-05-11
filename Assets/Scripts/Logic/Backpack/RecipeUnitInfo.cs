@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 //药方slot，用于给药方slot赋值，以及实现与弹窗的连接
-public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDropHandler
 {
     //触发药方弹窗
     public GameObject InfoPanelObj;
@@ -13,6 +13,7 @@ public class RecipeUnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private GameObject GiveItem;
     public RecipeItem data;
     private Button BtRecipe;
+    public bool isDroped = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,4 +57,21 @@ Quaternion.identity, UIManager.Instance.jieKePanel.transform
         PanelItem.GetComponent<RecipeInfoPanel>().SetInfoPanelData(data);
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right && !isDroped)
+        {
+            Debug.Log("right");
+            GameObject par = this.transform.parent.gameObject;
+            GameObject.FindObjectOfType<FastMenu>().FastMenuOn(true, par.GetComponent<RectTransform>().anchoredPosition,this.gameObject);
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if(isDroped)
+        {
+            transform.parent.gameObject.transform.parent.GetComponent<DropRecipe>().OnDrop(eventData);
+        }
+    }
 }
