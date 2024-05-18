@@ -76,7 +76,7 @@ public class jiekePanel : MonoBehaviour
             DisplayNowNPC();
         }
         
-        if (!DataManager.Instance.JiekeIntroduction)
+        if (!DataManager.Instance.JiekeIntroduction && DataManager.Instance.isIntroductionOn)
         {
             introductionHelper.gameObject.SetActive(true);
             DataManager.Instance.JiekeIntroduction = true;
@@ -296,21 +296,11 @@ public class jiekePanel : MonoBehaviour
         UIManager.Instance.OpenBackyardWindow();
         this.gameObject.SetActive(false);
     }
-    //private void PlayTransition()
-    //{
-    //    // 创建并实例化过场动画Prefab
-    //    GameObject transitionInstance = Instantiate(AnimationPrefab);
 
-    //    // 获取过场动画Prefab中的Animator组件
-    //    Animator animator = transitionInstance.GetComponent<Animator>();
-    //    // 订阅动画播放完成事件，用于销毁动画Prefab
-    //    if (animator != null)
-    //    {
-    //        //animator.SetTrigger("PlayAnimation");
-            
-    //        // 在动画播放完后销毁动画Prefab
-    //        Destroy(transitionInstance, animator.GetCurrentAnimatorStateInfo(0).length);
-    //    }
-    //}
-    
+    public void GoRecipeWindow()
+    {
+        UIManager.Instance.OpenRecipeWindow();
+        this.gameObject.SetActive(false);
+    }
+
 }

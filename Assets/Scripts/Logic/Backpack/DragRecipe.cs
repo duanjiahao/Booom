@@ -26,6 +26,7 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             {
                 // 实例化一个新的物体作为拖拽物体
                 draggingItem = Instantiate(gameObject, UIManager.Instance.jieKePanel.transform);
+                draggingItem.transform.Find("quanImg").gameObject.SetActive(false);
                 draggingItem.GetComponentInChildren<Image>().raycastTarget = false; // 防止新物体被射线检测到
                 draggingItem.GetComponentInChildren<RecipeUnitInfo>().data = GetComponentInChildren<RecipeUnitInfo>().data;
                 draggingItem.transform.GetComponent<RectTransform>().anchorMin = Vector2.one * 0.5f;
@@ -61,4 +62,6 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             draggingItem = null;
         }
     }
+
+
 }

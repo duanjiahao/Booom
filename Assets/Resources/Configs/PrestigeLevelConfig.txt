@@ -5,8 +5,8 @@
     "levelName": "赤脚郎中",
     "lowerLimit": 0,
     "herbsTypeCount": [
-      2,
-      3
+      3,
+      4
     ],
     "id": 90001
   },
@@ -15,8 +15,8 @@
     "levelName": "末流庸医",
     "lowerLimit": 100,
     "herbsTypeCount": [
-      2,
-      4
+      4,
+      6
     ],
     "id": 90002
   },
@@ -25,8 +25,8 @@
     "levelName": "村野乡医",
     "lowerLimit": 300,
     "herbsTypeCount": [
-      3,
-      4
+      5,
+      7
     ],
     "id": 90003
   },
@@ -35,8 +35,8 @@
     "levelName": "宫廷御医",
     "lowerLimit": 500,
     "herbsTypeCount": [
-      3,
-      5
+      6,
+      8
     ],
     "id": 90004
   },
@@ -45,8 +45,8 @@
     "levelName": "一代名医",
     "lowerLimit": 1000,
     "herbsTypeCount": [
-      4,
-      5
+      6,
+      9
     ],
     "id": 90005
   }

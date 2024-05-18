@@ -1107,6 +1107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7822437934106318047}
   - component: {fileID: 5099618705325808091}
+  - component: {fileID: 8425506308936842980}
   m_Layer: 0
   m_Name: Toggle
   m_TagString: Untagged
@@ -1180,8 +1181,32 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
+      m_Calls:
+      - m_Target: {fileID: 8425506308936842980}
+        m_TargetAssemblyTypeName: FullScreenControl, Assembly-CSharp
+        m_MethodName: ChangeScreenSize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 1
+--- !u!114 &8425506308936842980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892564267245100001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ba78e8839925c45bbe5704e13d27cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7601224291114849159
 GameObject:
   m_ObjectHideFlags: 0

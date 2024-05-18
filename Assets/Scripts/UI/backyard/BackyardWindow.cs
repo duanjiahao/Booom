@@ -57,7 +57,7 @@ public class BackyardWindow : MonoBehaviour
             need.text = $"{prefix}-{generalSettings.prestigeCost}{surfix}声望";
         }
         
-        if (!DataManager.Instance.BackyardIntroduction)
+        if (!DataManager.Instance.BackyardIntroduction && DataManager.Instance.isIntroductionOn)
         {
             introductionHelper.gameObject.SetActive(true);
             DataManager.Instance.BackyardIntroduction = true;

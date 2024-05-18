@@ -3,7 +3,7 @@
   "1": {
     "$type": "GeneralSettingsConfig, Assembly-CSharp",
     "originalPrestige": 100,
-    "prestigeCost": 30,
+    "prestigeCost": 20,
     "signTimes": 3,
     "initialHerbs": [
       1001,
@@ -12,10 +12,10 @@
       1004
     ],
     "initialHerbsWeight": [
-      60,
-      60,
-      60,
-      60
+      100,
+      100,
+      100,
+      100
     ],
     "id": 1
   }

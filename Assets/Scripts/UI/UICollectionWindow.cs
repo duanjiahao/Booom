@@ -58,6 +58,7 @@ public class UICollectionWindow : MonoBehaviour
 
             var go = GameObject.Instantiate(prefab.gameObject, container);
             go.SetActive(true);
+            go.transform.localScale = new Vector3(1.2f, 1.2f, 1);
             
             go.GetComponent<HerbUIItem>().InitUI(fakeHerbItem);
         }

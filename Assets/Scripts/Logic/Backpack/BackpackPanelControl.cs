@@ -16,7 +16,7 @@ public class BackpackPanelControl : MonoBehaviour
     private Toggle TgPrev;
     private Toggle TgNext;
     //当前的物体索引
-    private int currentRecipeIndex = 0;
+    public int currentRecipeIndex = 0;
     private int currentHerbIndex = 0;
     //一次翻页的物体数量
     private int itemSize = 5;
@@ -221,7 +221,7 @@ public class BackpackPanelControl : MonoBehaviour
             HerbImg.sprite = Resources.Load<Sprite>(data.HerbConfig.iconPath);
         }
     }
-    void UpdateToggleStates()
+    public void UpdateToggleStates()
     {
         if (TgHerb.isOn)
         {

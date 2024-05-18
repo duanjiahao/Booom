@@ -24,6 +24,7 @@ public enum EffectAttributeType
 
 public class DataManager : Singleton<DataManager>
 {
+    public bool isIntroductionOn = true;
     public TimeOfDay CurrentTime { get; private set; }
 
     public int Day { get; private set; }
