@@ -19,6 +19,8 @@ public class UISettingPanel : MonoBehaviour
 
     public TextMeshProUGUI volume;
 
+    public Toggle MaxWindow;
+
     private void OnEnable()
     {
         backBtn.onClick.AddListener(OnBackBtnClick);
@@ -28,6 +30,21 @@ public class UISettingPanel : MonoBehaviour
 
         slider.value = AudioListener.volume;
         slider.onValueChanged.AddListener(OnValueChanged);
+
+        MaxWindow.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+        MaxWindow.onValueChanged.AddListener(OnValueChanged);
+    }
+
+    private void OnValueChanged(bool arg0)
+    {
+        if (arg0)
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
     }
 
     private void OnDownBtnClicked()
@@ -65,5 +82,6 @@ public class UISettingPanel : MonoBehaviour
         upBtn.onClick.RemoveListener(OnUpBtnClicked);
         downBtn.onClick.RemoveListener(OnDownBtnClicked);
         slider.onValueChanged.RemoveListener(OnValueChanged);
+        MaxWindow.onValueChanged.RemoveListener(OnValueChanged);
     }
 }

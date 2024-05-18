@@ -1524,6 +1524,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetttingPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1523448567171949973, guid: 190eab69f40aac246ae5ad6bed8c3852, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040603733077992213, guid: 190eab69f40aac246ae5ad6bed8c3852, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040603733077992213, guid: 190eab69f40aac246ae5ad6bed8c3852, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040603733077992213, guid: 190eab69f40aac246ae5ad6bed8c3852, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8260922601264010153, guid: 190eab69f40aac246ae5ad6bed8c3852, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

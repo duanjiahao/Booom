@@ -25,12 +25,12 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             if (RecipeNumber > 0)
             {
                 // 实例化一个新的物体作为拖拽物体
-                draggingItem = Instantiate(gameObject, transform.parent);
+                draggingItem = Instantiate(gameObject, UIManager.Instance.jieKePanel.transform);
                 draggingItem.GetComponentInChildren<Image>().raycastTarget = false; // 防止新物体被射线检测到
-                draggingItem.transform.SetParent(transform.root); // 移动到顶层Canvas，防止被遮挡
                 draggingItem.GetComponentInChildren<RecipeUnitInfo>().data = GetComponentInChildren<RecipeUnitInfo>().data;
-                draggingItem.transform.GetComponent<RectTransform>().anchorMin = Vector2.zero;
-                draggingItem.transform.GetComponent<RectTransform>().anchorMax = Vector2.zero;
+                draggingItem.transform.GetComponent<RectTransform>().anchorMin = Vector2.one * 0.5f;
+                draggingItem.transform.GetComponent<RectTransform>().anchorMax = Vector2.one * 0.5f;
+                draggingItem.transform.GetComponent<RectTransform>().pivot = Vector2.one * 0.5f;
             }
             else
             {
@@ -44,9 +44,11 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         if(draggingItem != null)
         {
-            var screenScale = 1920 / Screen.width;
-
-            draggingItem.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(eventData.position.x * screenScale, eventData.position.y * screenScale);
+            var screenScale = 1920f / Screen.width;
+            
+            var pos = new Vector2((eventData.position.x - Screen.width / 2f) * screenScale , (eventData.position.y - Screen.height / 2f) * screenScale);
+            Debug.Log($"eventData.position:{eventData.position}, screen:{Screen.width} {Screen.height} screenScale:{screenScale} pos:{pos}");
+            draggingItem.transform.GetComponent<RectTransform>().anchoredPosition = pos;
         }
     }
 
@@ -56,6 +58,7 @@ public class DragRecipe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             draggingItem.GetComponentInChildren<Image>().raycastTarget = true; // 恢复射线检测
             Destroy(draggingItem);
+            draggingItem = null;
         }
     }
 }
